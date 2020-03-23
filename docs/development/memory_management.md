@@ -23,7 +23,7 @@ libfacerec library will be automatically unloaded when no interface object remai
 To release memory from internal objects before it is automatically done by the garbage collector, use the `dispose()` method. After this method is called, only the `isDisposed()` method can be called from the object, otherwise, if any other method is called, an exception will be thrown.
 
 Example:
-```
+```java 
 ...
 Capturer capturer = service.createCapturer(service.new Config("common_capturer.xml"));
 ...
@@ -41,7 +41,7 @@ capturer.capture(image); // exception, object is disposed
 To release memory from internal objects before it is automatically done by the garbage collector, use the `Dispose()` method. After this method is called, access only to the `isDisposed` property is allowed, otherwise, an exception will be thrown.
 
 Example:
-```
+```cs
 ...
 Capturer capturer = service.createCapturer("common_capturer.xml");
 ...
