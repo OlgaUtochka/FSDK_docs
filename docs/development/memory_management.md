@@ -3,7 +3,7 @@
 ## C++
 
 All libfacerec interface objects are stored in smart pointers (see `pbio::LightSmartPtr` and `pbio::HeavySmartPtr`).
-For convenience, each interface object T declares its own pointer type `T::Ptr` (for example, `pbio::Template::Ptr`), so do not use `pbio::LightSmartPtr` or `pbio::HeavySmartPtr` directly.
+For convenience, each interface object `T` declares its own pointer type `T::Ptr` (for example, `pbio::Template::Ptr`), so do not use `pbio::LightSmartPtr` or `pbio::HeavySmartPtr` directly.
 Most of the objects use `pbio::LightSmartPtr` which not allow to store inherited types or use speific deleters in order to significantly reduce memory consumption.
 
 If you use OpenCV / boost / C++ 11, you can set one of the following macros, so that the libfacerec uses a specific type of a smart pointer instead of `pbio::HeavySmartPtr`:
