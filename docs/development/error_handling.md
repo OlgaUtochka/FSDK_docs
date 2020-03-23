@@ -41,7 +41,7 @@ catch (SDKException e)
 
 ## C#
 
-In case of an error, an exception is thrown from the class `VDT.FaceRecognition.SDK.Error` derived from the class `VDT.FaceRecognition.SDK.Exception`. Its property `VDT.FaceRecognition.SDK.Error.Message` returns a string with an error description, and the `VDT.FaceRecognition.SDK.Error.Code` method returns an unsigned integer code of exception.
+In case of an error, an exception is thrown from the `VDT.FaceRecognition.SDK.Error` class derived from the  `VDT.FaceRecognition.SDK.Exception` class. Its property `VDT.FaceRecognition.SDK.Error.Message` returns a string with an error description, and the `VDT.FaceRecognition.SDK.Error.Code` method returns an unsigned integer code of exception.
 
 Example:
 ```cs
