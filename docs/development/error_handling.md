@@ -22,7 +22,7 @@ catch(const pbio::Error &e)
 
 ## Java
 
-In case of an error, an exception is thrown from the class `com.vdt.face_recognition.sdk.SDKException` derived from the base class `java.lang.RuntimeException`. Its method `com.vdt.face_recognition.sdk.SDKException.getMessage()` returns a string with an error description, and method `com.vdt.face_recognition.sdk.SDKException.code()` returns an unsigned integer code of exception.
+In case of an error, an exception is thrown from the `com.vdt.face_recognition.sdk.SDKException` class derived from the  `java.lang.RuntimeException` base class. Its method `com.vdt.face_recognition.sdk.SDKException.getMessage()` returns a string with an error description, and the `com.vdt.face_recognition.sdk.SDKException.code()` method returns an unsigned integer code of exception.
 
 Example:
 ```java
