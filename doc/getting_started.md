@@ -21,7 +21,6 @@ The archives contain *bin* and *lib* folders. The archive for Android contains a
 * iOS ARM 64-bit: `ios_arm_64.tar.xz`
 
 When extracting the archive, specify the path to Face SDK root – the extracted folders *bin* and *lib* should be located at the same level with the *conf, docs, examples, include,* and *share* folders.
-cpp_extract_OS.png
 
 <p align="center">
 <img width="700" src="../img/cpp_extract_OS.png"><br>
