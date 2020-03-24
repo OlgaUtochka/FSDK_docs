@@ -29,7 +29,7 @@ The main purpose of liveness estimation is to prevent spoofing attacks (using a 
 To estimate liveness with a depth map, you should create the `DepthLivenessEstimator` object using `FacerecService::createDepthLivenessEstimator`.
 
 The following configuration files are available:
-  * *depth_liveness_estimator.xml* – the first implementation (not recommended; only used for backward compatibility);
+  * *depth_liveness_estimator.xml* – the first implementation (not recommended; used only for backward compatibility);
   * *depth_liveness_estimator_cnn.xml* – implementation based on neural networks (recommended, used in `VideoWorker` by default).
 
 To use this algorithm, it is necessary to obtain synchronized and registered frames (color image + depth map) and use a color image for face tracking / detection and to pass the corresponding depth map to the `DepthLivenessEstimator::estimateLiveness` method.
