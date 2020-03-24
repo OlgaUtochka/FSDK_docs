@@ -24,7 +24,7 @@ When extracting the archive, specify the path to Face SDK root – the extracted
 cpp_extract_OS.png
 
 <p align="center">
-<img width="500" src="../images/cpp_extract_OS.png"><br>
+<img width="700" src="../images/cpp_extract_OS.png"><br>
 <b>Extraction path - root folder of the Face SDK distribution</b><br>
 </p>
 
