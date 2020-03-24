@@ -8,25 +8,21 @@ See the detailed info in [Tracking Faces](development/video_stream_processing.md
 
 ## Encoder 
 
-Encoder is a basic Face SDK component, which allows to create the Face biometric template. Encoder uses the normalized face image obtained from FaceDetector as input data.
-The result of processing by Encoder is a biometric template Face (numerical array of identification features), which is stored in a biometric database and/or used for biometric operations. Internal composition and accordingly the size of the Face template depend on the selected method of biometric processing.
-Licensing: by Data Channel (photo or video).
-See the detailed info in Face Identification.
+**Encoder** is a basic Face SDK component, which allows to create the Face biometric template. *Encoder* uses the normalized face image obtained from *FaceDetector* as input data.
+The result of processing by *Encoder* is a biometric template Face (numerical array of identification features), which is stored in a biometric database and/or used for biometric operations. Internal composition and accordingly the size of the Face template depend on the selected method of biometric processing.  
+**Licensing**: by Data Channel (photo or video).  
+See the detailed info in [Face Identification](development/face_identification.md).
 
 ## Video Engine Standard (VES)
 
-Video Engine Standard (VES) is a macro component (component bundle) of Face SDK, which provides basic processing of video stream in 1 channel (for example, real-time video data from 1 camera).
-VES processes video in cycles. Each cycle includes:
-* detection and tracking of faces in a frame;
-* selecting the best shot and encoding the selected face (computing the Face biometric template);
-* estimation of age, gender, and emotions.
+**Video Engine Standard (VES)** is a macro component (component bundle) of Face SDK, which provides basic processing of video stream in 1 channel (for example, real-time video data from 1 camera). *VES* processes video in cycles. Each cycle includes:
+  * detection and tracking of faces in a frame;
+  * selecting the best shot and encoding the selected face (computing the Face biometric template);
+  * estimation of age, gender, and emotions.
 
-VES receives the sequence of video frames as input data. It means that a video stream should be decompressed.
-VES by default includes the following components: Face Detector, Encoder, one load balancer (to manage the sequence of input video frames).
-For complex tasks of real-time video processing in high-load systems, the internal composition of VES can be extended: you can add additional components to improve performance.
-As compared to VideoEngine Extended, VES does not support face matching feature.
-Licensing: by Data Channel (photo or video).
-See the detailed info in Video Stream Processing.
+*VES* receives the sequence of video frames as input data. It means that a video stream should be decompressed. *VES* by default includes the following components: *Face Detector*, *Encoder*, one load balancer (to manage the sequence of input video frames). For complex tasks of real-time video processing in high-load systems, the internal composition of *VES* can be extended: you can add additional components to improve performance. As compared to *VideoEngine Extended*, *VES* does not support face matching feature.  
+**Licensing**: by Data Channel (photo or video).  
+See the detailed info in [Video Stream Processing](development/video_stream_processing.md).
 
 ## Video Engine Extended (VEE)
 
