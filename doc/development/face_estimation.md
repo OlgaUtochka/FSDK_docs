@@ -22,7 +22,7 @@ To create the `FaceQualityEstimator` object, call the `FacerecService::createFac
 
 ## Liveness
 
-The main purpose of liveness estimation is to prevent spoofing attacks (using a photo of a person instead of a real face). Currently, you can estimate liveness in one of two ways - [by processing a depth map](#depthlivenessestimator-(recommended)) or [by processing an RGB image](#livenessestimator) from your camera. We recommend you to use the first option (depth map) because it's more reliable and accurate.
+The main purpose of liveness estimation is to prevent spoofing attacks (using a photo of a person instead of a real face). Currently, you can estimate liveness in one of two ways - [by processing a depth map](#depthlivenessestimator(recommended)) or [by processing an RGB image](#livenessestimator) from your camera. We recommend you to use the first option (depth map) because it's more reliable and accurate.
 
 ### DepthLivenessEstimator (recommended)
 
