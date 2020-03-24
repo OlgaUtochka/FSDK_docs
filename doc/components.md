@@ -38,20 +38,18 @@ See the detailed info in [Video Stream Processing](development/video_stream_proc
 
 ## MatcherDB
 
-MatcherDB is a basic component of Face SDK, which implements matching of biometric templates: 1:1 (verification), 1:N (identification) or their combination.
-MatcherDB uses the Face biometric template calculated by the Encoder component as input data. For verification (1:1), it's sufficient to use MatcherDB(1). Identification (1:N) is performed in the array of biometric templates. The MatcherDB size determines the search index size (permitted search boundaries) but doesn't limit the size of the biometric database.
-Licensing: by the number of biometric face templates in search index of a biometric database.
-See the detailed info in Face Identification.
+**MatcherDB** is a basic component of Face SDK, which implements matching of biometric templates: 1:1 (verification), 1:N (identification) or their combination. *MatcherDB* uses the Face biometric template calculated by the *Encoder* component as input data. For verification (1:1), it's sufficient to use *MatcherDB(1)*. Identification (1:N) is performed in the array of biometric templates. The *MatcherDB* size determines the search index size (permitted search boundaries) but doesn't limit the size of the biometric database.  
+**Licensing**: by the number of biometric face templates in search index of a biometric database.  
+See the detailed info in [Face Identification](development/face_identification.md).
 
 ## 3D Liveness Detector
 
-3D Liveness Detector is an optional component of Face SDK, which allows to estimate the liveness of the subject. Liveness is estimated by means of detecting 3D surface of a real face and can detect spoofing attacks by means of presenting a photo or a video image of a face. As input data, 3D Liveness Detector uses the normalized image obtained from FaceDetector and a depth map received from a 3D (RGBD) sensor.
-Licensing: by Data Channel (photo or video).
-See the detailed info in Liveness.
+**3D Liveness Detector** is an optional Face SDK component, which allows to estimate the liveness of the subject. Liveness is estimated by means of detecting 3D surface of a real face and can detect spoofing attacks by means of presenting a photo or a video image of a face. As input data, *3D Liveness Detector* uses the normalized image obtained from *FaceDetector* and a depth map received from a 3D (RGBD) sensor.  
+**Licensing**: by Data Channel (photo or video).  
+See the detailed info in [Liveness](development/face_estimation.md#liveness).
 
 ## Gender-Age Detector and Emotions Detector
 
-Gender-Age Detector and Emotions Detector are optional components of Face SDK, which allow to estimate gender and age of a person and get a rough estimate of the prevailing emotional state of the face at a given time. As input data, Gender-Age Detector and Emotions Detector use the normalized face images obtained from the FaceDetector module.
-The age is detected within the range of +/- 5 years. The emotional states are Happy, Surprise, Neutral, Angry.
-Licensing: by Data Channel (photo or video).
-See the detailed info in Age & Gender and Emotions.
+**Gender-Age Detector** and **Emotions Detector** are optional Face SDK components, which allow to estimate gender and age of a person and get a rough estimate of the prevailing emotional state of the face at a given time. As input data, *Gender-Age Detector* and *Emotions Detector* use the normalized face images obtained from the *FaceDetector* module. The age is detected within the range of +/- 5 years. The emotional states are Happy, Surprise, Neutral, Angry.  
+**Licensing**: by Data Channel (photo or video).  
+See the detailed info in [Age & Gender](development/face_estimation.md#age--gender) and [Emotions](development/face_estimation.md#emotions).
