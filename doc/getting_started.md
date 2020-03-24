@@ -23,7 +23,7 @@ The archives contain *bin* and *lib* folders. The archive for Android contains a
 When extracting the archive, specify the path to Face SDK root – the extracted folders *bin* and *lib* should be located at the same level with the *conf, docs, examples, include,* and *share* folders.
 
 <p align="center">
-<img width="700" src="../img/cpp_extract_OS.png"><br>
+<img width="700" src="img/cpp_extract_OS.png"><br>
 <b>Extraction path – root folder of the Face SDK distribution</b><br>
 </p>
 
