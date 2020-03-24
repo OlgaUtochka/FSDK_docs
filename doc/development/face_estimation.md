@@ -4,7 +4,7 @@
 
 _**Note:** If you need to estimate age and gender on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation) in the section [Video Stream Processing](video_stream_processing.md)._
 
-For age and gender estimation, create the `AgeGenderEstimator` class by calling the `FacerecService::createAgeGenderEstimator` method, providing the configuration file. Currently, there is only one config file available, which is *age_gender_estimator.xml*. With `AgeGenderEstimator` you can estimate age and gender of a captured face using `AgeGenderEstimator::estimateAgeGender`. The result is the `AgeGenderEstimator::AgeGender` struct containing the number of ages (in years), age group (`AgeGenderEstimator::Age`) and gender (`AgeGenderEstimator::Gender`). See the example of using the `AgeGenderEstimator` in [examples/cpp/demo](../../examples/cpp/demo).  
+For age and gender estimation, create the `AgeGenderEstimator` class by calling the `FacerecService::createAgeGenderEstimator` method, providing the configuration file. Currently, there is only one config file available, which is *age_gender_estimator.xml*. With `AgeGenderEstimator` you can estimate age and gender of a captured face using `AgeGenderEstimator::estimateAgeGender`. The result is the `AgeGenderEstimator::AgeGender` struct containing the number of ages (in years), age group (`AgeGenderEstimator::Age`) and gender (`AgeGenderEstimator::Gender`). See the example of using the `AgeGenderEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp).  
 
 ## Quality
 
@@ -14,11 +14,11 @@ At the moment, there are two quality estimation interfaces: `QualityEstimator` a
 
 ### QualityEstimator
 
-To create the `QualityEstimator` object, call the `FacerecService::createQualityEstimator` method by passing the configuration file. Currently, there is only one configuration file, which is *quality_estimator.xml*. With `QualityEstimator` you can estimate the quality of a captured face using `QualityEstimator::estimateQuality`. The result is the `QualityEstimator::Quality` structure that contains estimated flare, lighting, noise, and sharpness level. See the example of using the `QualityEstimator` in [examples/cpp/demo](../../examples/cpp/demo).
+To create the `QualityEstimator` object, call the `FacerecService::createQualityEstimator` method by passing the configuration file. Currently, there is only one configuration file, which is *quality_estimator.xml*. With `QualityEstimator` you can estimate the quality of a captured face using `QualityEstimator::estimateQuality`. The result is the `QualityEstimator::Quality` structure that contains estimated flare, lighting, noise, and sharpness level. See the example of using the `QualityEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp).
 
 ### FaceQualityEstimator
 
-To create the `FaceQualityEstimator` object, call the `FacerecService::createFaceQualityEstimator` method by passing the configuration file. Currently, there is only one configuration file available, which is *face_quality_estimator.xml*. With `FaceQualityEstimator` you can estimate the quality of a captured face using `FaceQualityEstimator::estimateQuality`. This results in a real number (the greater it is, the higher the quality), which aggregates sample usability for face recognition. See the example of using the `FaceQualityEstimator` in [examples/cpp/demo](../../examples/cpp/demo).
+To create the `FaceQualityEstimator` object, call the `FacerecService::createFaceQualityEstimator` method by passing the configuration file. Currently, there is only one configuration file available, which is *face_quality_estimator.xml*. With `FaceQualityEstimator` you can estimate the quality of a captured face using `FaceQualityEstimator::estimateQuality`. This results in a real number (the greater it is, the higher the quality), which aggregates sample usability for face recognition. See the example of using the `FaceQualityEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp).
 
 ## Liveness
 
@@ -48,11 +48,11 @@ To get an estimated result, you can call the `LivenessEstimator::estimateLivenes
   * `LivenessEstimator::REAL` – the observed face belongs to a living person
   * `LivenessEstimator::FAKE` – the observed face is taken from a photo
 
-See an example of using `LivenessEstimator` in [examples/cpp/demo](../../examples/cpp/demo).
+See an example of using `LivenessEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp).
 
 ## Emotions
 
 _**Note:** If you need to estimate emotions on a video stream, see Estimation of age, gender, and emotions in the section Video Stream Processing._
 
 To estimate emotions, create the `EmotionsEstimator` object using `FacerecService::createEmotionsEstimator` and by passing the configuration file. Currently, there is only one configuration file, which is *emotions_estimator.xml*.  
-With the `EmotionsEstimator` object you can estimate the emotion of a captured face using the `EmotionsEstimator::estimateEmotions` method. The result is a vector with the `EmotionsEstimator::EmotionConfidence` elements containing emotions with a confidence value. See the example of using the `EmotionsEstimator` object in [examples/cpp/demo](../../examples/cpp/demo).
+With the `EmotionsEstimator` object you can estimate the emotion of a captured face using the `EmotionsEstimator::estimateEmotions` method. The result is a vector with the `EmotionsEstimator::EmotionConfidence` elements containing emotions with a confidence value. See the example of using the `EmotionsEstimator` object in [demo.cpp](../../examples/cpp/demo/demo.cpp).
