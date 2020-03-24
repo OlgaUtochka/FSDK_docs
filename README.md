@@ -23,3 +23,10 @@ Face SDK provides the following APIs:
 * C++ API (for Windows, Linux, Android)
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
+
+3DiVi Face SDK uses the following open source libraries:
+
+* OpenSSL (https://www.openssl.org)
+* Crypto++ (https://www.cryptopp.com)
+* Boost (http://www.boost.org)
+* OpenCV (http://opencv.org)
