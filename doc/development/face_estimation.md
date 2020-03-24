@@ -35,24 +35,24 @@ The following configuration files are available:
 To use this algorithm, it is necessary to obtain synchronized and registered frames (color image + depth map) and use a color image for face tracking / detection and to pass the corresponding depth map to the `DepthLivenessEstimator::estimateLiveness` method.
 
 To get an estimated result, you can call the `pbio::DepthLivenessEstimator::estimateLiveness` method. You will get one of the following results:
-  * `DepthLivenessEstimator::NOT_ENOUGH_DATA` – too many missing depth values on the depth map
-  * `DepthLivenessEstimator::REAL` – the observed face belongs to a living person
-  * `DepthLivenessEstimator::FAKE` – the observed face is taken from a photo
+  * `DepthLivenessEstimator::NOT_ENOUGH_DATA` – too many missing depth values on the depth map.
+  * `DepthLivenessEstimator::REAL` – the observed face belongs to a living person.
+  * `DepthLivenessEstimator::FAKE` – the observed face is taken from a photo.
 
 ### LivenessEstimator
 
 To estimate liveness with an RGB map, you should create the `LivenessEstimator` object using the `FacerecService::createLivenessEstimator` method. To do that, you need to create one `LivenessEstimator` object per each unique track id and provide the tracked `RawSample` object to the corresponding `LivenessEstimator` object using the `LivenessEstimator::addSample` method.
 
 To get an estimated result, you can call the `LivenessEstimator::estimateLiveness` method. As a result you will have one of the following:
-  * `LivenessEstimator::NOT_ENOUGH_DATA` – not enough samples or face movements to make a decision
-  * `LivenessEstimator::REAL` – the observed face belongs to a living person
-  * `LivenessEstimator::FAKE` – the observed face is taken from a photo
+  * `LivenessEstimator::NOT_ENOUGH_DATA` – not enough samples or face movements to make a decision.
+  * `LivenessEstimator::REAL` – the observed face belongs to a living person.
+  * `LivenessEstimator::FAKE` – the observed face is taken from a photo.
 
 See an example of using `LivenessEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp).
 
 ## Emotions
 
-_**Note:** If you need to estimate emotions on a video stream, see Estimation of age, gender, and emotions in the section Video Stream Processing._
+_**Note:** If you need to estimate emotions on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation) in the section [Video Stream Processing](video_stream_processing.md)._
 
-To estimate emotions, create the `EmotionsEstimator` object using `FacerecService::createEmotionsEstimator` and by passing the configuration file. Currently, there is only one configuration file, which is *emotions_estimator.xml*.  
+To estimate emotions, create the `EmotionsEstimator` object using `FacerecService::createEmotionsEstimator` and pass the configuration file. Currently, there is only one configuration file, which is *emotions_estimator.xml*.  
 With the `EmotionsEstimator` object you can estimate the emotion of a captured face using the `EmotionsEstimator::estimateEmotions` method. The result is a vector with the `EmotionsEstimator::EmotionConfidence` elements containing emotions with a confidence value. See the example of using the `EmotionsEstimator` object in [demo.cpp](../../examples/cpp/demo/demo.cpp).
