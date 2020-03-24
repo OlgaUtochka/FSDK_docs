@@ -33,7 +33,7 @@ See the detailed info in [Video Stream Processing](development/video_stream_proc
  * estimation of age, gender, and emotions.
 
 *VEE* receives the sequence of video frames as input data. It means that a video stream should be decompressed. *VEE* by default includes the following components: *Face Detector*, *Encoder*, and *MatcherDB(N)* where *N* is the size of the search index, which is typically equal to the number of faces (biometric templates) in the database. *VEE* also includes two internal load balancers: the first one is designed to manage the sequence of input video frames, the second one is designed to manage the sequence of biometric database search queries based on the face template. For complex tasks of real-time data stream processing in high-load systems, the internal composition of *VEE* can be extended: you can add additional components to improve performance.  
-**Licensing**: by Data Channel (photo or video) and size of the search index of MatcherDB.  
+**Licensing**: by Data Channel (photo or video) and size of the search index of *MatcherDB*.  
 See the detailed info in [Video Stream Processing](development/video_stream_processing.md).  
 
 ## MatcherDB
