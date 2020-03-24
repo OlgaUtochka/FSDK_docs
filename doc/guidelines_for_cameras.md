@@ -14,8 +14,8 @@ To achive better tracking and detection results with Face SDK, please follow the
 
 ## Recommended Cameras
 
-We recommend to use *Axis P1365MK ii* or *P1367* (for longer distances).
-General recommendations for cameras are:
+We recommend to use *Axis P1365MK ii* or *P1367* (for longer distances).  
+General recommendations for cameras are:  
 
 1. 1080p (Full HD) resolution.
 2. Frame rate of at least 10 FPS.
