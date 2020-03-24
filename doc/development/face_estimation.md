@@ -16,11 +16,10 @@ At the moment, there are two quality estimation interfaces: `QualityEstimator` a
 
 To create the `QualityEstimator` object, call the `FacerecService::createQualityEstimator` method by passing the configuration file. Currently, there is only one configuration file, which is *quality_estimator.xml*. With `QualityEstimator` you can estimate the quality of a captured face using `QualityEstimator::estimateQuality`. The result is the `QualityEstimator::Quality` structure that contains estimated flare, lighting, noise, and sharpness level. See the example of using the `QualityEstimator` in [examples/cpp/demo](../../examples/cpp/demo).
 
-### FaceQualityEstimator:
+### FaceQualityEstimator
 
 To create the `FaceQualityEstimator` object, call the `FacerecService::createFaceQualityEstimator` method by passing the configuration file. Currently, there is only one configuration file available, which is *face_quality_estimator.xml*.  
-With `FaceQualityEstimator` you can estimate the quality of a captured face using `FaceQualityEstimator::estimateQuality`.  
-This results in a real number (the greater it is, the higher the quality), which aggregates sample usability for face recognition. See the example of using the `FaceQualityEstimator` in [examples/cpp/demo](../../examples/cpp/demo).
+With `FaceQualityEstimator` you can estimate the quality of a captured face using `FaceQualityEstimator::estimateQuality`. This results in a real number (the greater it is, the higher the quality), which aggregates sample usability for face recognition. See the example of using the `FaceQualityEstimator` in [examples/cpp/demo](../../examples/cpp/demo).
 
 ## Liveness
 
