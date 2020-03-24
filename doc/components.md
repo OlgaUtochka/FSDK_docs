@@ -1,4 +1,4 @@
-# Face SDK Components
+# Components
 
 ## Face Detector 
 
