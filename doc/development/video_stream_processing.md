@@ -5,22 +5,24 @@ The `VideoWorker` interface object is used to:
 * [track faces on video streams](#tracking-faces),
 * [create templates](#creating-templates),
 * [match templates with the database](#recognizing-faces)
-* [estimate age, gender, and emotions](#),
-* match the faces detected in a specified period with each other.
+* [estimate age, gender, and emotions](#estimation-of-age-gender-and-emotions),
+* [match the faces detected in a specified period with each other](#short-time-identification).
 
-The VideoWorker object is responsible for thread control and synchronization routine, you only need to provide decoded video frames and register a few callback functions.
+The `VideoWorker` object is responsible for thread control and synchronization routine, you only need to provide decoded video frames and register a few callback functions.
 
-See an example of using the VideoWorker in video_recognition_demo .
+See an example of using the `VideoWorker` in [video_recognition_demo](../demo_programs.md#video-recognition-demo).
 
 ## Tracking Faces
 
-VideoWorker can be created by the FacerecService.createVideoWorker.
+`VideoWorker` can be created with `FacerecService.createVideoWorker`.
 
 Example:
-FacerecService.Config video_worker_config = new FacerecService.Config("video_worker_lbf.xml");
+
+```cpp
+pbio::FacerecService::Config video_worker_config("video_worker_lbf.xml");
 video_worker_config.overrideParameter("search_k", 3);
-VideoWorker video_worker = service.createVideoWorker(
-    new VideoWorker.Params()
+pbio::VideoWorker::Ptr video_worker = service->createVideoWorker(
+    pbio::VideoWorker::Params()
         .video_worker_config(video_worker_config)
         .recognizer_ini_file(recognizer_config)
         .streams_count(streams_count)
@@ -32,19 +34,19 @@ VideoWorker video_worker = service.createVideoWorker(
         .short_time_identification_distance_threshold(sti_recognition_threshold)
         .short_time_identification_outdate_time_seconds(sti_outdate_time)
     );
-
+```
 Where:
 
-    video_worker_config - path to the configuration file for VideoWorker or FacerecService.Config object.
-    recognizer_config - the configuration file for the recognizer used (see Face Identification).
-    streams_count - the number of video streams; a tracking stream is created for each stream.
-    processing_threads_count - the number of threads for template creation. These threads are common to all video streams and they distribute resources evenly across all video streams regardless of their workload (except for the video streams without faces in the frame).
-    matching_threads_count - the number of threads for comparison of templates created from video streams with the database. Like processing threads, they distribute the workload evenly across all video streams.
-    age_gender_estimation_threads_count - the number of threads for age and gender estimation. Like processing threads, they distribute the workload evenly across all video streams.
-    emotions_estimation_threads_count - the number of threads for emotions estimation. Like processing threads, they distribute the workload evenly across all video streams.
-    enable_sti - the flag enabling short time identification.
-    sti_recognition_threshold - the recognition distance threshold for short time identification.
-    sti_outdate_time - time period in seconds for short time identification.
+* `video_worker_config` - path to the configuration file for VideoWorker or FacerecService.Config object.
+* `recognizer_config` - the configuration file for the recognizer used (see Face Identification).
+* `streams_count` - the number of video streams; a tracking stream is created for each stream.
+* `processing_threads_count` - the number of threads for template creation. These threads are common to all video streams and they distribute resources evenly across all video streams regardless of their workload (except for the video streams without faces in the frame).
+* `matching_threads_count` - the number of threads for comparison of templates created from video streams with the database. Like processing threads, they distribute the workload evenly across all video streams.
+* `age_gender_estimation_threads_count` - the number of threads for age and gender estimation. Like processing threads, they distribute the workload evenly across all video streams.
+* `emotions_estimation_threads_count` - the number of threads for emotions estimation. Like processing threads, they distribute the workload evenly across all video streams.
+* `enable_sti` - the flag enabling short time identification.
+* `sti_recognition_threshold` - the recognition distance threshold for short time identification.
+* `sti_outdate_time` - time period in seconds for short time identification.
 
 Currently, there are three configuration files with the tracking method from common_video_capturer.xml:
 
