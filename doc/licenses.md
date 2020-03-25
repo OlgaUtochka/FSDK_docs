@@ -6,9 +6,9 @@ To test Face SDK, you can use the trial license, which is included in the Face S
 
 The trial license has the following limitations:
 
-    time limit (3 minutes);
-    number of each component (5);
-    maximum size of the search index (1000 images).
+* time limit (3 minutes);
+* number of each component (5);
+* maximum size of the search index (1000 images).
 
 To remove these restrictions, you have to purchase the Face SDK license. See the detailed information on the registration and limitations of the license in the sections below.
 
