@@ -32,23 +32,23 @@ See [Identification Performance](../performance_parameters.md#identification-per
 
 Using the `Recognizer` object you can:
 
-* get a method name (`Recognizer.getMethodName`)
-* create a template of one captured face (`Recognizer.processing`) – you will get the `Template` object
-* match two templates (`Recognizer.verifyMatch`) – you can compare only the templates created by the same method (i.e. with the same configuration file)
-* load (deserialize) a template from a binary stream (`Recognizer.loadTemplate`) – you can load only the templates created by the same method (i.e. with the same configuration file)
-* create the `TemplatesIndex` object (`Recognizer.createIndex`), which is an index for quick search in large databases.
-* search the `Template` in the `TemplatesIndex` (`Recognizer.search`)
+* get a method name (`Recognizer.getMethodName`);
+* create a template of one captured face (`Recognizer.processing`) – you will get the `Template` object;
+* match two templates (`Recognizer.verifyMatch`) – you can compare only the templates created by the same method (i.e. with the same configuration file);
+* load (deserialize) a template from a binary stream (`Recognizer.loadTemplate`) – you can load only the templates created by the same method (i.e. with the same configuration file);
+* create the `TemplatesIndex` object (`Recognizer.createIndex`), which is an index for quick search in large databases;
+* search the `Template` in the `TemplatesIndex` (`Recognizer.search`).
 
 With the `Template` object you can:
 
-* get a method name (`Template.getMethodName`)
-* save (serialize) a template in a binary stream (`Template.save`)
+* get a method name (`Template.getMethodName`);
+* save (serialize) a template in a binary stream (`Template.save`).
 
 With the `TemplatesIndex` object you can:
 
-* get a method name (`TemplatesIndex.getMethodName`)
-* get a number of templates in the index (`TemplatesIndex.size`)
-* get a specified template from the index by its number (`TemplatesIndex.at`)
-* reserve memory for search (`TemplatesIndex.reserveSearchMemory`)
+* get a method name (`TemplatesIndex.getMethodName`);
+* get a number of templates in the index (`TemplatesIndex.size`);
+* get a specified template from the index by its number (`TemplatesIndex.at`);
+* reserve memory for search (`TemplatesIndex.reserveSearchMemory`).
 
 _**Note:** The methods `Recognizer.createIndex` and `TemplatesIndex.at` do not copy the template data but only smart pointers to the data._
