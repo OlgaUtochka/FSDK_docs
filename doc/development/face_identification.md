@@ -2,7 +2,7 @@
 
 To identify faces, create the `Recognizer` object by calling the `FacerecService.createRecognizer` method with the specified configuration file.
 
-To create [Encoder](../components.md#encoder) for one stream, specify the parameters `processing_threads_count=true` and `matching_threads_count=false`.
+To create [Encoder](../components.md#encoder) for one stream, specify the parameters `processing_threads_count=true` and `matching_threads_count=false`.  
 To create [MatcherDB](../components.md#matcherdb) for one stream, specify the parameters `processing_threads_count=false` and `matching_threads_count=true`.
 
 **Recommended recognition methods:**
