@@ -10,7 +10,7 @@ Example 1:
 
 Example 2: 
 
-## C++
+**C++**
 
 ```cpp
 pbio::FacerecService::Config capturer_config("common_capturer4.xml");
@@ -18,7 +18,7 @@ capturer_config.overrideParameter("min_size", 200);
 pbio::Capturer::Ptr capturer = service->createCapturer(capturer_config);
 ```
 
-## C#
+**C#**
 
 ```cs
 FacerecService.Config capturerConfig = new FacerecService.Config("common_capturer4_lbf.xml");
@@ -26,7 +26,7 @@ capturerConfig.overrideParameter("min_size", 200);
 Capturer capturer = service.createCapturer(capturerConfig);
 ```
 
-## Java
+**Java**
 
 ```java
 FacerecService.Config capturerConfig = service.new Config("common_capturer4_lbf.xml");
@@ -36,7 +36,7 @@ final Capturer capturer = service.createCapturer(capturerConfig);
 
 Example 3:
 
-## C++
+**C++**
 
 ```cpp
 pbio::Capturer::Ptr capturer = service->createCapturer("common_capturer4.xml");
@@ -49,7 +49,7 @@ capturer->setParameter("max_size", 400);
 // capturer->capture(...);
 ```
 
-## C#
+**C#**
 
 ```cs
 Capturer capturer = service.createCapturer("common_capturer4_lbf.xml");
@@ -62,7 +62,7 @@ capturer.setParameter("max_size", 400);
 // capturer.capture(...);
 ```
 
-## Java
+**Java**
 
 ```java
 Capturer capturer = service.createCapturer(service.new Config("common_capturer4_lbf.xml"));
