@@ -4,9 +4,9 @@ To capture faces, you should create a `Capturer` object using `FacerecService.cr
 
 Example 1: 
 
-**C++**: ```pbio::Capturer::Ptr capturer = service->createCapturer("common_capturer4.xml");```
-**C#**: ```Capturer capturer = service.createCapturer("common_capturer4_lbf.xml");```
-**Java**: ```final Capturer capturer = service.createCapturer(service.new Config("common_capturer4_lbf.xml"));```
+**C++**: ```pbio::Capturer::Ptr capturer = service->createCapturer("common_capturer4.xml");```  
+**C#**: ```Capturer capturer = service.createCapturer("common_capturer4_lbf.xml");```  
+**Java**: ```final Capturer capturer = service.createCapturer(service.new Config("common_capturer4_lbf.xml"));```  
 
 Example 2: 
 
