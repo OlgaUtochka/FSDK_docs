@@ -17,7 +17,7 @@ The program demonstrates tracking, detection and cropping of faces, detection of
 To make a quick run of the demo with default parameters on Windows, go to the *bin* folder and double-left-click `demo.exe`.
 
 <p align="center">
-<img width="180" src="..img/cpp_demo_exe.png"><br>
+<img width="180" src="../img/cpp_demo_exe.png"><br>
 <b>Location of C++ demo</b>
 </p>
 
