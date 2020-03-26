@@ -32,7 +32,7 @@ Tracking results and information about each face are displayed in a window. In t
 
 To run the application on Linux, go to the *bin/csharp_demos/video_recognition_demo* directory and execute the command `run.sh <path_to_opencv_csharp>`, where `<path_to_opencv_csharp>` is the path to the directory with the OpenCvCsharp library.
 
-You can also run C# demo specifying some parameters (for example, the path to your online license).
+You can also run *C# demo* specifying some parameters (for example, the path to your online license).
 
 To build the demo, run the following commands:
 ```
@@ -88,7 +88,7 @@ To make a quick run of the demo with default parameters and check face recogniti
 
 To run the application on Linux, go to the *bin/csharp_demos/video_recognition_demo* directory and execute the command `run.sh <path_to_opencv_csharp>`, where `<path_to_opencv_csharp>` is the path to the directory with the OpenCvCsharp library.
 
-You can also run C# video_recognition_demo specifying some parameters.
+You can also run *C# video_recognition_demo* specifying some parameters.
 
 To build the demo, run the following commands:
 ```
@@ -114,7 +114,7 @@ Startup parameters:
 Where:
 
 * `config_dir` – path to the *conf/facerec* directory;
-* `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory license;
+* `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory *license*;
 * `database_dir` – path to the directory with the database;
 * `method_config` – name of the `Recognizer` configuration file;
 * `recognition_distance_threshold` – recognition distance threshold (float number);
