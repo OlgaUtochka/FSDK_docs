@@ -119,7 +119,7 @@ The program demonstrates creation, saving, loading and matching of templates.
 The program operates in three modes:
 
 * **enrollment** – face detection in a group of images, creation of a template for each face, and saving the templates to a file.
-* **identifying** – face detection in one image, template creation, and matching of the template with every template created in the enrollment mode and loaded from the file.
+* **identification** – face detection in one image, template creation, and matching of the template with every template created in the enrollment mode and loaded from the file.
 * **verification** – detection of faces in two images, creation of two templates and their matching.
 
 Launch parameters in the **enrollment** mode:
