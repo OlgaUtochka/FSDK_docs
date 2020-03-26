@@ -71,7 +71,7 @@ The program demonstrates tracking, detection and recognition of faces from the d
 
 To make a quick run of the demo with default parameters and check face recognition on Windows:
 
-1. Create a database, which will be used for face recognition (see p.1 of the section [C++ Video Recognition Demo](cpp_demos.md#video_recognition_demo)).
+1. Create a database, which will be used for face recognition (see p.1 of [C++ Video Recognition Demo](cpp_demos.md#video_recognition_demo)).
 2. To run the demo, go to *bin/csharp_demo/video_recognition_demo* and double-left-click `run.bat`.
 
 <p align="center">
