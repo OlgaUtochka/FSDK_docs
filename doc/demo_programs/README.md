@@ -6,8 +6,7 @@ The source code is in the *examples* directory.
 
 ## Windows/Linux
 
-To run the demo programs ([C++](cpp_demos.md) and [C#](csharp_demos.md)) on a PC, download and extract the Face SDK distribution package as described in [Getting Started](../getting_started.md).  
-Before running a demo, make sure that you connected a camera (for example, a webcam) to your PC.
+To run the demo programs ([C++](cpp_demos.md) and [C#](csharp_demos.md)) on a PC, download and extract the Face SDK distribution package as described in [Getting Started](../getting_started.md). Before running a demo, make sure that you connected a camera (for example, a webcam) to your PC.
 
 ## Android (Java)
 
