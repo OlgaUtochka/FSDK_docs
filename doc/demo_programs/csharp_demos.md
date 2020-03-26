@@ -121,14 +121,14 @@ Where:
 * `camera_id | rtsp_url` – one or several sources, each source is a number (webcam ID) or a string (video stream URL or path to the video file);
 * `frame_fps_limit` – FPS limit.
 
-**To run the demo on Windows:**
+**To run the demo on Windows:**  
 Add the path to the directory that includes `facerec.dll` to the `PATH` environment variable.
 ```
 set PATH=%PATH%;..\...\..\bin
 dotnet publish/csharp_video_recognition_demo.dll --config_dir=../../../conf/facerec --database_dir=../../../bin/base --method_config=method6v7_recognizer.xml --recognition_distance_threshold=7000 --frame_fps_limit=25 0
 ```
 
-**To run the demo on Linux:**
+**To run the demo on Linux:**  
 Add the path to the directory that includes `libfacerec.so` and path to the directory with the OpenCVSharp library built for Linux to the `LD_LIBRARY_PATH` environment variable.
 ```
 LD_LIBRARY_PATH=${LD_LIBRARY_PATH}: ../../../lib:~/opencv/lib/x86_64-linux-gnu dotnet publish/csharp_demo.dll --config_dir=../../../conf/facerec --database_dir=../../../bin/base --method_config=method6v7_recognizer.xml --recognition_distance_threshold=7000 --frame_fps_limit=25 0
