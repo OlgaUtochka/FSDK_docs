@@ -120,5 +120,6 @@ There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, a
 * The *singlelbf* and *doublelbf* sets are new. They provide higher accuracy, so we recommend you to use detectors with one of these sets. The *singlelbf* set contains 31 points. The *doublelbf* set contains 101 points. Actually, the *doublebf* set consists of two concatenated sets – the last 31 points of *doublelbf* duplicate the *singlelbf* set (in the same order).
 * The *fda* set is the newest. In contrast to the previous sets, it provides high accuracy in a wide range of facial angles (up to the full profile). However, recognition algorithms still require face samples to be close to frontal. The *fda* set contains 21 points.
 
-|fda set of points|esr set of points|singlelbf set of points|first 70 points of doublelbf set of points (the rest 31 are from singlelbf)|
-|--|--|--|--|
+|fda set of points|esr set of points|
+|RawSample.getLeftEye returns point 7|RawSample.getLeftEye returns point 16| 
+|--|--|
