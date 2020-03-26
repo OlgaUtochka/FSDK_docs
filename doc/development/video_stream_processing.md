@@ -77,48 +77,42 @@ _**WARNING:** Do not call the methods that change the state of `VideoWorker` ins
 
 ## Creating Templates
 
-If besides detection, the creation of templates is required, VideoWorker should be created with matching_thread=0 and processing_thread>0 and the VideoClient license is used. To create Video Engine Standard for one stream, specify the parameters streams_count=1, processing_threads_count=1, matching_threads_count=0.
+If besides detection, the creation of templates is required, `VideoWorker` should be created with `matching_thread=0` and `processing_thread>0` and the [VideoClient license](../components.md) is used. To create [Video Engine Standard](../components.md) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=0`.
 
-You can disable / enable the creation of templates for a specific video stream using the VideoWorker.disableProcessingOnStream and VideoWorker.enableProcessingOnStream member functions. At start, template creation is enabled for all video streams.
+You can disable / enable the creation of templates for a specific video stream using the `VideoWorker.disableProcessingOnStream` and `VideoWorker.enableProcessingOnStream` member functions. At start, template creation is enabled for all video streams.
 
-VideoWorker.TemplateCreatedCallbackU provides template generation results.
-This callback is called whenever a template is created within the VideoWorker.
-It is guaranteed that this callback will be called after at least one Tracking callback and before a TrackingLost callback with the same stream_id and track_id (track_id = sample->getID()).
-To subscribe to this callback, use the VideoWorker.addTemplateCreatedCallbackU method. To unsubscribe from this callback, use the VideoWorker.removeTemplateCreatedCallback method by providing the callback_id that you received from the VideoWorker.addTemplateCreatedCallbackU method.
+`VideoWorker.TemplateCreatedCallbackU` provides template generation results. This callback is called whenever a template is created within the `VideoWorker`. It is guaranteed that this callback will be called after at least one `Tracking` callback and before a `TrackingLost` callback with the same `stream_id` and `track_id` (`track_id = sample->getID()`). To subscribe to this callback, use the `VideoWorker.addTemplateCreatedCallbackU` method. To unsubscribe from this callback, use the `VideoWorker.removeTemplateCreatedCallback` method by providing the `callback_id` that you received from the `VideoWorker.addTemplateCreatedCallbackU` method.
 
 ## Recognizing Faces
 
-If face tracking, template creation and matching with the database is required, VideoWorker should be created with matching_thread>0 and processing_thread>0 and the VideoClientExt license is used. To create Video Engine Extended for one stream, specify the parameters streams_count=1, processing_threads_count=1, matching_threads_count=1.
+If face tracking, template creation and matching with the database are required, `VideoWorker` should be created with `matching_thread>0` and `processing_thread>0` and the [VideoClientExt license](../components.md) is used. To create [Video Engine Extended](../components.md) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=1`.
 
-Use the VideoWorker.setDatabase member function to setup or change the database. It can be called at any time.
+Use the `VideoWorker.setDatabase` member function to setup or change the database. It can be called at any time.
 
-VideoWorker.MatchFoundCallbackU returns the result of the matching with the database.
-When a template is created for the tracked face, it is compared with each template from the database, and if the distance to the closest element is less than the distance_threshold threshold specified in this element, then a match is fixed.
-This callback is called after N consecutive matches with elements belonging to the same person.
-You can set the <not_found_match_found_callback> tag to 1 to enable this callback after N sequential not-found hits (i.e. when the closest element is beyond its threshold distance_threshold.) In this case, match_result of the first element in VideoWorker.MatchFoundCallbackData.search_results will be at zero distance, and person_id and element_id identifiers will be equal to VideoWorker.MATCH_NOT_FOUND_ID.
-The N number can be set in the configuration file in the <consecutive_match_count_for_match_found_callback> tag.
-It is guaranteed that this callback will be called after at least one Tracking callback and before a TrackingLost callback with the same stream_id and track_id (track_id = sample->getID()).
-To subscribe to this callback, use the VideoWorker.addMatchFoundCallbackU method. To unsubscribe from this callback, use the VideoWorker.removeMatchFoundCallback method by providing the callback_id, that you received from the VideoWorker.addMatchFoundCallbackU method.
-The maximum number of elements returned in the VideoWorker.MatchFoundCallbackData.search_results is set in the configuration file under the search_k tag and can be changed by the FacerecService.Config.overrideParameter object, for example: video_worker_config.overrideParameter("search_k", 3);
+`VideoWorker.MatchFoundCallbackU` returns the result of the matching with the database. When a template is created for the tracked face, it is compared with each template from the database, and if the distance to the closest element is less than  `distance_threshold` specified in this element, then a match is fixed. This callback is called after `N` consecutive matches with the elements belonging to the same person.
+
+You can set the `<not_found_match_found_callback>` tag to `1` to enable this callback after `N` sequential not-found hits (i.e. when the closest element is beyond its `distance_threshold`.) In this case, `match_result` of the first element in `VideoWorker.MatchFoundCallbackData.search_results` will be at zero distance, and the `person_id` and `element_id` identifiers will be equal to `VideoWorker.MATCH_NOT_FOUND_ID`. The `N` number can be set in the configuration file in the `<consecutive_match_count_for_match_found_callback>` tag.
+
+It is guaranteed that this callback will be called after at least one `Tracking` callback and before a `TrackingLost` callback with the same `stream_id` and `track_id` (`track_id = sample->getID()`). To subscribe to this callback, use the `VideoWorker.addMatchFoundCallbackU` method. To unsubscribe from this callback, use the `VideoWorker.removeMatchFoundCallback` method by providing the `callback_id` that you received from the `VideoWorker.addMatchFoundCallbackU` method. The maximum number of elements returned in the `VideoWorker.MatchFoundCallbackData.search_results` is set in the configuration file in the `search_k` tag and can be changed by the `FacerecService.Config.overrideParameter` object, for example: `video_worker_config.overrideParameter("search_k", 3);`
 
 ## Estimation of age, gender, and emotions
 
-To estimate age and gender, specify the parameter age_gender_estimation_threads_count > 0. To estimate emotions, specify the parameter emotions_estimation_threads_count > 0. The information about age, gender, and emotions is returned in VideoWorker.TrackingCallbackU. The information on emotions is constantly updated. Information on age and gender is updated only if there is a sample of better quality. By default the estimation of age, gender, and emotions is enabled after you create VideoWorker.
+To estimate age and gender, specify the parameter `age_gender_estimation_threads_count > 0`. To estimate emotions, specify the parameter `emotions_estimation_threads_count > 0`. The information about age, gender, and emotions is returned in `VideoWorker.TrackingCallbackU`. The information about emotions is constantly updated. The information about age and gender is updated only if there is a sample of better quality. By default the estimation of age, gender, and emotions is enabled after you create `VideoWorker`.
 
 To disable estimation of age, gender, and emotions on a specified stream, use the following methods:
 
-    VideoWorker.disableAgeGenderEstimationOnStream (age and gender)
-    VideoWorker.disableEmotionsEstimationOnStream (emotions)
+* `VideoWorker.disableAgeGenderEstimationOnStream` (age and gender)
+* `VideoWorker.disableEmotionsEstimationOnStream` (emotions)
 
 To enable estimation of age, gender, and emotions on a specified stream again, use the following methods:
 
-    VideoWorker.enableAgeGenderEstimationOnStream (age and gender)
-    VideoWorker.enableEmotionsEstimationOnStream (emotions)
+* `VideoWorker.enableAgeGenderEstimationOnStream` (age and gender)
+* `VideoWorker.enableEmotionsEstimationOnStream` (emotions)
 
 ## Short time identification
 
 Short time identification (STI) is used to recognize a track as a person who has been in front of a camera not long ago, even if this person is not in the database and even if matching is disabled. For example, if a person is detected, tracked, lost, and then detected and tracked again during, for example, one minute, he/she will be considered as the same person.
 
-If short time identification is enabled, VideoWorker matches the tracks, where a face is lost, with other tracks, where a face was lost not longer than sti_outdate_time seconds ago. Matched tracks are grouped as sti_person. ID of this group (sti_person_id) is returned in VideoWorker.TrackingLostCallbackU. The value of sti_person_id is equal to the track_id value of the first element that formed the group sti_person. When a specific group sti_person exceeds the specified period sti_outdate_time, then VideoWorker.StiPersonOutdatedCallbackU is called.
+If short time identification is enabled, `VideoWorker` matches the tracks, where a face is lost, with other tracks, where a face was lost not longer than `sti_outdate_time` seconds ago. Matched tracks are grouped as `sti_person`. ID of this group (`sti_person_id`) is returned in `VideoWorker.TrackingLostCallbackU`. The value of `sti_person_id` is equal to the `track_id` value of the first element that formed the group `sti_person`. When a specific group `sti_person` exceeds the specified period `sti_outdate_time`, then `VideoWorker.StiPersonOutdatedCallbackU` is called.
 
-Short time identification does not affect the usage of the license. To use this function, there should be at least one thread for template creation (processing_thread>0).
+Short time identification does not affect the usage of the license. To use this function, there should be at least one thread for template creation (`processing_thread>0`).
