@@ -66,7 +66,7 @@ To make a quick run of the demo with default parameters and check face recogniti
 <b>Content of bin/base/person0</b>
 </p>
 
-2. Go to the *bin* folder and run the script `demo_web_m8v_latest.bat`, `demo_web_m6v_latest.bat` or `demo_web_m7v_latest.bat` by double-left-click. You can use any above script to run this demo, the only difference is a method (8.7, 6.7 and 7.7, see the detailed information in [Face Identification](../development/face_identification.md)).
+2. Go to the *bin* folder and run the script `demo_web_m8v_latest.bat`, `demo_web_m6v_latest.bat` or `demo_web_m7v_latest.bat` by double-left-click. You can use any above script to run this demo, the only difference is a method (**8.7**, **6.7** and **7.7**, see the detailed information in [Face Identification](../development/face_identification.md)).
 
 <p align="center">
 <img width="200" src="../img/cpp_video_recognition.png"><br>
