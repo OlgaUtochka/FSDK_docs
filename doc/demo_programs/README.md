@@ -1,0 +1,1 @@
+Face SDK includes a set of programs that show how to work with C ++, Java and C# API. The pre-built demos are located in the *bin* (C ++, C #) and *apk* (Java for Android) directories, the source code is in the *examples* directory.
