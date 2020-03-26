@@ -121,9 +121,9 @@ There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, a
 * The *fda* set is the newest. In contrast to the previous sets, it provides high accuracy in a wide range of facial angles (up to the full profile). However, recognition algorithms still require face samples to be close to frontal. The *fda* set contains 21 points.
 
 <p align="center">
-<img width="600" src="../img/fda_esr.png"><br>
+<img width="800" src="../img/fda_esr.png"><br>
 </p>
 
 <p align="center">
-<img width="600" src="../img/singlebf_doublebf.png"><br>
+<img width="800" src="../img/singlebf_doublebf.png"><br>
 </p>
