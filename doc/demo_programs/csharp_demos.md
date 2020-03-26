@@ -63,7 +63,7 @@ LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:../../../lib:/path/to/opencvsharp/native/libs
 
 Error messages (if any) are printed in the console.
 
-Source code: [demo.cs](../examples/csharp/demo/demo.cs)
+Source code: [demo.cs](../../examples/csharp/demo/demo.cs)
 
 ## video_recognition_demo
 
