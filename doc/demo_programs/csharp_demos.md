@@ -67,7 +67,7 @@ Source code: [demo.cs](../../examples/csharp/demo/demo.cs)
 
 ## video_recognition_demo
 
-Program demonstrates tracking, detection and recognition of faces from the database.
+The program demonstrates tracking, detection and recognition of faces from the database.
 
 To make a quick run of the demo with default parameters and check face recognition on Windows:
 
