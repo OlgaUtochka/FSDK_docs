@@ -10,7 +10,7 @@ To build the demo project in VisualStudio:
 
 * Create an empty C# console application;
 * Add the source files of the demo to the project;
-* Add links to FacerecCSharpWrapper.dll and [OpenCvSharp3-AnyCPU](https://www.nuget.org/packages/OpenCvSharp3-AnyCPU).
+* Add links to `FacerecCSharpWrapper.dll` and [OpenCvSharp3-AnyCPU](https://www.nuget.org/packages/OpenCvSharp3-AnyCPU).
 
 ## demo
 
