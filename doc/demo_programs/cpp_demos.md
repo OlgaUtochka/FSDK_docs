@@ -98,13 +98,13 @@ Startup parameters:
 Examples of startup scripts:
 
 * Linux:
-    * demo_web_m6v_latest.sh - with method 6.7 and webcam 0
-    * demo_web_m7v_latest.sh - with method 7.7 and webcam 0
-    * demo_web_m8v_latest.sh - with method 8.7 and webcam 0
+    * `demo_web_m6v_latest.sh` – with method 6.7 and webcam 0
+    * `demo_web_m7v_latest.sh` – with method 7.7 and webcam 0
+    * `demo_web_m8v_latest.sh` – with method 8.7 and webcam 0
 * Windows:
-    * demo_web_m6v_latest.bat - with method 6.7 and webcam 0
-    * demo_web_m7v_latest.bat - with method 7.7 and webcam 0
-    * demo_web_m8v_latest.bat - with method 8.7 and webcam 0
+    * `demo_web_m6v_latest.bat` – with method 6.7 and webcam 0
+    * `demo_web_m7v_latest.bat` – with method 7.7 and webcam 0
+    * `demo_web_m8v_latest.bat` – with method 8.7 and webcam 0
 
 Error messages (if any) are printed in the console.
 
@@ -168,6 +168,6 @@ Example of launch from the *bin* directory in the verification mode:
 Work progress and matching results are displayed in the console.  
 Error messages, if any, are also displayed in the console.  
 
-Source code: [test_identify.cpp](../../examples/cpp/demo/test_identify.cpp)
+Source code: [test_identify.cpp](../../examples/cpp/demo/test_identify/test_identify.cpp)
 
 No additional libraries are required for build.
