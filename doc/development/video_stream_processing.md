@@ -37,53 +37,43 @@ pbio::VideoWorker::Ptr video_worker = service->createVideoWorker(
 ```
 Where:
 
-* `video_worker_config` - path to the configuration file for VideoWorker or FacerecService.Config object.
-* `recognizer_config` - the configuration file for the recognizer used (see Face Identification).
-* `streams_count` - the number of video streams; a tracking stream is created for each stream.
-* `processing_threads_count` - the number of threads for template creation. These threads are common to all video streams and they distribute resources evenly across all video streams regardless of their workload (except for the video streams without faces in the frame).
-* `matching_threads_count` - the number of threads for comparison of templates created from video streams with the database. Like processing threads, they distribute the workload evenly across all video streams.
-* `age_gender_estimation_threads_count` - the number of threads for age and gender estimation. Like processing threads, they distribute the workload evenly across all video streams.
-* `emotions_estimation_threads_count` - the number of threads for emotions estimation. Like processing threads, they distribute the workload evenly across all video streams.
-* `enable_sti` - the flag enabling short time identification.
-* `sti_recognition_threshold` - the recognition distance threshold for short time identification.
-* `sti_outdate_time` - time period in seconds for short time identification.
+* `video_worker_config` – path to the configuration file for `VideoWorker` or `FacerecService.Config` object.
+* `recognizer_config` – the configuration file for the recognizer used (see [Face Identification](face_identification.md)).
+* `streams_count` – the number of video streams; a tracking stream is created for each stream.
+* `processing_threads_count` – the number of threads for template creation. These threads are common to all video streams and they distribute resources evenly across all video streams regardless of their workload (except for the video streams without faces in the frame).
+* `matching_threads_count` – the number of threads for comparison of templates created from video streams with the database. Like processing threads, they distribute the workload evenly across all video streams.
+* `age_gender_estimation_threads_count` – the number of threads for age and gender estimation. Like processing threads, they distribute the workload evenly across all video streams.
+* `emotions_estimation_threads_count` – the number of threads for emotions estimation. Like processing threads, they distribute the workload evenly across all video streams.
+* `enable_sti` – the flag enabling [short time identification](#short-time-identification).
+* `sti_recognition_threshold` – the recognition distance threshold for [short time identification](#short-time-identification).
+* `sti_outdate_time` – time period in seconds for [short time identification](#short-time-identification).
 
-Currently, there are three configuration files with the tracking method from common_video_capturer.xml:
+Currently, there are three configuration files with the tracking method from `common_video_capturer.xml`:
 
-    video_worker.xml with esr points set,
-    video_worker_lbf.xml with singlelbf points set,
-    video_worker_fda.xml with fda points set,
+* `video_worker.xml` with the *esr* points set,
+* `video_worker_lbf.xml` with the *singlelbf* points set,
+* `video_worker_fda.xml` with the *fda* points set,
 
-and two configuration files with the tracking method from fda_tracker_capturer.xml:
+and two configuration files with the tracking method from `fda_tracker_capturer.xml`:
 
-    video_worker_fdatracker.xml with fda points set,
-    video_worker_fdatracker_fake_detector.xml with fda points set,
+* `video_worker_fdatracker.xml` with the *fda* points set,
+* `video_worker_fdatracker_fake_detector.xml` with the *fda* points set,
 
-(see. Anthropometric Points, Capturer Class Reference).
+(see [Anthropometric Points](face_capturing.md#anthropometric-points), [Capturer Class Reference](face_capturing.md#capturer-class-reference)).
 
-If VideoWorker is used only for face tracking, it should be created with matching_thread=0 and processing_thread=0 and the standard Face Detector license is used. To create Face Detector for one stream, specify the streams_count=1 parameter.
+If `VideoWorker` is used only for face tracking, it should be created with `matching_thread=0 and processing_thread=0` and the standard [Face Detector license](../components.md) is used. To create [Face Detector](../components.md) for one stream, specify the `streams_count=1` parameter.
 
-To provide video frames, you should call VideoWorker.addVideoFrame. This method is thread-safe, so you can provide frames from different streams created for each video stream, without additional synchronization. The method returns an integer frame id that will be used to identify this frame in the callback.
+To provide video frames, you should call `VideoWorker.addVideoFrame`. This method is thread-safe, so you can provide frames from different streams created for each video stream, without additional synchronization. The method returns an integer frame id that will be used to identify this frame in the callback.
 
 You have to use two callbacks for face tracking:
 
-    VideoWorker.TrackingCallbackU provides the tracking results.
-    This callback is called every time the frame has been processed by the tracking conveyor.
-    Tracking callback will be called with frame_id equal to X not earlier than VideoWorker.addVideoFrame returns the value X + N - 1, where N is the value returned by VideoWorker.getTrackingConveyorSize.
-    Tracking callbacks with the same stream_id are called in ascending frame_id order. Therefore, if a callback with stream_id = 2 and frame_id = 102 was received immediately after a callback with stream_id = 2 and frame_id = 100, then the frame with frame_id = 101 was skipped for the video stream 2.
-    Most of the samples are created from the frame_id frame, but some samples can be obtained from previous frames. Use the RawSample.getFrameID method to determine which frame the sample actually belongs to.
-    To subscribe to this callback, use the VideoWorker.addTrackingCallbackU method. To unsubscribe from this method, use the VideoWorker.removeTrackingCallback method by submitting the callback_id you received from the VideoWorker.addTrackingCallbackU method.
+* `VideoWorker.TrackingCallbackU` provides the tracking results. This callback is called every time the frame has been processed by the tracking conveyor. Tracking callback will be called with `frame_id` equal to `X` not earlier than `VideoWorker.addVideoFrame` returns the value of `X + N - 1`, where `N` is the value returned by `VideoWorker.getTrackingConveyorSize`. Tracking callbacks with the same `stream_id` are called in ascending `frame_id` order. Therefore, if a callback with `stream_id = 2` and `frame_id = 102` was received immediately after a callback with `stream_id = 2` and `frame_id = 100`, then the frame with `frame_id = 101` was skipped for the video stream 2. Most of the samples are created from the `frame_id` frame, but some samples can be obtained from previous frames. Use the `RawSample.getFrameID` method to determine which frame the sample actually belongs to. To subscribe to this callback, use the `VideoWorker.addTrackingCallbackU` method. To unsubscribe from this method, use the `VideoWorker.removeTrackingCallback` method by submitting the `callback_id` you received from the `VideoWorker.addTrackingCallbackU` method.
 
-    VideoWorker.TrackingLostCallbackU returns the best sample and face template when tracking is lost (for example, when a person leaves the frame).
-    The best sample can be empty if weak_tracks_in_tracking_callback configuration parameter is enabled.
-    It is guaranteed that this is the last callback for the pair <stream_id, track_id> (track_id is equal to sample.getID() for a sample given in any VideoWorker callback).
-    That is, after this callback, no Tracking, MatchFound or TrackingLost callback for this stream_id can contain a sample with the same track_id identifier.
-    It is also guaranteed that for each pair <stream_id, track_id>, which was mentioned in the Tracking callback, there is exactly one TrackingLost callback, except for the tracks removed during VideoWorker.resetStream - the TrackingLost callback won't be called for these tracks. Use the return value of VideoWorker.resetStream to release the memory allocated for these tracks.
-    To subscribe to this callback, use the VideoWorker.addTrackingLostCallbackU method. To unsubscribe from this callback, use the VideoWorker.removeTrackingLostCallback method by providing the callback_id that you received from the VideoWorker.addTrackingLostCallbackU method.
+* `VideoWorker.TrackingLostCallbackU` returns the best sample and face template when tracking is lost (for example, when a person leaves the frame). The best sample can be empty if the `weak_tracks_in_tracking_callback` configuration parameter is enabled. It is guaranteed that this is the last callback for the pair `<stream_id, track_id>` (`track_id` is equal to `sample.getID()` for a sample given in any `VideoWorker` callback). That is, after this callback, no `Tracking`, `MatchFound` or `TrackingLost` callback for this `stream_id` can contain a sample with the same `track_id` identifier. It is also guaranteed that for each pair `<stream_id, track_id>`, which was mentioned in the `Tracking` callback, there is exactly one `TrackingLost` callback, except for the tracks removed during `VideoWorker.resetStream` – the `TrackingLost` callback won't be called for these tracks. Use the `return` value of `VideoWorker.resetStream` to release the memory allocated for these tracks. To subscribe to this callback, use the `VideoWorker.addTrackingLostCallbackU` method. To unsubscribe from this callback, use the `VideoWorker.removeTrackingLostCallback` method by providing the `callback_id` that you received from the `VideoWorker.addTrackingLostCallbackU` method.
 
-Note: Exceptions that appear in the callbacks will be catched and rethrown in the VideoWorker.checkExceptions member function. Therefore, do not forget to call the VideoWorker.checkExceptions method from time to time to check for errors.
+_**Note:** Exceptions that are thrown in the callbacks will be catched and rethrown in the `VideoWorker.checkExceptions` member function. Therefore, do not forget to call the `VideoWorker.checkExceptions` method from time to time to check for errors._
 
-WARNING: Do not call the methods that change the state of VideoWorker inside the callbacks in order to avoid a deadlock. That is, only the VideoWorker.getMethodName and VideoWorker.getStreamsCount member functions are safe for calling in callbacks.
+_**WARNING:** Do not call the methods that change the state of `VideoWorker` inside the callbacks in order to avoid a deadlock. That is, only the `VideoWorker.getMethodName` and `VideoWorker.getStreamsCount` member functions are safe for calling in callbacks._
 
 ## Creating Templates
 
