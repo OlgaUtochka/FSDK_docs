@@ -169,10 +169,8 @@ _**Note:** Actual capture time may vary depending on the image content._
 
 ## Face Cropping
 
-To crop the face, you can call the `RawSample.cutFaceImage` method. The image of a cropped face will be saved in a provided binary stream encoded in a specified format. 
-
-See all available cropping types in `RawSample.FaceCutType`.
+To crop the face, you can call the `RawSample.cutFaceImage` method. The image of a cropped face will be saved in a provided binary stream encoded in a specified format. See all available cropping types in `RawSample.FaceCutType`.
 
 To preview the cropping, call the `RawSample.getFaceCutRectangle` method by specifying the cropping type. As a result, you will have four points – the corners of the rectangle that will be used for cropping.
 
-See the example of usage, see [Demo Programs](../demo_programs).
+See the example of usage in [Demo Programs](../demo_programs).
