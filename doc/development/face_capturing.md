@@ -128,45 +128,6 @@ There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, a
 <img width="800" src="../img/singlebf_doublebf.png"><br>
 </p>
 
-## Capturers Timing Characteristics (for 1 GHz 1 Core)
-
-<table border="1" style="border-collapse:collapse;center">
-<tr>                <th rowspan=2> config file                                         </th>    <th colspan=6>capture time (ms) </th> </tr>
-<tr>                                                                                            <th>640x480, 1 face</th> <th>640x480, 4 faces</th> <th>1280x720, 1 face</th> <th>1280x720, 4 faces</th> <th>1920x1080, 1 face</th> <th>1920x1080, 4 faces</th>  </tr>
-<tr align="center"> <td align="left"> common_capturer.xml                              </td>    <td>290            </td> <td>290             </td> <td>900             </td> <td>900              </td> <td>2145             </td> <td>2145              </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer2.xml                             </td>    <td>290            </td> <td>320             </td> <td>930             </td> <td>930              </td> <td>2225             </td> <td>2225              </td>  </tr>
-<tr align="center"> <td align="left"> common_lprofile_capturer.xml                     </td>    <td>80             </td> <td>130             </td> <td>80              </td> <td>130              </td> <td>95               </td> <td>175               </td>  </tr>
-<tr align="center"> <td align="left"> common_rprofile_capturer.xml                     </td>    <td>80             </td> <td>130             </td> <td>80              </td> <td>130              </td> <td>95               </td> <td>175               </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4.xml                             </td>    <td>48             </td> <td>110             </td> <td>145             </td> <td>240              </td> <td>290              </td> <td>480               </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_lbf.xml                         </td>    <td>53             </td> <td>138             </td> <td>152             </td> <td>266              </td> <td>294               </td> <td>520              </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_with_angles.xml                 </td>    <td>690            </td> <td>1055            </td> <td>690             </td> <td>1090             </td> <td>720              </td> <td>1150              </td>  </tr>
-<tr align="center"> <td align="left"> common_video_capturer.xml                        </td>    <td>30             </td> <td>70              </td> <td>30              </td> <td>75               </td> <td>50               </td> <td>105               </td>  </tr>
-<tr align="center"> <td align="left"> common_video_capturer_lbf.xml                    </td>    <td>28             </td> <td>65              </td> <td>27              </td> <td>70               </td> <td>41               </td> <td>97                </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_singleface.xml                  </td>    <td>80             </td> <td>               -</td> <td>190             </td> <td>                -</td> <td>415              </td> <td>                 -</td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_lbf_singleface.xml              </td>    <td>86             </td> <td>               -</td> <td>195             </td> <td>                -</td> <td>418              </td> <td>                 -</td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_singleface_with_angles.xml      </td>    <td>350            </td> <td>               -</td> <td>350             </td> <td>                -</td> <td>400              </td> <td>                 -</td>  </tr>
-</table>
-
-_**Note:** Actual capture time may vary depending on the image content._
-
-## Capturers Angles Ranges
-
-<table border="1" style="border-collapse:collapse;center">
-<tr>                <th> config file                                                   </th>    <th>    roll   </th> <th>     yaw    </th> <th>   pitch     </th>  </tr>
-<tr align="center"> <td align="left"> common_capturer.xml                              </td>    <td> [-20; 20] </td> <td> [-45; 45]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer2.xml                             </td>    <td> [-20; 20] </td> <td> [-45; 45]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_lprofile_capturer.xml                     </td>    <td>     -     </td> <td> [60; 90]   </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_rprofile_capturer.xml                     </td>    <td>     -     </td> <td> [-90; -60] </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4.xml                             </td>    <td> [-30; 30] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_lbf.xml                         </td>    <td> [-30; 30] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_with_angles.xml                 </td>    <td> [-90; 90] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_video_capturer.xml                        </td>    <td> [-30; 30] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_video_capturer_lbf.xml                    </td>    <td> [-30; 30] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_singleface.xml                  </td>    <td> [-40; 40] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_lbf_singleface.xml              </td>    <td> [-40; 40] </td> <td> [-60; 60]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer4_singleface_with_angles.xml      </td>    <td> [-90; 90] </td> <td> [-75; 75]  </td> <td>  [-60; 60]  </td>  </tr>
-</table>
-
 ## Face Cropping
 
 To crop the face, you can call the `RawSample.cutFaceImage` method. The image of a cropped face will be saved in a provided binary stream encoded in a specified format. See all available cropping types in `RawSample.FaceCutType`.
