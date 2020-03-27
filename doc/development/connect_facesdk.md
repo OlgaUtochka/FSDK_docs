@@ -37,13 +37,13 @@ To use `facerec.jar` in a project, specify the path to this file in `classpath`.
 
 To use *facerec* in a project, add reference to `FacerecCSharpWrapper.dll` in a project. Add `facerec.so` (for Linux) or `facerec.dll` (for Windows) and `FacerecCSharpWrapper.dll` to the folder with executable file.
 
-## Getting Started 
+## Using the libfacerec library 
 
-Work with the libfacerec starts by calling the FacerecService.createService method, which dynamically loads the library.
+To use the *libfacerec* library, call the `FacerecService.createService` method, which dynamically loads the library.
 
 _**Warning:** You can call FacerecService.createService only once, otherwise, you may encounter a crash._
 
-### C++ Example
+### C++ example
 
 ```cpp
 #include <iostream>
@@ -77,7 +77,7 @@ int main (int argc, char** argv)
 }
 ```
 
-### C# Example
+### C# example
 
 ```cs
 using System;
@@ -112,7 +112,7 @@ namespace Example
 }
 ```
 
-### Java Example
+### Java example
 
 ```java
 package example;
