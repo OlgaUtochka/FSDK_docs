@@ -266,34 +266,33 @@ In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the W
 <tr align="center"> <th>100</th>       <td> 100 </td>       <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
 </table>
 
-\n
-\section performance_test Performance Test
+Performance Test
+Modes
 
-\subsection modes Modes
-    - \ref detection
-    - \ref processing
-    - \ref recognition_test_11
-    - \ref search_speed_test
-    - \ref convert_config_format
+    Detection
+    Processing
+    1:1 Recognition Test
+    Search Speed Test
+    Convert a Configuration File
 
-\section detection Detection
-In this mode, the program detects faces in images with the id in the range of [begin_image_id, end_image_id).
-Each image should contain only one person. The images containing more than one person detected will be discarded.
+Detection
+
+In this mode, the program detects faces in images with the id in the range of [begin_image_id, end_image_id). Each image should contain only one person. The images containing more than one person detected will be discarded.
 
 Launch parameters:
-    - <i>mode</i> - program mode (detection)
-    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
-    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
-    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
-    - <i>capturer_config</i> - capturer config file name
-    - <i>dataset_root_dir</i> - path to the dataset directory
-    - <i>detection_result_file</i> - file for storing the detection results
-    - <i>[begin_image_id]</i> - index of the image from which detection begins (the default setting is 0)
-    - <i>[end_image_id]</i> - index of the image to which detection is performed (by default, the processing is performed to the end of the file)
-    - <i>[use_cpu_cores_count]</i> - number of cores used for detection (the default setting is 1)
 
-Example of launch from the <i>bin</i> directory:
-\code
+    mode - program mode (detection)
+    dll_path - path to the libfacerec.so or facerec.dll library file
+    sdk_config_dir - path to the conf/facerec directory
+    dataset_config - config file of the image dataset (see Convert a Configuration File)
+    capturer_config - capturer config file name
+    dataset_root_dir - path to the dataset directory
+    detection_result_file - file for storing the detection results
+    [begin_image_id] - index of the image from which detection begins (the default setting is 0)
+    [end_image_id] - index of the image to which detection is performed (by default, the processing is performed to the end of the file)
+    [use_cpu_cores_count] - number of cores used for detection (the default setting is 1)
+
+Example of launch from the bin directory:
 ./test_sdk \
     --mode detection \
     --dll_path ../lib/libfacerec.so \
@@ -302,30 +301,30 @@ Example of launch from the <i>bin</i> directory:
     --dataset_config dataset_config.txt \
     --dataset_root_dir /path/to/data \
     --detection_result_file detection_result.txt \
-\endcode
 
 Detection results:
-    - text file with the lines in the following format: <i>\<image_id\></i> <i>\<points_count\></i> <i>\<points\></i>
 
+    text file with the lines in the following format: <image_id> <points_count> <points>
 
-\subsection processing Processing
+Processing
+
 In this mode, the program creates templates from the faces detected in the images with the id in the range of [begin_image_id, end_image_id).
 
 Launch parameters:
-    - <i>mode</i> - program mode (processing)
-    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
-    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
-    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
-    - <i>dataset_root_dir</i> - path to the dataset directory
-    - <i>recognizer_config</i> - recognizer config file name
-    - <i>processing_result_file</i> - file for storing the resulting templates
-    - <i>[begin_image_id]</i> - index of the image from which processing begins (the  default setting is 0)
-    - <i>[end_image_id]</i> - index of the image to which processing is performed (by default, the processing is performed to the end of the file)
-    - <i>[use_cpu_cores_count]</i> - number of cores used for processing (the default setting is 1)
-    - <i>FILES</i> - file(s) storing the detection results
 
-Example of launch from the <i>bin</i> directory:
-\code
+    mode - program mode (processing)
+    dll_path - path to the libfacerec.so or facerec.dll library file
+    sdk_config_dir - path to the conf/facerec directory
+    dataset_config - config file of the image dataset (see Convert a Configuration File)
+    dataset_root_dir - path to the dataset directory
+    recognizer_config - recognizer config file name
+    processing_result_file - file for storing the resulting templates
+    [begin_image_id] - index of the image from which processing begins (the default setting is 0)
+    [end_image_id] - index of the image to which processing is performed (by default, the processing is performed to the end of the file)
+    [use_cpu_cores_count] - number of cores used for processing (the default setting is 1)
+    FILES - file(s) storing the detection results
+
+Example of launch from the bin directory:
 ./test_sdk \
     --mode processing \
     --dll_path ../lib/libfacerec.so \
@@ -335,30 +334,30 @@ Example of launch from the <i>bin</i> directory:
     --recognizer_config method6v7_recognizer.xml \
     --processing_result_file ./templates_6v7.bin \
     detection_result.txt
-\endcode
 
 Processing results:
-    - binary file containing one record per each generated template; each record is a 64-bit unsigned integer (image_id) followed by a serialized template (see \ref cpp/test_sdk/src/sdk_test.cpp)
 
+    binary file containing one record per each generated template; each record is a 64-bit unsigned integer (image_id) followed by a serialized template (see cpp/test_sdk/src/sdk_test.cpp)
 
-\subsection recognition_test_11 1:1 Recognition Test
+1:1 Recognition Test
+
 In this mode, the program performs the 1:1 recognition test using the templates generated from the images with the id in the range of [begin_image_id, end_image_id).
 
 Launch parameters:
-    - <i>mode</i> - program mode (recognition_test_11)
-    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
-    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
-    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
-    - <i>recognizer_config</i> - recognizer config file name
-    - <i>result_roc_file</i> - file to save the ROC curve
-    - <i>result_closest_mismatches_file</i> - result file with the closest mismatches
-    - <i>[begin_image_id]</i> - index of the first image used in the test (the  default setting is 0)
-    - <i>[end_image_id]</i> - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
-    - <i>[use_cpu_cores_count]</i> - number of cores used for matching (the default setting is 1)
-    - <i>FILES</i> - file(s) storing the processing results
 
-Example of launch from the <i>bin</i> directory:
-\code
+    mode - program mode (recognition_test_11)
+    dll_path - path to the libfacerec.so or facerec.dll library file
+    sdk_config_dir - path to the conf/facerec directory
+    dataset_config - config file of the image dataset (see Convert a Configuration File)
+    recognizer_config - recognizer config file name
+    result_roc_file - file to save the ROC curve
+    result_closest_mismatches_file - result file with the closest mismatches
+    [begin_image_id] - index of the first image used in the test (the default setting is 0)
+    [end_image_id] - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
+    [use_cpu_cores_count] - number of cores used for matching (the default setting is 1)
+    FILES - file(s) storing the processing results
+
+Example of launch from the bin directory:
 ./test_sdk \
     --mode recognition_test_11 \
     --dll_path ../lib/libfacerec.so \
@@ -368,35 +367,35 @@ Example of launch from the <i>bin</i> directory:
     --result_roc_file ./roc11_6v7.txt \
     --result_closest_mismatches_file ./closest_mismatches_file.txt \
     templates_6v7.bin
-\endcode
 
 1:1 Recognition test results:
-    - text file containing a ROC curve; the file line describes the curve point in the following format: <i>\<far\></i> <i>\<tar\></i> <i>\<distance\></i>
-    - text file with the lines in the following format: <i>\<distance\></i> <i>\<image_id1\></i> <i>\<image_id2\></i> <i>\<path_to_image1\></i> <i>\<path_to_image2\></i>.\n
-This file contains pairs of images marked as belonging to different people, but having a minimum distance between the templates. We recommend you to generate this file using the best method and view the images from the top of it to check the errors of the dataset annotation.
 
+    text file containing a ROC curve; the file line describes the curve point in the following format: <far> <tar> <distance>
+    text file with the lines in the following format: <distance> <image_id1> <image_id2> <path_to_image1> <path_to_image2>.
+    This file contains pairs of images marked as belonging to different people, but having a minimum distance between the templates. We recommend you to generate this file using the best method and view the images from the top of it to check the errors of the dataset annotation.
 
-\subsection recognition_test_1N 1:N Recognition Test
+1:N Recognition Test
+
 In this mode, the program performs the 1:N recognition test using the templates generated from the images with the id in the range of [begin_image_id, end_image_id).
 
 Launch parameters:
-    - <i>mode</i> - program mode (recognition_test_1N)
-    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
-    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
-    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
-    - <i>recognizer_config</i> - recognizer config file name
-    - <i>result_roc_file</i> - file to save the ROC curve
-    - <i>[begin_image_id]</i> - index of the first image used in the test (the  default setting is 0)
-    - <i>[end_image_id]</i> - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
-    - <i>[use_cpu_cores_count]</i> - number of cores used for searches (the default setting is 1)
-    - <i>[acceleration]</i> - search acceleration type (the default setting is 0) \n
-        0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration; \n
-        1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration; \n
-        -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
-    - <i>FILES</i> - file(s) storing the processing results
 
-Example of launch from the <i>bin</i> directory:
-\code
+    mode - program mode (recognition_test_1N)
+    dll_path - path to the libfacerec.so or facerec.dll library file
+    sdk_config_dir - path to the conf/facerec directory
+    dataset_config - config file of the image dataset (see Convert a Configuration File)
+    recognizer_config - recognizer config file name
+    result_roc_file - file to save the ROC curve
+    [begin_image_id] - index of the first image used in the test (the default setting is 0)
+    [end_image_id] - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
+    [use_cpu_cores_count] - number of cores used for searches (the default setting is 1)
+    [acceleration] - search acceleration type (the default setting is 0)
+    0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration;
+    1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration;
+    -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
+    FILES - file(s) storing the processing results
+
+Example of launch from the bin directory:
 ./test_sdk \
     --mode recognition_test_1N \
     --dll_path ../lib/libfacerec.so \
@@ -406,130 +405,121 @@ Example of launch from the <i>bin</i> directory:
     --result_roc_file ./roc1N_6v7.txt \
     --acceleration 1 \
     templates_6v7.bin
-\endcode
 
-1:N Recognition test results is a text file containing a ROC curve; the file line describes the curve point in the following format: <i>\<far\></i> <i>\<tar\></i> <i>\<distance\></i>
+1:N Recognition test results is a text file containing a ROC curve; the file line describes the curve point in the following format: <far> <tar> <distance>
+Search Speed Test
 
-
-\subsection search_speed_test Search Speed Test
-In this mode, the program performs the search speed test using the templates generated in processing mode or using the utility (see \ref template_generator).
+In this mode, the program performs the search speed test using the templates generated in processing mode or using the utility (see Template Generator).
 
 Launch parameters:
-    - <i>mode</i> - program mode (search_speed_test)
-    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
-    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
-    - <i>recognizer_config</i> - recognizer config file name
-    - <i>[templates_count]</i> - number of templates used (by default, processing is performed until the end of the file)
-    - <i>[queries_count]</i> - number of queries (the default setting is 1)
-    - <i>[query_k_nearest]</i> - number of the nearest templates for search (the default setting is 1)
-    - <i>[search_threads_count]</i> - number of threads used for search (the default setting is 1)
-    - <i>[acceleration]</i> - search acceleration type (the default setting is 0) \n
-        0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration; \n
-        1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration; \n
-        -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
-    - <i>FILES</i> - file(s) obtained from the processing mode or by using the utility
 
-Example of launch from the <i>bin</i> directory:
-\code
+    mode - program mode (search_speed_test)
+    dll_path - path to the libfacerec.so or facerec.dll library file
+    sdk_config_dir - path to the conf/facerec directory
+    recognizer_config - recognizer config file name
+    [templates_count] - number of templates used (by default, processing is performed until the end of the file)
+    [queries_count] - number of queries (the default setting is 1)
+    [query_k_nearest] - number of the nearest templates for search (the default setting is 1)
+    [search_threads_count] - number of threads used for search (the default setting is 1)
+    [acceleration] - search acceleration type (the default setting is 0)
+    0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration;
+    1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration;
+    -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
+    FILES - file(s) obtained from the processing mode or by using the utility
+
+Example of launch from the bin directory:
 ./test_sdk \
     --mode search_speed_test \
     --dll_path ../lib/libfacerec.so \
     --sdk_config_dir ../conf/facerec \
     --recognizer_config method6v7_recognizer.xml \
     templates.bin
-\endcode
 
 Search speed test results:
-    - message with test results
 
+    message with test results
 
-\subsection convert_config_format Convert a Configuration File 
+Convert a Configuration File
+
 In this mode, the program converts the config file from format1 to format2 (used in other modes):
-    - format1 - text file with the lines in the following format: <i>\<path/to/person/dir/image_file\></i>. Images with the same <i>path/to/person/dir</i> belong to the same person. Images for one person must be in a row.\n
-Example:
-\code
-person1_dir/image1
-person1_dir/image2
-person2_dir/image1
-...
-\endcode
-    - format2 - text file with 3 lines per image (<i>\<person_id\></i> <i>\<image_id\></i> <i>\<path_to_image\></i>).\n
-Example:
-\code
-person0_id
-image0_id
-path_to_image0
-person0_id
-image1_id
-path_to_image1
-...
-\endcode
+
+    format1 - text file with the lines in the following format: <path/to/person/dir/image_file>. Images with the same path/to/person/dir belong to the same person. Images for one person must be in a row.
+    Example:
+    person1_dir/image1
+    person1_dir/image2
+    person2_dir/image1
+    ...
+    format2 - text file with 3 lines per image (<person_id> <image_id> <path_to_image>).
+    Example:
+    person0_id
+    image0_id
+    path_to_image0
+    person0_id
+    image1_id
+    path_to_image1
+    ...
 
 Launch parameters:
-    - <i>mode</i> - program mode (convert_config_format)
-    - <i>result_dataset_config</i> - config file of the image dataset
-    - <i>FILE</i> - one file of format1
+
+    mode - program mode (convert_config_format)
+    result_dataset_config - config file of the image dataset
+    FILE - one file of format1
 
 Example of launch:
-\code
 ./test_sdk \
     --mode convert_config_format \
     --result_dataset_config dataset_config.txt \
     lfw_simple_format.txt
-\endcode
 
 Conversion results:
-    - config file of the image dataset
 
+    config file of the image dataset
 
-\subsection create_simple_config Create a Configuration File
+Create a Configuration File
+
 Example of creating a config file of format1:
-\code
 find -type f | sort > ../lfw_simple_format.txt
-\endcode
 
-The paths in the configuration files must be relative to the directory passed through the <i>dataset_root_dir</i> parameter. 
+The paths in the configuration files must be relative to the directory passed through the dataset_root_dir parameter.
+Utilities
+Template Generator
 
-
-\subsection utils Utilities
-    
-\subsubsection template_generator Template Generator
 Utility for creating random templates.
 
 Launch parameters:
-    - <i>recognizer_version</i> - recognizer version (select one of [8v7, 8v6, 7v7, 7v6, 7v3, 7v2, 7, 6v7, 6v6, 6v5, 6v4, 6v3, 6v2, 6])
-    - <i>templates_count</i> - number of generated templates
-    - <i>result_file</i> - result binary file containing the generated random templates
+
+    recognizer_version - recognizer version (select one of [8v7, 8v6, 7v7, 7v6, 7v3, 7v2, 7, 6v7, 6v6, 6v5, 6v4, 6v3, 6v2, 6])
+    templates_count - number of generated templates
+    result_file - result binary file containing the generated random templates
 
 Example of launch:
-\code
 ./template_generator \
     6v7 \
     100000 \
     random_templates.bin
-\endcode
 
 Template generator result:
-    - binary file containing the generated random templates of the same format as in the processing mode
 
+    binary file containing the generated random templates of the same format as in the processing mode
 
-\subsection source_code Source code:
-    - \ref cpp/test_sdk/include/TAssert.h
-    - \ref cpp/test_sdk/include/ArgumentParser.h
-    - \ref cpp/test_sdk/include/common.h
-    - \ref cpp/test_sdk/include/convert_config_format.h
-    - \ref cpp/test_sdk/include/detection.h
-    - \ref cpp/test_sdk/include/processing.h
-    - \ref cpp/test_sdk/include/progress.h
-    - \ref cpp/test_sdk/include/recognition_test11.h
-    - \ref cpp/test_sdk/include/recognition_test1N.h
-    - \ref cpp/test_sdk/include/search_speed_test.h
-    - \ref cpp/test_sdk/src/ArgumentParser.cpp
-    - \ref cpp/test_sdk/src/common.cpp
-    - \ref cpp/test_sdk/src/convert_config_format.cpp
-    - \ref cpp/test_sdk/src/detection.cpp
-    - \ref cpp/test_sdk/src/main.cpp
-    - \ref cpp/test_sdk/src/processing.cpp
-    - \ref cpp/test_sdk/src/recognition_test11.cpp
-    - \ref cpp/test_sdk/src/recognition_test1N.cpp
-    - \ref cpp/test_sdk/src/search_speed_test.cpp
+Source code:
+
+    cpp/test_sdk/include/TAssert.h
+    cpp/test_sdk/include/ArgumentParser.h
+    cpp/test_sdk/include/common.h
+    cpp/test_sdk/include/convert_config_format.h
+    cpp/test_sdk/include/detection.h
+    cpp/test_sdk/include/processing.h
+    cpp/test_sdk/include/progress.h
+    cpp/test_sdk/include/recognition_test11.h
+    cpp/test_sdk/include/recognition_test1N.h
+    cpp/test_sdk/include/search_speed_test.h
+    cpp/test_sdk/src/ArgumentParser.cpp
+    cpp/test_sdk/src/common.cpp
+    cpp/test_sdk/src/convert_config_format.cpp
+    cpp/test_sdk/src/detection.cpp
+    cpp/test_sdk/src/main.cpp
+    cpp/test_sdk/src/processing.cpp
+    cpp/test_sdk/src/recognition_test11.cpp
+    cpp/test_sdk/src/recognition_test1N.cpp
+    cpp/test_sdk/src/search_speed_test.cpp
