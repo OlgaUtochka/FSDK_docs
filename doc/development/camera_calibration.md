@@ -22,7 +22,7 @@ Full size images are stored in the *share/calibration* directory.
 
 We recommend you to use the *asymmetric circles grid* pattern.
 
-Before calibration you have to initialize the `CameraCalibrator` object by calling the `CameraCalibrator.initCalibration` member function. Then, you have to capture the pattern in different poses with the camera you want to calibrate and provide the captured frames in the `CameraCalibrator.addImage`. 
+Before calibration you have to initialize the `CameraCalibrator` object by calling the `CameraCalibrator.initCalibration` member function. Then, you have to capture the pattern in different poses with the camera you want to calibrate and provide the captured frames in `CameraCalibrator.addImage`. 
 
 You can get the approximate progress of pattern pose space coverage by the `CameraCalibrator.getPatternSpaceCoverProgress` member function. You can get a tip what pattern pose is required using the `CameraCalibrator.getTip` member function. 
 
