@@ -31,8 +31,8 @@ Following preprocessor constants specify the current library version:
 
 ### Java
 
-To use `facerec.jar` in a project, specify the path to this file in `classpath`. The `facerec.jar` Java library is a wrapper for C++ library, so `libfacerec_jni.so` and `libfacerec.so` for Linux and Android or `facerec_jni.dll` and `facerec.dll` for Windows are required in runtime. Path to the directory containing `lifacerec_jni.so` or `facerec_jni.dll` should be specified in `java.library.path`.
+To use `facerec.jar` in a project, specify the path to this file in `classpath`. The `facerec.jar` Java library is a wrapper for the C++ library, so `libfacerec_jni.so` and `libfacerec.so` for Linux and Android or `facerec_jni.dll` and `facerec.dll` for Windows are required in runtime. Path to the directory containing `lifacerec_jni.so` or `facerec_jni.dll` should be specified in `java.library.path`.
 
 ### C#
 
-To use *facerec* in project, add reference to `FacerecCSharpWrapper.dll` in project. Add `facerec.so` (for Linux) or `facerec.dll` (for Windows) and `FacerecCSharpWrapper.dll` to folder with executable file.
+To use *facerec* in a project, add reference to `FacerecCSharpWrapper.dll` in a project. Add `facerec.so` (for Linux) or `facerec.dll` (for Windows) and `FacerecCSharpWrapper.dll` to the folder with executable file.
