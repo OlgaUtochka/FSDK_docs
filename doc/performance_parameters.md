@@ -1,0 +1,535 @@
+\page performance Performance Parameters
+
+List of used abbreviations:
+<ul>
+<li> FAR (false accept rate) – the probability that the system incorrectly accepts a non-authorized person.
+<li> TAR (true accept rate) – the probability that the system correctly accepts an authorized person.
+<li> FRR (false reject rate) – the probability that the system incorrectly rejects an authorized person.
+<li> IR (identification rate) – identification rate.
+</ul> 
+
+\section verify_perf Identification Performance
+
+\subsection verify_perf_time Timing Characteristics*
+<table cellpadding ="5" border="1" style="border-collapse:collapse;center">
+<tr>
+  <th rowspan=3>Recognition method</th>
+  <th rowspan=3>Template generation (ms)</th>
+  <th colspan=6>Search in N templates (ms)</th>
+  <th rowspan=3>Template matching (ms)</th>
+</tr>
+<tr>
+  <th colspan=3>No acceleration</th>
+  <th colspan=3>Accelerated</th>
+</tr>
+<tr>
+  <th>N = 10<sup>4</sup> </th>
+  <th>N = 10<sup>6</sup> </th>
+  <th>N = 10<sup>7</sup> </th>
+  <th>N = 10<sup>4</sup> </th>
+  <th>N = 10<sup>6</sup> </th>
+  <th>N = 10<sup>7</sup> </th>
+</tr>
+<tr align="center"> <th align="center"> 6    </th>    <td>   175 (240**)</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td>0.0002</td>  </tr>
+<tr align="center"> <th align="center"> 6.2  </th>    <td>   175 (240**)</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td>0.0002</td>  </tr>
+<tr align="center"> <th align="center"> 6.3  </th>    <td>   175 (240**)</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td>0.0002</td>  </tr>
+<tr align="center"> <th align="center"> 6.4  </th>    <td>   175 (240**)</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td>0.0002</td>  </tr>
+<tr align="center"> <th align="center"> 6.5  </th>    <td>   175 (240**)</td>  <td> 9.60</td> <td> 990 </td> <td> 9790</td>  <td> 1.40</td> <td> 56.3</td> <td> 590 </td>  <td>0.16  </td>  </tr>
+<tr align="center"> <th align="center"> 6.6  </th>    <td>   230 (250**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
+<tr align="center"> <th align="center"> 6.7  </th>    <td>   175 (190**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
+<tr align="center"> <th align="center"> 7    </th>    <td> 1045 (1440**)</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td>0.0002</td>  </tr>
+<tr align="center"> <th align="center"> 7.2  </th>    <td> 1045 (1440**)</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td> 1.00</td> <td> 123 </td> <td> 1270</td>  <td>0.0002</td>  </tr>
+<tr align="center"> <th align="center"> 7.3  </th>    <td> 1055 (1440**)</td>  <td> 9.60</td> <td> 990 </td> <td> 9790</td>  <td> 1.40</td> <td> 56.3</td> <td> 590 </td>  <td>0.16  </td>  </tr>
+<tr align="center"> <th align="center"> 7.6  </th>    <td> 1055 (1440**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
+<tr align="center"> <th align="center"> 7.7  </th>    <td>   795 (850**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
+<tr align="center"> <th align="center"> 8.6  </th>    <td>     80 (85**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
+<tr align="center"> <th align="center"> 8.7  </th>    <td>     80 (85**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
+</table>
+
+<b>*</b> – calculated per 1 core @ 1GHZ<br>
+<b>**</b> – template creation time when <i>processing_less_memory_consumption</i> was set to <i>true</i> in the \member_reference{FacerecService,createRecognizer} call for recognizer creation.
+
+@note
+<ul>
+<li> Accelerated search time is given for <i>k</i>=1. As for larger values of <i>k</i>, the time will increase up to the search time without acceleration.
+<li> Accelerated search is implemented only for the recognition methods 6.5, 6.6, 6.7, 7.3, 7.6, 7.7, 8.6, 8.7.
+<li> To achieve this speed, the templates in the index must be located in the order of creation (by using the \member_reference{Recognizer,processing} or \member_reference{Recognizer,loadTemplate} method).
+</ul>
+
+\subsection verify_perf_mem Memory Characteristics
+<table cellpadding ="5" border="1" style="border-collapse:collapse;center">
+<tr>
+  <th>Recognition method</th>
+  <th>Serialized template size (Bytes)</th>
+  <th>Template size in RAM (Bytes)</th>
+  <th>Memory consumption* (MB)</th>
+</tr>
+<tr align="center"> <th align="center"> 6     </th>   <td>  520 </td>  <td>  620 </td>  <td>   64 (33**)</td> </tr>
+<tr align="center"> <th align="center"> 6.2   </th>   <td>  520 </td>  <td>  620 </td>  <td>   64 (33**)</td> </tr>
+<tr align="center"> <th align="center"> 6.3   </th>   <td>  520 </td>  <td>  620 </td>  <td>   64 (33**)</td> </tr>
+<tr align="center"> <th align="center"> 6.4   </th>   <td>  520 </td>  <td>  620 </td>  <td>   64 (33**)</td> </tr>
+<tr align="center"> <th align="center"> 6.5   </th>   <td> 4232 </td>  <td> 4332 </td>  <td>   64 (35**)</td> </tr>
+<tr align="center"> <th align="center"> 6.6   </th>   <td>  536 </td>  <td>  636 </td>  <td>  110 (85**)</td> </tr>
+<tr align="center"> <th align="center"> 6.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>  105 (85**)</td> </tr>
+<tr align="center"> <th align="center"> 7     </th>   <td>  520 </td>  <td>  620 </td>  <td>  258 (128**)</td> </tr>
+<tr align="center"> <th align="center"> 7.2   </th>   <td>  520 </td>  <td>  620 </td>  <td>  258 (128**)</td> </tr>
+<tr align="center"> <th align="center"> 7.3   </th>   <td> 4232 </td>  <td> 4332 </td>  <td>  285 (153**)</td> </tr>
+<tr align="center"> <th align="center"> 7.6   </th>   <td>  536 </td>  <td>  636 </td>  <td>  285 (153**)</td> </tr>
+<tr align="center"> <th align="center"> 7.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>  195 (163**)</td> </tr>
+<tr align="center"> <th align="center"> 8.6   </th>   <td>  536 </td>  <td>  636 </td>  <td>   52 (40**)</td> </tr>
+<tr align="center"> <th align="center"> 8.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>   52 (40**)</td> </tr>
+</table>
+
+<b>*</b> – the amount of memory consumed does not depend on the number of \member_reference{Recognizer} objects created by this method.<br>
+<b>**</b> – memory consumption when <i>processing_less_memory_consumption</i> was set to <i>true</i> in the \member_reference{FacerecService,createRecognizer} call for recognizer creation.
+
+
+\n
+
+\subsection verify_perf_lfw_full_ext ROC on Extended LFW Test
+
+In this test, the mismatch pairs set was increased and LFW errors were fixed in order to get accurate measurements at low FAR.
+
+\image html log_lfw_full_ext_w_all_methods.png
+
+\n
+
+<table cellpadding ="3" border="1" style="border-collapse:collapse;center">
+<tr>
+  <th>FAR</th>
+  <th>6   TAR (%)</th>
+  <th>6.2 TAR (%)</th>
+  <th>6.3 TAR (%)</th>
+  <th>7   TAR (%)</th>
+  <th>6.4 TAR (%)</th>
+  <th>6.5 TAR (%)</th>
+  <th>8.6 TAR (%)</th>
+  <th>7.2 TAR (%)</th>
+  <th>7.3 TAR (%)</th>
+  <th>6.6 TAR (%)</th>
+  <th>8.7 TAR (%)</th>
+  <th>7.6 TAR (%)</th>
+  <th>6.7 TAR (%)</th>
+  <th>7.7 TAR (%)</th>
+</tr>
+<tr align="center"> <th> 1e-2 </th>  <td> 90.6 </td>  <td> 94.4 </td>  <td> 96.4 </td>  <td> 97.7 </td>  <td> 97.4 </td>  <td> 98.7 </td>  <td> 98.9 </td>  <td> 99.0 </td>  <td> 99.3 </td>  <td> 99.3 </td>  <td> 99.6 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 9e-3 </th>  <td> 90.1 </td>  <td> 94.0 </td>  <td> 96.3 </td>  <td> 97.6 </td>  <td> 97.2 </td>  <td> 98.5 </td>  <td> 98.9 </td>  <td> 98.9 </td>  <td> 99.3 </td>  <td> 99.3 </td>  <td> 99.6 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 8e-3 </th>  <td> 89.5 </td>  <td> 93.3 </td>  <td> 96.0 </td>  <td> 97.6 </td>  <td> 97.0 </td>  <td> 98.5 </td>  <td> 98.8 </td>  <td> 98.9 </td>  <td> 99.3 </td>  <td> 99.2 </td>  <td> 99.6 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 7e-3 </th>  <td> 88.8 </td>  <td> 92.5 </td>  <td> 95.6 </td>  <td> 97.2 </td>  <td> 96.8 </td>  <td> 98.3 </td>  <td> 98.7 </td>  <td> 98.8 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.5 </td>  <td> 99.4 </td>  <td> 99.7 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 6e-3 </th>  <td> 87.8 </td>  <td> 91.8 </td>  <td> 94.9 </td>  <td> 96.9 </td>  <td> 96.7 </td>  <td> 98.1 </td>  <td> 98.5 </td>  <td> 98.8 </td>  <td> 99.2 </td>  <td> 99.1 </td>  <td> 99.5 </td>  <td> 99.4 </td>  <td> 99.7 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 5e-3 </th>  <td> 86.8 </td>  <td> 90.8 </td>  <td> 94.4 </td>  <td> 96.4 </td>  <td> 96.5 </td>  <td> 98.0 </td>  <td> 98.3 </td>  <td> 98.7 </td>  <td> 99.1 </td>  <td> 99.1 </td>  <td> 99.5 </td>  <td> 99.3 </td>  <td> 99.7 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 4e-3 </th>  <td> 85.6 </td>  <td> 89.8 </td>  <td> 93.5 </td>  <td> 95.9 </td>  <td> 96.0 </td>  <td> 97.9 </td>  <td> 98.1 </td>  <td> 98.5 </td>  <td> 99.0 </td>  <td> 99.1 </td>  <td> 99.4 </td>  <td> 99.3 </td>  <td> 99.7 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 3e-3 </th>  <td> 83.6 </td>  <td> 88.1 </td>  <td> 92.4 </td>  <td> 95.2 </td>  <td> 95.4 </td>  <td> 97.7 </td>  <td> 97.8 </td>  <td> 98.3 </td>  <td> 98.9 </td>  <td> 99.0 </td>  <td> 99.3 </td>  <td> 99.2 </td>  <td> 99.6 </td>  <td> 99.7 </td> </tr>
+<tr align="center"> <th> 2e-3 </th>  <td> 79.9 </td>  <td> 85.6 </td>  <td> 90.7 </td>  <td> 94.1 </td>  <td> 94.6 </td>  <td> 97.2 </td>  <td> 97.4 </td>  <td> 98.0 </td>  <td> 98.8 </td>  <td> 98.8 </td>  <td> 99.2 </td>  <td> 99.1 </td>  <td> 99.6 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 1e-3 </th>  <td> 73.5 </td>  <td> 80.4 </td>  <td> 86.8 </td>  <td> 91.1 </td>  <td> 92.5 </td>  <td> 96.5 </td>  <td> 96.6 </td>  <td> 97.2 </td>  <td> 98.4 </td>  <td> 98.4 </td>  <td> 98.8 </td>  <td> 98.8 </td>  <td> 99.5 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 9e-4 </th>  <td> 72.5 </td>  <td> 79.6 </td>  <td> 86.2 </td>  <td> 90.7 </td>  <td> 92.3 </td>  <td> 96.4 </td>  <td> 96.4 </td>  <td> 97.0 </td>  <td> 98.4 </td>  <td> 98.4 </td>  <td> 98.7 </td>  <td> 98.8 </td>  <td> 99.4 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 8e-4 </th>  <td> 71.7 </td>  <td> 78.8 </td>  <td> 85.7 </td>  <td> 90.3 </td>  <td> 92.0 </td>  <td> 96.2 </td>  <td> 96.1 </td>  <td> 96.8 </td>  <td> 98.2 </td>  <td> 98.3 </td>  <td> 98.7 </td>  <td> 98.7 </td>  <td> 99.4 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 7e-4 </th>  <td> 70.8 </td>  <td> 77.5 </td>  <td> 84.9 </td>  <td> 89.8 </td>  <td> 91.7 </td>  <td> 96.1 </td>  <td> 95.9 </td>  <td> 96.7 </td>  <td> 98.2 </td>  <td> 98.1 </td>  <td> 98.7 </td>  <td> 98.7 </td>  <td> 99.4 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 6e-4 </th>  <td> 69.1 </td>  <td> 76.7 </td>  <td> 84.0 </td>  <td> 88.9 </td>  <td> 91.4 </td>  <td> 95.8 </td>  <td> 95.5 </td>  <td> 96.4 </td>  <td> 98.1 </td>  <td> 98.1 </td>  <td> 98.6 </td>  <td> 98.6 </td>  <td> 99.4 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 5e-4 </th>  <td> 68.0 </td>  <td> 75.2 </td>  <td> 82.8 </td>  <td> 88.0 </td>  <td> 90.9 </td>  <td> 95.3 </td>  <td> 95.2 </td>  <td> 96.3 </td>  <td> 98.0 </td>  <td> 98.0 </td>  <td> 98.5 </td>  <td> 98.6 </td>  <td> 99.4 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 4e-4 </th>  <td> 65.7 </td>  <td> 73.7 </td>  <td> 81.4 </td>  <td> 87.1 </td>  <td> 90.2 </td>  <td> 95.0 </td>  <td> 94.6 </td>  <td> 95.6 </td>  <td> 97.9 </td>  <td> 97.8 </td>  <td> 98.4 </td>  <td> 98.5 </td>  <td> 99.4 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 3e-4 </th>  <td> 63.0 </td>  <td> 71.7 </td>  <td> 79.6 </td>  <td> 85.6 </td>  <td> 89.4 </td>  <td> 94.3 </td>  <td> 93.9 </td>  <td> 95.1 </td>  <td> 97.6 </td>  <td> 97.6 </td>  <td> 98.2 </td>  <td> 98.4 </td>  <td> 99.2 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 2e-4 </th>  <td> 59.2 </td>  <td> 68.2 </td>  <td> 76.5 </td>  <td> 83.3 </td>  <td> 88.0 </td>  <td> 93.4 </td>  <td> 93.1 </td>  <td> 94.2 </td>  <td> 97.2 </td>  <td> 97.1 </td>  <td> 98.0 </td>  <td> 98.1 </td>  <td> 99.2 </td>  <td> 99.4 </td> </tr>
+<tr align="center"> <th> 1e-4 </th>  <td> 53.3 </td>  <td> 62.5 </td>  <td> 71.2 </td>  <td> 79.4 </td>  <td> 85.1 </td>  <td> 91.8 </td>  <td> 91.7 </td>  <td> 92.7 </td>  <td> 96.3 </td>  <td> 96.2 </td>  <td> 97.3 </td>  <td> 97.7 </td>  <td> 99.0 </td>  <td> 99.3 </td> </tr>
+<tr align="center"> <th> 9e-5 </th>  <td> 52.3 </td>  <td> 61.2 </td>  <td> 70.3 </td>  <td> 78.8 </td>  <td> 84.7 </td>  <td> 91.5 </td>  <td> 91.4 </td>  <td> 92.3 </td>  <td> 96.2 </td>  <td> 96.1 </td>  <td> 97.3 </td>  <td> 97.6 </td>  <td> 99.0 </td>  <td> 99.2 </td> </tr>
+<tr align="center"> <th> 8e-5 </th>  <td> 51.4 </td>  <td> 60.0 </td>  <td> 69.0 </td>  <td> 77.8 </td>  <td> 84.2 </td>  <td> 91.2 </td>  <td> 91.1 </td>  <td> 92.0 </td>  <td> 96.1 </td>  <td> 96.0 </td>  <td> 97.2 </td>  <td> 97.4 </td>  <td> 99.0 </td>  <td> 99.2 </td> </tr>
+<tr align="center"> <th> 7e-5 </th>  <td> 50.3 </td>  <td> 58.9 </td>  <td> 68.0 </td>  <td> 76.8 </td>  <td> 83.5 </td>  <td> 90.9 </td>  <td> 90.9 </td>  <td> 91.5 </td>  <td> 95.8 </td>  <td> 95.8 </td>  <td> 97.1 </td>  <td> 97.3 </td>  <td> 98.9 </td>  <td> 99.2 </td> </tr>
+<tr align="center"> <th> 6e-5 </th>  <td> 48.9 </td>  <td> 56.9 </td>  <td> 66.9 </td>  <td> 75.9 </td>  <td> 82.8 </td>  <td> 90.5 </td>  <td> 90.5 </td>  <td> 91.2 </td>  <td> 95.6 </td>  <td> 95.5 </td>  <td> 96.9 </td>  <td> 97.2 </td>  <td> 98.8 </td>  <td> 99.1 </td> </tr>
+<tr align="center"> <th> 5e-5 </th>  <td> 47.2 </td>  <td> 55.3 </td>  <td> 65.0 </td>  <td> 74.7 </td>  <td> 81.8 </td>  <td> 89.8 </td>  <td> 90.0 </td>  <td> 90.7 </td>  <td> 95.3 </td>  <td> 95.0 </td>  <td> 96.6 </td>  <td> 97.0 </td>  <td> 98.7 </td>  <td> 99.0 </td> </tr>
+<tr align="center"> <th> 4e-5 </th>  <td> 45.6 </td>  <td> 53.6 </td>  <td> 63.1 </td>  <td> 73.0 </td>  <td> 80.9 </td>  <td> 88.9 </td>  <td> 89.3 </td>  <td> 89.8 </td>  <td> 94.9 </td>  <td> 94.7 </td>  <td> 96.3 </td>  <td> 96.6 </td>  <td> 98.5 </td>  <td> 99.0 </td> </tr>
+<tr align="center"> <th> 3e-5 </th>  <td> 43.1 </td>  <td> 51.1 </td>  <td> 60.3 </td>  <td> 71.0 </td>  <td> 79.7 </td>  <td> 88.2 </td>  <td> 88.1 </td>  <td> 89.2 </td>  <td> 94.4 </td>  <td> 94.1 </td>  <td> 95.8 </td>  <td> 96.4 </td>  <td> 98.5 </td>  <td> 98.9 </td> </tr>
+<tr align="center"> <th> 2e-5 </th>  <td> 39.8 </td>  <td> 48.3 </td>  <td> 56.6 </td>  <td> 68.0 </td>  <td> 77.5 </td>  <td> 86.8 </td>  <td> 86.7 </td>  <td> 87.4 </td>  <td> 93.4 </td>  <td> 93.2 </td>  <td> 95.0 </td>  <td> 95.6 </td>  <td> 98.1 </td>  <td> 98.8 </td> </tr>
+<tr align="center"> <th> 1e-5 </th>  <td> 35.6 </td>  <td> 43.6 </td>  <td> 51.2 </td>  <td> 63.2 </td>  <td> 73.6 </td>  <td> 83.3 </td>  <td> 83.9 </td>  <td> 85.0 </td>  <td> 91.7 </td>  <td> 91.7 </td>  <td> 93.8 </td>  <td> 94.5 </td>  <td> 97.5 </td>  <td> 98.5 </td> </tr>
+<tr align="center"> <th> 9e-6 </th>  <td> 35.0 </td>  <td> 43.0 </td>  <td> 50.0 </td>  <td> 62.4 </td>  <td> 72.9 </td>  <td> 83.0 </td>  <td> 83.5 </td>  <td> 84.7 </td>  <td> 91.3 </td>  <td> 91.6 </td>  <td> 93.7 </td>  <td> 94.3 </td>  <td> 97.4 </td>  <td> 98.5 </td> </tr>
+<tr align="center"> <th> 8e-6 </th>  <td> 34.3 </td>  <td> 42.1 </td>  <td> 49.2 </td>  <td> 61.8 </td>  <td> 72.1 </td>  <td> 82.5 </td>  <td> 82.8 </td>  <td> 84.2 </td>  <td> 91.2 </td>  <td> 91.3 </td>  <td> 93.4 </td>  <td> 94.2 </td>  <td> 97.3 </td>  <td> 98.4 </td> </tr>
+<tr align="center"> <th> 7e-6 </th>  <td> 33.4 </td>  <td> 40.9 </td>  <td> 48.1 </td>  <td> 60.4 </td>  <td> 70.9 </td>  <td> 82.1 </td>  <td> 81.9 </td>  <td> 83.5 </td>  <td> 91.0 </td>  <td> 91.2 </td>  <td> 93.2 </td>  <td> 93.9 </td>  <td> 97.2 </td>  <td> 98.4 </td> </tr>
+<tr align="center"> <th> 6e-6 </th>  <td> 31.8 </td>  <td> 40.1 </td>  <td> 47.1 </td>  <td> 59.1 </td>  <td> 70.2 </td>  <td> 81.2 </td>  <td> 81.4 </td>  <td> 82.8 </td>  <td> 90.4 </td>  <td> 90.5 </td>  <td> 93.0 </td>  <td> 93.5 </td>  <td> 97.0 </td>  <td> 98.2 </td> </tr>
+<tr align="center"> <th> 5e-6 </th>  <td> 30.8 </td>  <td> 38.4 </td>  <td> 45.8 </td>  <td> 57.6 </td>  <td> 68.7 </td>  <td> 80.4 </td>  <td> 80.7 </td>  <td> 82.2 </td>  <td> 90.0 </td>  <td> 90.2 </td>  <td> 92.7 </td>  <td> 93.1 </td>  <td> 96.8 </td>  <td> 98.2 </td> </tr>
+<tr align="center"> <th> 4e-6 </th>  <td> 30.2 </td>  <td> 37.0 </td>  <td> 43.9 </td>  <td> 55.8 </td>  <td> 67.5 </td>  <td> 79.2 </td>  <td> 80.2 </td>  <td> 81.2 </td>  <td> 89.4 </td>  <td> 89.5 </td>  <td> 91.9 </td>  <td> 92.6 </td>  <td> 96.7 </td>  <td> 98.0 </td> </tr>
+<tr align="center"> <th> 3e-6 </th>  <td> 29.1 </td>  <td> 35.6 </td>  <td> 42.4 </td>  <td> 53.6 </td>  <td> 64.5 </td>  <td> 78.0 </td>  <td> 78.9 </td>  <td> 80.2 </td>  <td> 88.9 </td>  <td> 88.6 </td>  <td> 91.1 </td>  <td> 91.9 </td>  <td> 96.4 </td>  <td> 97.8 </td> </tr>
+<tr align="center"> <th> 2e-6 </th>  <td> 25.8 </td>  <td> 33.6 </td>  <td> 38.9 </td>  <td> 49.3 </td>  <td> 62.1 </td>  <td> 76.3 </td>  <td> 77.5 </td>  <td> 78.5 </td>  <td> 87.6 </td>  <td> 87.4 </td>  <td> 90.0 </td>  <td> 90.7 </td>  <td> 96.0 </td>  <td> 97.3 </td> </tr>
+<tr align="center"> <th> 1e-6 </th>  <td> 20.7 </td>  <td> 30.9 </td>  <td> 34.4 </td>  <td> 44.5 </td>  <td> 57.1 </td>  <td> 73.0 </td>  <td> 74.5 </td>  <td> 75.9 </td>  <td> 85.3 </td>  <td> 86.0 </td>  <td> 88.9 </td>  <td> 89.2 </td>  <td> 94.8 </td>  <td> 96.9 </td> </tr>
+<tr align="center"> <th> 9e-7 </th>  <td> 19.5 </td>  <td> 29.5 </td>  <td> 33.3 </td>  <td> 43.7 </td>  <td> 56.4 </td>  <td> 71.8 </td>  <td> 73.9 </td>  <td> 75.3 </td>  <td> 84.9 </td>  <td> 85.7 </td>  <td> 88.6 </td>  <td> 89.1 </td>  <td> 94.3 </td>  <td> 96.7 </td> </tr>
+<tr align="center"> <th> 8e-7 </th>  <td> 19.3 </td>  <td> 29.1 </td>  <td> 32.7 </td>  <td> 43.2 </td>  <td> 56.1 </td>  <td> 71.4 </td>  <td> 72.5 </td>  <td> 74.7 </td>  <td> 84.6 </td>  <td> 84.9 </td>  <td> 87.7 </td>  <td> 88.9 </td>  <td> 94.1 </td>  <td> 96.3 </td> </tr>
+<tr align="center"> <th> 7e-7 </th>  <td> 18.5 </td>  <td> 28.7 </td>  <td> 32.3 </td>  <td> 42.9 </td>  <td> 56.1 </td>  <td> 70.8 </td>  <td> 72.0 </td>  <td> 73.7 </td>  <td> 84.0 </td>  <td> 84.8 </td>  <td> 87.6 </td>  <td> 88.7 </td>  <td> 93.8 </td>  <td> 96.1 </td> </tr>
+<tr align="center"> <th> 6e-7 </th>  <td> 17.2 </td>  <td> 27.6 </td>  <td> 31.1 </td>  <td> 42.6 </td>  <td> 55.8 </td>  <td> 69.8 </td>  <td> 71.7 </td>  <td> 73.4 </td>  <td> 83.6 </td>  <td> 84.6 </td>  <td> 87.1 </td>  <td> 88.0 </td>  <td> 93.7 </td>  <td> 96.0 </td> </tr>
+<tr align="center"> <th> 5e-7 </th>  <td> 16.0 </td>  <td> 26.3 </td>  <td> 28.6 </td>  <td> 42.0 </td>  <td> 54.4 </td>  <td> 69.2 </td>  <td> 70.9 </td>  <td> 72.8 </td>  <td> 83.4 </td>  <td> 83.8 </td>  <td> 86.4 </td>  <td> 87.8 </td>  <td> 93.4 </td>  <td> 95.7 </td> </tr>
+<tr align="center"> <th> 4e-7 </th>  <td> 15.1 </td>  <td> 25.4 </td>  <td> 27.9 </td>  <td> 40.1 </td>  <td> 51.9 </td>  <td> 67.6 </td>  <td> 70.4 </td>  <td> 72.4 </td>  <td> 83.1 </td>  <td> 82.6 </td>  <td> 86.0 </td>  <td> 87.0 </td>  <td> 93.1 </td>  <td> 95.6 </td> </tr>
+<tr align="center"> <th> 3e-7 </th>  <td> 14.3 </td>  <td> 23.6 </td>  <td> 26.3 </td>  <td> 36.4 </td>  <td> 49.0 </td>  <td> 64.0 </td>  <td> 69.7 </td>  <td> 71.5 </td>  <td> 82.6 </td>  <td> 82.3 </td>  <td> 84.7 </td>  <td> 86.0 </td>  <td> 92.3 </td>  <td> 95.5 </td> </tr>
+<tr align="center"> <th> 2e-7 </th>  <td> 11.8 </td>  <td> 22.2 </td>  <td> 24.5 </td>  <td> 33.9 </td>  <td> 45.5 </td>  <td> 63.0 </td>  <td> 67.3 </td>  <td> 70.0 </td>  <td> 78.3 </td>  <td> 81.2 </td>  <td> 83.2 </td>  <td> 85.4 </td>  <td> 91.4 </td>  <td> 92.4 </td> </tr>
+<tr align="center"> <th> 1e-7 </th>  <td> 06.6 </td>  <td> 18.7 </td>  <td> 17.6 </td>  <td> 31.1 </td>  <td> 44.5 </td>  <td> 59.0 </td>  <td> 66.0 </td>  <td> 68.5 </td>  <td> 77.8 </td>  <td> 78.7 </td>  <td> 81.5 </td>  <td> 80.8 </td>  <td> 88.9 </td>  <td> 90.6 </td> </tr>
+</table>
+
+\n
+
+\subsection verify_perf_lfw ROC on LFW Test
+
+In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the Wild) dataset is used.
+
+<table cellpadding ="3" border="1" style="border-collapse:collapse;center">
+<tr>
+  <th>FAR (%)</th>
+  <th>6   TAR (%)</th>
+  <th>6.2 TAR (%)</th>
+  <th>6.3 TAR (%)</th>
+  <th>7   TAR (%)</th>
+  <th>6.4 TAR (%)</th>
+  <th>6.5 TAR (%)</th>
+  <th>8.6 TAR (%)</th>
+  <th>7.2 TAR (%)</th>
+  <th>7.3 TAR (%)</th>
+  <th>6.6 TAR (%)</th>
+  <th>8.7 TAR (%)</th>
+  <th>7.6 TAR (%)</th>
+  <th>6.7 TAR (%)</th>
+  <th>7.7 TAR (%)</th>
+</tr>
+<tr align="center"> <th>FAR = FRR</th>    <td> 97.0 </td>  <td> 97.6 </td>  <td> 98.0 </td>  <td> 98.7 </td>  <td> 98.0 </td>  <td> 98.6 </td>  <td> 98.7 </td>  <td> 98.4 </td>  <td> 98.8 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.1 </td>  <td> 99.4 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 10  </th>        <td> 99.1 </td>  <td> 99.4 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.3 </td>  <td> 99.5 </td>  <td> 99.2 </td>  <td> 99.3 </td>  <td> 99.4 </td>  <td> 99.6 </td>  <td> 99.8 </td>  <td> 99.6 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 9.0 </th>        <td> 99.0 </td>  <td> 99.4 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.2 </td>  <td> 99.5 </td>  <td> 99.2 </td>  <td> 99.3 </td>  <td> 99.4 </td>  <td> 99.6 </td>  <td> 99.8 </td>  <td> 99.6 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 8.0 </th>        <td> 99.0 </td>  <td> 99.3 </td>  <td> 99.4 </td>  <td> 99.6 </td>  <td> 99.1 </td>  <td> 99.4 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.4 </td>  <td> 99.6 </td>  <td> 99.7 </td>  <td> 99.6 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 7.0 </th>        <td> 98.8 </td>  <td> 99.2 </td>  <td> 99.3 </td>  <td> 99.6 </td>  <td> 99.0 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.4 </td>  <td> 99.6 </td>  <td> 99.7 </td>  <td> 99.6 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 6.0 </th>        <td> 98.6 </td>  <td> 99.0 </td>  <td> 99.2 </td>  <td> 99.4 </td>  <td> 98.9 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.4 </td>  <td> 99.6 </td>  <td> 99.7 </td>  <td> 99.5 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 5.0 </th>        <td> 98.2 </td>  <td> 98.7 </td>  <td> 99.0 </td>  <td> 99.4 </td>  <td> 98.8 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.1 </td>  <td> 99.4 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.4 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 4.0 </th>        <td> 97.7 </td>  <td> 98.5 </td>  <td> 98.9 </td>  <td> 99.2 </td>  <td> 98.7 </td>  <td> 99.1 </td>  <td> 99.1 </td>  <td> 99.0 </td>  <td> 99.4 </td>  <td> 99.5 </td>  <td> 99.7 </td>  <td> 99.4 </td>  <td> 99.8 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 3.0 </th>        <td> 97.0 </td>  <td> 98.0 </td>  <td> 98.7 </td>  <td> 99.0 </td>  <td> 98.3 </td>  <td> 99.1 </td>  <td> 99.1 </td>  <td> 98.8 </td>  <td> 99.3 </td>  <td> 99.5 </td>  <td> 99.6 </td>  <td> 99.4 </td>  <td> 99.7 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 2.0 </th>        <td> 94.6 </td>  <td> 97.2 </td>  <td> 98.2 </td>  <td> 98.9 </td>  <td> 98.1 </td>  <td> 98.8 </td>  <td> 98.8 </td>  <td> 98.7 </td>  <td> 99.1 </td>  <td> 99.5 </td>  <td> 99.6 </td>  <td> 99.3 </td>  <td> 99.7 </td>  <td> 99.8 </td> </tr>
+<tr align="center"> <th> 1.0 </th>        <td> 91.6 </td>  <td> 95.0 </td>  <td> 96.9 </td>  <td> 98.5 </td>  <td> 97.5 </td>  <td> 98.3 </td>  <td> 98.5 </td>  <td> 98.3 </td>  <td> 98.7 </td>  <td> 99.2 </td>  <td> 99.5 </td>  <td> 99.1 </td>  <td> 99.6 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.9 </th>        <td> 91.0 </td>  <td> 94.6 </td>  <td> 96.8 </td>  <td> 98.4 </td>  <td> 97.1 </td>  <td> 98.2 </td>  <td> 98.5 </td>  <td> 98.3 </td>  <td> 98.7 </td>  <td> 99.2 </td>  <td> 99.3 </td>  <td> 99.1 </td>  <td> 99.6 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.8 </th>        <td> 90.7 </td>  <td> 94.3 </td>  <td> 96.5 </td>  <td> 98.2 </td>  <td> 96.9 </td>  <td> 98.2 </td>  <td> 98.4 </td>  <td> 98.2 </td>  <td> 98.7 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.1 </td>  <td> 99.5 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.7 </th>        <td> 89.4 </td>  <td> 94.1 </td>  <td> 95.6 </td>  <td> 98.2 </td>  <td> 96.7 </td>  <td> 98.2 </td>  <td> 98.4 </td>  <td> 98.0 </td>  <td> 98.6 </td>  <td> 99.2 </td>  <td> 99.2 </td>  <td> 99.0 </td>  <td> 99.5 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.6 </th>        <td> 88.5 </td>  <td> 93.9 </td>  <td> 95.5 </td>  <td> 97.7 </td>  <td> 96.5 </td>  <td> 98.0 </td>  <td> 98.4 </td>  <td> 97.9 </td>  <td> 98.5 </td>  <td> 99.1 </td>  <td> 99.1 </td>  <td> 99.0 </td>  <td> 99.5 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.5 </th>        <td> 88.1 </td>  <td> 93.3 </td>  <td> 94.9 </td>  <td> 97.5 </td>  <td> 96.4 </td>  <td> 97.8 </td>  <td> 98.1 </td>  <td> 97.9 </td>  <td> 98.3 </td>  <td> 99.1 </td>  <td> 99.0 </td>  <td> 98.7 </td>  <td> 99.4 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.4 </th>        <td> 87.4 </td>  <td> 92.0 </td>  <td> 94.2 </td>  <td> 96.8 </td>  <td> 95.8 </td>  <td> 97.3 </td>  <td> 97.9 </td>  <td> 97.9 </td>  <td> 98.0 </td>  <td> 99.1 </td>  <td> 99.0 </td>  <td> 98.6 </td>  <td> 99.4 </td>  <td> 99.6 </td> </tr>
+<tr align="center"> <th> 0.3 </th>        <td> 86.5 </td>  <td> 90.3 </td>  <td> 93.2 </td>  <td> 95.6 </td>  <td> 95.4 </td>  <td> 97.2 </td>  <td> 97.7 </td>  <td> 97.7 </td>  <td> 97.9 </td>  <td> 99.0 </td>  <td> 98.8 </td>  <td> 98.6 </td>  <td> 99.4 </td>  <td> 99.5 </td> </tr>
+<tr align="center"> <th> 0.2 </th>        <td> 84.9 </td>  <td> 88.5 </td>  <td> 92.6 </td>  <td> 94.9 </td>  <td> 94.2 </td>  <td> 96.7 </td>  <td> 96.6 </td>  <td> 97.6 </td>  <td> 97.9 </td>  <td> 98.9 </td>  <td> 98.8 </td>  <td> 98.3 </td>  <td> 99.4 </td>  <td> 99.4 </td> </tr>
+<tr align="center"> <th> 0.1 </th>        <td> 78.6 </td>  <td> 83.0 </td>  <td> 89.7 </td>  <td> 93.1 </td>  <td> 93.8 </td>  <td> 96.2 </td>  <td> 95.5 </td>  <td> 96.3 </td>  <td> 97.6 </td>  <td> 98.5 </td>  <td> 98.5 </td>  <td> 97.7 </td>  <td> 99.3 </td>  <td> 99.4 </td> </tr>
+</table>
+
+
+\n
+
+\subsection verify_perf_feret_200x7 ROC on FERET 200x7 Test
+
+<table cellpadding ="3" border="1" style="border-collapse:collapse;center">
+<tr>
+  <th>FAR (%)</th>
+  <th>6   TAR (%)</th>
+  <th>6.2 TAR (%)</th>
+  <th>6.3 TAR (%)</th>
+  <th>7   TAR (%)</th>
+  <th>6.4 TAR (%)</th>
+  <th>6.5 TAR (%)</th>
+  <th>8.6 TAR (%)</th>
+  <th>7.2 TAR (%)</th>
+  <th>7.3 TAR (%)</th>
+  <th>6.6 TAR (%)</th>
+  <th>8.7 TAR (%)</th>
+  <th>7.6 TAR (%)</th>
+  <th>6.7 TAR (%)</th>
+  <th>7.7 TAR (%)</th>
+</tr>
+<tr align="center"> <th>10.0</th>    <td> 99.93333 </td>   <td> 99.93333 </td>  <td> 100 </td>      <td> 100 </td>      <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  </tr>
+<tr align="center"> <th>5.0</th>     <td> 99.89999 </td>   <td> 99.93333 </td>  <td> 100 </td>      <td> 100 </td>      <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  </tr>
+<tr align="center"> <th>1.0</th>     <td> 98.96667 </td>   <td> 99.46667 </td>  <td> 99.8666 </td>  <td> 99.8666 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  </tr>
+</table>
+
+\n
+
+\subsection verify_perf_feret_dupl Performance on FERET Duplicate I Test
+
+<table cellpadding ="3" border="1" style="border-collapse:collapse;center">
+<tr align="center">
+  <th>Rank</th>
+  <th>6   IR (%)</th>
+  <th>6.2 IR (%)</th>
+  <th>6.3 IR (%)</th>
+  <th>7   IR (%)</th>
+  <th>6.4 IR (%)</th>
+  <th>6.5 IR (%)</th>
+  <th>8.6 IR (%)</th>
+  <th>7.2 IR (%)</th>
+  <th>7.3 IR (%)</th>
+  <th>6.6 IR (%)</th>
+  <th>8.7 IR (%)</th>
+  <th>7.6 IR (%)</th>
+  <th>6.7 IR (%)</th>
+  <th>7.7 IR (%)</th>
+</tr>
+<tr align="center"> <th>1</th>         <td> 95.6276 </td>   <td> 97.1791 </td>  <td> 99.2987 </td>  <td> 99.7179 </td>  <td> 99.5804 </td>  <td> 99.8603 </td>  <td> 99.8603 </td>  <td> 99.7203 </td>  <td> 99.7207 </td>  <td> 99.8603 </td>  <td> 99.7207 </td>  <td> 99.7207 </td>  <td> 99.7207 </td>  <td> 99.7207 </td>  </tr>
+<tr align="center"> <th>2</th>         <td> 97.3202 </td>   <td> 99.1537 </td>  <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+<tr align="center"> <th>5</th>         <td> 99.1537 </td>   <td> 99.859 </td>   <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+<tr align="center"> <th>9</th>         <td> 99.7179 </td>   <td> 99.859 </td>   <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+<tr align="center"> <th>10</th>        <td> 99.7179 </td>   <td> 99.859 </td>   <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+<tr align="center"> <th>20</th>        <td> 99.859 </td>    <td> 99.859 </td>   <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+<tr align="center"> <th>50</th>        <td> 100 </td>       <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+<tr align="center"> <th>100</th>       <td> 100 </td>       <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
+</table>
+
+\n
+\section performance_test Performance Test
+
+\subsection modes Modes
+    - \ref detection
+    - \ref processing
+    - \ref recognition_test_11
+    - \ref search_speed_test
+    - \ref convert_config_format
+
+\section detection Detection
+In this mode, the program detects faces in images with the id in the range of [begin_image_id, end_image_id).
+Each image should contain only one person. The images containing more than one person detected will be discarded.
+
+Launch parameters:
+    - <i>mode</i> - program mode (detection)
+    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
+    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
+    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
+    - <i>capturer_config</i> - capturer config file name
+    - <i>dataset_root_dir</i> - path to the dataset directory
+    - <i>detection_result_file</i> - file for storing the detection results
+    - <i>[begin_image_id]</i> - index of the image from which detection begins (the default setting is 0)
+    - <i>[end_image_id]</i> - index of the image to which detection is performed (by default, the processing is performed to the end of the file)
+    - <i>[use_cpu_cores_count]</i> - number of cores used for detection (the default setting is 1)
+
+Example of launch from the <i>bin</i> directory:
+\code
+./test_sdk \
+    --mode detection \
+    --dll_path ../lib/libfacerec.so \
+    --sdk_config_dir ../conf/facerec \
+    --capturer_config common_capturer4_lbf.xml \
+    --dataset_config dataset_config.txt \
+    --dataset_root_dir /path/to/data \
+    --detection_result_file detection_result.txt \
+\endcode
+
+Detection results:
+    - text file with the lines in the following format: <i>\<image_id\></i> <i>\<points_count\></i> <i>\<points\></i>
+
+
+\subsection processing Processing
+In this mode, the program creates templates from the faces detected in the images with the id in the range of [begin_image_id, end_image_id).
+
+Launch parameters:
+    - <i>mode</i> - program mode (processing)
+    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
+    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
+    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
+    - <i>dataset_root_dir</i> - path to the dataset directory
+    - <i>recognizer_config</i> - recognizer config file name
+    - <i>processing_result_file</i> - file for storing the resulting templates
+    - <i>[begin_image_id]</i> - index of the image from which processing begins (the  default setting is 0)
+    - <i>[end_image_id]</i> - index of the image to which processing is performed (by default, the processing is performed to the end of the file)
+    - <i>[use_cpu_cores_count]</i> - number of cores used for processing (the default setting is 1)
+    - <i>FILES</i> - file(s) storing the detection results
+
+Example of launch from the <i>bin</i> directory:
+\code
+./test_sdk \
+    --mode processing \
+    --dll_path ../lib/libfacerec.so \
+    --sdk_config_dir ../conf/facerec \
+    --dataset_config dataset_config.txt \
+    --dataset_root_dir /path/to/data \
+    --recognizer_config method6v7_recognizer.xml \
+    --processing_result_file ./templates_6v7.bin \
+    detection_result.txt
+\endcode
+
+Processing results:
+    - binary file containing one record per each generated template; each record is a 64-bit unsigned integer (image_id) followed by a serialized template (see \ref cpp/test_sdk/src/sdk_test.cpp)
+
+
+\subsection recognition_test_11 1:1 Recognition Test
+In this mode, the program performs the 1:1 recognition test using the templates generated from the images with the id in the range of [begin_image_id, end_image_id).
+
+Launch parameters:
+    - <i>mode</i> - program mode (recognition_test_11)
+    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
+    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
+    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
+    - <i>recognizer_config</i> - recognizer config file name
+    - <i>result_roc_file</i> - file to save the ROC curve
+    - <i>result_closest_mismatches_file</i> - result file with the closest mismatches
+    - <i>[begin_image_id]</i> - index of the first image used in the test (the  default setting is 0)
+    - <i>[end_image_id]</i> - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
+    - <i>[use_cpu_cores_count]</i> - number of cores used for matching (the default setting is 1)
+    - <i>FILES</i> - file(s) storing the processing results
+
+Example of launch from the <i>bin</i> directory:
+\code
+./test_sdk \
+    --mode recognition_test_11 \
+    --dll_path ../lib/libfacerec.so \
+    --sdk_config_dir ../conf/facerec \
+    --dataset_config dataset_config.txt \
+    --recognizer_config method6v7_recognizer.xml \
+    --result_roc_file ./roc11_6v7.txt \
+    --result_closest_mismatches_file ./closest_mismatches_file.txt \
+    templates_6v7.bin
+\endcode
+
+1:1 Recognition test results:
+    - text file containing a ROC curve; the file line describes the curve point in the following format: <i>\<far\></i> <i>\<tar\></i> <i>\<distance\></i>
+    - text file with the lines in the following format: <i>\<distance\></i> <i>\<image_id1\></i> <i>\<image_id2\></i> <i>\<path_to_image1\></i> <i>\<path_to_image2\></i>.\n
+This file contains pairs of images marked as belonging to different people, but having a minimum distance between the templates. We recommend you to generate this file using the best method and view the images from the top of it to check the errors of the dataset annotation.
+
+
+\subsection recognition_test_1N 1:N Recognition Test
+In this mode, the program performs the 1:N recognition test using the templates generated from the images with the id in the range of [begin_image_id, end_image_id).
+
+Launch parameters:
+    - <i>mode</i> - program mode (recognition_test_1N)
+    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
+    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
+    - <i>dataset_config</i> - config file of the image dataset (see \ref convert_config_format)
+    - <i>recognizer_config</i> - recognizer config file name
+    - <i>result_roc_file</i> - file to save the ROC curve
+    - <i>[begin_image_id]</i> - index of the first image used in the test (the  default setting is 0)
+    - <i>[end_image_id]</i> - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
+    - <i>[use_cpu_cores_count]</i> - number of cores used for searches (the default setting is 1)
+    - <i>[acceleration]</i> - search acceleration type (the default setting is 0) \n
+        0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration; \n
+        1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration; \n
+        -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
+    - <i>FILES</i> - file(s) storing the processing results
+
+Example of launch from the <i>bin</i> directory:
+\code
+./test_sdk \
+    --mode recognition_test_1N \
+    --dll_path ../lib/libfacerec.so \
+    --sdk_config_dir ../conf/facerec \
+    --dataset_config dataset_config.txt \
+    --recognizer_config method6v7_recognizer.xml \
+    --result_roc_file ./roc1N_6v7.txt \
+    --acceleration 1 \
+    templates_6v7.bin
+\endcode
+
+1:N Recognition test results is a text file containing a ROC curve; the file line describes the curve point in the following format: <i>\<far\></i> <i>\<tar\></i> <i>\<distance\></i>
+
+
+\subsection search_speed_test Search Speed Test
+In this mode, the program performs the search speed test using the templates generated in processing mode or using the utility (see \ref template_generator).
+
+Launch parameters:
+    - <i>mode</i> - program mode (search_speed_test)
+    - <i>dll_path</i> - path to the <i>libfacerec.so</i> or <i>facerec.dll</i> library file
+    - <i>sdk_config_dir</i> - path to the <i>conf/facerec</i> directory
+    - <i>recognizer_config</i> - recognizer config file name
+    - <i>[templates_count]</i> - number of templates used (by default, processing is performed until the end of the file)
+    - <i>[queries_count]</i> - number of queries (the default setting is 1)
+    - <i>[query_k_nearest]</i> - number of the nearest templates for search (the default setting is 1)
+    - <i>[search_threads_count]</i> - number of threads used for search (the default setting is 1)
+    - <i>[acceleration]</i> - search acceleration type (the default setting is 0) \n
+        0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration; \n
+        1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration; \n
+        -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
+    - <i>FILES</i> - file(s) obtained from the processing mode or by using the utility
+
+Example of launch from the <i>bin</i> directory:
+\code
+./test_sdk \
+    --mode search_speed_test \
+    --dll_path ../lib/libfacerec.so \
+    --sdk_config_dir ../conf/facerec \
+    --recognizer_config method6v7_recognizer.xml \
+    templates.bin
+\endcode
+
+Search speed test results:
+    - message with test results
+
+
+\subsection convert_config_format Convert a Configuration File 
+In this mode, the program converts the config file from format1 to format2 (used in other modes):
+    - format1 - text file with the lines in the following format: <i>\<path/to/person/dir/image_file\></i>. Images with the same <i>path/to/person/dir</i> belong to the same person. Images for one person must be in a row.\n
+Example:
+\code
+person1_dir/image1
+person1_dir/image2
+person2_dir/image1
+...
+\endcode
+    - format2 - text file with 3 lines per image (<i>\<person_id\></i> <i>\<image_id\></i> <i>\<path_to_image\></i>).\n
+Example:
+\code
+person0_id
+image0_id
+path_to_image0
+person0_id
+image1_id
+path_to_image1
+...
+\endcode
+
+Launch parameters:
+    - <i>mode</i> - program mode (convert_config_format)
+    - <i>result_dataset_config</i> - config file of the image dataset
+    - <i>FILE</i> - one file of format1
+
+Example of launch:
+\code
+./test_sdk \
+    --mode convert_config_format \
+    --result_dataset_config dataset_config.txt \
+    lfw_simple_format.txt
+\endcode
+
+Conversion results:
+    - config file of the image dataset
+
+
+\subsection create_simple_config Create a Configuration File
+Example of creating a config file of format1:
+\code
+find -type f | sort > ../lfw_simple_format.txt
+\endcode
+
+The paths in the configuration files must be relative to the directory passed through the <i>dataset_root_dir</i> parameter. 
+
+
+\subsection utils Utilities
+    
+\subsubsection template_generator Template Generator
+Utility for creating random templates.
+
+Launch parameters:
+    - <i>recognizer_version</i> - recognizer version (select one of [8v7, 8v6, 7v7, 7v6, 7v3, 7v2, 7, 6v7, 6v6, 6v5, 6v4, 6v3, 6v2, 6])
+    - <i>templates_count</i> - number of generated templates
+    - <i>result_file</i> - result binary file containing the generated random templates
+
+Example of launch:
+\code
+./template_generator \
+    6v7 \
+    100000 \
+    random_templates.bin
+\endcode
+
+Template generator result:
+    - binary file containing the generated random templates of the same format as in the processing mode
+
+
+\subsection source_code Source code:
+    - \ref cpp/test_sdk/include/TAssert.h
+    - \ref cpp/test_sdk/include/ArgumentParser.h
+    - \ref cpp/test_sdk/include/common.h
+    - \ref cpp/test_sdk/include/convert_config_format.h
+    - \ref cpp/test_sdk/include/detection.h
+    - \ref cpp/test_sdk/include/processing.h
+    - \ref cpp/test_sdk/include/progress.h
+    - \ref cpp/test_sdk/include/recognition_test11.h
+    - \ref cpp/test_sdk/include/recognition_test1N.h
+    - \ref cpp/test_sdk/include/search_speed_test.h
+    - \ref cpp/test_sdk/src/ArgumentParser.cpp
+    - \ref cpp/test_sdk/src/common.cpp
+    - \ref cpp/test_sdk/src/convert_config_format.cpp
+    - \ref cpp/test_sdk/src/detection.cpp
+    - \ref cpp/test_sdk/src/main.cpp
+    - \ref cpp/test_sdk/src/processing.cpp
+    - \ref cpp/test_sdk/src/recognition_test11.cpp
+    - \ref cpp/test_sdk/src/recognition_test1N.cpp
+    - \ref cpp/test_sdk/src/search_speed_test.cpp
