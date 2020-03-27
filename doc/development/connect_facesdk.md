@@ -36,3 +36,117 @@ To use `facerec.jar` in a project, specify the path to this file in `classpath`.
 ### C#
 
 To use *facerec* in a project, add reference to `FacerecCSharpWrapper.dll` in a project. Add `facerec.so` (for Linux) or `facerec.dll` (for Windows) and `FacerecCSharpWrapper.dll` to the folder with executable file.
+
+## Getting Started 
+
+Work with the libfacerec starts by calling the FacerecService.createService method, which dynamically loads the library.
+
+_**Warning:** You can call FacerecService.createService only once, otherwise, you may encounter a crash._
+
+Example:
+
+### C++
+
+```cpp
+#include <iostream>
+#include <exception>
+#include <facerec/import.h>
+#include <facerec/libfacerec.h>
+int main (int argc, char** argv)
+{
+    try
+    {
+        pbio::FacerecService::Ptr service;
+#ifdef _WIN32
+        service = pbio::FacerecService::createService("../bin/facerec.dll", "../conf/facerec/");
+#else
+        service = pbio::FacerecService::createService("../lib/libfacerec.so", "../conf/facerec/");
+#endif
+        const pbio::Recognizer::Ptr recognizer = service->createRecognizer("method7v7_recognizer.xml");
+        pbio::FacerecService::Config capturer_config("common_capturer4_fda.xml");
+        capturer_config.overrideParameter("min_size", 200);
+        pbio::Capturer::Ptr capturer = service->createCapturer(capturer_config);
+        // ...
+    }
+    catch(const pbio::Error &e)
+    {
+        std::cerr << "facerec exception catched: '" << e.what() << "' code: " << std::hex << e.code() << std::endl;
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << "exception catched: '" << e.what() << "'" << std::endl;
+    }
+}
+```
+
+### C# 
+
+```cs
+using System;
+using VDT.FaceRecognition.SDK;
+namespace Example
+{
+    public class Example
+    {
+        public static void Main(string []args)
+        {
+            try
+            {
+                String faceSDKRootDir = "/path/to/face_sdk";
+                FacerecService service = FacerecService.createService(faceSDKRootDir + "/conf/facerec", "");
+                Recognizer recognizer = service.createRecognizer("method7v7_recognizer.xml", true, true, false);
+                FacerecService.Config capturerConfig = new FacerecService.Config("common_capturer4_fda.xml");
+                capturerConfig.overrideParameter("min_size", 200);
+                Capturer capturer = service.createCapturer(capturerConfig);
+                
+                // ...
+            }
+            catch (Error e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+}
+```
+
+### Java
+
+```java
+package example;
+import java.lang.String;
+import java.lang.Exception;
+import com.vdt.face_recognition.sdk.FacerecService;
+import com.vdt.face_recognition.sdk.Recognizer;
+import com.vdt.face_recognition.sdk.Capturer;
+import com.vdt.face_recognition.sdk.SDKException;
+public class Example
+{
+    public static void main(String []args)
+    {
+        try
+        {
+            final String faceSDKRootDir = "/path/to/face_sdk";
+            final FacerecService service = FacerecService.createService(faceSDKRootDir + "/lib/libfacerec.so", faceSDKRootDir + "/conf/facerec", "");
+            final Recognizer recognizer = service.createRecognizer("method7v7_recognizer.xml", true, true, false);
+            FacerecService.Config capturerConfig = service.new Config("common_capturer4_fda.xml");
+            capturerConfig.overrideParameter("min_size", 200);
+            final Capturer capturer = service.createCapturer(capturerConfig);
+            
+            // ...
+        }
+        catch (SDKException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+```
