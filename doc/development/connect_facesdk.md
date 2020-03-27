@@ -26,7 +26,7 @@ The *libfacerec* library does not have any actual third-party dependencies, sinc
 
 Following preprocessor constants specify the current library version:
 
-* `LIBFACEREC_VERSION` – String representation, e.g. "1.2.34", where 1 is the major version, 2 is the minor version, 34 is the patch version
+* `LIBFACEREC_VERSION` – string representation, e.g. "1.2.34", where 1 is the major version, 2 is the minor version, 34 is the patch version
 * `LIBFACEREC_VERSION_HEX` – 3-byte HEX representation that is useful in numeric comparisons, e.g. 0x010234
 
 ### Java
