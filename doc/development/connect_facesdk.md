@@ -41,7 +41,7 @@ To use *facerec* in a project, add reference to `FacerecCSharpWrapper.dll` in a 
 
 To use the *libfacerec* library, call the `FacerecService.createService` method, which dynamically loads the library.
 
-_**Warning:** You can call FacerecService.createService only once, otherwise, you may encounter a crash._
+_**Warning:** You can call `FacerecService.createService` only once, otherwise, you may encounter a crash._
 
 ### C++ example
 
