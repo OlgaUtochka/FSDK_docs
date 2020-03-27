@@ -9,7 +9,7 @@ To use Face SDK, you have to install the following dependencies:
 * [Windows] `sense4.dll`. This library is located in the *bin* folder in Face SDK and should be located next to `facerec.dll` if you change the default location.
 * [Linux] `libusb-0.1.so.4`
 
-### C++
+### C++ 
 
 The `libfacerec` library is loaded dynamically **in runtime mode** when the static method `pbio::FacerecService::createService` is called. Therefore, **do not** link your program with `libfacerec.so` (Linux) or `facerec.dll` (Windows). You only need to add the *include* directory to include directories, or, for Linux projects, to link the `libdl` library with the `-export-dynamic` flag.
 
@@ -43,9 +43,7 @@ Work with the libfacerec starts by calling the FacerecService.createService meth
 
 _**Warning:** You can call FacerecService.createService only once, otherwise, you may encounter a crash._
 
-Example:
-
-### C++
+### C++ Example
 
 ```cpp
 #include <iostream>
@@ -79,7 +77,7 @@ int main (int argc, char** argv)
 }
 ```
 
-### C# 
+### C# Example
 
 ```cs
 using System;
@@ -114,7 +112,7 @@ namespace Example
 }
 ```
 
-### Java
+### Java Example
 
 ```java
 package example;
