@@ -15,7 +15,7 @@ There are three pattern types:
 Here are examples of the patterns:
 
 <p align="center">
-<img width="800" src="../img/calibration_patterns.png"><br>
+<img width="900" src="../img/calibration_patterns.png"><br>
 </p>
 
 Full size images are stored in the *share/calibration* directory.
