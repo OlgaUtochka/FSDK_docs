@@ -11,7 +11,7 @@ To use Face SDK, you have to install the following dependencies:
 
 ### C++
 
-The `libfacerec` library is loaded dynamically in runtime mode when the static method `pbio::FacerecService::createService` is called. Therefore, do not link your program with `libfacerec.so` (Linux) or `facerec.dll` (Windows). You only need to add the *include* directory to include directories, or, for Linux projects, to link the `libdl` library with the `-export-dynamic` flag.
+The `libfacerec` library is loaded dynamically **in runtime mode** when the static method `pbio::FacerecService::createService` is called. Therefore, **do not** link your program with `libfacerec.so` (Linux) or `facerec.dll` (Windows). You only need to add the *include* directory to include directories, or, for Linux projects, to link the `libdl` library with the `-export-dynamic` flag.
 
 _**Warning:** You can call `pbio::FacerecService::createService` only once, otherwise, you may encounter a crash._
 
