@@ -1,5 +1,4 @@
-
-Camera Calibration and Correction of Distortion
+# Camera Calibration and Correction of Distortion
 
 The CameraCalibrator object is used for camera calibration and correction of image distortion.
 
@@ -17,6 +16,7 @@ There are three pattern types:
     circles grid pattern
 
 Here are examples of the patterns:
+
 asymmetric circles grid pattern (rotated) 	chessboard pattern 	circles grid pattern
 acircles_pattern_w4_h11_small.png
 	
@@ -45,5 +45,3 @@ Then call the CameraCalibrator.calibrate method.
 After a successful calibration, you can see the result by calling the CameraCalibrator.undistort method. Then you can save the calibrated parameters using the CameraCalibrator.saveCameraParameters method, if the result suits you, or add more images and perform a calibration again.
 
 To reset calibration, call the CameraCalibrator.initCalibration method again.
-
-See an example of using the CameraCalibrator see in test_calibration.
