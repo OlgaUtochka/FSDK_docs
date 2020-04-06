@@ -327,7 +327,7 @@ Example of launch from the *bin* directory:
     detection_result.txt
 ```
 
-The processing result is a binary file containing one record per each generated template. Each record is a 64-bit unsigned integer (`image_id`) followed by a serialized template.
+The processing result is a binary file containing one record per each generated template. Each record is a 64-bit unsigned integer (`image_id`) followed by a serialized template (see [examples/cpp/test_sdk/src/sdk_test.cpp](../examples/cpp/test_sdk/src/sdk_test.cpp).
 
 ### 1:1 Recognition Test
 
