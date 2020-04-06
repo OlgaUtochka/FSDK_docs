@@ -79,8 +79,8 @@ List of used abbreviations:
 <tr align="center"> <th align="center"> 8.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>   52 (40**)</td> </tr>
 </table>
 
-\* – the amount of memory consumed does not depend on the number of the `Recognizer` objects created by this method.
-\** – memory consumption when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.
+\* – the amount of memory consumed does not depend on the number of the `Recognizer` objects created by this method.  
+\** – memory consumption when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.  
 
 ### ROC on Extended LFW Test
 
@@ -272,7 +272,7 @@ In this mode, the program detects faces in images with the id in the range of `[
 
 Launch parameters:
 
-* `mode` – program mode (detection);  
+* `mode` – program mode (`detection`);  
 * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;  
 * `sdk_config_dir` – path to the *conf/facerec* directory;  
 * `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));  
@@ -294,9 +294,7 @@ Example of launch from the *bin* directory:
     --dataset_root_dir /path/to/data \
     --detection_result_file detection_result.txt \
 ```
-Detection results:
-
-* A text file with the lines in the following format: `<image_id> <points_count> <points>`
+The detection result is a text file with the lines in the following format: `<image_id> <points_count> <points>`
 
 ### Processing
 
@@ -304,7 +302,7 @@ In this mode, the program creates templates from the faces detected in the image
 
 Launch parameters:
 
-* `mode` – program mode (processing);
+* `mode` – program mode (`processing`);
 * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
 * `sdk_config_dir` – path to the *conf/facerec* directory;
 * `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
@@ -329,9 +327,7 @@ Example of launch from the *bin* directory:
     detection_result.txt
 ```
 
-Processing results:
-
-* A binary file containing one record per each generated template; each record is a 64-bit unsigned integer (`image_id`) followed by a serialized template.
+The processing result is a binary file containing one record per each generated template. Each record is a 64-bit unsigned integer (`image_id`) followed by a serialized template.
 
 ### 1:1 Recognition Test
 
@@ -339,7 +335,7 @@ In this mode, the program performs the 1:1 recognition test using the templates 
 
 Launch parameters:
 
-* `mode` – program mode (recognition_test_11);
+* `mode` – program mode (`recognition_test_11`);
 * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
 * `sdk_config_dir` – path to the *conf/facerec* directory;
 * `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
@@ -374,7 +370,7 @@ In this mode, the program performs the 1:N recognition test using the templates 
 
 Launch parameters:
 
-* `mode` – program mode (recognition_test_1N);
+* `mode` – program mode (`recognition_test_1N`);
 * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
 * `sdk_config_dir` – path to the *conf/facerec* directory;
 * `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
@@ -402,7 +398,7 @@ Example of launch from the bin directory:
     templates_6v7.bin
 ```
 
-The result of the 1:N recognition test is a text file containing a ROC curve; the file line describes the curve point in the following format: `<far> <tar> <distance>`.
+The result of the 1:N recognition test is a text file containing a ROC curve. The file line describes the curve point in the following format: `<far> <tar> <distance>`.
   
 ### Search Speed Test
 
@@ -410,7 +406,7 @@ In this mode, the program performs the search speed test using the templates gen
 
 Launch parameters:
 
-* `mode` – program mode (search_speed_test);
+* `mode` – program mode (`search_speed_test`);
 * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
 * `sdk_config_dir` – path to the *conf/facerec* directory;
 * `recognizer_config` – recognizer config file name;
@@ -509,4 +505,4 @@ Example of launch:
 
 The template generator result is a binary file containing the generated random templates of the same format as in the processing mode.
 
-Source code: [examples/cpp/test_sdk](../examples/cpp/test_sdk)
+**Source code:** [examples/cpp/test_sdk](../examples/cpp/test_sdk)
