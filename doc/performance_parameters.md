@@ -50,9 +50,9 @@ List of used abbreviations:
 \** – template creation time when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.
 
 **Note:**
-_* Accelerated search time is given for `k=1`. As for larger values of `k`, the time will increase up to the search time without acceleration._
-_* Accelerated search is implemented only for the recognition methods 6.5, 6.6, 6.7, 7.3, 7.6, 7.7, 8.6, 8.7._
-_* To achieve this speed, the templates in the index must be located in the order of creation (by using the `Recognizer.processing` or `Recognizer.loadTemplate` method)._
+* Accelerated search time is given for `k=1`. As for larger values of `k`, the time will increase up to the search time without acceleration.
+* Accelerated search is implemented only for the recognition methods 6.5, 6.6, 6.7, 7.3, 7.6, 7.7, 8.6, 8.7.
+* To achieve this speed, the templates in the index must be located in the order of creation (by using the `Recognizer.processing` or `Recognizer.loadTemplate` method).
 
 ### Memory Characteristics
 
