@@ -1,12 +1,11 @@
-\page performance Performance Parameters
+# Performance Parameters
 
 List of used abbreviations:
-<ul>
-<li> FAR (false accept rate) – the probability that the system incorrectly accepts a non-authorized person.
-<li> TAR (true accept rate) – the probability that the system correctly accepts an authorized person.
-<li> FRR (false reject rate) – the probability that the system incorrectly rejects an authorized person.
-<li> IR (identification rate) – identification rate.
-</ul> 
+
+* FAR (false accept rate) – the probability that the system incorrectly accepts a non-authorized person.
+* TAR (true accept rate) – the probability that the system correctly accepts an authorized person.
+* FRR (false reject rate) – the probability that the system incorrectly rejects an authorized person.
+* IR (identification rate) – identification rate. 
 
 \section verify_perf Identification Performance
 
