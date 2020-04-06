@@ -509,24 +509,4 @@ Example of launch:
 
 The template generator result is a binary file containing the generated random templates of the same format as in the processing mode.
 
-Source code:
-
-    cpp/test_sdk/include/TAssert.h
-    cpp/test_sdk/include/ArgumentParser.h
-    cpp/test_sdk/include/common.h
-    cpp/test_sdk/include/convert_config_format.h
-    cpp/test_sdk/include/detection.h
-    cpp/test_sdk/include/processing.h
-    cpp/test_sdk/include/progress.h
-    cpp/test_sdk/include/recognition_test11.h
-    cpp/test_sdk/include/recognition_test1N.h
-    cpp/test_sdk/include/search_speed_test.h
-    cpp/test_sdk/src/ArgumentParser.cpp
-    cpp/test_sdk/src/common.cpp
-    cpp/test_sdk/src/convert_config_format.cpp
-    cpp/test_sdk/src/detection.cpp
-    cpp/test_sdk/src/main.cpp
-    cpp/test_sdk/src/processing.cpp
-    cpp/test_sdk/src/recognition_test11.cpp
-    cpp/test_sdk/src/recognition_test1N.cpp
-    cpp/test_sdk/src/search_speed_test.cpp
+Source code: [examples/cpp/test_sdk](../examples/cpp/test_sdk)
