@@ -258,11 +258,13 @@ In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the W
 ## Performance Test
 
 Modes:
-* Detection
-* Processing
-* 1:1 Recognition Test
-* Search Speed Test
-* Convert a Configuration File
+* [Detection](#detection)
+* [Processing](#processing)
+* [1:1 Recognition Test](#11-recognition-test)
+* [1:N Recognition Test](#1n-recognition-test)
+* [Search Speed Test](#search-speed-test)
+* [Convert a Configuration File](#convert-a-configuration-file)
+* [Create a Configuration File](#create-a-configuration-file)
 
 ### Detection
 
@@ -436,41 +438,47 @@ The result of the search speed test is a message with test results.
 
 ### Convert a Configuration File
 
-In this mode, the program converts the config file from format1 to format2 (used in other modes):
+In this mode, the program converts the config file from `format1` to `format2` (used in other modes):
 
-    format1 - text file with the lines in the following format: <path/to/person/dir/image_file>. Images with the same path/to/person/dir belong to the same person. Images for one person must be in a row.
-    Example:
-    person1_dir/image1
-    person1_dir/image2
-    person2_dir/image1
-    ...
-    format2 - text file with 3 lines per image (<person_id> <image_id> <path_to_image>).
-    Example:
-    person0_id
-    image0_id
-    path_to_image0
-    person0_id
-    image1_id
-    path_to_image1
-    ...
+* `format1` – a text file with the lines in the following format: `<path/to/person/dir/image_file>`. Images with the same `path/to/person/dir` belong to the same person. Images for one person must be in a row.
+
+```
+Example:
+person1_dir/image1
+person1_dir/image2
+person2_dir/image1
+...
+```
+    
+* `format2` – a text file with 3 lines per image (`<person_id> <image_id> <path_to_image>`).
+```
+Example:
+person0_id
+image0_id
+path_to_image0
+person0_id
+image1_id
+path_to_image1
+...
+```
 
 Launch parameters:
 
-    mode - program mode (convert_config_format)
-    result_dataset_config - config file of the image dataset
-    FILE - one file of format1
+* `mode` – program mode (convert_config_format);
+* `result_dataset_config` – config file of the image dataset;
+* `FILE` – one file of format1.
 
 Example of launch:
+```
 ./test_sdk \
     --mode convert_config_format \
     --result_dataset_config dataset_config.txt \
     lfw_simple_format.txt
+```
 
-Conversion results:
+The conversion result is a config file of the image dataset.
 
-    config file of the image dataset
-
-Create a Configuration File
+### Create a Configuration File
 
 Example of creating a config file of format1:
 find -type f | sort > ../lfw_simple_format.txt
