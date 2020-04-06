@@ -200,10 +200,7 @@ In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the W
 <tr align="center"> <th> 0.1 </th>        <td> 78.6 </td>  <td> 83.0 </td>  <td> 89.7 </td>  <td> 93.1 </td>  <td> 93.8 </td>  <td> 96.2 </td>  <td> 95.5 </td>  <td> 96.3 </td>  <td> 97.6 </td>  <td> 98.5 </td>  <td> 98.5 </td>  <td> 97.7 </td>  <td> 99.3 </td>  <td> 99.4 </td> </tr>
 </table>
 
-
-\n
-
-\subsection verify_perf_feret_200x7 ROC on FERET 200x7 Test
+### ROC on FERET 200x7 Test
 
 <table cellpadding ="3" border="1" style="border-collapse:collapse;center">
 <tr>
@@ -228,9 +225,7 @@ In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the W
 <tr align="center"> <th>1.0</th>     <td> 98.96667 </td>   <td> 99.46667 </td>  <td> 99.8666 </td>  <td> 99.8666 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  <td> 100 </td>  </tr>
 </table>
 
-\n
-
-\subsection verify_perf_feret_dupl Performance on FERET Duplicate I Test
+### Performance on FERET Duplicate I Test
 
 <table cellpadding ="3" border="1" style="border-collapse:collapse;center">
 <tr align="center">
@@ -260,33 +255,34 @@ In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the W
 <tr align="center"> <th>100</th>       <td> 100 </td>       <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      <td> 100 </td>      </tr>
 </table>
 
-Performance Test
-Modes
+## Performance Test
 
-    Detection
-    Processing
-    1:1 Recognition Test
-    Search Speed Test
-    Convert a Configuration File
+Modes:
+* Detection
+* Processing
+* 1:1 Recognition Test
+* Search Speed Test
+* Convert a Configuration File
 
-Detection
+### Detection
 
-In this mode, the program detects faces in images with the id in the range of [begin_image_id, end_image_id). Each image should contain only one person. The images containing more than one person detected will be discarded.
+In this mode, the program detects faces in images with the id in the range of `[begin_image_id, end_image_id)`. Each image should contain only one person. The images containing more than one person detected will be discarded.
 
 Launch parameters:
 
-    mode - program mode (detection)
-    dll_path - path to the libfacerec.so or facerec.dll library file
-    sdk_config_dir - path to the conf/facerec directory
-    dataset_config - config file of the image dataset (see Convert a Configuration File)
-    capturer_config - capturer config file name
-    dataset_root_dir - path to the dataset directory
-    detection_result_file - file for storing the detection results
-    [begin_image_id] - index of the image from which detection begins (the default setting is 0)
-    [end_image_id] - index of the image to which detection is performed (by default, the processing is performed to the end of the file)
-    [use_cpu_cores_count] - number of cores used for detection (the default setting is 1)
+`mode` – program mode (detection);
+`dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
+`sdk_config_dir` – path to the *conf/facerec* directory;
+`dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
+`capturer_config` – capturer config file name;
+`dataset_root_dir` – path to the dataset directory;
+`detection_result_file` – file for storing the detection results;
+`[begin_image_id]` – index of the image from which detection begins (the default setting is 0);
+`[end_image_id]` – index of the image to which detection is performed (by default, the processing is performed to the end of the file);
+`[use_cpu_cores_count]` – number of cores used for detection (the default setting is 1).
 
-Example of launch from the bin directory:
+Example of launch from the *bin* directory:
+```
 ./test_sdk \
     --mode detection \
     --dll_path ../lib/libfacerec.so \
@@ -295,12 +291,12 @@ Example of launch from the bin directory:
     --dataset_config dataset_config.txt \
     --dataset_root_dir /path/to/data \
     --detection_result_file detection_result.txt \
-
+```
 Detection results:
 
-    text file with the lines in the following format: <image_id> <points_count> <points>
+* text file with the lines in the following format: `<image_id> <points_count> <points>`
 
-Processing
+### Processing
 
 In this mode, the program creates templates from the faces detected in the images with the id in the range of [begin_image_id, end_image_id).
 
