@@ -11,10 +11,8 @@ In this tutorial, you'll learn how to display anthropometric points and head rot
 1. Create the project, in which faces will be detected and tracked using the `VideoWorker` object. Faces in this project are highlighted with a green rectangle (see [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md)). 
 2. Modify the function `DrawFunction::Draw`. The `pbio::RawSample` object contains all the information about a tracked face, namely: face bounding rectangle, anthropometric points, position of eyes, angles, etc. Using the `pbio::RawSample::getLandmarks` method, get anthropometric points of a tracked face.  
 
-<input class="toggle-box" id="second-1" type="checkbox" checked>
-<label class="spoiler-link" for="second-1">drawfunction.cpp</label>
-<div>
-```
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -28,17 +26,13 @@ QImage DrawFunction::Draw(
 		...
 	}
 ```
-</div>
 
-@note
-In this project, we use the <i>singlelbf</i> set of anthropometric points (31 points). As an option, you can use a different set of points, which is called <i>esr</i> (47 points) (see \ref anpoints). To do this, you'll need to specify the configuration file <i>video_worker.xml</i>  instead of <i>video_worker_lbf.xml</i> in the constructor  <i>ViewWindow::ViewWindow</i> (<i>ViewWindow.cpp</i>) (see \ref tutorial_vw_tracking). 
+_**Note:** In this project, we use the `singlelbf` set of anthropometric points (31 points). As an option, you can use a different set of points, which is called `esr` (47 points) (see [Anthropometric Points](../development/face_capturing.md#anthropometric-points)). To do this, you'll need to specify the configuration file `video_worker.xml`  instead of `video_worker_lbf.xml` in the constructor  `ViewWindow::ViewWindow` (`ViewWindow.cpp`) (see [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md))._
 
-<li> Visualize the points – they'll be displayed on the face as little red circles. 
+3. Visualize the points – they'll be displayed on the face as little red circles. 
 
-\htmlonly <input class="toggle-box" id="second-2" type="checkbox" checked>
-<label class="spoiler-link" for="second-2">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &
@@ -58,24 +52,20 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-<li> Run the project. You'll see anthropometric points on your face.
-</ol>
+4. Run the project. You'll see anthropometric points on your face.
 
-\htmlonly <style>div.image img[src="second_2.png"]{width:600px;}</style> \endhtmlonly 
-@image html second_2.png
+<p align="center">
+<img width="600" src="../img/second_2.png"><br>
+</p>
 
 ## Displaying Head Rotation Angles 
 
-<ol>
-<li> The information about head rotation angles is also obtained from pbio::RawSample. 
+1. The information about head rotation angles is also obtained from `pbio::RawSample`. 
 
-\htmlonly <input class="toggle-box" id="second-3" type="checkbox" checked>
-<label class="spoiler-link" for="second-3">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -87,15 +77,12 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-<li> Include the headers <i>QMatrix3x3</i> and <i>QQuaternion</i>. Using the <i>QQuaternion::fromEulerAngles</i> method, get the rotation matrix. 
+2. Include the headers `QMatrix3x3` and `QQuaternion`. Using the `QQuaternion::fromEulerAngles` method, get the rotation matrix. 
 
-\htmlonly <input class="toggle-box" id="second-4" type="checkbox" checked>
-<label class="spoiler-link" for="second-4">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 #include <QMatrix3x3>
 #include <QQuaternion>
 
@@ -115,21 +102,18 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-@note
-In Face SDK, yaw (rotation along the Z axis), pitch (rotation along the Y axis), and roll (rotation along the X axis) rotation angles are used. Face SDK algorithm allows to detect faces in the following range of angles: yaw [-60; 60], pitch [-60; 60], roll [-30; 30]. 
+_**Note:** In Face SDK, yaw (rotation along the Z axis), pitch (rotation along the Y axis), and roll (rotation along the X axis) rotation angles are used. Face SDK algorithm allows to detect faces in the following range of angles: yaw [-60; 60], pitch [-60; 60], roll [-30; 30]._ 
 
-\htmlonly <style>div.image img[src="second_3.png"]{width:250px;}</style> \endhtmlonly 
-@image html second_3.png
+<p align="center">
+<img width="250" src="../img/second_3.png"><br>
+</p>
 
-<li> Since the image received from the camera and displayed on the screen is a mirror image of a user (the right part of the face is displayed on the left side of the image, and vise versa), we have to invert the direction of the Y axis (multiply it by -1) for correct visualization of angles.
+3. Since the image received from the camera and displayed on the screen is a mirror image of a user (the right part of the face is displayed on the left side of the image, and vise versa), we have to invert the direction of the Y axis (multiply it by -1) for correct visualization of angles.
 
-\htmlonly <input class="toggle-box" id="second-5" type="checkbox" checked>
-<label class="spoiler-link" for="second-5">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -144,15 +128,12 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-<li> To visualize the angles, we have to calculate the midpoint between the eyes of a person <i>axis_origin</i>, which will be the origin point for the vectors yaw, pitch, roll.  
+4. To visualize the angles, we have to calculate the midpoint between the eyes of a person `axis_origin`, which will be the origin point for the vectors yaw, pitch, roll.  
 
-\htmlonly <input class="toggle-box" id="second-6" type="checkbox" checked>
-<label class="spoiler-link" for="second-6">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -167,15 +148,12 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-<li> To make sure that the length of the yaw, pitch, roll vectors is proportional to the face size, we introduce the <i>axis_length</i> coefficient. It's half of the diagonal of the face bounding rectangle <i>face_size</i>.
+5. To make sure that the length of the yaw, pitch, roll vectors is proportional to the face size, we introduce the `axis_length` coefficient. It's half of the diagonal of the face bounding rectangle `face_size`.
 
-\htmlonly <input class="toggle-box" id="second-7" type="checkbox" checked>
-<label class="spoiler-link" for="second-7">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -191,15 +169,12 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-<li> Visualize the angles – vectors will be displayed in different colors (yellow, red, and green). 
+6. Visualize the angles – vectors will be displayed in different colors (yellow, red, and green). 
 
-\htmlonly <input class="toggle-box" id="second-8" type="checkbox" checked>
-<label class="spoiler-link" for="second-8">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -216,15 +191,12 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
-</div>
+```
 
-<li> Draw the vectors in the loop. The starting point for vectors is the point between the person's eyes. The endpoint for vectors equals to the projection of the vector on the image plane <i>QPointF</i> multiplied by the <i>axis_length</i> coefficient and plotted from the starting point.
+7. Draw the vectors in the loop. The starting point for vectors is the point between the person's eyes. The endpoint for vectors equals to the projection of the vector on the image plane `QPointF` multiplied by the `axis_length` coefficient and plotted from the starting point.
 
-\htmlonly <input class="toggle-box" id="second-9" type="checkbox" checked>
-<label class="spoiler-link" for="second-9">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -245,11 +217,10 @@ QImage DrawFunction::Draw(
 			...
 		}
 	}
-\endcode
-</div>
+```
 
-<li> Run the project. You'll see the anthropometric points and head rotation angles. 
-</ol>
+8. Run the project. You'll see the anthropometric points and head rotation angles. 
 
-\htmlonly <style>div.image img[src="second_1.jpeg"]{width:600px;}</style> \endhtmlonly 
-@image html second_1.jpeg
+<p align="center">
+<img width="600" src="../img/second_1.jpeg"><br>
+</p>
