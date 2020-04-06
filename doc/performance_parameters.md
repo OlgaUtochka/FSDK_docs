@@ -372,20 +372,20 @@ In this mode, the program performs the 1:N recognition test using the templates 
 
 Launch parameters:
 
-`mode` – program mode (recognition_test_1N);
-`dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
-`sdk_config_dir` – path to the *conf/facerec* directory;
-`dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
-`recognizer_config` – recognizer config file name;
-`result_roc_file` – file to save the ROC curve;
-`[begin_image_id]` – index of the first image used in the test (the default setting is 0);
-`[end_image_id]` – index of the first image after `begin_image_id` not used in the test (by default use all from `begin_image_id` to the end of the file);
-`[use_cpu_cores_count]` – number of cores used for searches (the default setting is 1);
-`[acceleration]` – search acceleration type (the default setting is 0);
-`0` – search with `pbio::Recognizer::search` with the `pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION` acceleration;
-`1` – search with `pbio::Recognizer::search` with the `pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1` acceleration;
-`-1` – search with `pbio::Recognizer::verifyMatch` in a single thread (doesn’t depend on `search_threads_count`);
-`FILES` – file(s) storing the processing results.
+* `mode` – program mode (recognition_test_1N);
+* `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
+* `sdk_config_dir` – path to the *conf/facerec* directory;
+* `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
+* `recognizer_config` – recognizer config file name;
+* `result_roc_file` – file to save the ROC curve;
+* `[begin_image_id]` – index of the first image used in the test (the default setting is 0);
+* `[end_image_id]` – index of the first image after `begin_image_id` not used in the test (by default use all from `begin_image_id` to the end of the file);
+* `[use_cpu_cores_count]` – number of cores used for searches (the default setting is 1);
+* `[acceleration]` – search acceleration type (the default setting is 0);
+* `0` – search with `pbio::Recognizer::search` with the `pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION` acceleration;
+* `1` – search with `pbio::Recognizer::search` with the `pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1` acceleration;
+* `-1` – search with `pbio::Recognizer::verifyMatch` in a single thread (doesn’t depend on `search_threads_count`);
+* `FILES` – file(s) storing the processing results.
 
 Example of launch from the bin directory:
 ```
@@ -400,41 +400,41 @@ Example of launch from the bin directory:
     templates_6v7.bin
 ```
 
-1:N Recognition test results is a text file containing a ROC curve; the file line describes the curve point in the following format: `<far> <tar> <distance>`.
+The result of the 1:N recognition test is a text file containing a ROC curve; the file line describes the curve point in the following format: `<far> <tar> <distance>`.
   
 ### Search Speed Test
 
-In this mode, the program performs the search speed test using the templates generated in processing mode or using the utility (see Template Generator).
+In this mode, the program performs the search speed test using the templates generated in processing mode or using the utility (see [Template Generator](#template-generator)).
 
 Launch parameters:
 
-    mode - program mode (search_speed_test)
-    dll_path - path to the libfacerec.so or facerec.dll library file
-    sdk_config_dir - path to the conf/facerec directory
-    recognizer_config - recognizer config file name
-    [templates_count] - number of templates used (by default, processing is performed until the end of the file)
-    [queries_count] - number of queries (the default setting is 1)
-    [query_k_nearest] - number of the nearest templates for search (the default setting is 1)
-    [search_threads_count] - number of threads used for search (the default setting is 1)
-    [acceleration] - search acceleration type (the default setting is 0)
-    0 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION acceleration;
-    1 - search via pbio::Recognizer::search with the pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1 acceleration;
-    -1 - search via pbio::Recognizer::verifyMatch in a single thread (doesn’t depend on search_threads_count)
-    FILES - file(s) obtained from the processing mode or by using the utility
+* `mode` – program mode (search_speed_test);
+* `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
+* `sdk_config_dir` – path to the *conf/facerec* directory;
+* `recognizer_config` – recognizer config file name;
+* `[templates_count]` – number of templates used (by default, processing is performed until the end of the file);
+* `[queries_count]` – number of queries (the default setting is 1);
+* `[query_k_nearest]` – number of the nearest templates for search (the default setting is 1);
+* `[search_threads_count]` – number of threads used for search (the default setting is 1);
+* `[acceleration]` – search acceleration type (the default setting is 0);
+* `0` – search with `pbio::Recognizer::search` with the `pbio::Recognizer::SearchAccelerationType::NO_SEARCH_ACCELERATION` acceleration;
+* `1` – search with `pbio::Recognizer::search` with the `pbio::Recognizer::SearchAccelerationType::SEARCH_ACCELERATION_1` acceleration;
+* `-1` – search with `pbio::Recognizer::verifyMatch` in a single thread (doesn’t depend on `search_threads_count`);
+* `FILES` – file(s) obtained from the processing mode or by using the utility.
 
-Example of launch from the bin directory:
+Example of launch from the *bin* directory:
+```
 ./test_sdk \
     --mode search_speed_test \
     --dll_path ../lib/libfacerec.so \
     --sdk_config_dir ../conf/facerec \
     --recognizer_config method6v7_recognizer.xml \
     templates.bin
+```
 
-Search speed test results:
+The result of the search speed test is a message with test results.
 
-    message with test results
-
-Convert a Configuration File
+### Convert a Configuration File
 
 In this mode, the program converts the config file from format1 to format2 (used in other modes):
 
