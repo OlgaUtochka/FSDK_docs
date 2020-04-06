@@ -480,30 +480,34 @@ The conversion result is a config file of the image dataset.
 
 ### Create a Configuration File
 
-Example of creating a config file of format1:
+Example of creating a config file of `format1`:
+```
 find -type f | sort > ../lfw_simple_format.txt
+```
 
-The paths in the configuration files must be relative to the directory passed through the dataset_root_dir parameter.
-Utilities
-Template Generator
+The paths in the configuration files must be relative to the directory passed through the `dataset_root_dir` parameter.
 
-Utility for creating random templates.
+### Utilities
+
+#### Template Generator
+
+A utility for creating random templates.
 
 Launch parameters:
 
-    recognizer_version - recognizer version (select one of [8v7, 8v6, 7v7, 7v6, 7v3, 7v2, 7, 6v7, 6v6, 6v5, 6v4, 6v3, 6v2, 6])
-    templates_count - number of generated templates
-    result_file - result binary file containing the generated random templates
+* `recognizer_version` – recognizer version (select one of [8v7, 8v6, 7v7, 7v6, 7v3, 7v2, 7, 6v7, 6v6, 6v5, 6v4, 6v3, 6v2, 6]);
+* `templates_count` – number of generated templates;
+* `result_file` – a result binary file containing the generated random templates.
 
 Example of launch:
+```
 ./template_generator \
     6v7 \
     100000 \
     random_templates.bin
+```
 
-Template generator result:
-
-    binary file containing the generated random templates of the same format as in the processing mode
+The template generator result is a binary file containing the generated random templates of the same format as in the processing mode.
 
 Source code:
 
