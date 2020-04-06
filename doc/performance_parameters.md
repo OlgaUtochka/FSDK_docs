@@ -79,19 +79,16 @@ List of used abbreviations:
 <tr align="center"> <th align="center"> 8.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>   52 (40**)</td> </tr>
 </table>
 
-<b>*</b> – the amount of memory consumed does not depend on the number of \member_reference{Recognizer} objects created by this method.<br>
-<b>**</b> – memory consumption when <i>processing_less_memory_consumption</i> was set to <i>true</i> in the \member_reference{FacerecService,createRecognizer} call for recognizer creation.
+* – the amount of memory consumed does not depend on the number of the `Recognizer` objects created by this method.
+** – memory consumption when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.
 
-
-\n
-
-\subsection verify_perf_lfw_full_ext ROC on Extended LFW Test
+### ROC on Extended LFW Test
 
 In this test, the mismatch pairs set was increased and LFW errors were fixed in order to get accurate measurements at low FAR.
 
-\image html log_lfw_full_ext_w_all_methods.png
-
-\n
+<p align="center">
+<img width="850" src="img/log_lfw_full_ext_w_all_methods.png"><br>
+</p>
 
 <table cellpadding ="3" border="1" style="border-collapse:collapse;center">
 <tr>
@@ -159,9 +156,7 @@ In this test, the mismatch pairs set was increased and LFW errors were fixed in 
 <tr align="center"> <th> 1e-7 </th>  <td> 06.6 </td>  <td> 18.7 </td>  <td> 17.6 </td>  <td> 31.1 </td>  <td> 44.5 </td>  <td> 59.0 </td>  <td> 66.0 </td>  <td> 68.5 </td>  <td> 77.8 </td>  <td> 78.7 </td>  <td> 81.5 </td>  <td> 80.8 </td>  <td> 88.9 </td>  <td> 90.6 </td> </tr>
 </table>
 
-\n
-
-\subsection verify_perf_lfw ROC on LFW Test
+### ROC on LFW Test
 
 In this test, the [LFW](http://vis-www.cs.umass.edu/lfw) (Labeled Faces in the Wild) dataset is used.
 
