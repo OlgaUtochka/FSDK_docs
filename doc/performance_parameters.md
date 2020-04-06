@@ -294,27 +294,28 @@ Example of launch from the *bin* directory:
 ```
 Detection results:
 
-* text file with the lines in the following format: `<image_id> <points_count> <points>`
+* A text file with the lines in the following format: `<image_id> <points_count> <points>`
 
 ### Processing
 
-In this mode, the program creates templates from the faces detected in the images with the id in the range of [begin_image_id, end_image_id).
+In this mode, the program creates templates from the faces detected in the images with the id in the range of `[begin_image_id, end_image_id)`.
 
 Launch parameters:
 
-    mode - program mode (processing)
-    dll_path - path to the libfacerec.so or facerec.dll library file
-    sdk_config_dir - path to the conf/facerec directory
-    dataset_config - config file of the image dataset (see Convert a Configuration File)
-    dataset_root_dir - path to the dataset directory
-    recognizer_config - recognizer config file name
-    processing_result_file - file for storing the resulting templates
-    [begin_image_id] - index of the image from which processing begins (the default setting is 0)
-    [end_image_id] - index of the image to which processing is performed (by default, the processing is performed to the end of the file)
-    [use_cpu_cores_count] - number of cores used for processing (the default setting is 1)
-    FILES - file(s) storing the detection results
+* `mode` – program mode (processing);
+* `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
+* `sdk_config_dir` – path to the *conf/facerec* directory;
+* `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
+* `dataset_root_dir` – path to the dataset directory;
+* `recognizer_config` – recognizer config file name;
+* `processing_result_file` – file for storing the resulting templates;
+* `[begin_image_id]` – index of the image from which processing begins (the default setting is 0);
+* `[end_image_id]` – index of the image to which processing is performed (by default, the processing is performed to the end of the file);
+* `[use_cpu_cores_count]` – number of cores used for processing (the default setting is 1);
+* `FILES` – file(s) storing the detection results.
 
-Example of launch from the bin directory:
+Example of launch from the *bin* directory:
+```
 ./test_sdk \
     --mode processing \
     --dll_path ../lib/libfacerec.so \
@@ -324,30 +325,32 @@ Example of launch from the bin directory:
     --recognizer_config method6v7_recognizer.xml \
     --processing_result_file ./templates_6v7.bin \
     detection_result.txt
+```
 
 Processing results:
 
-    binary file containing one record per each generated template; each record is a 64-bit unsigned integer (image_id) followed by a serialized template (see cpp/test_sdk/src/sdk_test.cpp)
+* A binary file containing one record per each generated template; each record is a 64-bit unsigned integer (`image_id`) followed by a serialized template.
 
-1:1 Recognition Test
+### 1:1 Recognition Test
 
-In this mode, the program performs the 1:1 recognition test using the templates generated from the images with the id in the range of [begin_image_id, end_image_id).
+In this mode, the program performs the 1:1 recognition test using the templates generated from the images with the `id` in the range of `[begin_image_id, end_image_id)`.
 
 Launch parameters:
 
-    mode - program mode (recognition_test_11)
-    dll_path - path to the libfacerec.so or facerec.dll library file
-    sdk_config_dir - path to the conf/facerec directory
-    dataset_config - config file of the image dataset (see Convert a Configuration File)
-    recognizer_config - recognizer config file name
-    result_roc_file - file to save the ROC curve
-    result_closest_mismatches_file - result file with the closest mismatches
-    [begin_image_id] - index of the first image used in the test (the default setting is 0)
-    [end_image_id] - index of the first image after begin_image_id not used in the test (by default use all from the begin_image_id to the end of the file)
-    [use_cpu_cores_count] - number of cores used for matching (the default setting is 1)
-    FILES - file(s) storing the processing results
+* `mode` – program mode (recognition_test_11);
+* `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
+* `sdk_config_dir` – path to the *conf/facerec* directory;
+* `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
+* `recognizer_config` – recognizer config file name;
+* `result_roc_file` – file to save the ROC curve;
+* `result_closest_mismatches_file` – result file with the closest mismatches;
+* `[begin_image_id]` – index of the first image used in the test (the default setting is 0);
+* `[end_image_id]` – index of the first image after `begin_image_id` not used in the test (by default use all from `begin_image_id` to the end of the file);
+* `[use_cpu_cores_count]` – number of cores used for matching (the default setting is 1);
+* `FILES` – file(s) storing the processing results.
 
 Example of launch from the bin directory:
+```
 ./test_sdk \
     --mode recognition_test_11 \
     --dll_path ../lib/libfacerec.so \
@@ -357,14 +360,13 @@ Example of launch from the bin directory:
     --result_roc_file ./roc11_6v7.txt \
     --result_closest_mismatches_file ./closest_mismatches_file.txt \
     templates_6v7.bin
-
+```
 1:1 Recognition test results:
 
-    text file containing a ROC curve; the file line describes the curve point in the following format: <far> <tar> <distance>
-    text file with the lines in the following format: <distance> <image_id1> <image_id2> <path_to_image1> <path_to_image2>.
-    This file contains pairs of images marked as belonging to different people, but having a minimum distance between the templates. We recommend you to generate this file using the best method and view the images from the top of it to check the errors of the dataset annotation.
+* A text file containing a ROC curve; the file line describes the curve point in the following format: `<far> <tar> <distance>`.
+* A text file with the lines in the following format: `<distance> <image_id1> <image_id2> <path_to_image1> <path_to_image2>`. This file contains pairs of images marked as belonging to different people, but having a minimum distance between the templates. We recommend you to generate this file using the best method and view the images from the top of it to check the errors of the dataset annotation.
 
-1:N Recognition Test
+### 1:N Recognition Test
 
 In this mode, the program performs the 1:N recognition test using the templates generated from the images with the id in the range of [begin_image_id, end_image_id).
 
