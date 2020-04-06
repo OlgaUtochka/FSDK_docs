@@ -1,20 +1,20 @@
-\nn \section tutorial_points_and_angles Displaying Anthropometric Points and Head Rotation Angles
+# Displaying Anthropometric Points and Head Rotation Angles
 
-In this tutorial, you'll learn how to display anthropometric points and head rotation angles after a person's face has been found on a video or image. This tutorial is based on the tutorial \ref tutorial_vw_tracking and the corresponding project. 
+In this tutorial, you'll learn how to display anthropometric points and head rotation angles after a person's face has been found on a video or image. This tutorial is based on the tutorial [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md) and the corresponding project. 
 
-\htmlonly <style>div.image img[src="second_1.jpeg"]{width:600px;}</style> \endhtmlonly 
-@image html second_1.jpeg
+<p align="center">
+<img width="600" src="../img/second_1.jpeg"><br>
+</p>
 
-\subsection second_points Displaying Anthropometric Points 
+## Displaying Anthropometric Points 
 
-<ol>
-<li> Create the project, in which faces will be detected and tracked using the \member_reference{VideoWorker} object. Faces in this project are highlighted with a green rectangle (see \ref tutorial_vw_tracking). 
-<li> Modify the function <i>DrawFunction::Draw</i>. The pbio::RawSample object contains all the information about a tracked face, namely: face bounding rectangle, anthropometric points, position of eyes, angles, etc. Using the <i>pbio::RawSample::getLandmarks</i> method, get anthropometric points of a tracked face.  
+1. Create the project, in which faces will be detected and tracked using the `VideoWorker` object. Faces in this project are highlighted with a green rectangle (see [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md)). 
+2. Modify the function `DrawFunction::Draw`. The `pbio::RawSample` object contains all the information about a tracked face, namely: face bounding rectangle, anthropometric points, position of eyes, angles, etc. Using the `pbio::RawSample::getLandmarks` method, get anthropometric points of a tracked face.  
 
-\htmlonly <input class="toggle-box" id="second-1" type="checkbox" checked>
-<label class="spoiler-link" for="second-1">drawfunction.cpp</label>\endhtmlonly
+<input class="toggle-box" id="second-1" type="checkbox" checked>
+<label class="spoiler-link" for="second-1">drawfunction.cpp</label>
 <div>
-\code
+```
 //static
 QImage DrawFunction::Draw(
 	const Worker::DrawingData &data)
@@ -27,7 +27,7 @@ QImage DrawFunction::Draw(
 		}
 		...
 	}
-\endcode
+```
 </div>
 
 @note
@@ -67,7 +67,7 @@ QImage DrawFunction::Draw(
 \htmlonly <style>div.image img[src="second_2.png"]{width:600px;}</style> \endhtmlonly 
 @image html second_2.png
 
-\subsection second_angles Displaying Head Rotation Angles 
+## Displaying Head Rotation Angles 
 
 <ol>
 <li> The information about head rotation angles is also obtained from pbio::RawSample. 
