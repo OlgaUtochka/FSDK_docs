@@ -7,9 +7,10 @@ List of used abbreviations:
 * FRR (false reject rate) – the probability that the system incorrectly rejects an authorized person.
 * IR (identification rate) – identification rate. 
 
-\section verify_perf Identification Performance
+## Identification Performance
 
-\subsection verify_perf_time Timing Characteristics*
+### Timing Characteristics*
+
 <table cellpadding ="5" border="1" style="border-collapse:collapse;center">
 <tr>
   <th rowspan=3>Recognition method</th>
@@ -45,17 +46,16 @@ List of used abbreviations:
 <tr align="center"> <th align="center"> 8.7  </th>    <td>     80 (85**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
 </table>
 
-<b>*</b> – calculated per 1 core @ 1GHZ<br>
-<b>**</b> – template creation time when <i>processing_less_memory_consumption</i> was set to <i>true</i> in the \member_reference{FacerecService,createRecognizer} call for recognizer creation.
+* – calculated per 1 core @ 1GHZ
+** – template creation time when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.
 
-@note
-<ul>
-<li> Accelerated search time is given for <i>k</i>=1. As for larger values of <i>k</i>, the time will increase up to the search time without acceleration.
-<li> Accelerated search is implemented only for the recognition methods 6.5, 6.6, 6.7, 7.3, 7.6, 7.7, 8.6, 8.7.
-<li> To achieve this speed, the templates in the index must be located in the order of creation (by using the \member_reference{Recognizer,processing} or \member_reference{Recognizer,loadTemplate} method).
-</ul>
+**Note:**
+* Accelerated search time is given for `k=1`. As for larger values of `k`, the time will increase up to the search time without acceleration.
+* Accelerated search is implemented only for the recognition methods 6.5, 6.6, 6.7, 7.3, 7.6, 7.7, 8.6, 8.7.
+* To achieve this speed, the templates in the index must be located in the order of creation (by using the `Recognizer.processing` or `Recognizer.loadTemplate` method).
 
-\subsection verify_perf_mem Memory Characteristics
+### Memory Characteristics
+
 <table cellpadding ="5" border="1" style="border-collapse:collapse;center">
 <tr>
   <th>Recognition method</th>
