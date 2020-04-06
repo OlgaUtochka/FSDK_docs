@@ -270,16 +270,16 @@ In this mode, the program detects faces in images with the id in the range of `[
 
 Launch parameters:
 
-`mode` – program mode (detection);
-`dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
-`sdk_config_dir` – path to the *conf/facerec* directory;
-`dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));
-`capturer_config` – capturer config file name;
-`dataset_root_dir` – path to the dataset directory;
-`detection_result_file` – file for storing the detection results;
-`[begin_image_id]` – index of the image from which detection begins (the default setting is 0);
-`[end_image_id]` – index of the image to which detection is performed (by default, the processing is performed to the end of the file);
-`[use_cpu_cores_count]` – number of cores used for detection (the default setting is 1).
+* `mode` – program mode (detection);  
+* `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;  
+* `sdk_config_dir` – path to the *conf/facerec* directory;  
+* `dataset_config` – config file of the image dataset (see [Convert a Configuration File](#convert-a-configuration-file));  
+* `capturer_config` – capturer config file name;  
+* `dataset_root_dir` – path to the dataset directory;  
+* `detection_result_file` – file for storing the detection results;  
+* `[begin_image_id]` – index of the image from which detection begins (the default setting is 0);
+* `[end_image_id]` – index of the image to which detection is performed (by default, the processing is performed to the end of the file);
+* `[use_cpu_cores_count]` – number of cores used for detection (the default setting is 1).
 
 Example of launch from the *bin* directory:
 ```
