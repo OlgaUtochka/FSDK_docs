@@ -627,12 +627,10 @@ ui(new Ui::ViewWindow())
 }
 ```
 
-<li> The <i>QCameraCapture::newFrameAvailable</i> signal is processed in the <i>ViewWindow::draw</i> slot, which displays the camera image on the frame widget.
+21. The `QCameraCapture::newFrameAvailable` signal is processed in the `ViewWindow::draw` slot, which displays the camera image on the frame widget.
 
-\htmlonly <input class="toggle-box" id="first-28" type="checkbox" checked>
-<label class="spoiler-link" for="first-28">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 class ViewWindow : public QWidget
 {
 	...
@@ -640,13 +638,10 @@ class ViewWindow : public QWidget
 		void draw();
 	...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-29" type="checkbox" checked>
-<label class="spoiler-link" for="first-29">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 ViewWindow::ViewWindow(QWidget *parent) :
 QWidget(parent),
 ui(new Ui::ViewWindow())
@@ -671,15 +666,12 @@ void ViewWindow::draw()
 
 	ui->frame->setPixmap(QPixmap::fromImage(image));
 }
-\endcode
-</div>
+```
 
-<li> Start the camera in the <i>runProcessing</i> method and stop it in <i>stopProcessing</i>.
+22. Start the camera in the `runProcessing` method and stop it in `stopProcessing`.
 
-\htmlonly <input class="toggle-box" id="first-30" type="checkbox" checked>
-<label class="spoiler-link" for="first-30">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 class ViewWindow : public QWidget
 {
 	public:
@@ -689,13 +681,10 @@ class ViewWindow : public QWidget
 	void stopProcessing();
 	...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-31" type="checkbox" checked>
-<label class="spoiler-link" for="first-31">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 void ViewWindow::stopProcessing()
 {
 	if (!_running)
@@ -714,30 +703,24 @@ void ViewWindow::runProcessing()
 
 	_running = true;
 }
-\endcode
-</div>
+```
 
-<li> Stop the camera in the desctructor <i>~ViewWindow</i>.
+23. Stop the camera in the desctructor `~ViewWindow`.
 
-\htmlonly <input class="toggle-box" id="first-32" type="checkbox" checked>
-<label class="spoiler-link" for="first-32">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 ViewWindow::~ViewWindow()
 {
 	stopProcessing();
 
 	delete ui;
 }
-\endcode
-</div>
+```
 
-<li> Connect the camera widget to the main application window: create a view window and start processing in the <i>MainWindow</i> constructor.  Stop the processing in the <i>~MainWindow</i> destructor.
+24. Connect the camera widget to the main application window: create a view window and start processing in the `MainWindow` constructor. Stop the processing in the `~MainWindow` destructor.
 
-\htmlonly <input class="toggle-box" id="first-33" type="checkbox" checked>
-<label class="spoiler-link" for="first-33">mainwindow.h</label>\endhtmlonly
-<div>
-\code
+**mainwindow.h**
+```cpp
 ...
 class ViewWindow;
 
@@ -750,13 +733,10 @@ class MainWindow : public QMainWindow
 
 		QScopedPointer<ViewWindow> _view;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-34" type="checkbox" checked>
-<label class="spoiler-link" for="first-34">mainwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**mainwindow.cpp**
+```cpp
 #include "viewwindow.h"
 
 #include <QMessageBox>
@@ -796,15 +776,12 @@ MainWindow::~MainWindow()
 	delete ui;
 }
 ...
-\endcode
-</div>
+```
 
-<li> Modify the <i>main</i> function to catch possible exceptions.
+25. Modify the `main` function to catch possible exceptions.
 
-\htmlonly <input class="toggle-box" id="first-35" type="checkbox" checked>
-<label class="spoiler-link" for="first-35">main.cpp</label>\endhtmlonly
-<div>
-\code
+**main.cpp**
+```cpp
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -829,17 +806,15 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
-\endcode
-</div>
+```
 
-<li> Run the project. You should see a window with the image from your camera.
+26. Run the project. You should see a window with the image from your camera.
 
-@note
-On Windows, the image from some cameras can be flipped or mirrored, which happens due to some peculiarities of the image processing by Qt. In this case, you'll need to process the image, for example, using [QImage::mirrored()](https://doc.qt.io/qt-5/qimage.html).
-</ol>
+_**Note:** On Windows, the image from some cameras can be flipped or mirrored, which happens due to some peculiarities of the image processing by Qt. In this case, you'll need to process the image, for example, using [QImage::mirrored()](https://doc.qt.io/qt-5/qimage.html)._
 
-\htmlonly <style>div.image img[src="first_8.png"]{width:600px;}</style> \endhtmlonly 
-@image html first_8.png
+<p align="center">
+<img width="600" src="../img/first_8.png"><br>
+</p>
 
 ## Detecting and Tracking Faces in Video Stream
 
