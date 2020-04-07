@@ -180,12 +180,10 @@ class QCameraCapture : public QObject
 };
 ```
 
-8. Include the <i>stdexcept</i> header file to <i>qcameracapture.cpp</i> to throw exceptions. Save the pointer to a parent widget, camera id and image resolution in the initializer list of the constructor <i>QCameraCapture::QCameraCapture</i>. In the constructor body, get the list of available cameras. The list of cameras should contain at least one camera, otherwise, the <i>runtime_error</i> exception will be thrown. Check that the camera with the requested id is in the list. Create a camera and connect the camera signals to the slots processing the object. When the camera status changes, the camera sends the <i>statusChanged</i> signal. Create the <i>CameraSurface</i> object to display the frames from the camera. Connect the signal <i>CameraSurface::frameUpdatedSignal</i> to the slot <i>QCameraCapture::frameUpdatedSlot</i>.
+8. Include the `stdexcept` header file to `qcameracapture.cpp` to throw exceptions. Save the pointer to a parent widget, camera id and image resolution in the initializer list of the constructor `QCameraCapture::QCameraCapture`. In the constructor body, get the list of available cameras. The list of cameras should contain at least one camera, otherwise, the `runtime_error` exception will be thrown. Check that the camera with the requested id is in the list. Create a camera and connect the camera signals to the slots processing the object. When the camera status changes, the camera sends the `statusChanged` signal. Create the `CameraSurface` object to display the frames from the camera. Connect the signal `CameraSurface::frameUpdatedSignal` to the slot `QCameraCapture::frameUpdatedSlot`.
 
-\htmlonly <input class="toggle-box" id="first-8" type="checkbox" checked>
-<label class="spoiler-link" for="first-8">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 #include <QCameraInfo>
 
 #include <stdexcept>
@@ -232,15 +230,12 @@ res_height(res_height)
 
 	connect(m_surface.data(), &CameraSurface::frameUpdatedSignal, this, &QCameraCapture::frameUpdatedSlot);
 }
-\endcode
-</div>
+```
 
-<li> Stop the camera in the destructor <i>QCameraCapture</i>.
+9. Stop the camera in the destructor `QCameraCapture`.
 
-\htmlonly <input class="toggle-box" id="first-9" type="checkbox" checked>
-<label class="spoiler-link" for="first-9">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 class QCameraCapture : public QObject
 {
 	...
@@ -248,13 +243,10 @@ class QCameraCapture : public QObject
 	virtual ~QCameraCapture();
 	...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-10" type="checkbox" checked>
-<label class="spoiler-link" for="first-10">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 QCameraCapture::~QCameraCapture()
 {
 	if (m_camera)
@@ -262,15 +254,12 @@ QCameraCapture::~QCameraCapture()
 		m_camera->stop();
 	}
 }
-\endcode
-</div>
+```
 
-<li> Add the method <i>QCameraCapture::frameUpdatedSlot</i>, which processes the signal <i>CameraSurface::frameUpdatedSignal</i>. In this method, we convert the <i>QVideoFrame</i> object to <i>QImage</i> and send a signal that a new frame is available. Create a pointer to the image <i>FramePtr</i>. If the image is received in the RGB32 format, convert it to RGB888.
+10. Add the method `QCameraCapture::frameUpdatedSlot`, which processes the signal `CameraSurface::frameUpdatedSignal`. In this method, we convert the `QVideoFrame` object to `QImage` and send a signal that a new frame is available. Create a pointer to the image `FramePtr`. If the image is received in the RGB32 format, convert it to RGB888.
 
-\htmlonly <input class="toggle-box" id="first-11" type="checkbox" checked>
-<label class="spoiler-link" for="first-11">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 #include <memory>
 
 class QCameraCapture : public QObject
@@ -287,13 +276,10 @@ class QCameraCapture : public QObject
 		void frameUpdatedSlot(const QVideoFrame&);
 		...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-12" type="checkbox" checked>
-<label class="spoiler-link" for="first-12">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 void QCameraCapture::frameUpdatedSlot(
 	const QVideoFrame& frame)
 {
@@ -323,15 +309,12 @@ void QCameraCapture::frameUpdatedSlot(
 
 	emit newFrameAvailable();
 }
-\endcode
-</div>
+```
 
-<li> Add the methods to start and stop the camera to <i>QCameraCapture</i>.
+11. Add the methods to start and stop the camera to `QCameraCapture`.
 
-\htmlonly <input class="toggle-box" id="first-13" type="checkbox" checked>
-<label class="spoiler-link" for="first-13">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 class QCameraCapture : public QObject
 {
 	...
@@ -341,13 +324,10 @@ class QCameraCapture : public QObject
 		void stop();
 		...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-14" type="checkbox" checked>
-<label class="spoiler-link" for="first-14">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 void QCameraCapture::start()
 {
 	m_camera->start();
@@ -357,15 +337,12 @@ void QCameraCapture::stop()
 {
 	m_camera->stop();
 }
-\endcode
-</div>
+```
 
-<li> In the <i>QCameraCapture::onStatusChanged</i> method, process the change of the camera status to <i>LoadedStatus</i>. Check if the camera supports the requested resolution. Set the requested resolution, if it's supported by the camera, otherwise set the default resolution (640 x 480), specified by the static fields <i>default_res_width</i>, <i>default_res_height</i>.
+12. In the `QCameraCapture::onStatusChanged` method, process the change of the camera status to `LoadedStatus`. Check if the camera supports the requested resolution. Set the requested resolution, if it's supported by the camera, otherwise set the default resolution (640 x 480), specified by the static fields `default_res_width`, `default_res_height`.
 
-\htmlonly <input class="toggle-box" id="first-15" type="checkbox" checked>
-<label class="spoiler-link" for="first-15">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 class QCameraCapture {
 		...
 	private slots:
@@ -377,13 +354,10 @@ class QCameraCapture {
 		static const int default_res_height;
 		...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-16" type="checkbox" checked>
-<label class="spoiler-link" for="first-16">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 const int QCameraCapture::default_res_width = 640;
 const int QCameraCapture::default_res_height = 480;
 
@@ -419,8 +393,7 @@ void QCameraCapture::onStatusChanged()
 			m_camera->setViewfinderSettings(viewFinderSettings);
 	}
 }
-\endcode
-</div>
+```
 
 <li> In the <i>cameraError</i> method, display the camera error messages if they occur.
 
