@@ -1,14 +1,14 @@
 # Face Detection and Tracking in a Video Stream
 
-In this tutorial, you'll learn how to detect and track faces in a video stream from your camera using the \member_reference{VideoWorker} object from Face SDK API. Tracked faces are highlighted with a green rectangle.
+In this tutorial, you'll learn how to detect and track faces in a video stream from your camera using the `VideoWorker` object from Face SDK API. Tracked faces are highlighted with a green rectangle.
 
-Besides Face SDK and Qt, you'll need <b>a camera connected to your PC</b> (for example, a webcam).<br>
-You can build and run this project either on Windows or on Ubuntu (v16.04 or higher).<br>
+Besides Face SDK and Qt, you'll need **a camera connected to your PC** (for example, a webcam). You can build and run this project either on Windows or on Ubuntu (v16.04 or higher).
 
-You can find the tutorial project in Face SDK: <i>examples/tutorials/1_detection_and_tracking_with_video_worker</i>
+You can find the tutorial project in Face SDK: *examples/tutorials/1_detection_and_tracking_with_video_worker*
 
-\htmlonly <style>div.image img[src="first_1.png"]{width:600px;}</style> \endhtmlonly 
-@image html first_1.png
+<p align="center">
+<img width="600" src="../img/first_1.png"><br>
+</p>
 
 ## Creating a Qt Project 
 
