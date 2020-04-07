@@ -874,12 +874,10 @@ class MainWindow : public QMainWindow
 }
 ```
 
-5. Integrate Face SDK: add necessary headers to <i>mainwindow.h</i> and the <i>initFaceSdkService</i> method to initialize the Face SDK services. Create a <i>FacerecService</i> object, which is a component used to create the Face SDK modules, by calling the <i>FacerecService::createService</i> static method. Pass the path to the library and path to the folder with the configuration files in a <i>try-catch</i> block in order to catch possible exceptions. If the initialization was successful, the <i>initFaceSdkService</i> function will return <i>true</i>, otherwise, it'll return <i>false</i> and you'll see a window with an exception.
+5. Integrate Face SDK: add necessary headers to `mainwindow.h` and the `initFaceSdkService` method to initialize the Face SDK services. Create a `FacerecService` object, which is a component used to create the Face SDK modules, by calling the `FacerecService::createService` static method. Pass the path to the library and path to the folder with the configuration files in a `try-catch` block in order to catch possible exceptions. If the initialization was successful, the `initFaceSdkService` function will return `true`, otherwise, it'll return `false` and you'll see a window with an exception.
 
-\htmlonly <input class="toggle-box" id="first-40" type="checkbox" checked>
-<label class="spoiler-link" for="first-40">mainwindow.h</label>\endhtmlonly
-<div>
-\code
+**mainwindow.h**
+```cpp
 #include <facerec/libfacerec.h>
 
 class MainWindow : public QMainWindow
@@ -893,13 +891,10 @@ class MainWindow : public QMainWindow
 		pbio::FacerecService::Ptr _service;
 		...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-41" type="checkbox" checked>
-<label class="spoiler-link" for="first-41">mainwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**mainwindow.cpp**
+```cpp
 bool MainWindow::initFaceSdkService()
 {
 	// Integrate Face SDK
@@ -934,15 +929,12 @@ bool MainWindow::initFaceSdkService()
 
 	return false;
 }
-\endcode
-</div>
+```
 
-<li> In the <i>MainWindow::MainWindow</i> constructor, add a service initialization call. In case of an error, throw the <i>std::runtime_error</i> exception.
+6. In the `MainWindow::MainWindow` constructor, add a service initialization call. In case of an error, throw the `std::runtime_error` exception.
 
-\htmlonly <input class="toggle-box" id="first-42" type="checkbox" checked>
-<label class="spoiler-link" for="first-42">mainwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**mainwindow.cpp**
+```cpp
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
 ui(new Ui::MainWindow)
@@ -954,15 +946,12 @@ ui(new Ui::MainWindow)
 	}
 	...
 }
-\endcode
-</div>
+```
 
-<li> Pass <i>FacerecService</i> and Face SDK parameters to the <i>ViewWindow</i> constructor, where they'll be used to create the <i>VideoWorker</i> tracking module. Save the service and parameters to the class fields.
+7. Pass `FacerecService` and Face SDK parameters to the `ViewWindow` constructor, where they'll be used to create the `VideoWorker` tracking module. Save the service and parameters to the class fields.
 
-\htmlonly <input class="toggle-box" id="first-43" type="checkbox" checked>
-<label class="spoiler-link" for="first-43">mainwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**mainwindow.cpp**
+```cpp
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
 ui(new Ui::MainWindow)
@@ -974,13 +963,10 @@ ui(new Ui::MainWindow)
 		_face_sdk_parameters));
 	...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-44" type="checkbox" checked>
-<label class="spoiler-link" for="first-44">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 #include "facesdkparameters.h"
 #include <facerec/libfacerec.h>
 ...
@@ -1000,13 +986,10 @@ class ViewWindow : public QWidget
 		pbio::FacerecService::Ptr _service;
 		FaceSdkParameters _face_sdk_parameters;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-45" type="checkbox" checked>
-<label class="spoiler-link" for="first-45">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 ...
 ViewWindow::ViewWindow(
 	QWidget *parent,
@@ -1017,15 +1000,12 @@ ui(new Ui::ViewWindow()),
 _service(service),
 _face_sdk_parameters(face_sdk_parameters)
 ...
-\endcode
-</div>
+```
 
-<li> Modify the <i>Worker</i> class for interaction with Face SDK. The <i>Worker</i> class takes the <i>FacerecService</i> pointer and name of the configuration file of the tracking module. The <i>Worker</i> class creates the <i>VideoWorker</i> component from Face SDK, which is responsible for face tracking, passes the frames to it and processes the callbacks, which contain the tracking results. Imlement the constructor – create the object <i>VideoWorker</i>, specifying the configuration file, recognizer method (in our case, it's empty because we don't recognize faces in this project), number of video streams (it's 1 in our case because we use only one camera).
+8. Modify the `Worker` class for interaction with Face SDK. The `Worker` class takes the `FacerecService` pointer and name of the configuration file of the tracking module. The `Worker` class creates the `VideoWorker` component from Face SDK, which is responsible for face tracking, passes the frames to it and processes the callbacks, which contain the tracking results. Imlement the constructor – create the object `VideoWorker`, specifying the configuration file, recognizer method (in our case, it's empty because we don't recognize faces in this project), number of video streams (it's 1 in our case because we use only one camera).
 
-\htmlonly <input class="toggle-box" id="first-46" type="checkbox" checked>
-<label class="spoiler-link" for="first-46">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include <facerec/libfacerec.h>
 
 class Worker
@@ -1041,13 +1021,10 @@ class Worker
 		...
 		pbio::VideoWorker::Ptr _video_worker;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-47" type="checkbox" checked>
-<label class="spoiler-link" for="first-47">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 #include "worker.h"
 #include "videoframe.h"
 
@@ -1064,18 +1041,14 @@ Worker::Worker(
 		0,   // processing_threads_count
 		0);  // matching_threads_count
 }
-\endcode
-</div>
+```
 
-@note
-In addition to the face detection and tracking, <i>VideoWorker</i> can be used for face recognition on several video streams. In this case, you have to specify the recognizer method and the streams <i>processing_threads_count</i> and <i>matching_threads_count</i>.
+_**Note:** In addition to the face detection and tracking, `VideoWorker` can be used for face recognition on several video streams. In this case, you have to specify the recognizer method and the streams `processing_threads_count` and `matching_threads_count`._
 
-<li> Subscribe to the callbacks from the <i>VideoWorker</i> class – <i>TrackingCallback</i> (a face is detected and tracked), <i>TrackingLostCallback</i> (a face was lost). Delete them in the destructor.
+9. Subscribe to the callbacks from the `VideoWorker` class – `TrackingCallback` (a face is detected and tracked), `TrackingLostCallback` (a face was lost). Delete them in the destructor.
 
-\htmlonly <input class="toggle-box" id="first-48" type="checkbox" checked>
-<label class="spoiler-link" for="first-48">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 class Worker
 {
 	public:
@@ -1096,13 +1069,10 @@ class Worker
 		int _tracking_callback_id;
 		int _tracking_lost_callback_id;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-49" type="checkbox" checked>
-<label class="spoiler-link" for="first-49">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 Worker::Worker(...)
 {
 	...
@@ -1122,8 +1092,7 @@ Worker::~Worker()
 	_video_worker->removeTrackingCallback(_tracking_callback_id);
 	_video_worker->removeTrackingLostCallback(_tracking_lost_callback_id);
 }
-\endcode
-</div>
+```
 
 <li> Include the <i>cassert</i> header to handle exceptions. In <i>TrackingCallback</i>, the result is received in the form of the <i>TrackingCallbackData</i> structure, which stores data about all faces, which are being tracked. The preview output is synchronized with the result output. We cannot immediately display the frame, which is passed to <i>VideoWorker</i>, because it'll processed a little later. Therefore, frames are stored in a queue. When we get a result, we can find a frame that matches this result. Some frames may be skipped by <i>VideoWorker</i> under heavy load, which means that sometimes there's no matching result for some frames. In the algorithm below, the image corresponding to the last received frame is extracted from the queue. Save the detected faces for each frame so that we can use them later for visualization. To synchronize the changes of shared data in <i>TrackingCallback</i> and <i>TrackingLostCallback</i>, we use <i>std::mutex</i>.
 
