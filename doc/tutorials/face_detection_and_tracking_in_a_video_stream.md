@@ -40,25 +40,19 @@ You can find the tutorial project in Face SDK: *examples/tutorials/1_detection_a
 
 ## Displaying the Image from Camera
 
-<ol>
-<li> In order to use a camera in our project, we have to add Qt multimedia widgets. To do this, add the following line to the .pro file:
+1. In order to use a camera in our project, we have to add Qt multimedia widgets. To do this, add the following line to the .pro file:
 
-\htmlonly <input class="toggle-box" id="first-1" type="checkbox" checked>
-<label class="spoiler-link" for="first-1">detection_and_tracking_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**detection_and_tracking_with_video_worker.pro**
+```cpp
 ...
 QT  += multimedia multimediawidgets
 ...
-\endcode
-</div>
+```
 
-<li> Create a new class <i>QCameraCapture</i> to receive the image from a camera: <b>Add New > C++ > C++ Class > Choose… > Class name – QCameraCapture > Base class – QObject > Next > Project Management</b> (default settings) <b> > Finish</b>. Create a new class <i>CameraSurface</i> in the file <i>qcameracapture.h</i>, which will provide the frames from camera via the <i>present</i> callback.
+2. Create a new class `QCameraCapture` to receive the image from a camera: **Add New > C++ > C++ Class > Choose… > Class name – QCameraCapture > Base class – QObject > Next > Project Management** (default settings) **> Finish**. Create a new class `CameraSurface` in the file `qcameracapture.h`, which will provide the frames from camera via the `present` callback.
 
-\htmlonly <input class="toggle-box" id="first-2" type="checkbox" checked>
-<label class="spoiler-link" for="first-2">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 #include <QCamera>
 #include <QAbstractVideoSurface>
 #include <QVideoSurfaceFormat>
@@ -81,15 +75,12 @@ class CameraSurface : public QAbstractVideoSurface
 	signals:
 		void frameUpdatedSignal(const QVideoFrame&);
 };
-\endcode
-</div>
+```
 
-<li> Describe the implementation of this class in the file <i>qcameracapture.cpp</i>. Designate the <i>CameraSurface::CameraSurface</i> constructor and the <i>supportedPixelFormats</i> method. In <i>CameraSurface::supportedPixelFormats</i>, list all the image formats supported by Face SDK (RGB24, BGR24, NV12, NV21). With some cameras, the image is received in the RGB32 format, so we add this format to the list. This format isn't supported by Face SDK, so we'll convert the image from RGB32 to RGB24.
+3. Describe the implementation of this class in the file `qcameracapture.cpp`. Designate the `CameraSurface::CameraSurface` constructor and the `supportedPixelFormats` method. In `CameraSurface::supportedPixelFormats`, list all the image formats supported by Face SDK (RGB24, BGR24, NV12, NV21). With some cameras, the image is received in the RGB32 format, so we add this format to the list. This format isn't supported by Face SDK, so we'll convert the image from RGB32 to RGB24.
 
-\htmlonly <input class="toggle-box" id="first-3" type="checkbox" checked>
-<label class="spoiler-link" for="first-3">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 #include "qcameracapture.h"
 
 ...
@@ -113,15 +104,12 @@ QList<QVideoFrame::PixelFormat> CameraSurface::supportedPixelFormats(
 
     	return QList<QVideoFrame::PixelFormat>();
 }
-\endcode
-</div>
+```
 
-<li> In the <i>CameraSurface::start</i> method, check the image format. Start the camera, if the format is supported, otherwise handle the exception.
+4. In the `CameraSurface::start` method, check the image format. Start the camera, if the format is supported, otherwise handle the exception.
 
-\htmlonly <input class="toggle-box" id="first-4" type="checkbox" checked>
-<label class="spoiler-link" for="first-4">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 ...
 bool CameraSurface::start(const QVideoSurfaceFormat& format)
 {
@@ -133,15 +121,12 @@ bool CameraSurface::start(const QVideoSurfaceFormat& format)
 
 	return QAbstractVideoSurface::start(format);
 }
-\endcode
-</div>
+```
 
-<li> In the <i>CameraSurface::present</i> method, process a new frame. If the frame is successfully verified, send the signal <i>frameUpdatedSignal</i> to update the frame. Next, we'll connect this signal to the slot <i>frameUpdatedSlot</i>, where the frame will be processed.
+5. In the `CameraSurface::present` method, process a new frame. If the frame is successfully verified, send the signal `frameUpdatedSignal` to update the frame. Next, we'll connect this signal to the slot `frameUpdatedSlot`, where the frame will be processed.
 
-\htmlonly <input class="toggle-box" id="first-5" type="checkbox" checked>
-<label class="spoiler-link" for="first-5">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 ...
 bool CameraSurface::present(const QVideoFrame& frame)
 {
@@ -154,15 +139,12 @@ bool CameraSurface::present(const QVideoFrame& frame)
 
  	return true;
 }
-\endcode
-</div>
+```
 
-<li> The <i>QCameraCapture</i> constructor takes the pointer to a parent widget (<i>parent</i>), camera id and image resolution (width and height), which will be stored in the relevant class fields.
+6. The `QCameraCapture` constructor takes the pointer to a parent widget (`parent`), camera id and image resolution (width and height), which will be stored in the relevant class fields.
 
-\htmlonly <input class="toggle-box" id="first-6" type="checkbox" checked>
-<label class="spoiler-link" for="first-6">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**cameracapture.h**
+```cpp
 class QCameraCapture : public QObject
 {
 	Q_OBJECT
@@ -180,15 +162,12 @@ class QCameraCapture : public QObject
 		int res_width;
 		int res_height;
 }
-\endcode
-</div>
+```
 
-<li> Add the camera objects <i>m_camera</i> and <i>m_surface</i> to the <i>QCameraCapture</i> class.
+7. Add the camera objects `m_camera` and `m_surface` to the `QCameraCapture` class.
 
-\htmlonly <input class="toggle-box" id="first-7" type="checkbox" checked>
-<label class="spoiler-link" for="first-7">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 #include <QScopedPointer>
 
 class QCameraCapture : public QObject
@@ -199,10 +178,9 @@ class QCameraCapture : public QObject
 		QScopedPointer<QCamera> m_camera;
 		QScopedPointer<CameraSurface> m_surface;
 };
-\endcode
-</div>
+```
 
-<li> Include the <i>stdexcept</i> header file to <i>qcameracapture.cpp</i> to throw exceptions. Save the pointer to a parent widget, camera id and image resolution in the initializer list of the constructor <i>QCameraCapture::QCameraCapture</i>. In the constructor body, get the list of available cameras. The list of cameras should contain at least one camera, otherwise, the <i>runtime_error</i> exception will be thrown. Check that the camera with the requested id is in the list. Create a camera and connect the camera signals to the slots processing the object. When the camera status changes, the camera sends the <i>statusChanged</i> signal. Create the <i>CameraSurface</i> object to display the frames from the camera. Connect the signal <i>CameraSurface::frameUpdatedSignal</i> to the slot <i>QCameraCapture::frameUpdatedSlot</i>.
+8. Include the <i>stdexcept</i> header file to <i>qcameracapture.cpp</i> to throw exceptions. Save the pointer to a parent widget, camera id and image resolution in the initializer list of the constructor <i>QCameraCapture::QCameraCapture</i>. In the constructor body, get the list of available cameras. The list of cameras should contain at least one camera, otherwise, the <i>runtime_error</i> exception will be thrown. Check that the camera with the requested id is in the list. Create a camera and connect the camera signals to the slots processing the object. When the camera status changes, the camera sends the <i>statusChanged</i> signal. Create the <i>CameraSurface</i> object to display the frames from the camera. Connect the signal <i>CameraSurface::frameUpdatedSignal</i> to the slot <i>QCameraCapture::frameUpdatedSlot</i>.
 
 \htmlonly <input class="toggle-box" id="first-8" type="checkbox" checked>
 <label class="spoiler-link" for="first-8">qcameracapture.cpp</label>\endhtmlonly
