@@ -395,12 +395,10 @@ void QCameraCapture::onStatusChanged()
 }
 ```
 
-<li> In the <i>cameraError</i> method, display the camera error messages if they occur.
+13. In the `cameraError` method, display the camera error messages if they occur.
 
-\htmlonly <input class="toggle-box" id="first-17" type="checkbox" checked>
-<label class="spoiler-link" for="first-17">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 class QCameraCapture : public QObject
 {
 	...
@@ -409,26 +407,20 @@ class QCameraCapture : public QObject
 		void cameraError();
 	...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-18" type="checkbox" checked>
-<label class="spoiler-link" for="first-18">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 void QCameraCapture::cameraError()
 {
 	qDebug() << "Camera error: " << m_camera->errorString();
 }
-\endcode
-</div>
+```
 
-<li> Create a new class <i>Worker</i>: <b>Add New > C++ > C++ Class > Choose… > Class name - Worker > Next > Finish</b>. Through the <i>addFrame</i> method, the <i>Worker</i> class will save the last frame from the camera and pass this frame through the <i>getDataToDraw</i> method.
+14. Create a new class `Worker`: **Add New > C++ > C++ Class > Choose… > Class name - Worker > Next > Finish**. Through the `addFrame` method, the `Worker` class will save the last frame from the camera and pass this frame through the `getDataToDraw` method.
 
-\htmlonly <input class="toggle-box" id="first-19" type="checkbox" checked>
-<label class="spoiler-link" for="first-19">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include "qcameracapture.h"
 
 #include <mutex>
@@ -458,13 +450,10 @@ class Worker
 		DrawingData _drawing_data;
 		std::mutex _drawing_data_mutex;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-20" type="checkbox" checked>
-<label class="spoiler-link" for="first-20">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 void Worker::getDataToDraw(DrawingData &data)
 {
 	const std::lock_guard<std::mutex> guard(_drawing_data_mutex);
@@ -480,26 +469,25 @@ void Worker::addFrame(QCameraCapture::FramePtr frame)
 	_drawing_data.frame = frame;
 	_drawing_data.updated = true;
 }
-\endcode
-</div>
+```
 
-<li> Frames will be displayed in the <i>ViewWindow</i> class. Create a widget <b>ViewWindow: Add > New > Qt > Designer Form Class > Choose... > Template > Widget</b> (default settings) <b> > Next  > Name – ViewWindow > Project Management</b> (default settings) <b> > Finish</b>.
-<li> In the editor (Design), drag-and-drop the <b>Grid Layout</b> object to the widget. To do this, call context menu of <i>ViewWindow</i> by right-clicking and select <b>Layout > Lay Out in a Grid</b>. The <b>Grid Layout</b> object allows you to place widgets in a grid and is stretched to the size of the ViewWindow widget. Then, add the <b>Label</b> object to <b>gridLayout</b> and name it <b>frame: QObject > objectName > frame</b>.
+15. Frames will be displayed in the `ViewWindow` class. Create a widget **ViewWindow: Add > New > Qt > Designer Form Class > Choose... > Template > Widget** (default settings) **> Next  > Name – ViewWindow > Project Management** (default settings) **> Finish**.
+16. In the editor (Design), drag-and-drop the **Grid Layout** object to the widget. To do this, call context menu of **ViewWindow** by right-clicking and select **Layout > Lay Out in a Grid**. The **Grid Layout** object allows you to place widgets in a grid and is stretched to the size of the ViewWindow widget. Then, add the **Label** object to **gridLayout** and name it **frame: QObject > objectName > frame**.
 
-\htmlonly <style>div.image img[src="first_6.png"]{width:300px;}</style> \endhtmlonly 
-@image html first_6.png
+<p align="center">
+<img width="300" src="../img/first_6.png"><br>
+</p>
 
-<li> Delete the default text in <b>QLabel > text</b>.
+17. Delete the default text in **QLabel > text**.
 
-\htmlonly <style>div.image img[src="first_7.png"]{width:300px;}</style> \endhtmlonly 
-@image html first_7.png
+<p align="center">
+<img width="300" src="../img/first_7.png"><br>
+</p>
 
-<li> Add the camera <i>_qCamera</i> to the <i>ViewWindow</i> class and initialize it in the constructor. Using the static fields <i>camera_image_width</i> and <i>camera_image_height</i>, set the required image resolution to 1280x720. The <i>_running</i> flag stores the status of the camera: <i>true</i> means that the camera is running, <i>false</i> - the camera is stopped.
+18. Add the camera `_qCamera` to the `ViewWindow` class and initialize it in the constructor. Using the static fields `camera_image_width` and `camera_image_height`, set the required image resolution to 1280x720. The `_running` flag stores the status of the camera: `true` means that the camera is running, `false` - the camera is stopped.
 
-\htmlonly <input class="toggle-box" id="first-21" type="checkbox" checked>
-<label class="spoiler-link" for="first-21">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 #include "qcameracapture.h"
 
 #include <QWidget>
@@ -525,13 +513,10 @@ class ViewWindow : public QWidget
 		QScopedPointer<QCameraCapture> _qCamera;
 		bool _running;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-22" type="checkbox" checked>
-<label class="spoiler-link" for="first-22">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 const int ViewWindow::camera_image_width = 1280;
 const int ViewWindow::camera_image_height = 720;
 
@@ -549,15 +534,12 @@ ui(new Ui::ViewWindow())
 		camera_image_width,
 		camera_image_height));
 }
-\endcode
-</div>
+```
 
-<li> Add the <i>Worker</i> object to the <i>ViewWindow</i> class and initialize it in the constructor. 
+19. Add the `Worker` object to the `ViewWindow` class and initialize it in the constructor. 
 
-\htmlonly <input class="toggle-box" id="first-23" type="checkbox" checked>
-<label class="spoiler-link" for="first-23">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 #include "worker.h"
 
 class ViewWindow : public QWidget
@@ -568,13 +550,10 @@ class ViewWindow : public QWidget
 		...
 		std::shared_ptr<Worker> _worker;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-24" type="checkbox" checked>
-<label class="spoiler-link" for="first-24">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 ViewWindow::ViewWindow(QWidget *parent) :
 QWidget(parent),
 ui(new Ui::ViewWindow())
@@ -583,15 +562,12 @@ ui(new Ui::ViewWindow())
 	_worker = std::make_shared<Worker>();
 	...
 }
-\endcode
-</div>
+```
 
-<li> Frames will be passed to <i>Worker</i> from <i>QCameraCapture</i>. Modify the <i>QCameraCapture</i> and <i>ViewWindow</i> classes.
+20. Frames will be passed to `Worker` from `QCameraCapture`. Modify the `QCameraCapture` and `ViewWindow` classes.
 
-\htmlonly <input class="toggle-box" id="first-25" type="checkbox" checked>
-<label class="spoiler-link" for="first-25">qcameracapture.h</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.h**
+```cpp
 ...
 class Worker;
 
@@ -611,13 +587,10 @@ class QCameraCapture : public QObject
 		std::shared_ptr<Worker> _worker;
 	...
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-26" type="checkbox" checked>
-<label class="spoiler-link" for="first-26">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 #include "worker.h"
 ...
 QCameraCapture::QCameraCapture(
@@ -638,13 +611,10 @@ void QCameraCapture::frameUpdatedSlot(
 	}
 ...
 }
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-27" type="checkbox" checked>
-<label class="spoiler-link" for="first-27">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 ViewWindow::ViewWindow(QWidget *parent) :
 QWidget(parent),
 ui(new Ui::ViewWindow())
@@ -655,8 +625,7 @@ ui(new Ui::ViewWindow())
 		_worker,
 		...));
 }
-\endcode
-</div>
+```
 
 <li> The <i>QCameraCapture::newFrameAvailable</i> signal is processed in the <i>ViewWindow::draw</i> slot, which displays the camera image on the frame widget.
 
