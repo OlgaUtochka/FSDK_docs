@@ -818,15 +818,11 @@ _**Note:** On Windows, the image from some cameras can be flipped or mirrored, w
 
 ## Detecting and Tracking Faces in Video Stream
 
-<ol>
+1. Download and extract the Face SDK distribution as described in the section [Getting Started](../getting_started.md). The root folder of the distribution should contain the *bin* and *lib* folders, depending on your platform. 
+2. To detect and track faces on the image from your camera, you have to integrate Face SDK into your project. In the .pro file, specify the path to the Face SDK root folder in the variable `FACE_SDK_PATH`, which includes necessary headers. Also, specify the path to the `include` folder (from Face SDK). If the paths are not specified, the exception “Empty path to Face SDK” is thrown.
 
-<li> Download and extract the Face SDK distribution as described in the section \ref beginning. The root folder of the distribution should contain the <i>bin</i> and <i>lib</i> folders, depending on your platform. 
-<li> To detect and track faces on the image from your camera, you have to integrate Face SDK into your project. In the .pro file, specify the path to the Face SDK root folder in the variable <i>FACE_SDK_PATH</i>, which includes necessary headers. Also, specify the path to the <i>include</i> folder (from Face SDK). If the paths are not specified, the exception “Empty path to Face SDK” is thrown.
-
-\htmlonly <input class="toggle-box" id="first-36" type="checkbox" checked>
-<label class="spoiler-link" for="first-36">detection_and_tracking_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**detection_and_tracking_with_video_worker.pro**
+```cpp
 ...
 # Set path to FaceSDK root directory
 FACE_SDK_PATH =
@@ -838,30 +834,23 @@ DEFINES += FACE_SDK_PATH=\\\"$$FACE_SDK_PATH\\\"
 
 INCLUDEPATH += $${FACE_SDK_PATH}/include
 ...
-\endcode
-</div>
+```
 
-@note
-When specifying the path to Face SDK, please use a slash ("/").
+_**Note:** When specifying the path to Face SDK, please use a slash ("/")._
 
-<li> [Linux only] To build the project with Face SDK, add the following option to the .pro file:
+3. [Linux only] To build the project with Face SDK, add the following option to the .pro file:
 
-\htmlonly <input class="toggle-box" id="first-37" type="checkbox" checked>
-<label class="spoiler-link" for="first-37">detection_and_tracking_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**detection_and_tracking_with_video_worker.pro**
+```cpp
 ...
 unix: LIBS += -ldl
 ...
-\endcode
-</div>
+```
 
-<li> Besides, we have to specify the path to the <i>facerec</i> library and configuration files. Create the <i>FaceSdkParameters</i> class, which will store the configuration (<b>Add New > C++ > C++ Header File > FaceSdkParameters</b>) and use it in <i>MainWindow</i>.
+4. Besides, we have to specify the path to the `facerec` library and configuration files. Create the `FaceSdkParameters` class, which will store the configuration (**Add New > C++ > C++ Header File > FaceSdkParameters**) and use it in `MainWindow`.
 
-\htmlonly <input class="toggle-box" id="first-38" type="checkbox" checked>
-<label class="spoiler-link" for="first-38">facesdkparameters.h</label>\endhtmlonly
-<div>
-\code
+**facesdkparameters.h**
+```cpp
 #include <string>
 
 // Processing and face sdk settings.
@@ -869,13 +858,10 @@ struct FaceSdkParameters
 {
 	std::string face_sdk_path = FACE_SDK_PATH;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-39" type="checkbox" checked>
-<label class="spoiler-link" for="first-39">mainwindow.h</label>\endhtmlonly
-<div>
-\code
+**mainwindow.h**
+```cpp
 #include <QMainWindow>
 
 #include "facesdkparameters.h"
@@ -886,10 +872,9 @@ class MainWindow : public QMainWindow
 	...
 	FaceSdkParameters _face_sdk_parameters;
 }
-\endcode
-</div>
+```
 
-<li> Integrate Face SDK: add necessary headers to <i>mainwindow.h</i> and the <i>initFaceSdkService</i> method to initialize the Face SDK services. Create a <i>FacerecService</i> object, which is a component used to create the Face SDK modules, by calling the <i>FacerecService::createService</i> static method. Pass the path to the library and path to the folder with the configuration files in a <i>try-catch</i> block in order to catch possible exceptions. If the initialization was successful, the <i>initFaceSdkService</i> function will return <i>true</i>, otherwise, it'll return <i>false</i> and you'll see a window with an exception.
+5. Integrate Face SDK: add necessary headers to <i>mainwindow.h</i> and the <i>initFaceSdkService</i> method to initialize the Face SDK services. Create a <i>FacerecService</i> object, which is a component used to create the Face SDK modules, by calling the <i>FacerecService::createService</i> static method. Pass the path to the library and path to the folder with the configuration files in a <i>try-catch</i> block in order to catch possible exceptions. If the initialization was successful, the <i>initFaceSdkService</i> function will return <i>true</i>, otherwise, it'll return <i>false</i> and you'll see a window with an exception.
 
 \htmlonly <input class="toggle-box" id="first-40" type="checkbox" checked>
 <label class="spoiler-link" for="first-40">mainwindow.h</label>\endhtmlonly
