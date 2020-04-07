@@ -12,30 +12,31 @@ You can find the tutorial project in Face SDK: *examples/tutorials/1_detection_a
 
 ## Creating a Qt Project 
 
-<ol>
-<li> Run Qt and create a new project: <b>File > New File or Project > Application > Qt Widgets Application > Choose...</b>
+1. Run Qt and create a new project: **File > New File or Project > Application > Qt Widgets Application > Choose...**
 
-\htmlonly <style>div.image img[src="first_2.png"]{width:600px;}</style> \endhtmlonly 
-@image html first_2.png
+<p align="center">
+<img width="600" src="../img/first_2.png"><br>
+</p>
 
-<li> Name it, for example, <i>1_detection_and_tracking_with_video_worker</i> and choose the path. Click <b>Next</b> and choose the necessary platform for you project in the <b>Kit Selection</b> section, for example, <b>Desktop</b>.  Click <b>Details</b> and select the <b>Release</b> build configuration (we don't need <b>Debug</b> in this project). 
-<li> In the <b>Class Information</b> window, leave settings as default and click <b>Next</b>. Then, leave settings as default in the <b>Project Management</b> window and click <b>Finish</b>.
-<li> Let's title the main window of our app: in the project tree, double-click the file <b>Forms > mainwindow.ui</b>. Specify the name of the window in the <b>Properties</b> tab (the right part of the editor): <b>windowTitle > Face SDK Tracking</b>. 
+2. Name it, for example, *1_detection_and_tracking_with_video_worker* and choose the path. Click **Next** and choose the necessary platform for you project in the **Kit Selection** section, for example, **Desktop**.  Click **Details** and select the **Release** build configuration (we don't need **Debug** in this project). 
+3. In the **Class Information** window, leave settings as default and click **Next**. Then, leave settings as default in the **Project Management** window and click **Finish**.
+4. Let's title the main window of our app: in the project tree, double-click the file **Forms > mainwindow.ui**. Specify the name of the window in the **Properties** tab (the right part of the editor): **windowTitle > Face SDK Tracking**. 
 
-\htmlonly <style>div.image img[src="first_3.png"]{width:300px;}</style> \endhtmlonly 
-@image html first_3.png
+<p align="center">
+<img width="300" src="../img/first_3.png"><br>
+</p>
 
-<li> To lay out widgets in a grid, drag-and-drop the <b>Grid Layout</b> object to the <b>MainWindow</b> widget. Call context menu of <b>MainWindow</b> by right-clicking and select <b>Layout > Lay Out in a Grid</b>. The <b>Grid Layout</b> object will be stretched to the size of the <b>MainWindow</b> widget. Rename the <b>Layout: layoutName > viewLayout</b>.
+5. To lay out widgets in a grid, drag-and-drop the **Grid Layout** object to the **MainWindow** widget. Call context menu of **MainWindow** by right-clicking and select **Layout > Lay Out in a Grid**. The **Grid Layout** object will be stretched to the size of the **MainWindow** widget. Rename the **Layout: layoutName > viewLayout**.
 
-\htmlonly <style>div.image img[src="first_4.png"]{width:300px;}</style> \endhtmlonly 
-@image html first_4.png
+<p align="center">
+<img width="300" src="../img/first_4.png"><br>
+</p>
 
-<li> To run the project, click <b>Run</b> (Ctrl+R). You'll see an empty window with the title <b>Face SDK Tracking</b>.
+6. To run the project, click **Run** (Ctrl+R). You'll see an empty window with the title **Face SDK Tracking**.
 
-\htmlonly <style>div.image img[src="first_5.png"]{width:330px;}</style> \endhtmlonly 
-@image html first_5.png
-
-</ol>
+<p align="center">
+<img width="330" src="../img/first_5.png"><br>
+</p>
 
 ## Displaying the Image from Camera
 
