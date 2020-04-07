@@ -1094,12 +1094,10 @@ Worker::~Worker()
 }
 ```
 
-<li> Include the <i>cassert</i> header to handle exceptions. In <i>TrackingCallback</i>, the result is received in the form of the <i>TrackingCallbackData</i> structure, which stores data about all faces, which are being tracked. The preview output is synchronized with the result output. We cannot immediately display the frame, which is passed to <i>VideoWorker</i>, because it'll processed a little later. Therefore, frames are stored in a queue. When we get a result, we can find a frame that matches this result. Some frames may be skipped by <i>VideoWorker</i> under heavy load, which means that sometimes there's no matching result for some frames. In the algorithm below, the image corresponding to the last received frame is extracted from the queue. Save the detected faces for each frame so that we can use them later for visualization. To synchronize the changes of shared data in <i>TrackingCallback</i> and <i>TrackingLostCallback</i>, we use <i>std::mutex</i>.
+10. Include the `cassert` header to handle exceptions. In `TrackingCallback`, the result is received in the form of the `TrackingCallbackData` structure, which stores data about all faces, which are being tracked. The preview output is synchronized with the result output. We cannot immediately display the frame, which is passed to `VideoWorker`, because it'll processed a little later. Therefore, frames are stored in a queue. When we get a result, we can find a frame that matches this result. Some frames may be skipped by `VideoWorker` under heavy load, which means that sometimes there's no matching result for some frames. In the algorithm below, the image corresponding to the last received frame is extracted from the queue. Save the detected faces for each frame so that we can use them later for visualization. To synchronize the changes of shared data in `TrackingCallback` and `TrackingLostCallback`, we use `std::mutex`.
 
-\htmlonly <input class="toggle-box" id="first-50" type="checkbox" checked>
-<label class="spoiler-link" for="first-50">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include <cassert>
 ...
 class Worker
@@ -1130,13 +1128,10 @@ class Worker
 		};
 	...
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-51" type="checkbox" checked>
-<label class="spoiler-link" for="first-51">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 ...
 // static
 void Worker::TrackingCallback(
@@ -1206,15 +1201,12 @@ void Worker::TrackingCallback(
 		}
 	}
 }
-\endcode
-</div>
+```
 
-<li> Implement <i>TrackingLostCallback</i>, in which we mark that the tracked face left the frame.
+11. Implement `TrackingLostCallback`, in which we mark that the tracked face left the frame.
 
-\htmlonly <input class="toggle-box" id="first-52" type="checkbox" checked>
-<label class="spoiler-link" for="first-52">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 ...
 // static
 void Worker::TrackingLostCallback(
@@ -1236,15 +1228,12 @@ void Worker::TrackingLostCallback(
 		face.lost = true;
 	}
 }
-\endcode
-</div>
+```
 
-<li> <i>VideoWorker</i> receives the frames via the pbio::IRawImage interface. Create the <i>VideoFrame</i> header file: <b>Add New > C++ > C++ Header File > VideoFrame</b>. Include it to the file <i>videoframe.h</i> and implement the pbio::IRawImage interface for the <i>QImage</i> class. The pbio::IRawImage interface allows to get the pointer to image data, its format, width and height.
+12. `VideoWorker` receives the frames via the `pbio::IRawImage` interface. Create the `VideoFrame` header file: **Add New > C++ > C++ Header File > VideoFrame**. Include it to the file `videoframe.h` and implement the `pbio::IRawImage` interface for the `QImage` class. The `pbio::IRawImage` interface allows to get the pointer to image data, its format, width and height.
 
-\htmlonly <input class="toggle-box" id="first-53" type="checkbox">
-<label class="spoiler-link" for="first-53">videoframe.h</label>\endhtmlonly
-<div>
-\code
+**videoframe.h**
+```cpp
 #include "qcameracapture.h"
 #include <pbio/IRawImage.h>
 
@@ -1324,15 +1313,12 @@ const QCameraCapture::FramePtr& VideoFrame::frame() const
 {
 	return _frame;
 }
-\endcode
-</div>
+```
 
-<li> In the <i>addFrame</i> method, pass the frames to <i>VideoWorker</i>. If there are any exceptions during the callback processing, they're thrown again in the <i>checkExceptions</i> method. Create the <i>_frames</i> queue to store the frames. This queue will contain the frame id and the corresponding image, so that we can find the frame, which matches the processing result in <i>TrackingCallback</i>. To synchronize the changes in shared data, we use <i>std::mutex</i>.
+13. In the `addFrame` method, pass the frames to `VideoWorker`. If there are any exceptions during the callback processing, they're thrown again in the `checkExceptions` method. Create the `_frames` queue to store the frames. This queue will contain the frame id and the corresponding image, so that we can find the frame, which matches the processing result in `TrackingCallback`. To synchronize the changes in shared data, we use `std::mutex`.
 
-\htmlonly <input class="toggle-box" id="first-54" type="checkbox" checked>
-<label class="spoiler-link" for="first-54">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include <queue>
 ...
 class Worker : public QObject
@@ -1344,13 +1330,10 @@ class Worker : public QObject
 		std::mutex _frames_mutex;
 		...
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-55" type="checkbox" checked>
-<label class="spoiler-link" for="first-55">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 #include "videoframe.h"
 ...
 void Worker::addFrame(
@@ -1371,15 +1354,12 @@ void Worker::addFrame(
 
 	_frames.push(std::make_pair(frame_id, video_frame.frame()));
 }
-\endcode
-</div>
+```
 
-<li> Modify the <i>getDataToDraw</i> method - we won't draw the faces, for which <i>TrackingLostCallback</i> was called.
+14. Modify the `getDataToDraw` method - we won't draw the faces, for which `TrackingLostCallback` was called.
 
-\htmlonly <input class="toggle-box" id="first-56" type="checkbox" checked>
-<label class="spoiler-link" for="first-56">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 void Worker::getDataToDraw(DrawingData &data)
 {
 	...
@@ -1406,15 +1386,12 @@ void Worker::getDataToDraw(DrawingData &data)
 		}
 	...
 }
-\endcode
-</div>
+```
 
-<li> Modify the <i>QCameraCapture</i> class to catch the exceptions, which may be thrown in <i>Worker::addFrame</i>.
+15. Modify the `QCameraCapture` class to catch the exceptions, which may be thrown in `Worker::addFrame`.
 
-\htmlonly <input class="toggle-box" id="first-57" type="checkbox" checked>
-<label class="spoiler-link" for="first-57">qcameracapture.cpp</label>\endhtmlonly
-<div>
-\code
+**qcameracapture.cpp**
+```cpp
 #include <QMessageBox>
 ...
 void QCameraCapture::frameUpdatedSlot(
@@ -1451,15 +1428,12 @@ void QCameraCapture::frameUpdatedSlot(
    	}
 	...
 }
-\endcode
-</div>
+```
 
-<li> Create the <i>DrawFunction</i> class, which will contain a method to draw the tracking results in the image: <b>Add New > C++ > C++ Class > Choose… > Class name – DrawFunction</b>.
+16. Create the `DrawFunction` class, which will contain a method to draw the tracking results in the image: **Add New > C++ > C++ Class > Choose… > Class name – DrawFunction**.
 
-\htmlonly <input class="toggle-box" id="first-58" type="checkbox">
-<label class="spoiler-link" for="first-58">drawfunction.h</label>\endhtmlonly
-<div>
-\code
+**drawfunction.h**
+```cpp
 #include "worker.h"
 
 class DrawFunction
@@ -1470,13 +1444,10 @@ public:
 	static QImage Draw(
 		const Worker::DrawingData &data);
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="first-59" type="checkbox">
-<label class="spoiler-link" for="first-59">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 #include "drawfunction.h"
 #include <QPainter>
 
@@ -1527,15 +1498,12 @@ QImage DrawFunction::Draw(
 
 	return result;
 }
-\endcode
-</div>
+```
 
-<li> In the <i>ViewWindow</i> constructor, pass the <i>FacerecService</i> pointer and the name of the configuration file of the tracking module when creating <i>Worker</i>. In the <i>Draw</i> method, draw the tracking result in the image by calling <i>DrawFunction::Draw</i>.
+17. In the `ViewWindow` constructor, pass the `FacerecService` pointer and the name of the configuration file of the tracking module when creating `Worker`. In the `Draw` method, draw the tracking result in the image by calling `DrawFunction::Draw`.
 
-\htmlonly <input class="toggle-box" id="first-60" type="checkbox" checked>
-<label class="spoiler-link" for="first-60">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 #include "drawfunction.h"
 ...
 
@@ -1556,11 +1524,10 @@ void ViewWindow::draw()
 	const QImage image = DrawFunction::Draw(data);
 	...
 }
-\endcode
-</div>
+```
 
-<li> Run the project. Now you should see that faces in the image are detected and tracked (they're highlighted with a green rectangle). You can find more info about using the \member_reference{VideoWorker} object in the section \ref video_worker.
-</ol>
+18. Run the project. Now you should see that faces in the image are detected and tracked (they're highlighted with a green rectangle). You can find more info about using the `VideoWorker` object in the section [Video Stream Processing](../development/video_stream_processing.md).
 
-\htmlonly <style>div.image img[src="first_1.png"]{width:600px;}</style> \endhtmlonly 
-@image html first_1.png
+<p align="center">
+<img width="600" src="../img/first_1.png"><br>
+</p>
