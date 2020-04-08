@@ -19,12 +19,10 @@ You can find the tutorial project in Face SDK: *examples/tutorials/depth_livenes
 
 ## Importing OpenNI2 and RealSense2 Libraries
 
-<li> First of all, we have to import necessary libraries to work with the depth camera. You can use either an OpenNI2 sensor (for example, ASUS Xtion) or a RealSense2 sensor. Depending on the camera you're using, you have to specify the condition <i>WITH_OPENNI2=1</i> or <i>WITH_REALSENSE=1</i>.
+1. First of all, we have to import necessary libraries to work with the depth camera. You can use either an OpenNI2 sensor (for example, ASUS Xtion) or a RealSense2 sensor. Depending on the camera you're using, you have to specify the condition `WITH_OPENNI2=1` or `WITH_REALSENSE=1`.
 
-\htmlonly <input class="toggle-box" id="fifth-1" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-1">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 WITH_OPENNI2=1
 #WITH_REALSENSE=1
@@ -37,18 +35,14 @@ isEmpty(WITH_OPENNI2): isEmpty(WITH_REALSENSE) {
     error("OpenNI2 and RealSense support can't be enabled simultaneously")
 }
 ...
-\endcode
-</div>
+```
 
-<li> [For OpenNI2 sensors] Specify the path to the OpenNI2 distribution package and also the paths to the necessary OpenNI2 libraries and headers.
+2. [For OpenNI2 sensors] Specify the path to the OpenNI2 distribution package and also the paths to the necessary OpenNI2 libraries and headers.
 
-@note
-For Windows, you have to install OpenNI2 and specify the path to the installation directory. For Linux, you just need to specify the path to the unpacked archive. 
+_**Note:** For Windows, you have to install OpenNI2 and specify the path to the installation directory. For Linux, you just need to specify the path to the unpacked archive._
 
-\htmlonly <input class="toggle-box" id="fifth-2" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-2">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 !isEmpty(WITH_OPENNI2){
 
@@ -66,18 +60,14 @@ For Windows, you have to install OpenNI2 and specify the path to the installatio
     DEFINES += WITH_OPENNI2
 }
 ...
-\endcode
-</div>
+```
 
-<li> [For RealSense sensors] Specify the path to the RealSense2 distribution package and the paths to the necessary RealSense2 libraries and headers. In the <i>win32</i> block, we determine the platform bitness to set the correct paths to the RealSense libraries.
+3. [For RealSense sensors] Specify the path to the RealSense2 distribution package and the paths to the necessary RealSense2 libraries and headers. In the `win32` block, we determine the platform bitness to set the correct paths to the RealSense libraries.
 
-@note
-For Windows, you have to install RealSense2 and specify the path to the installation directory. For Linux, you have to install RealSense2 as described at the [Intel RealSense website](https://github.com/IntelRealSense/librealsense/).
+_**Note:** For Windows, you have to install RealSense2 and specify the path to the installation directory. For Linux, you have to install RealSense2 as described at the [Intel RealSense website](https://github.com/IntelRealSense/librealsense/)._
 
-\htmlonly <input class="toggle-box" id="fifth-3" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-3">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 !isEmpty(WITH_REALSENSE){
 
@@ -103,16 +93,11 @@ For Windows, you have to install RealSense2 and specify the path to the installa
     DEFINES += WITH_REALSENSE
 }
 ...
-\endcode
-</div>
+```
 
-</ol>
+## Retrieving a Depth Map using OpenNI2 API / RealSense2 API 
 
-\subsection fifth_depth_map Retrieving a Depth Map using OpenNI2 API / RealSense2 API 
-
-<ol>
-
-<li> At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs (\ref sec_video_recognition_demo). In the profile of the project, specify the path to the folder <i>examples/cpp/video_recognition_demo/src</i> from Face SDK.
+1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs (\ref sec_video_recognition_demo). In the profile of the project, specify the path to the folder <i>examples/cpp/video_recognition_demo/src</i> from Face SDK.
 
 \htmlonly <input class="toggle-box" id="fifth-4" type="checkbox" checked>
 <label class="spoiler-link" for="fifth-4">face_recognition_with_video_worker.pro</label>\endhtmlonly
