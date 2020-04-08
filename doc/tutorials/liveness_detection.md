@@ -481,28 +481,23 @@ void Worker::addFrame(const ImageAndDepth& data)
 
 ## Processing the Depth Map with VideoWorker
 
-<ol>
+1. In `Worker::Worker`, override the values of some parameters of the `VideoWorker` object to process the depth map, namely: 
 
-<li> In <i>Worker::Worker</i>, override the values of some parameters of the <i>VideoWorker</i> object to process the depth map, namely: 
-<ul>
-<li ><i>depth_data_flag</i> ("1" turns on depth frame processing to confirm face liveness); 
-<li> <i>weak_tracks_in_tracking_callback</i> ("1" means that all samples, even the ones flagged as <i>weak=true</i>, are passed to <i>TrackingCallback</i>). 
-</ul>
-The <i>weak</i> flag becomes <i>true</i> if a sample doesn't pass certain tests, for example: 
-<ul>
-<li> if there are too many shadows on a face (insufficient lighting);
-<li> if an image is fuzzy (blurred);
-<li> if a face is turned at a great angle; 
-<li> if a the size of a face in the frame is too small;
-<li> if a fase hasn't passed the liveness test (for example, if it's taken from a photo or a video).
-</ul>
-You can find the detailed information about lighting conditions, camera positioning, etc. in \ref camera_recommendations.
-As a rule, samples that haven't passed the tests, are not processed and not used for recognition. However, in this project we want to highlight all the faces, even if they're taken from the picture (haven't passed the liveness test). Therefore, we have to pass all samples to <i>TrackingCallback</i>, even if they're flagged as <i>weak=true</i>.
+* `depth_data_flag` ("1" turns on depth frame processing to confirm face liveness); 
+* `weak_tracks_in_tracking_callback` ("1" means that all samples, even the ones flagged as `weak=true`, are passed to `TrackingCallback`). 
 
-\htmlonly <input class="toggle-box" id="fifth-23" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-23">worker.cpp</label>\endhtmlonly
-<div>
-\code
+The `weak` flag becomes `true` if a sample doesn't pass certain tests, for example: 
+
+* <li> if there are too many shadows on a face (insufficient lighting);
+* <li> if an image is blurry;
+* <li> if a face is turned at a great angle; 
+* <li> if a the size of a face in the frame is too small;
+* <li> if a fase hasn't passed the liveness test (for example, if it's taken from a photo or a video).
+
+You can find the detailed information about lighting conditions, camera positioning, etc. in [Guidelines for Cameras](../guidelines_for_cameras.md). As a rule, samples that haven't passed the tests, are not processed and not used for recognition. However, in this project we want to highlight all the faces, even if they're taken from the picture (haven't passed the liveness test). Therefore, we have to pass all samples to `TrackingCallback`, even if they're flagged as `weak=true`.
+
+**worker.cpp**
+```cpp
 ...
 Worker::Worker(...)
 {
@@ -512,22 +507,19 @@ Worker::Worker(...)
     ...
 }
 ...
-\endcode
-</div>
+```
 
-<li> In the <i>FaceData</i> structure in <i>worker.h</i>, specify the enumeration <i>pbio::DepthLivenessEstimator</i>, which is the result of liveness estimation. All in all, there are four liveness statuses:
-<ul>
-<li> <b>NOT_ENOUGH_DATA</b> means that face information is insufficient. This situation may occur if the depth map quality is poor or the user is too close/too far from the sensor.
-<li> <b>REAL</b> means that the face belongs to a real person.
-<li> <b>FAKE</b> means that the face is taken from a picture or a video.
-<li> <b>NOT_COMPUTED</b> means that the face wasn't checked. This situation may occur, for example, if the frames from the sensor are not synchronized (an RGB frame is received but a corresponding depth frame wasn't found in a certain time range).
-</ul>
-The liveness test result is stored in the <i>face.liveness_status</i> variable for further rendering.
+2. In the `FaceData` structure in `worker.h`, specify the enumeration `pbio::DepthLivenessEstimator`, which is the result of liveness estimation. All in all, there are four liveness statuses:
 
-\htmlonly <input class="toggle-box" id="fifth-24" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-24">worker.h</label>\endhtmlonly
-<div>
-\code
+* **NOT_ENOUGH_DATA** means that face information is insufficient. This situation may occur if the depth map quality is poor or the user is too close/too far from the sensor.
+* **REAL** means that the face belongs to a real person.
+* **FAKE** means that the face is taken from a picture or a video.
+* **NOT_COMPUTED** means that the face wasn't checked. This situation may occur, for example, if the frames from the sensor are not synchronized (an RGB frame is received but a corresponding depth frame wasn't found in a certain time range).
+
+The liveness test result is stored in the `face.liveness_status` variable for further rendering.
+
+**worker.h**
+```cpp
 ...
 class Worker
 {
@@ -541,13 +533,10 @@ public:
     ...
 }
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-25" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-25">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 ...
 void Worker::TrackingCallback(...)
 {
@@ -569,15 +558,12 @@ void Worker::TrackingCallback(...)
     ...
 }
 ...
-\endcode
-</div>
+```
 
-<li> In <i>Worker::addFrame</i>, pass the last depth frame to Face SDK using the <i>VideoWorker::addDepthFrame</i> method and store it for further processing.  
+3. In `Worker::addFrame`, pass the last depth frame to Face SDK using the `VideoWorker::addDepthFrame` method and store it for further processing.  
 
-\htmlonly <input class="toggle-box" id="fifth-26" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-26">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 ...
 class Worker
 {
@@ -589,13 +575,10 @@ class Worker
         ...
 }
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-27" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-27">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 ...
 void Worker::addFrame(const ImageAndDepth& data)
 {
@@ -623,15 +606,12 @@ void Worker::addFrame(const ImageAndDepth& data)
     }
 }
 ...
-\endcode
-</div>
+```
 
-<li> Prepare and pass the RGB image to Face SDK using <i>VideoWorker::addVideoFrame</i>. If the format of the received RGB image is BGR instead of RGB, the byte order is changed so that the image colors are displayed correctly.  If a depth frame wasn't received together with an RGB frame, the last received depth frame is used.  A pair of the depth and RGB frames is queued in <i>_frames</i> in order to find the data corresponding to the processing result in <i>TrackingCallback</i>.
+4. Prepare and pass the RGB image to Face SDK using `VideoWorker::addVideoFrame`. If the format of the received RGB image is BGR instead of RGB, the byte order is changed so that the image colors are displayed correctly.  If a depth frame wasn't received together with an RGB frame, the last received depth frame is used.  A pair of the depth and RGB frames is queued in `_frames` in order to find the data corresponding to the processing result in `TrackingCallback`.
 
-\htmlonly <input class="toggle-box" id="fifth-28" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-28">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 ...
 void Worker::addFrame(const ImageAndDepth& data)
 {
@@ -674,12 +654,9 @@ void Worker::addFrame(const ImageAndDepth& data)
     _video_worker->checkExceptions();
 }
 ...
-\endcode
-</div>
+```
 
-</ol>
-
-\subsection fifth_visualization Visualizing RGB and Depth Maps. Displaying 3D Liveness Information
+## Visualizing RGB and Depth Maps. Displaying 3D Liveness Information
 
 <ol>
 
