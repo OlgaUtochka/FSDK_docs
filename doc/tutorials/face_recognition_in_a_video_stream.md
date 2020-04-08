@@ -394,14 +394,10 @@ struct FaceSdkParameters
 
 ## Searching a Face in the Database and Displaying the Result 
 
-<ol>
+1. In `facesdkparameters.h`, set the path to the configuration file with the recognition method. In this project, we use the method 6v6 because it's suitable for video stream processing and provides optimal recognition speed and good quality. You can learn more about recommended recognition methods in [Face Identification](../development/face_identification.md). 
 
-<li> In <i>facesdkparameters.h</i>, set the path to the configuration file with the recognition method. In this project, we use the method 6v6 because it's suitable for video stream processing and provides optimal recognition speed and good quality. You can learn more about recommended recognition methods in \ref verify_api. 
-
-\htmlonly <input class="toggle-box" id="fourth-20" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-20">facesdkparameters.h</label>\endhtmlonly
-<div>
-\code
+**facesdkparameters.h**
+```cpp
 struct FaceSdkParameters
 {
     ...
@@ -411,18 +407,14 @@ struct FaceSdkParameters
     const float fa_r = 1e-5;
     std::string method_config = "method6v6_recognizer.xml";
 };
-\endcode
-</div>
+```
 
-@note
-If you want to recognize faces in a video stream and you use low-performance devices, you can use the method 8.6. In this case, recognition speed is higher but recognition quality is lower compared to the method 6.6.
+_**Note:** If you want to recognize faces in a video stream and you use low-performance devices, you can use the method 8.6. In this case, recognition speed is higher but recognition quality is lower compared to the method 6.6._
 
-<li> In <i>worker.h</i>, add the variable <i>match_database_index</i> to the <i>FaceData</i> structure. This variable will store the database element, if a person is recognized, or <i>"-1"</i> if a person is not recognized. Add <i>Database</i> and a callback indicating that a person is recognized (<i>MatchFoundCallback</i>).
+2. In `worker.h`, add the variable `match_database_index` to the `FaceData` structure. This variable will store the database element, if a person is recognized, or `"-1"` if a person is not recognized. Add `Database` and a callback indicating that a person is recognized (`MatchFoundCallback`).
 
-\htmlonly <input class="toggle-box" id="fourth-21" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-21">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include "qcameracapture.h"
 #include "facesdkparameters.h"
 #include "database.h"
@@ -461,15 +453,12 @@ public:
     int _tracking_lost_callback_id;
     int _match_found_callback_id;
 };
-\endcode
-</div>
+```
 
-<li> In <i>worker.cpp</i>, override the value of the parameter in the configuration file so that <i>MatchFoundCallback</i> is received for non-recognized faces too. Set the parameters of the <i>VideoWorker</i> object: in the first tutorial, we didn't recognize faces, that's why we set only the value of <i>streams_count</i>. Since in this project we're going to recognize faces in a video stream we have to specify in the constructor the path to the configuration file with the recognition method, and also the values of <i>processing_threads_count</i> (number of threads to create templates) and <i>matching_threads_count</i> (number of threads to compare the templates). In this project, we use only one stream (a webcam connected to our PC). Connect the database: pass the path to the database, create <i>Capturer</i> to detect faces and <i>Recognizer</i> to create templates, and also specify the <i>FAR</i> coefficient.  Using the <i>setDatabase</i> method, set the database for <i>VideoWorker</i>. Using the <i>addMatchFoundCallback</i> method, add the recognition event handler <i>MatchFound</i>.  
+3. In `worker.cpp`, override the value of the parameter in the configuration file so that `MatchFoundCallback` is received for non-recognized faces too. Set the parameters of the `VideoWorker` object: in the first tutorial, we didn't recognize faces, that's why we set only the value of `streams_count`. Since in this project we're going to recognize faces in a video stream we have to specify in the constructor the path to the configuration file with the recognition method, and also the values of `processing_threads_count` (number of threads to create templates) and `matching_threads_count` (number of threads to compare the templates). In this project, we use only one stream (a webcam connected to our PC). Connect the database: pass the path to the database, create `Capturer` to detect faces and `Recognizer` to create templates, and also specify the `FAR` coefficient.  Using the `setDatabase` method, set the database for `VideoWorker`. Using the `addMatchFoundCallback` method, add the recognition event handler `MatchFound`.  
 
-\htmlonly <input class="toggle-box" id="fourth-22" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-22">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 Worker::Worker(
     const pbio::FacerecService::Ptr service,
     const FaceSdkParameters face_sdk_parameters)
@@ -499,15 +488,12 @@ Worker::Worker(
             MatchFoundCallback,
             this);
 }
-\endcode
-</div>
+```
 
-<li> In the destructor <i>Worker::~Worker()</i>, remove <i>MatchFoundCallback</i>.
+4. In the destructor `Worker::~Worker()`, remove `MatchFoundCallback`.
 
-\htmlonly <input class="toggle-box" id="fourth-23" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-23">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 Worker::~Worker()
 {
     _video_worker->removeTrackingCallback(_tracking_callback_id);
@@ -515,15 +501,12 @@ Worker::~Worker()
     _video_worker->removeMatchFoundCallback(_match_found_callback_id);
 }
 ...
-\endcode
-</div>
+```
 
-<li> In <i>MatchFoundCallback</i>, the result is received in form of the structure <i>MatchFoundCallbackData</i> that stores the information about recognized and unrecognized faces. 
+5. In `MatchFoundCallback`, the result is received in form of the structure `MatchFoundCallbackData` that stores the information about recognized and unrecognized faces. 
 
-\htmlonly <input class="toggle-box" id="fourth-24" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-24">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 // static
 void Worker::TrackingLostCallback(
     const pbio::VideoWorker::TrackingLostCallbackData &data,
@@ -551,15 +534,12 @@ void Worker::MatchFoundCallback(
     assert(templ);
     assert(!search_results.empty());
 }
-\endcode
-</div>
+```
 
-<li> When a template for a tracked person is created, it's compared with each template from the database. If the distance to the closest element is less than <i>distance_threshold</i> specified in this element, then it's a match. If a face in a video stream is not recognied, then you'll see the message <i>"Match not found"</i>. If a face is recognized, you'll see the message <i>"Match found with..."</i> and the name of the matched person. 
+6. When a template for a tracked person is created, it's compared with each template from the database. If the distance to the closest element is less than `distance_threshold` specified in this element, then it's a match. If a face in a video stream is not recognied, then you'll see the message `"Match not found"`. If a face is recognized, you'll see the message `"Match found with..."` and the name of the matched person. 
 
-\htmlonly <input class="toggle-box" id="fourth-25" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-25">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 // static
 void Worker::MatchFoundCallback(
     const pbio::VideoWorker::MatchFoundCallbackData &data,
@@ -584,15 +564,12 @@ void Worker::MatchFoundCallback(
     }
     std::cout << std::endl;
 }
-\endcode
-</div>
+```
 
-<li> Save the data about the recognized face to display a preview. 
+7. Save the data about the recognized face to display a preview. 
 
-\htmlonly <input class="toggle-box" id="fourth-26" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-26">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 // static
 void Worker::MatchFoundCallback(
     const pbio::VideoWorker::MatchFoundCallbackData &data,
@@ -615,26 +592,20 @@ void Worker::MatchFoundCallback(
         face.match_database_index = element_id;
     }
 }
-\endcode
-</div>
+```
 
-<li> Run the project. The recognition results will be displayed in the console. If a face is recognized, you'll see the face id and name of a recognized person from the database. If a face isn't recognized, you'll see the message <i>"Match not found"</i>.
-</ol>
+8. Run the project. The recognition results will be displayed in the console. If a face is recognized, you'll see the face id and name of a recognized person from the database. If a face isn't recognized, you'll see the message `"Match not found"`.
 
-\htmlonly <style>div.image img[src="fourth_1.jpeg"]{width:400px;}</style> \endhtmlonly 
-@image html fourth_1.jpeg
+<p align="center">
+<img width="400" src="../img/fourth_1.jpeg"><br>
+</p>
 
-\subsection fourth_preview Displaying the Preview of the Recognized Face from the Database 
+## Displaying the Preview of the Recognized Face from the Database 
 
-<ol>
+1. Let's make our project a little nicer. We'll display the image and name of a person from the database next to the face in a video stream. In `drawfunction.h`, add a reference to the database, because we'll need it when rendering the recognition results. 
 
-<li> Let's make our project a little nicer. We'll display the image and name of a person from the database next to the face in a video stream.  
-In <i>drawfunction.h</i>, add a reference to the database, because we'll need it when rendering the recognition results. 
-
-\htmlonly <input class="toggle-box" id="fourth-27" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-27">drawfunction.h</label>\endhtmlonly
-<div>
-\code
+**drawfunction.h**
+```cpp
 #include "database.h"
 
 class DrawFunction
@@ -646,15 +617,12 @@ public:
         const Worker::DrawingData &data,
         const Database &database);
 };
-\endcode
-</div>
+```
 
-<li> In <i>drawfunction.cpp</i>, modify the function <i>DrawFunction::Draw</i> by passing the database to it.
+2. In `drawfunction.cpp`, modify the function `DrawFunction::Draw` by passing the database to it.
 
-\htmlonly <input class="toggle-box" id="fourth-28" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-28">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 // static
 QImage DrawFunction::Draw(
     const Worker::DrawingData &data,
@@ -664,15 +632,12 @@ QImage DrawFunction::Draw(
     const pbio::RawSample& sample = *face.sample;
     QPen pen;
 }
-\endcode
-</div>
+```
 
-<li> Save the bounding rectangle in the structure <i>pbio::RawSample::Rectangle</i>. Pass its parameters (x, y, width, height) to the <i>QRect rect</i> object. 
+3. Save the bounding rectangle in the structure `pbio::RawSample::Rectangle`. Pass its parameters (x, y, width, height) to the `QRect rect` object. 
 
-\htmlonly <input class="toggle-box" id="fourth-29" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-29">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 QImage DrawFunction::Draw(...)
 {
     ...
@@ -680,15 +645,12 @@ QImage DrawFunction::Draw(...)
     const pbio::RawSample::Rectangle bounding_box = sample.getRectangle();
     QRect rect(bounding_box.x, bounding_box.y, bounding_box.width, bounding_box.height);
 }
-\endcode
-</div>
+```
 
-<li> Create a boolean variable <i>recognized</i> that indicates whether a face is recognized or unrecognized. If a face is recognized, the bounding rectangle is green, otherwise it's red.  
+4. Create a boolean variable `recognized` that indicates whether a face is recognized or unrecognized. If a face is recognized, the bounding rectangle is green, otherwise it's red.  
 
-\htmlonly <input class="toggle-box" id="fourth-30" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-30">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 QImage DrawFunction::Draw(...)
 {
     ...
@@ -706,15 +668,12 @@ QImage DrawFunction::Draw(...)
         painter.drawRect(rect);
     }
 }
-\endcode
-</div>
+```
 
-<li> Get a relevant image from the database for a preview by <i>face.match_database_index</i>. Calculate the position of a preview in the frame. 
+5. Get a relevant image from the database for a preview by `face.match_database_index`. Calculate the position of a preview in the frame. 
 
-\htmlonly <input class="toggle-box" id="fourth-31" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-31">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 QImage DrawFunction::Draw(...)
 {
     ...
@@ -728,15 +687,12 @@ QImage DrawFunction::Draw(...)
                 rect.x() + rect.width() + pen.width(),
                 rect.top());
 }
-\endcode
-</div>
+```
 
-<li> Draw an image from the database in the preview. Create the object <i>QImage face_preview</i> that is higher than <i>thumbnail</i> on <i>text_bar_height</i>. The original preview image is drawn in the position (0, 0). As a result, we get a preview with a black rectangle at the bottom with the name of a person. Set the font parameters, calculate the position of a text and display the text in the preview.
+6. Draw an image from the database in the preview. Create the object `QImage face_preview` that is higher than `thumbnail` on `text_bar_height`. The original preview image is drawn in the position (0, 0). As a result, we get a preview with a black rectangle at the bottom with the name of a person. Set the font parameters, calculate the position of a text and display the text in the preview.
 
-\htmlonly <input class="toggle-box" id="fourth-32" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-32">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 QImage DrawFunction::Draw(...)
 {
     ...
@@ -767,15 +723,12 @@ QImage DrawFunction::Draw(...)
         }
     }
 }
-\endcode
-</div>
+```
 
-<li> Draw <i>face_preview</i> in the frame using the <i>drawPixmap</i> method.
+7. Draw `face_preview` in the frame using the `drawPixmap` method.
 
-\htmlonly <input class="toggle-box" id="fourth-33" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-33">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 // static
 QImage DrawFunction::Draw(...)
 {
@@ -791,15 +744,12 @@ QImage DrawFunction::Draw(...)
         painter.drawPixmap(preview_pos, pixmap);
     }
 }
-\endcode
-</div>
+```
 
-<li> In <i>worker.h</i>, add a method that returns the reference to the database. 
+8. In `worker.h`, add a method that returns the reference to the database. 
 
-\htmlonly <input class="toggle-box" id="fourth-34" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-34">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 class Worker
 {
 public:
@@ -812,15 +762,12 @@ public:
         return _database;
     }
 };
-\endcode
-</div>
+```
 
-<li> Modify the call to <i>DrawFunction::Draw</i> by passing the database to it. 
+9. Modify the call to `DrawFunction::Draw` by passing the database to it. 
 
-\htmlonly <input class="toggle-box" id="fourth-35" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-35">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 void ViewWindow::draw()
 {
     ...
@@ -828,11 +775,10 @@ void ViewWindow::draw()
 
     ui->frame->setPixmap(QPixmap::fromImage(image));
 }
-\endcode
-</div>
+```
 
-<li> Run the project. If a face is recognized, it will be highlighted with a green rectangle and you'll see a preview of an image from the database and a person's name. Unrecognized faces will be highlighted with a red rectangle. 
-</ol>
+10. Run the project. If a face is recognized, it will be highlighted with a green rectangle and you'll see a preview of an image from the database and a person's name. Unrecognized faces will be highlighted with a red rectangle. 
 
-\htmlonly <style>div.image img[src="fourth_2.png"]{width:600px;}</style> \endhtmlonly 
-@image html fourth_2.png
+<p align="center">
+<img width="600" src="../img/fourth_2.png"><br>
+</p>
