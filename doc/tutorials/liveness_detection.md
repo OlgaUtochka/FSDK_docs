@@ -658,14 +658,10 @@ void Worker::addFrame(const ImageAndDepth& data)
 
 ## Visualizing RGB and Depth Maps. Displaying 3D Liveness Information
 
-<ol>
+1. Let's modify `DrawFunction::Draw` in `drawfunction.cpp`. The `frame` field of the `Worker::DrawingData` structure contains the pointers to RGB frame data and depth frame data, as well as depth frame parameters (width, height, etc.). For convenience, we'll create the references `const QImage& color_image`, `const QByteArray& depth_array`, and `const pbio::DepthMapRaw& depth_options` to refer to these data. The RGB image and depth map will be displayed in `QImage result`, which can be considered as a sort of a "background" and contains both images (an RGB image at the top and a depth map at the bottom). Before that, we have to convert 16-bit depth values to 8-bit depth values to correctly display the depth map (in grayscale). In the `max_depth_mm` value, specify the maximum distance from the sensor to the user (usually, it's 10 meters).  
 
-<li> Let's modify <i>DrawFunction::Draw</i> in <i>drawfunction.cpp</i>. The <i>frame</i> field of the <i>Worker::DrawingData</i> structure contains the pointers to RGB frame data and depth frame data, as well as depth frame parameters (width, height, etc.). For convenience, we'll create the references <i>const QImage& color_image</i>, <i>const QByteArray& depth_array</i>, and <i>const pbio::DepthMapRaw& depth_options</i> to refer to these data. The RGB image and depth map will be displayed in <i>QImage result</i>, which can be considered as a sort of a "background" and contains both images (an RGB image at the top and a depth map at the bottom). Before that, we have to convert 16-bit depth values to 8-bit depth values to correctly display the depth map (in grayscale). In the <i>max_depth_mm</i> value, specify the maximum distance from the sensor to the user (usually, it's 10 meters).  
-
-\htmlonly <input class="toggle-box" id="fifth-29" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-29">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 ...
 // static
 QImage DrawFunction::Draw(
@@ -691,15 +687,12 @@ QImage DrawFunction::Draw(
     ...
 }
 ...
-\endcode
-</div>
+```
 
-<li> Form the depth image from the converted values. Create the <i>result</i> object, which will be used to display an RGB image (at the top) and a depth map (at the bottom). Render these images.  
+2. Form the depth image from the converted values. Create the `result` object, which will be used to display an RGB image (at the top) and a depth map (at the bottom). Render these images.  
 
-\htmlonly <input class="toggle-box" id="fifth-30" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-30">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 ...
 QImage DrawFunction::Draw(...)
 {
@@ -723,15 +716,12 @@ QImage DrawFunction::Draw(...)
     ...
 }
 ...
-\endcode
-</div>
+```
 
-<li> Display the liveness status next to the face depending on the information received from the liveness detector. Specify the label parameters (color, line, size). You'll see a bounding rectangle in the depth map so that you can make sure that the RGB frame and depth frame are aligned.  
+3. Display the liveness status next to the face depending on the information received from the liveness detector. Specify the label parameters (color, line, size). You'll see a bounding rectangle in the depth map so that you can make sure that the RGB frame and depth frame are aligned.  
 
-\htmlonly <input class="toggle-box" id="fifth-31" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-31">drawfunction.cpp</label>\endhtmlonly
-<div>
-\code
+**drawfunction.cpp**
+```cpp
 ...
 QImage DrawFunction::Draw(...)
 {
@@ -790,17 +780,13 @@ bounding_box.width, bounding_box.height);
     ...
 }
 ...
-\endcode
-</div>
+```
 
-<li> Run the project. You should see an RGB image and a depth map from the sensor. You should see the information about the detected face:  
-<ul>
-<li> <b>detection and recognition status</b> (which is indicated by the color of the bounding rectangle: <i>green</i> means that a person is detected and found in the database, <i>red</i> means that a person is not recognized or the face is taken from an image or a video);
-<li> <b>information about the recognized person</b> (his/her image and name from the database);
-<li> <b>liveness status</b>; <i>real</i> means that a person is real, <i>fake</i> means that a face is taken from an image or a video, <i>not_enough_data</i> means that the depth map quality is poor or a person is too close/too far away from the sensor, <i>not_computed</i> means that RGB and depth frames are not synchronized.
-</ul>
+4. Run the project. You should see an RGB image and a depth map from the sensor. You should see the information about the detected face:  
+* **detection and recognition status** (which is indicated by the color of the bounding rectangle: *green* means that a person is detected and found in the database, *red* means that a person is not recognized or the face is taken from an image or a video);
+* **information about the recognized person** (his/her image and name from the database);
+* **liveness status**; *real* means that a person is real, *fake* means that a face is taken from an image or a video, *not_enough_data* means that the depth map quality is poor or a person is too close/too far away from the sensor, *not_computed* means that RGB and depth frames are not synchronized.
 
-</ol>
-
-\htmlonly <style>div.image img[src="fifth_1.png"]{width:1000px;}</style> \endhtmlonly 
-@image html fifth_1.png
+<p align="center">
+<img width="1000" src="../img/fifth_1.png"><br>
+</p>
