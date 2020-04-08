@@ -97,24 +97,19 @@ _**Note:** For Windows, you have to install RealSense2 and specify the path to t
 
 ## Retrieving a Depth Map using OpenNI2 API / RealSense2 API 
 
-1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs (\ref sec_video_recognition_demo). In the profile of the project, specify the path to the folder <i>examples/cpp/video_recognition_demo/src</i> from Face SDK.
+1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs ([video_recognition_demo](../demo_programs/cpp_demos.md#video_recognition_demo)). In the profile of the project, specify the path to the folder *examples/cpp/video_recognition_demo/src*> from Face SDK.
 
-\htmlonly <input class="toggle-box" id="fifth-4" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-4">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 INCLUDEPATH += $$FACE_SDK_PATH/examples/cpp/video_recognition_demo/src
 ...
-\endcode
-</div>
+```
 
-<li> Specify the necessary headers to work with OpenNI2 and RealSense2 cameras. You can find the detailed information about retreving the depth frames in the specified files (<i>OpenniSource.h</i> and <i>RealSenseSource.h</i>).
+2. Specify the necessary headers to work with OpenNI2 and RealSense2 cameras. You can find the detailed information about retreving the depth frames in the specified files (`OpenniSource.h` and `RealSenseSource.h`).
 
-\htmlonly <input class="toggle-box" id="fifth-5" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-5">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 !isEmpty(WITH_OPENNI2){
     HEADERS += OpenniSource.h
@@ -123,25 +118,19 @@ else {
     HEADERS += RealSenseSource.h
 }
 ...
-\endcode
-</div>
+```
 
-<li> To use mathematical constants, define <i>_USE_MATH_DEFINES</i> (<i>cmath</i> is already imported in <i>OpenniSource.h</i> and <i>RealSenseSource.h</i>).
+3. To use mathematical constants, define `_USE_MATH_DEFINES` (`cmath` is already imported in `OpenniSource.h` and `RealSenseSource.h`).
 
-\htmlonly <input class="toggle-box" id="fifth-6" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-6">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 unix: LIBS += -ldl
 win32: DEFINES += _USE_MATH_DEFINES
 ...
-\endcode
-</div>
+```
 
-</ol>
-
-\subsection fifth_sensor Connecting the Depth Sensor for Frame Processing 
+## Connecting the Depth Sensor for Frame Processing 
 
 <ol>
 
