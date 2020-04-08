@@ -5,7 +5,7 @@ In this tutorial, you'll learn how to recognize faces in a video stream. For rec
 You can find the tutorial project in Face SDK: *examples/tutorials/face_recognition_with_video_worker*
 
 <p align="center">
-<img width="600" src="../img/fourth_2"><br>
+<img width="600" src="../img/fourth_2.png"><br>
 </p>
 
 ## Setting Up the Project
