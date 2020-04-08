@@ -1,7 +1,7 @@
 In this section, you can find the tutorials that can help you to put into practice Face SDK functions:
 
 * [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md)
-* [Displaying Anthropometric Points and Head Rotation Angles](displaying_anthropometric_points_and_angles.md)
+* [Displaying Anthropometric Points and Head Rotation Angles](displaying_anthropometric_points_and_head_rotation_angles.md)
 * [Estimating Age, Gender, and Emotions](estimating_age_gender_and_emotions.md)
 * [Face Recognition in a Video Stream](face_recognition_in_a_video_stream.md)
 * [Liveness Detection](liveness_detection.md)
