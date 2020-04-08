@@ -99,7 +99,7 @@ _**Note:** For Windows, you have to install RealSense2 and specify the path to t
 
 ## Retrieving a Depth Map using OpenNI2 API / RealSense2 API 
 
-1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs ([video_recognition_demo](../demo_programs/cpp_demos.md#video_recognition_demo)). In the profile of the project, specify the path to the folder *examples/cpp/video_recognition_demo/src*> from Face SDK.
+1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs ([video_recognition_demo](../demo_programs/cpp_demos.md#video_recognition_demo)). In the profile of the project, specify the path to the folder *examples/cpp/video_recognition_demo/src* from Face SDK.
 
 **face_recognition_with_video_worker.pro**
 ```cpp
@@ -490,11 +490,11 @@ void Worker::addFrame(const ImageAndDepth& data)
 
 The `weak` flag becomes `true` if a sample doesn't pass certain tests, for example: 
 
-* <li> if there are too many shadows on a face (insufficient lighting);
-* <li> if an image is blurry;
-* <li> if a face is turned at a great angle; 
-* <li> if a the size of a face in the frame is too small;
-* <li> if a fase hasn't passed the liveness test (for example, if it's taken from a photo or a video).
+* if there are too many shadows on a face (insufficient lighting);
+* if an image is blurry;
+* if a face is turned at a great angle; 
+* if a the size of a face in the frame is too small;
+* if a fase hasn't passed the liveness test (for example, if it's taken from a photo or a video).
 
 You can find the detailed information about lighting conditions, camera positioning, etc. in [Guidelines for Cameras](../guidelines_for_cameras.md). As a rule, samples that haven't passed the tests, are not processed and not used for recognition. However, in this project we want to highlight all the faces, even if they're taken from the picture (haven't passed the liveness test). Therefore, we have to pass all samples to `TrackingCallback`, even if they're flagged as `weak=true`.
 
