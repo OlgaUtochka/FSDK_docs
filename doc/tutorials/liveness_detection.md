@@ -132,15 +132,11 @@ win32: DEFINES += _USE_MATH_DEFINES
 
 ## Connecting the Depth Sensor for Frame Processing 
 
-<ol>
+1. In previous projects, we retrieved the image from a webcam using the `QCameraCapture` object. However, in this project we have to retrieve both RGB and depth frames. To do this, let's create a new class `DepthSensorCapture`: **Add New > C++ > C++ Class > Choose… > Class name – DepthSensorCapture > Base class – QObject > Next > Project Management (default settings) > Finish**. 
+2. In `depthsensorcapture.h`, import the `ImageAndDepthSource` header. Also import `QSharedPointer` to handle pointers, `QThread` to process threads, `QByteArray` to work with byte arrays, `memory` and `atomic` to handle smart pointers and atomic types respectively. In `depthsensorcapture.cpp`, import the headers `OpenniSource` and `RealSenseSource` to retrieve the depth frames, and also import `worker.h` and `depthsensorcapture.h`. We use `assert.h` to handle errors and `QMessageBox` to display the error message.  
 
-<li> In previous projects, we retrieved the image from a webcam using the <i>QCameraCapture</i> object. However, in this project we have to retrieve both RGB and depth frames. To do this, let's create a new class <i>DepthSensorCapture</i>: <b>Add New > C++ > C++ Class > Choose… > Class name – DepthSensorCapture > Base class – QObject > Next > Project Management (default settings) > Finish</b>. 
-<li> In <i>depthsensorcapture.h</i>, import the <i>ImageAndDepthSource</i> header. Also import <i>QSharedPointer</i> to handle pointers, <i>QThread</i> to process threads, <i>QByteArray</i> to work with byte arrays, <i>memory</i> and <i>atomic</i> to handle smart pointers and atomic types respectively. In <i>depthsensorcapture.cpp</i>, import the headers <i>OpenniSource</i> and <i>RealSenseSource</i> to retrieve the depth frames, and also import <i>worker.h</i> and <i>depthsensorcapture.h</i>. We use <i>assert.h</i> to handle errors and <i>QMessageBox</i> to display the error message.  
-
-\htmlonly <input class="toggle-box" id="fifth-7" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-7">depthsensorcapture.h</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.h**
+```cpp
 #include "ImageAndDepthSource.h"
 
 #include <QSharedPointer>
@@ -149,13 +145,10 @@ win32: DEFINES += _USE_MATH_DEFINES
 #include <memory>
 #include <atomic>
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-8" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-8">depthsensorcapture.cpp</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.cpp**
+```cpp
 #if defined(WITH_OPENNI2)
 #include "OpenniSource.h"
 #elif defined(WITH_REALSENSE)
@@ -169,15 +162,12 @@ win32: DEFINES += _USE_MATH_DEFINES
 
 #include <QMessageBox>
 ...
-\endcode
-</div>
+```
 
-<li> Define <i>RGBFramePtr</i>, which is a pointer to an RGB frame, and <i>DepthFramePtr</i>, which is a pointer to a depth frame. The <i>DepthSensorCapture</i> class constructor takes a parent widget and also a pointer to worker. The sensor data will be received in an endless loop. To prevent the main thread, where the interface is rendered, from waiting for completion of the cycle, we create another thread and move the <i>DepthSensorCapture</i> object into this new thread.  
+3. Define `RGBFramePtr`, which is a pointer to an RGB frame, and `DepthFramePtr`, which is a pointer to a depth frame. The `DepthSensorCapture` class constructor takes a parent widget and also a pointer to worker. The sensor data will be received in an endless loop. To prevent the main thread, where the interface is rendered, from waiting for completion of the cycle, we create another thread and move the `DepthSensorCapture` object into this new thread.  
 
-\htmlonly <input class="toggle-box" id="fifth-9" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-9">depthsensorcapture.h</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.h**
+```cpp
 ...
 class Worker;
 
@@ -194,13 +184,10 @@ public:
         std::shared_ptr<Worker> worker);
 }
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-10" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-10">depthsensorcapture.cpp</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.cpp**
+```cpp
 ...
 DepthSensorCapture::DepthSensorCapture(
     QWidget* parent,
@@ -220,15 +207,12 @@ _worker(worker)
     connect(thread.data(), &QThread::started, this, &DepthSensorCapture::frameUpdatedThread);
 }
 ...
-\endcode
-</div>
+```
 
-<li> In <i>DepthSensorCapture::start</i>, we start the thread, where the data is received, and stop it in <i>DepthSensorCapture::stop</i>. 
+4. In `DepthSensorCapture::start`, we start the thread, where the data is received, and stop it in `DepthSensorCapture::stop`. 
 
-\htmlonly <input class="toggle-box" id="fifth-11" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-11">depthsensorcapture.h</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.h**
+```cpp
 ...
 class DepthSensorCapture : public QObject
 {
@@ -237,13 +221,10 @@ class DepthSensorCapture : public QObject
     void stop();
 }
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-12" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-12">depthsensorcapture.cpp</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.cpp**
+```cpp
 ...
 void DepthSensorCapture::start()
 {
@@ -264,15 +245,12 @@ void DepthSensorCapture::stop()
     }
 }
 ...
-\endcode
-</div>
+```
 
-<li> In <i>DepthSensorCapture::frameUpdatedThread</i>, process a new frame from the sensor in an endless loop and pass it to <i>Worker</i> using <i>addFrame</i>. If an error occurs, an error message box will be displayed.  
+5. In `DepthSensorCapture::frameUpdatedThread`, process a new frame from the sensor in an endless loop and pass it to `Worker` using `addFrame`. If an error occurs, an error message box will be displayed.  
 
-\htmlonly <input class="toggle-box" id="fifth-13" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-13">depthsensorcapture.h</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.h**
+```cpp
 ...
 class DepthSensorCapture : public QObject
 {
@@ -294,13 +272,10 @@ class DepthSensorCapture : public QObject
         std::atomic<bool> shutdown = {false};
 };
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-14" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-14">depthsensorcapture.cpp</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.cpp**
+```cpp
 ...
 void DepthSensorCapture::frameUpdatedThread()
 {
@@ -329,15 +304,12 @@ void DepthSensorCapture::frameUpdatedThread()
     }
 }
 ...
-\endcode
-</div>
+```
 
-<li> The <i>VideoFrame</i> object should contain an RGB frame from the sensor.
+6. The `VideoFrame` object should contain an RGB frame from the sensor.
 
-\htmlonly <input class="toggle-box" id="fifth-15" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-15">depthsensorcapture.cpp</label>\endhtmlonly
-<div>
-\code
+**depthsensorcapture.cpp**
+```cpp
 ...
 Database::Database(...)
 {
@@ -347,26 +319,20 @@ Database::Database(...)
     ...
 }
 ...
-\endcode
-</div>
+```
 
-<li> <i>In videoframe.h</i>, import the <i>depthsensorcapture</i> header to work with the depth sensor. 
+7. In `videoframe.h`, import the `depthsensorcapture` header to work with the depth sensor. 
 
-\htmlonly <input class="toggle-box" id="fifth-16" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-16">videoframe.h</label>\endhtmlonly
-<div>
-\code
+**videoframe.h**
+```cpp
 #include "depthsensorcapture.h"
 ...
-\endcode
-</div>
+```
 
-<li> The <i>IRawImage</i> interface allows to receive a pointer to the image data, its height and width. 
+8. The `IRawImage` interface allows to receive a pointer to the image data, its height and width. 
 
-\htmlonly <input class="toggle-box" id="fifth-17" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-17">videoframe.h</label>\endhtmlonly
-<div>
-\code
+**videoframe.h**
+```cpp
 ...
 class VideoFrame : public pbio::IRawImage
 {
@@ -395,15 +361,12 @@ const DepthSensorCapture::RGBFramePtr& VideoFrame::frame() const
     return _frame;
 }
 ...
-\endcode
-</div>
+```
 
-<li> In the <i>runProcessing</i> method, we start the camera, and in the <i>stopProcessing</i> method, we stop the camera.
+9. In the `runProcessing` method, we start the camera, and in the `stopProcessing` method, we stop the camera.
 
-\htmlonly <input class="toggle-box" id="fifth-18" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-18">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 ...
 class ViewWindow : public QWidget
 {
@@ -415,13 +378,10 @@ class ViewWindow : public QWidget
     ...
 }
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-19" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-19">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 #include "depthsensorcapture.h"
 
 ViewWindow::ViewWindow(...)
@@ -453,15 +413,12 @@ void ViewWindow::runProcessing()
     _running = true;
 }
 ...
-\endcode
-</div>
+```
 
-<li> In <i>worker.h</i>, we import the <i>depthsensorcapture</i> header. The <i>SharedImageAndDepth</i> structure contains the pointers to an RGB frame and a depth frame from the sensor, and also the <i>pbio::DepthMapRaw</i> structure with the information about depth map parameters (width, height, etc.). The pointers are used in <i>Worker</i>. Due to some delay in frame processing, a certain number of frames is queued for rendering. To save the memory space, we store the pointers to frames instead of the frames.
+10. In `worker.h`, we import the `depthsensorcapture` header. The `SharedImageAndDepth` structure contains the pointers to an RGB frame and a depth frame from the sensor, and also the `pbio::DepthMapRaw` structure with the information about depth map parameters (width, height, etc.). The pointers are used in `Worker`. Due to some delay in frame processing, a certain number of frames is queued for rendering. To save the memory space, we store the pointers to frames instead of the frames.
 
-\htmlonly <input class="toggle-box" id="fifth-20" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-20">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include "depthsensorcapture.h"
 
     struct SharedImageAndDepth
@@ -472,15 +429,12 @@ void ViewWindow::runProcessing()
         pbio::DepthMapRaw depth_options;
     };
 ...
-\endcode
-</div>
+```
 
-<li> Pass <i>SharedImageAndDepth</i> frame, which is RGB and depth frames for rendering, to the <i>DrawingData</i> structure. In <i>TrackingCallback</i>, we extract the image corresponding to the last received result from the frame queue.
+11. Pass `SharedImageAndDepth` frame, which is RGB and depth frames for rendering, to the `DrawingData` structure. In `TrackingCallback`, we extract the image corresponding to the last received result from the frame queue.
 
-\htmlonly <input class="toggle-box" id="fifth-21" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-21">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 ...
 class Worker
 {
@@ -501,13 +455,10 @@ class Worker
         ...
 }
 ...
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fifth-22" type="checkbox" checked>
-<label class="spoiler-link" for="fifth-22">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 ...
 void Worker::TrackingCallback(
     const pbio::VideoWorker::TrackingCallbackData &data,
@@ -526,12 +477,9 @@ void Worker::addFrame(const ImageAndDepth& data)
     ...
 }
 ...
-\endcode
-</div>
+```
 
-</ol>
-
-\subsection fifth_videoworker_depth_map Processing the Depth Map with VideoWorker
+## Processing the Depth Map with VideoWorker
 
 <ol>
 
