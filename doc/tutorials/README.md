@@ -5,6 +5,7 @@ In this section, you can find the tutorials that can help you to put into practi
 * [Estimating Age, Gender, and Emotions](estimating_age_gender_and_emotions.md)
 * [Face Recognition in a Video Stream](face_recognition_in_a_video_stream.md)
 * [Liveness Detection](liveness_detection.md)
+* [Developing Apps for iOS](developing_apps_for_ios.md)
 
 You can find the finished tutorial projects in the Face SDK distribution package: a path to a corresponding project is mentioned in the beginning of each tutorial. 
 
