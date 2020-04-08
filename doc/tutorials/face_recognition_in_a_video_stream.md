@@ -92,14 +92,12 @@ Worker::Worker(
 
 ## Creating the Database of Faces
 
-<li> First of all, we have to create a database of faces. To check face recognition, you can use the ready-made database from Face SDK. It includes images of three famous people (Elon Musk, Emilia Clarke, Lionel Messi).  To check recognition, you should copy the database to the project root folder (next to a .pro file), run the project, open an image from the database, and point a camera at the screen. You can also add your picture to the database. To do this, you have to create a new folder in the database, specify your name in a folder name, and copy your picture to the folder (in the same way as other folders in the database). 
+1. First of all, we have to create a database of faces. To check face recognition, you can use the ready-made database from Face SDK. It includes images of three famous people (Elon Musk, Emilia Clarke, Lionel Messi).  To check recognition, you should copy the database to the project root folder (next to a .pro file), run the project, open an image from the database, and point a camera at the screen. You can also add your picture to the database. To do this, you have to create a new folder in the database, specify your name in a folder name, and copy your picture to the folder (in the same way as other folders in the database). 
 
-<li> Create a new <i>Database</i> class to work with the database: <b>Add New > C++ > C++ Class > Choose... > Class name – Database > Next > Project Management (default settings) > Finish</b>. In <i>database.h</i>, include the headers <i>QImage</i> and <i>QString</i> to work with images and strings and <i>libfacerec.h</i> to integrate Face SDK.
+2. Create a new `Database` class to work with the database: **Add New > C++ > C++ Class > Choose... > Class name – Database > Next > Project Management (default settings) > Finish**. In `database.h`, include the headers `QImage` and `QString` to work with images and strings and `libfacerec.h` to integrate Face SDK.
 
-\htmlonly <input class="toggle-box" id="fourth-6" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-6">database.h</label>\endhtmlonly
-<div>
-\code
+**database.h**
+```cpp
 #include <QImage>
 #include <QString>
 
@@ -111,15 +109,12 @@ class Database
 
     Database();
 }
-\endcode
-</div>
+```
 
-<li> In <i>database.cpp</i>, include the headers <i>database.h</i> and <i>videoframe.h</i> (implementation of the <i>IRawImage</i> interface, which is used by <i>VideoWorker</i> to receive the frames). Also include necessary headers for working with the file system, debugging, exception handling, and working with files. 
+3. In `database.cpp`, include the headers `database.h` and `videoframe.h` (implementation of the `IRawImage` interface, which is used by `VideoWorker` to receive the frames). Also include necessary headers for working with the file system, debugging, exception handling, and working with files. 
 
-\htmlonly <input class="toggle-box" id="fourth-7" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-7">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 #include "database.h"
 #include "videoframe.h"
 
@@ -128,15 +123,12 @@ class Database
 
 #include <stdexcept>
 #include <fstream>
-\endcode
-</div>
+```
 
-<li> In <i>database.h</i>, add a constructor and set the path to the database. Specify the <i>Recognizer</i> object to create templates, the <i>Capturer</i> object to detect faces and <i>far</i>. What is FAR? FAR is frequency that the system makes false accepts. False accept means that a system claims a pair of pictures are a match, when they are actually pictures of different individuals. The <i>vw_elements</i> vector contains the elements of the <i>VideoWorker</i> database. The <i>thumbnails</i> and <i>names</i> vectors contain the previews of images and names of people from the database.
+4. In `database.h`, add a constructor and set the path to the database. Specify the `Recognizer` object to create templates, the `Capturer` object to detect faces and `far`. What is FAR? FAR is frequency that the system makes false accepts. False accept means that a system claims a pair of pictures are a match, when they are actually pictures of different individuals. The `vw_elements` vector contains the elements of the `VideoWorker` database. The `thumbnails` and `names` vectors contain the previews of images and names of people from the database.
 
-\htmlonly <input class="toggle-box" id="fourth-8" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-8">database.h</label>\endhtmlonly
-<div>
-\code
+**database.h**
+```cpp
 class Database
 {
     public:
@@ -152,15 +144,12 @@ class Database
     std::vector<QImage> thumbnails;
     std::vector<QString> names;
 }
-\endcode
-</div>
+```
 
-<li> In <i>database.cpp</i>, implement the <i>Database</i> constructor, which was declared in the previous subsection. The <i>distance_threshold</i> value means the recognition distance. Since this distance is different for different recognition methods, we get it based on the <i>FAR</i> value using the <i>getROCCurvePointByFAR</i> method. 
+5. In `database.cpp`, implement the `Database` constructor, which was declared in the previous subsection. The `distance_threshold` value means the recognition distance. Since this distance is different for different recognition methods, we get it based on the `FAR` value using the `getROCCurvePointByFAR` method. 
 
-\htmlonly <input class="toggle-box" id="fourth-9" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-9">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(
     const std::string database_dir_path,
     pbio::Recognizer::Ptr recognizer,
@@ -169,15 +158,12 @@ Database::Database(
 {
     const float distance_threshold = recognizer->getROCCurvePointByFAR(fa_r).distance;
 }
-\endcode
-</div>
+```
 
-<li> In the <i>database_dir</i> variable, specify the path to the database with faces. If this path doesn't exist, you'll see the exception <i>"database directory doesn't exist"</i>.  Create a new <i>person_id</i> variable to store the id of a person from the database (name of a folder in the database) and the <i>element_id</i> variable to store the id of an element in the database (an image of a person from the database). In the <i>dirs</i> list, create a list of all subdirectories of the specified directory with the database. 
+6. In the `database_dir` variable, specify the path to the database with faces. If this path doesn't exist, you'll see the exception `"database directory doesn't exist"`.  Create a new `person_id` variable to store the id of a person from the database (name of a folder in the database) and the `element_id` variable to store the id of an element in the database (an image of a person from the database). In the `dirs` list, create a list of all subdirectories of the specified directory with the database. 
 
-\htmlonly <input class="toggle-box" id="fourth-10" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-10">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(
     const std::string database_dir_path,
     pbio::Recognizer::Ptr recognizer,
@@ -200,18 +186,14 @@ Database::Database(
         QDir::AllDirs | QDir::NoDotAndDotDot,
         QDir::DirsFirst);
 }
-\endcode
-</div>
+```
 
-@note
-See more information about FAR and TAR values for different recognition methods in \ref verify_perf.
+_**Note:** See more information about FAR and TAR values for different recognition methods in [Identification Performance](../performance_parameters.md#identification-performance)._
 
-<li> In the loop <i>for(const auto &dir: dirs)</i>, process each subdirectory (data about each person). The name of a folder corresponds to the name of a person. Create a list of images in <i>person_files</i>.   
+7. In the loop `for(const auto &dir: dirs)`, process each subdirectory (data about each person). The name of a folder corresponds to the name of a person. Create a list of images in `person_files`.   
 
-\htmlonly <input class="toggle-box" id="fourth-11" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-11">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(...)
 {
     ...
@@ -224,15 +206,12 @@ Database::Database(...)
         QFileInfoList person_files = person_dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot);
     }
 }
-\endcode
-</div>
+```
 
-<li> In the nested loop <i>for(const auto &person_file: person_files)</i>, process each image. If an image doesn't exist, the warning <i>"Can't read image"</i> is displayed. 
+8. In the nested loop `for(const auto &person_file: person_files)`, process each image. If an image doesn't exist, the warning `"Can't read image"` is displayed. 
 
-\htmlonly <input class="toggle-box" id="fourth-12" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-12">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(...)
 {
     ...
@@ -264,15 +243,12 @@ Database::Database(...)
         }
     }
 }
-\endcode
-</div>
+```
 
-<li> Detect a face in an image using the <i>Capturer</i> object. If an image cannot be read, a face can't be found in an image or more than one face is detected, the warning is displayed and this image is ignored. 
+9. Detect a face in an image using the `Capturer` object. If an image cannot be read, a face can't be found in an image or more than one face is detected, the warning is displayed and this image is ignored. 
 
-\htmlonly <input class="toggle-box" id="fourth-13" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-13">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(...)
 {
     ...
@@ -297,15 +273,12 @@ Database::Database(...)
         }
     }
 }
-\endcode
-</div>
+```
 
-<li> Using the <i>recognizer->processing</i> method, create a face template, which is used for recognition. 
+10. Using the `recognizer->processing` method, create a face template, which is used for recognition. 
 
-\htmlonly <input class="toggle-box" id="fourth-14" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-14">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(...)
 {
     ...
@@ -322,15 +295,12 @@ Database::Database(...)
         }
     }
 }
-\endcode
-</div>
+```
 
-<li> In the structure <i>pbio::VideoWorker::DatabaseElement vw_element</i>, specify all the information about the database element that will be passed for processing to the <i>VideoWorker</i> object (element id, person id, face template, recognition threshold). Using the <i>push_back</i> method, add an element to the end of the list.
+11. In the structure `pbio::VideoWorker::DatabaseElement vw_element`, specify all the information about the database element that will be passed for processing to the `VideoWorker` object (element id, person id, face template, recognition threshold). Using the `push_back` method, add an element to the end of the list.
 
-\htmlonly <input class="toggle-box" id="fourth-15" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-15">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 Database::Database(...)
 {
     ...
@@ -357,15 +327,12 @@ Database::Database(...)
         ++person_id;
     }
 }
-\endcode
-</div>
+```
 
-<li> In <i>database.h</i>, add the <i>makeThumbnail</i> method to create a preview of a picture from the database. 
+12. In `database.h`, add the `makeThumbnail` method to create a preview of a picture from the database. 
 
-\htmlonly <input class="toggle-box" id="fourth-16" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-16">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 class Database
 {
     public:
@@ -374,15 +341,12 @@ class Database
         QImage makeThumbnail(const QImage& image);
         ...
 };
-\endcode
-</div>
+```
 
-<li> In <i>database.cpp</i>, implement the method using <i>makeThumbnail</i> to create a preview of a picture from the database, which will be displayed next to the face of a recognized person. Set the preview size (120 pixels) and scale it (keep the ratio if the image is resized).
+13. In `database.cpp`, implement the method using `makeThumbnail` to create a preview of a picture from the database, which will be displayed next to the face of a recognized person. Set the preview size (120 pixels) and scale it (keep the ratio if the image is resized).
 
-\htmlonly <input class="toggle-box" id="fourth-17" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-17">database.cpp</label>\endhtmlonly
-<div>
-\code
+**database.cpp**
+```cpp
 #include <fstream>
 ...
 QImage Database::makeThumbnail(const QImage& image)
@@ -399,15 +363,12 @@ QImage Database::makeThumbnail(const QImage& image)
 
     return result;
 }
-\endcode
-</div>
+```
 
-<li> In the .pro file, set the path to the database. 
+14. In the .pro file, set the path to the database. 
 
-\htmlonly <input class="toggle-box" id="fourth-18" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-18">face_recognition_with_video_worker.pro</label>\endhtmlonly
-<div>
-\code
+**face_recognition_with_video_worker.pro**
+```cpp
 ...
 DEFINES += FACE_SDK_PATH=\\\"$$FACE_SDK_PATH\\\"
 
@@ -415,15 +376,12 @@ DEFINES += DATABASE_PATH=\\\"$${_PRO_FILE_PWD_}/base\\\"
 
 INCLUDEPATH += $${FACE_SDK_PATH}/include
 ...
-\endcode
-</div>
+```
 
-<li> In <i>facesdkparameters.h</i>, set the path to the database and the value of FAR. 
+15. In `facesdkparameters.h`, set the path to the database and the value of FAR. 
 
-\htmlonly <input class="toggle-box" id="fourth-19" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-19">facesdkparameters.h</label>\endhtmlonly
-<div>
-\code
+**facesdkparameters.h**
+```cpp
 struct FaceSdkParameters
 {
     ...
@@ -432,11 +390,9 @@ struct FaceSdkParameters
     std::string database_dir = DATABASE_PATH;
     const float fa_r = 1e-5;
 };
-\endcode
-</div>
-</ol>
+```
 
-\subsection fourth_search_display Searching a Face in the Database and Displaying the Result 
+## Searching a Face in the Database and Displaying the Result 
 
 <ol>
 
