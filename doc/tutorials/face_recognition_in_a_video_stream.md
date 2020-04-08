@@ -10,7 +10,7 @@ You can find the tutorial project in Face SDK: *examples/tutorials/face_recognit
 
 ## Setting Up the Project
 
-<li> In [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md), we set only two parameters of Face SDK (a path to Face SDK and a configuration file name for the `VideoWorker` object). However, in this tutorial, we need to set several more parameters: we will add a path to the database, a configuration file name with a recognition method, and FAR. For convenience, we'll modify several files. Specify all the parameters in the `FaceSdkParameters` structure. In `facesdkparameters.h`, specify the path to the `video_worker_lbf.xml` configuration file. 
+1. In [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md), we set only two parameters of Face SDK (a path to Face SDK and a configuration file name for the `VideoWorker` object). However, in this tutorial, we need to set several more parameters: we will add a path to the database, a configuration file name with a recognition method, and FAR. For convenience, we'll modify several files. Specify all the parameters in the `FaceSdkParameters` structure. In `facesdkparameters.h`, specify the path to the `video_worker_lbf.xml` configuration file. 
 
 **facesdkparameters.h**
 ```cpp
@@ -21,7 +21,7 @@ struct FaceSdkParameters
 };
 ```
 
-<li> Pass the `face_sdk_parameters` structure to the constructor of the `Worker` object.
+2. Pass the `face_sdk_parameters` structure to the constructor of the `Worker` object.
 
 **viewwindow.h**
 ```cpp
