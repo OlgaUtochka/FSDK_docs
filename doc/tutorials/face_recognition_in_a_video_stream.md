@@ -536,7 +536,7 @@ void Worker::MatchFoundCallback(
 }
 ```
 
-6. When a template for a tracked person is created, it's compared with each template from the database. If the distance to the closest element is less than `distance_threshold` specified in this element, then it's a match. If a face in a video stream is not recognied, then you'll see the message `"Match not found"`. If a face is recognized, you'll see the message `"Match found with..."` and the name of the matched person. 
+6. When a template for a tracked person is created, it's compared with each template from the database. If the distance to the closest element is less than `distance_threshold` specified in this element, then it's a match. If a face in a video stream is not recognized, then you'll see the message `"Match not found"`. If a face is recognized, you'll see the message `"Match found with..."` and the name of the matched person. 
 
 **worker.cpp**
 ```cpp
