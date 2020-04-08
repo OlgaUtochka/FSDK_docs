@@ -1,36 +1,30 @@
-\nn \section tutorial_video_stream_recognition Face Recognition in a Video Stream  
+# Face Recognition in a Video Stream  
 
-In this tutorial, you'll learn how to recognize faces in a video stream. For recognition, you can use a ready-made database of faces from the Face SDK distribution package. The database includes the images of several famous people. Recognized faces are highlighted with a green rectangle. The name and image of a recognized person are displayed next to his/her face in a video stream.  This tutorial is based on \ref tutorial_vw_tracking and the corresponding project.  
+In this tutorial, you'll learn how to recognize faces in a video stream. For recognition, you can use a ready-made database of faces from the Face SDK distribution package. The database includes the images of several famous people. Recognized faces are highlighted with a green rectangle. The name and image of a recognized person are displayed next to his/her face in a video stream.  This tutorial is based on [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md) and the corresponding project.  
 
-You can find the tutorial project in Face SDK: <i>examples/tutorials/face_recognition_with_video_worker</i>
+You can find the tutorial project in Face SDK: *examples/tutorials/face_recognition_with_video_worker*
 
-\htmlonly <style>div.image img[src="fourth_2.png"]{width:600px;}</style> \endhtmlonly 
-@image html fourth_2.png
+<p align="center">
+<img width="600" src="../img/fourth_2"><br>
+</p>
 
-\subsection fourth_setting_up Setting Up the Project
+## Setting Up the Project
 
-<ol>
+<li> In [Face Detection and Tracking in a Video Stream](face_detection_and_tracking_in_a_video_stream.md), we set only two parameters of Face SDK (a path to Face SDK and a configuration file name for the `VideoWorker` object). However, in this tutorial, we need to set several more parameters: we will add a path to the database, a configuration file name with a recognition method, and FAR. For convenience, we'll modify several files. Specify all the parameters in the `FaceSdkParameters` structure. In `facesdkparameters.h`, specify the path to the `video_worker_lbf.xml` configuration file. 
 
-<li> In \ref tutorial_vw_tracking, we set only two parameters of Face SDK (a path to Face SDK and a configuration file name for the <i>VideoWorker</i> object). However, in this tutorial, we need to set several more parameters: we will add a path to the database, a configuration file name with a recognition method, and FAR. For convenience, we'll modify several files. Specify all the parameters in the <i>FaceSdkParameters</i> structure. In <i>facesdkparameters.h</i>, specify the path to the <i>video_worker_lbf.xml</i> configuration file. 
-
-\htmlonly <input class="toggle-box" id="fourth-1" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-1">facesdkparameters.h</label>\endhtmlonly
-<div>
-\code
+**facesdkparameters.h**
+```cpp
 struct FaceSdkParameters
 {
     ...
     std::string videoworker_config = "video_worker_lbf.xml";
 };
-\endcode
-</div>
+```
 
-<li> Pass the <i>face_sdk_parameters</i> structure to the constructor of the <i>Worker</i> object.
+<li> Pass the `face_sdk_parameters` structure to the constructor of the `Worker` object.
 
-\htmlonly <input class="toggle-box" id="fourth-2" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-2">viewwindow.h</label>\endhtmlonly
-<div>
-\code
+**viewwindow.h**
+```cpp
 class ViewWindow : public QWidget
 {
 	Q_OBJECT
@@ -47,13 +41,10 @@ class ViewWindow : public QWidget
 
         pbio::FacerecService::Ptr _service;
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fourth-3" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-3">viewwindow.cpp</label>\endhtmlonly
-<div>
-\code
+**viewwindow.cpp**
+```cpp
 ViewWindow::ViewWindow(
     QWidget *parent,
     pbio::FacerecService::Ptr service,
@@ -69,13 +60,10 @@ _service(service)
         face_sdk_parameters);
     ...
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fourth-4" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-4">worker.h</label>\endhtmlonly
-<div>
-\code
+**worker.h**
+```cpp
 #include "qcameracapture.h"
 #include "facesdkparameters.h"
 ...
@@ -87,13 +75,10 @@ class Worker
         const FaceSdkParameters face_sdk_parameters);
     ...
 };
-\endcode
-</div>
+```
 
-\htmlonly <input class="toggle-box" id="fourth-5" type="checkbox" checked>
-<label class="spoiler-link" for="fourth-5">worker.cpp</label>\endhtmlonly
-<div>
-\code
+**worker.cpp**
+```cpp
 Worker::Worker(
     const pbio::FacerecService::Ptr service,
     const FaceSdkParameters face_sdk_parameters)
@@ -101,16 +86,11 @@ Worker::Worker(
     pbio::FacerecService::Config vwconfig(face_sdk_parameters.videoworker_config);
     ...
 }
-\endcode
-</div>
+```
 
-<li> In this project, we're interested only in face detection in a video stream (creating a bounding rectangle) and face recognition. Please note that in the first project (<i>detection_and_tracking_with_video_worker</i>), which you can use as a reference for this project, we also displayed anthropometric points and angles. If you don't want to display this info, you can just remove unnecessary visualization from the first project.
+3. In this project, we're interested only in face detection in a video stream (creating a bounding rectangle) and face recognition. Please note that in the first project (`detection_and_tracking_with_video_worker`), which you can use as a reference for this project, we also displayed anthropometric points and angles. If you don't want to display this info, you can just remove unnecessary visualization from the first project.
 
-</ol>
-
-\subsection fourth_database Creating the Database of Faces
-
-<ol>
+## Creating the Database of Faces
 
 <li> First of all, we have to create a database of faces. To check face recognition, you can use the ready-made database from Face SDK. It includes images of three famous people (Elon Musk, Emilia Clarke, Lionel Messi).  To check recognition, you should copy the database to the project root folder (next to a .pro file), run the project, open an image from the database, and point a camera at the screen. You can also add your picture to the database. To do this, you have to create a new folder in the database, specify your name in a folder name, and copy your picture to the folder (in the same way as other folders in the database). 
 
