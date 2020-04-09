@@ -1,4 +1,6 @@
-# Capturer Class Reference
+# Face Capturing
+
+## Capturer Class Reference
 
 To capture faces, you should create a `Capturer` object using `FacerecService.createCapturer`, passing the path to the configuration file or the `FacerecService.Config` object. If you pass the path to the configuration file, the default settings will be used. By using `FacerecService.Config` you can override any numerical option inside the config file. Also, some parameters can be changed in the existing `Capturer` object with the `Capturer.setParameter` method.
 
@@ -100,7 +102,7 @@ In both cases, the result is the vector of detected / tracked faces (`RawSample`
 
 For a tracker, you can also call the `Capturer.resetHistory` method to start tracking on a new video sequence.
 
-## RawSample Class Reference
+### RawSample Class Reference
 
 With `RawSample` you can:
 
@@ -112,7 +114,7 @@ With `RawSample` you can:
 * pass the estimates of the age, gender, quality and liveness to the methods (see [Face Estimation](face_estimation.md));
 * provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../demo_programs/cpp_demos.md#test_identify)).
 
-## Anthropometric Points
+### Anthropometric Points
 
 There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, and *fda*.
 
@@ -128,7 +130,7 @@ There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, a
 <img width="800" src="../img/singlebf_doublebf.png"><br>
 </p>
 
-## Face Cropping
+### Face Cropping
 
 To crop the face, you can call the `RawSample.cutFaceImage` method. The image of a cropped face will be saved in a provided binary stream encoded in a specified format. See all available cropping types in `RawSample.FaceCutType`.
 
