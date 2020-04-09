@@ -22,8 +22,8 @@ Startup parameters in the calibration mode:
 
 Example of launch from the *bin* directory in the `calibrate` mode:
 
-Linux: `./test_calibration ../lib/libfacerec.so ../conf/facerec/ 0 640 480 calibrate acircles 4 11 ./camparam.bin`
-Windows: `test_calibration facerec.dll ../conf/facerec/ 0 640 480 calibrate acircles 4 11 ./camparam.bin`
+Linux: `./test_calibration ../lib/libfacerec.so ../conf/facerec/ 0 640 480 calibrate acircles 4 11 ./camparam.bin`  
+Windows: `test_calibration facerec.dll ../conf/facerec/ 0 640 480 calibrate acircles 4 11 ./camparam.bin`  
 
 To perform the calibration, you need to print a calibration template (see [Camera Calibration and Correction of Distortion](../development/camera_calibration.md)) and fix it on a flat surface, preferably black. We recommend you to use the asymmetrical circle pattern. Then move either the pattern or the camera to capture the pattern in different poses. The program will show the approximate coverage of the pattern pose space and draw tips about the required pattern poses. Then press the `c` key to perform calibration. This may take about a minute, during this time the program freezes.
 
@@ -41,8 +41,8 @@ Startup parameters in the `view` mode:
 
 Example of launch from the *bin* directory in the `view` mode:
 
-Linux: `./test_calibration ../lib/libfacerec.so ../conf/facerec/ 0 640 480 view ./camparam.bin`
-Windows: `test_calibration facerec.dll ../conf/facerec/ 0 640 480 view ./camparam.bin`
+Linux: `./test_calibration ../lib/libfacerec.so ../conf/facerec/ 0 640 480 view ./camparam.bin`  
+Windows: `test_calibration facerec.dll ../conf/facerec/ 0 640 480 view ./camparam.bin`  
 
 Use the `q` and `w` keys to change the distortion correction parameter alpha.
 
