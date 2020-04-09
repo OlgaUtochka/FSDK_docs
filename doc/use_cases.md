@@ -8,7 +8,7 @@ The diagrams in this section demonstrate possible use cases and connection betwe
 <img width="350" src="img/scheme_analytics_vw.png"><br>
 </p>
 
-The standard option to estimate age, gender, and emotions on a video stream is to use the `VideoWorker` object. The Frames received from the Camera are passed to `VideoWorker`. As a result, the information about age, gender, and emotions is returned in `VideoWorker::TrackingCallbackU`. See more information about face estimation on a video stream in [Estimation of age, gender, and emotions](development/video_stream_processing.md#estimation-of-age,-gender,-and-emotions).
+The standard option to estimate age, gender, and emotions on a video stream is to use the `VideoWorker` object. The Frames received from the Camera are passed to `VideoWorker`. As a result, the information about age, gender, and emotions is returned in `VideoWorker::TrackingCallbackU`. See more information about face estimation on a video stream in [Estimation of age, gender, and emotions](development/video_stream_processing.md#estimation-of-age-gender-and-emotions).
 
 ## Face Estimation (Custom)
 
