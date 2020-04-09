@@ -5,7 +5,7 @@ To get started with Face SDK, you need to download the [Face SDK distribution pa
 After downloading the package, extract it to any directory on your device. The archive should contain:
 
 * directories: *conf, docs, examples, include, share*
-* archives: *windows_x86_64.zip, windows_x86_32.zip, linux_x86_64.tar.xz, linux_x86_32.tar.xz, linux_armhf_32.tar.xz, linux_aarch64.tar.xz, android_arm_32.tar.xz, android_arm_64.tar.xz, ios_arm_64.tar.xz*
+* archives: `windows_x86_64.zip`, `windows_x86_32.zip`, `linux_x86_64.tar.xz`, `linux_x86_32.tar.xz`, `linux_armhf_32.tar.xz`, `linux_aarch64.tar.xz`, `android_arm_32.tar.xz`, `android_arm_64.tar.xz`, `ios_arm_64.tar.xz`
 * file *CHANGES*
 
 The archives contain *bin* and *lib* folders. The archive for Android contains an additional folder named *apk*. Select one of the archives depending on the platform used:
