@@ -27,4 +27,4 @@ When extracting the archive, specify the path to Face SDK root – the extracted
 <b>Extraction path – root folder of the Face SDK distribution</b><br>
 </p>
 
-After unpacking the archive, you can familiarize yourself with the Face SDK features using the [trial license](license.md) and [demos](demos.md) that demonstrate how to work with with C ++, Java, and C # API. 
+After unpacking the archive, you can familiarize yourself with the Face SDK features using the [trial license](licenses.md) and [demos](demo_programs) that demonstrate how to work with with C ++, Java, and C # API. 
