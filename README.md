@@ -2,12 +2,12 @@
 
 ## Features
 
-* detecting, tracking and recognizing faces in video streams (see [Video Stream Processing](docs/development/video_stream_processing.md));
-* detecting and tracking faces on images and video (see [Face Capturing](docs/development/face_capturing.md));
-* recongizing faces on images and video. You can use different recognition methods (algorithms) depending on your use case (see [Face Identification](docs/development/face_identification.md));
-* face estimation (gender, age, emotions, liveness) (see [Face Estimation](docs/development/face_estimation.md)).
+* detecting, tracking and recognizing faces in video streams (see [Video Stream Processing](doc/development/video_stream_processing.md));
+* detecting and tracking faces on images and video (see [Face Capturing](doc/development/face_capturing.md));
+* recongizing faces on images and video. You can use different recognition methods (algorithms) depending on your use case (see [Face Identification](doc/development/face_identification.md));
+* face estimation (gender, age, emotions, liveness) (see [Face Estimation](doc/development/face_estimation.md)).
 
-See the detailed info about Face SDK components in [Components](docs/components.md).
+See the detailed info about Face SDK components in [Components](doc/components.md).
 
 ## Supported platforms and API
 
