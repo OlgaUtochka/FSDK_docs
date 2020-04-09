@@ -1,13 +1,13 @@
 # Detailed Info about Configuration Parameters
 
-Here is the list of parameters from the configuration file that can be changed with the FacerecService.Config.overrideParameter method:
+Here is the list of parameters from the configuration file that can be changed with the `FacerecService.Config.overrideParameter` method:
 
-* max_processed_width and max_processed_height - to limit the size of the image that is submitted to the internal detector of new faces.
-* min_size and max_size - minimum and maximum face size for detection (the size is defined for the image already downscaled under the max_processed_width and max_processed_height)
-* min_neighbors - an integer detector parameter. Pleaseб note that large values require greater detection confidence. You can change this parameter based on the situation, for example, increase the value if a large number of false detections are observed, and decrease the value if a large number of faces are not detected. Do not change this setting if you are not sure.
-* min_detection_period - a real number that means the minimum time (in seconds) between two runs of the internal detector. A zero value means ‘no restrictions’. It is used to reduce the processor load. Large values increase the latency in detecting new faces.
-* max_detection_period - an integer that means the max time (in frames) between two runs of the internal detector. A zero value means ‘no restrictions’. For example, if you are processing a video offline, you can set the value to '1' so as not to miss a single person.
-* consecutive_match_count_for_match_found_callback - an integer that means the number of consecutive matches of a track with the same person from the database to consider this match right. (see also VideoWorker.MatchFoundCallbackU)
+* `max_processed_width` and `max_processed_height` – to limit the size of the image that is submitted to the internal detector of new faces.
+* `min_size` and `max_size` – minimum and maximum face size for detection (the size is defined for the image already downscaled under `max_processed_width` and `max_processed_height`).
+* `min_neighbors` – an integer detector parameter. Please note that large values require greater detection confidence. You can change this parameter based on the situation, for example, increase the value if a large number of false detections are observed, and decrease the value if a large number of faces are not detected. Do not change this setting if you are not sure.
+* `min_detection_period` – a real number that means the minimum time (in seconds) between two runs of the internal detector. A zero value means ‘no restrictions’. It is used to reduce the processor load. Large values increase the latency in detecting new faces.
+* `max_detection_period` – an integer that means the max time (in frames) between two runs of the internal detector. A zero value means ‘no restrictions’. For example, if you are processing a video offline, you can set the value to `1` so as not to miss a single person.
+* `consecutive_match_count_for_match_found_callback` – an integer that means the number of consecutive matches of a track with the same person from the database to consider this match right (see also `VideoWorker.MatchFoundCallbackU`).
 * recognition_yaw_min_threshold, recognition_yaw_max_threshold, recognition_pitch_min_threshold and recognition_pitch_max_threshold - real numbers that mean the restrictions on the face orientation to be used for recognition.
 * min_tracking_face_size - a real number, means the minimum size of a tracked face.
 * max_tracking_face_size - a real number, means the maximum size of a tracked face size, non-positive value removes this limitation.
