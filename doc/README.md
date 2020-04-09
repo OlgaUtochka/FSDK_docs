@@ -14,4 +14,4 @@
   * [Error Handling](development/error_handling.md)
   * [Memory Management](development/memory_management.md)
 * [Performance Parameters](performance_parameters.md)
-* [Licensing](licensing.md)
+* [Licenses](licenses.md)
