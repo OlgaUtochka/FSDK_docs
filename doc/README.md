@@ -14,4 +14,5 @@
   * [Error Handling](development/error_handling.md)
   * [Memory Management](development/memory_management.md)
 * [Performance Parameters](performance_parameters.md)
+* [Guidelines for Cameras](guidelines_for_cameras.md)
 * [Licenses](licenses.md)
