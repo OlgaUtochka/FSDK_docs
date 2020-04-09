@@ -47,7 +47,7 @@ To license Face SDK with a hardware key instead of a license file, select one of
 * specify `0x436e9514-hardware-key-serial-<key>` in the `license_dir` parameter of the function `FacerecService.createService`;
 * in `3divi_face_sdk.lic`, replace the standard content of the license with the line `hardware_key_serial <key>`.
 
-where key is a key serial number. Example: `senselock1234560000000f7e`
+where `key` is a key serial number. Example: `senselock1234560000000f7e`
 
 If a key with the specified serial number isn't found, you'll see the list of all available keys with their serial numbers in the text of an exception thrown by `FacerecService.createService`.
 
