@@ -5,7 +5,7 @@ The program demonstrates face tracking and liveness estimation.
 Startup parameters:
 
 * path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the conf/facerec directory.
+* path to the *conf/facerec* directory.
 
 Example of launch from the *bin* directory:
 
