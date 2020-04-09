@@ -5,7 +5,7 @@
 * [Getting Started](getting_started.md)
 * [Demo Programs](demo_programs)
 * [Tutorials](tutorials)
-* [Development](development)
+* Development
   * [Connecting Face SDK to Your Project](connect_facesdk.md)
   * [Video Stream Processing](video_stream_processing.md)
   * [Face Capturing](face_capturing.md)
