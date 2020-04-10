@@ -1,4 +1,4 @@
-# Detailed Info about Configuration Parameters
+# Detailed Info about VideoWorker Configuration Parameters
 
 Here is the list of parameters from the configuration file that can be changed with the `FacerecService.Config.overrideParameter` method:
 
