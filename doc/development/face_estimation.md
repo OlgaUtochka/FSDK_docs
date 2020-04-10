@@ -30,7 +30,7 @@ Learn how to estimate liveness of a face in our tutorial [Liveness Detection](..
 
 ### DepthLivenessEstimator (recommended)
 
-To estimate liveness with a depth map, you should create the `DepthLivenessEstimator` object using `FacerecService::createDepthLivenessEstimator`.
+To estimate liveness with a depth map, you should create the `DepthLivenessEstimator` object using `FacerecService.createDepthLivenessEstimator`.
 
 The following configuration files are available:
   * *depth_liveness_estimator.xml* – the first implementation (not recommended; used only for backward compatibility);
@@ -59,4 +59,4 @@ See an example of using `LivenessEstimator` in [demo.cpp](../../examples/cpp/dem
 _**Note:** If you need to estimate emotions on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation) in the section [Video Stream Processing](video_stream_processing.md)._
 
 To estimate emotions, create the `EmotionsEstimator` object using `FacerecService.createEmotionsEstimator` and pass the configuration file. Currently, there is only one configuration file, which is *emotions_estimator.xml*.  
-With the `EmotionsEstimator` object you can estimate the emotion of a captured face using the `EmotionsEstimator.estimateEmotions` method. The result is a vector with the `EmotionsEstimator::EmotionConfidence` elements containing emotions with a confidence value. See the example of using the `EmotionsEstimator` object in [demo.cpp](../../examples/cpp/demo/demo.cpp).
+With the `EmotionsEstimator` object you can estimate the emotion of a captured face using the `EmotionsEstimator.estimateEmotions` method. The result is a vector with the `EmotionsEstimator.EmotionConfidence` elements containing emotions with a confidence value. See the example of using the `EmotionsEstimator` object in [demo.cpp](../../examples/cpp/demo/demo.cpp).
