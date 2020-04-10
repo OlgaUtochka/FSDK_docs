@@ -136,7 +136,7 @@ With `RawSample` you can:
 * downscale an internal face image to suitable size (`RawSample.downscaleToPreferredSize`);
 * serialize an object in a binary stream (`RawSample.save` or `RawSample.saveWithoutImage`), you can deserialize it later using `FacerecService.loadRawSample` or `FacerecService.loadRawSampleWithoutImage`;
 * pass the estimates of the age, gender, quality and liveness to the methods (see [Face Estimation](face_estimation.md));
-* provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../demo_programs/cpp/test_identify)).
+* provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../demo_programs/cpp/test_identify.md)).
 
 ### Anthropometric Points
 
