@@ -18,8 +18,11 @@ Learn how to recognize faces in a video stream in our tutorial [Face Recognition
 
 `VideoWorker` can be created with `FacerecService.createVideoWorker`.
 
-Example:
+### C ++ Example
 
+<details>
+  <summary>Click to expand!</summary>
+    
 ```cpp
 pbio::FacerecService::Config video_worker_config("video_worker_lbf.xml");
 video_worker_config.overrideParameter("search_k", 3);
@@ -37,6 +40,56 @@ pbio::VideoWorker::Ptr video_worker = service->createVideoWorker(
         .short_time_identification_outdate_time_seconds(sti_outdate_time)
     );
 ```
+</details>
+
+### C# Example
+
+<details>
+  <summary>Click to expand!</summary>
+
+```cs
+FacerecService.Config video_worker_config = new FacerecService.Config("video_worker_lbf.xml");
+video_worker_config.overrideParameter("search_k", 3);
+VideoWorker video_worker = service.createVideoWorker(
+    new VideoWorker.Params()
+        .video_worker_config(video_worker_config)
+        .recognizer_ini_file(recognizer_config)
+        .streams_count(streams_count)
+        .processing_threads_count(processing_threads_count)
+        .matching_threads_count(matching_threads_count)
+        .age_gender_estimation_threads_count(age_gender_estimation_threads_count)
+        .emotions_estimation_threads_count(emotions_estimation_threads_count)
+        .short_time_identification_enabled(enable_sti)
+        .short_time_identification_distance_threshold(sti_recognition_threshold)
+        .short_time_identification_outdate_time_seconds(sti_outdate_time)
+    );
+```
+</details>
+
+### Java Example 
+
+<details>
+  <summary>Click to expand!</summary>
+
+```java
+FacerecService.Config video_worker_config = service.new Config("video_worker_lbf.xml");
+video_worker_config.overrideParameter("search_k", 3);
+VideoWorker video_worker = service.createVideoWorker(
+    new VideoWorker.Params()
+        .video_worker_config(video_worker_config)
+        .recognizer_ini_file(recognizer_config)
+        .streams_count(streams_count)
+        .processing_threads_count(processing_threads_count)
+        .matching_threads_count(matching_threads_count)
+        .age_gender_estimation_threads_count(age_gender_estimation_threads_count)
+        .emotions_estimation_threads_count(emotions_estimation_threads_count)
+        .short_time_identification_enabled(enable_sti)
+        .short_time_identification_distance_threshold(sti_recognition_threshold)
+        .short_time_identification_outdate_time_seconds(sti_outdate_time)
+    );
+```
+</details>
+
 Where:
 
 * `video_worker_config` – path to the configuration file for `VideoWorker` or `FacerecService.Config` object.
