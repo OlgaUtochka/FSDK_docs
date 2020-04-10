@@ -2,7 +2,7 @@
 
 ## Age & Gender
 
-_**Note:** If you need to estimate age and gender on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation) in the section [Video Stream Processing](video_stream_processing.md)._
+_**Note:** If you need to estimate age and gender on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation-of-age-gender-and-emotions) in the section [Video Stream Processing](video_stream_processing.md)._
 
 For age and gender estimation, create the `AgeGenderEstimator` class by calling the `FacerecService.createAgeGenderEstimator` method, providing the configuration file. Currently, there is only one config file available, which is *age_gender_estimator.xml*. With `AgeGenderEstimator` you can estimate age and gender of a captured face using `AgeGenderEstimator.estimateAgeGender`. The result is the `AgeGenderEstimator.AgeGender` struct containing the number of ages (in years), age group (`AgeGenderEstimator.Age`) and gender (`AgeGenderEstimator.Gender`). See the example of using the `AgeGenderEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp). 
 
