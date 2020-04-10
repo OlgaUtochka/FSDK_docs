@@ -21,4 +21,4 @@ To run the demo programs for Android devices:
 <b>Folder face_recognition on an Android-device</b>
 </p>
 
-4. Follow the instructions in [Android Demo](java/java_demos.md/#android-demo) and [Android Video Recognition](java/java_demos.md#android-video-recognition).
+4. Follow the instructions in [Android Demo](java/demo.md) and [Android Video Recognition](java/video_recognition_demo.md).
