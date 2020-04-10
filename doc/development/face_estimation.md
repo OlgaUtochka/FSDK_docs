@@ -26,6 +26,8 @@ To create the `FaceQualityEstimator` object, call the `FacerecService::createFac
 
 The main purpose of liveness estimation is to prevent spoofing attacks (using a photo of a person instead of a real face). Currently, you can estimate liveness in one of two ways - [by processing a depth map](#depthlivenessestimator-recommended) or [by processing an RGB image](#livenessestimator) from your camera. We recommend you to use the first option (depth map) because it's more reliable and accurate.
 
+Learn how to estimate liveness of a face in our tutorial [Liveness Detection](../tutorials/liveness_detection.md).
+
 ### DepthLivenessEstimator (recommended)
 
 To estimate liveness with a depth map, you should create the `DepthLivenessEstimator` object using `FacerecService::createDepthLivenessEstimator`.
@@ -40,8 +42,6 @@ To get an estimated result, you can call the `pbio::DepthLivenessEstimator::esti
   * `DepthLivenessEstimator::NOT_ENOUGH_DATA` – too many missing depth values on the depth map.
   * `DepthLivenessEstimator::REAL` – the observed face belongs to a living person.
   * `DepthLivenessEstimator::FAKE` – the observed face is taken from a photo.
-  
-Learn how to estimate liveness of a face in our tutorial [Liveness Detection](../tutorials/liveness_detection.md) 
 
 ### LivenessEstimator
 
