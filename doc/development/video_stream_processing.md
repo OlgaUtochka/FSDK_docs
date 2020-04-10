@@ -21,7 +21,7 @@ Learn how to recognize faces in a video stream in our tutorial [Face Recognition
 ### C ++ Example
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to expand</summary>
     
 ```cpp
 pbio::FacerecService::Config video_worker_config("video_worker_lbf.xml");
@@ -45,7 +45,7 @@ pbio::VideoWorker::Ptr video_worker = service->createVideoWorker(
 ### C# Example
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to expand</summary>
 
 ```cs
 FacerecService.Config video_worker_config = new FacerecService.Config("video_worker_lbf.xml");
@@ -69,7 +69,7 @@ VideoWorker video_worker = service.createVideoWorker(
 ### Java Example 
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to expand</summary>
 
 ```java
 FacerecService.Config video_worker_config = service.new Config("video_worker_lbf.xml");
