@@ -5,7 +5,7 @@ The program demonstrates tracking, detection and cropping of faces, detection of
 To make a quick run of the demo with default parameters on Windows, go to the *bin* folder and double-left-click `demo.exe`.
 
 <p align="center">
-<img width="180" src="../img/cpp_demo_exe.png"><br>
+<img width="180" src="../../img/cpp_demo_exe.png"><br>
 <b>Location of C++ demo</b>
 </p>
 
@@ -23,7 +23,7 @@ In the upper left corner of the demo you can see the Face SDK components, which 
 * **emotions** – emotions.
 
 <p align="center">
-<img width="600" src="../img/demo_cpp.png"><br>
+<img width="600" src="../../img/demo_cpp.png"><br>
 <b>Running demo.exe</b>
 </p>
 
@@ -37,6 +37,6 @@ Startup parameters:
 * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
 * `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory license.
 
-Source code: [demo.cpp](../../examples/cpp/demo/demo.cpp)
+Source code: [demo.cpp](../../../examples/cpp/demo/demo.cpp)
 
 The OpenCV library is required for build.
