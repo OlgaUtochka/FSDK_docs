@@ -5,14 +5,14 @@ The program demonstrates tracking, detection and cropping of faces, detection of
 To make a quick run of the demo with default parameters on Windows, go to the *bin/csharp_demo/demo* folder and double-left-click `run.bat`.
 
 <p align="center">
-<img width="350" src="../img/demo_cs_bat.png"><br>
+<img width="350" src="../../img/demo_cs_bat.png"><br>
 <b>Location of C# demo</b>
 </p>
 
-Tracking results and information about each face are displayed in a window. In the upper left corner you can see the Face SDK components, which you can turn on and off by left mouse click. This demo program is similar to **C++ demo**, see the detailed description of the components in [C++ demo](cpp_demos.md#demo).
+Tracking results and information about each face are displayed in a window. In the upper left corner you can see the Face SDK components, which you can turn on and off by left mouse click. This demo program is similar to **C++ demo**, see the detailed description of the components in [C++ demo](../cpp/demo.md).
 
 <p align="center">
-<img width="600" src="../img/demo_cs.png"><br>
+<img width="600" src="../../img/demo_cs.png"><br>
 <b>Running C# demo</b>
 </p>
 
@@ -32,7 +32,7 @@ Startup parameters:
 Where:
 
 * `config_dir` – path to the *conf/facerec* directory;
-* `capturer_conf` – path to the `Capturer` config file (learn more about types of config files in [Capturer Class Reference](../development/face_capturing.md#capturer-class-reference))
+* `capturer_conf` – path to the `Capturer` config file (learn more about types of config files in [Capturer Class Reference](../../development/face_capturing.md#capturer-class-reference))
 * `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory *license*;
 
 **To run the demo on Windows:**  
