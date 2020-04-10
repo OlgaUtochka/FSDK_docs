@@ -8,6 +8,7 @@
 * face estimation (gender, age, emotions, liveness) (see [Face Estimation](doc/development/face_estimation.md)).
 
 See the detailed info about Face SDK components in [Components](doc/components.md).
+Read the [**documentation**](doc) to learn how to integrate Face SDK, see the examples and tutorials. 
 
 ## Supported platforms and API
 
