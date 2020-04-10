@@ -4,7 +4,9 @@
 
 _**Note:** If you need to estimate age and gender on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation) in the section [Video Stream Processing](video_stream_processing.md)._
 
-For age and gender estimation, create the `AgeGenderEstimator` class by calling the `FacerecService::createAgeGenderEstimator` method, providing the configuration file. Currently, there is only one config file available, which is *age_gender_estimator.xml*. With `AgeGenderEstimator` you can estimate age and gender of a captured face using `AgeGenderEstimator::estimateAgeGender`. The result is the `AgeGenderEstimator::AgeGender` struct containing the number of ages (in years), age group (`AgeGenderEstimator::Age`) and gender (`AgeGenderEstimator::Gender`). See the example of using the `AgeGenderEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp).  
+For age and gender estimation, create the `AgeGenderEstimator` class by calling the `FacerecService::createAgeGenderEstimator` method, providing the configuration file. Currently, there is only one config file available, which is *age_gender_estimator.xml*. With `AgeGenderEstimator` you can estimate age and gender of a captured face using `AgeGenderEstimator::estimateAgeGender`. The result is the `AgeGenderEstimator::AgeGender` struct containing the number of ages (in years), age group (`AgeGenderEstimator::Age`) and gender (`AgeGenderEstimator::Gender`). See the example of using the `AgeGenderEstimator` in [demo.cpp](../../examples/cpp/demo/demo.cpp). 
+
+Learn how to estimate Age & Gender in an image in our tutorial [Estimating Age, Gender, and Emotions](../tutorials/estimating_age_gender_and_emotions.md).
 
 ## Quality
 
@@ -38,6 +40,8 @@ To get an estimated result, you can call the `pbio::DepthLivenessEstimator::esti
   * `DepthLivenessEstimator::NOT_ENOUGH_DATA` – too many missing depth values on the depth map.
   * `DepthLivenessEstimator::REAL` – the observed face belongs to a living person.
   * `DepthLivenessEstimator::FAKE` – the observed face is taken from a photo.
+  
+Learn how to estimate liveness of a face in our tutorial [Liveness Detection](../tutorials/liveness_detection.md) 
 
 ### LivenessEstimator
 
