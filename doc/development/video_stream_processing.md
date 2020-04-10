@@ -11,7 +11,8 @@ The `VideoWorker` interface object is used to:
 The `VideoWorker` object is responsible for thread control and synchronization routine, you only need to provide decoded video frames and register a few callback functions.
 
 See an example of using `VideoWorker` in [video_recognition_demo](../demo_programs.md#video-recognition-demo).  
-Learn how to detect and track faces in a video stream in our [tutorial](../tutorials/face_detection_and_tracking_in_a_video_stream.md).
+Learn how to detect and track faces in a video stream in our tutorial [Face Detection and Tracking in a Video Stream](../tutorials/face_detection_and_tracking_in_a_video_stream.md).  
+Learn how to recognize faces in a video stream in our tutorial [Face Recognition in a Video Stream](tutorials/face_recognition_in_a_video_stream.md).  
 
 ## Tracking Faces
 
