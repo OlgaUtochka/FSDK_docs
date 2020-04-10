@@ -26,7 +26,7 @@ Face SDK provides the following APIs:
 
 3DiVi Face SDK uses the following open source libraries:
 
-* OpenSSL (https://www.openssl.org)
-* Crypto++ (https://www.cryptopp.com)
-* Boost (http://www.boost.org)
-* OpenCV (http://opencv.org)
+* [OpenSSL](doc/open_source_licenses/openssl.md) (https://www.openssl.org)
+* [Crypto++](doc/open_source_licenses/crypto%2B%2B.md) (https://www.cryptopp.com)
+* [Boost](doc/open_source_licenses/boost.md) (http://www.boost.org)
+* [OpenCV](doc/open_source_licenses/opencv.md) (http://opencv.org)
