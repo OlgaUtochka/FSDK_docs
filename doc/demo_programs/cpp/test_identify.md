@@ -51,9 +51,8 @@ Example of launch from the *bin* directory in the verification mode:
 * Linux: `./test_identify ../lib/libfacerec.so ../conf/facerec method7v7_recognizer.xml verify set1/01100.jpg set2/01100.jpg`
 * Windows: `test_identify facerec.dll ../conf/facerec method7v7_recognizer.xml verify set1/01100.jpg set2/01100.jpg`
 
-Work progress and matching results are displayed in the console.  
-Error messages, if any, are also displayed in the console.  
+Work progress and matching results are displayed in the console. Error messages, if any, are also displayed in the console.  
 
-Source code: [test_identify.cpp](../../examples/cpp/test_identify/test_identify.cpp)
+Source code: [test_identify.cpp](../../../examples/cpp/test_identify/test_identify.cpp)
 
 No additional libraries are required for build.
