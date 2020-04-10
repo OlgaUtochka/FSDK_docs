@@ -11,17 +11,17 @@ To make a quick run of the demo with default parameters and check face recogniti
 <b>Content of bin/base/person0</b>
 </p>
 
-2. Go to the *bin* folder and run the script `demo_web_m8v_latest.bat`, `demo_web_m6v_latest.bat` or `demo_web_m7v_latest.bat` by double-left-click. You can use any above script to run this demo, the only difference is a method (**8.7**, **6.7** and **7.7**, see the detailed information in [Face Identification](../development/face_identification.md)).
+2. Go to the *bin* folder and run the script `demo_web_m8v_latest.bat`, `demo_web_m6v_latest.bat` or `demo_web_m7v_latest.bat` by double-left-click. You can use any above script to run this demo, the only difference is a method (**8.7**, **6.7** and **7.7**, see the detailed information in [Face Identification](../../development/face_identification.md)).
 
 <p align="center">
-<img width="200" src="../img/cpp_video_recognition.png"><br>
+<img width="200" src="../../img/cpp_video_recognition.png"><br>
 <b>Location of C++ video_recognition_demo</b>
 </p>
 
 3. Tracking and identification results are displayed in a window (one window per one source). Tracked faces are highlighted with a green circle. In the upper right corner of the window you can see the recognition results: a tracked face on the left and a face from the database and the name on the right.
 
 <p align="center">
-<img width="700" src="../img/video_rec_demo_result.png"><br>
+<img width="700" src="../../img/video_rec_demo_result.png"><br>
 <b>Running C++ video_recognition_demo</b>
 </p>
 
@@ -53,6 +53,6 @@ Examples of startup scripts:
 
 Error messages (if any) are printed in the console.
 
-Source code: [examples/cpp/video_recognition_demo](../../examples/cpp/video_recognition_demo)
+Source code: [examples/cpp/video_recognition_demo](../../../examples/cpp/video_recognition_demo)
 
 The OpenCV and boost libraries are required for build.
