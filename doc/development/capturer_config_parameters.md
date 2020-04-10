@@ -1,3 +1,5 @@
+# Detailed Info about Capturer Configuration Parameters
+
 Here is a list of parameters inside the configuration files that can be changed using the FacerecService.Config.overrideParameter object:
 
 * `max_processed_width` and `max_processed_height` – (for trackers only) limit the size of the image that is passed to the internal detector of new faces.
