@@ -1233,6 +1233,10 @@ void Worker::TrackingLostCallback(
 12. `VideoWorker` receives the frames via the `pbio::IRawImage` interface. Create the `VideoFrame` header file: **Add New > C++ > C++ Header File > VideoFrame**. Include it to the file `videoframe.h` and implement the `pbio::IRawImage` interface for the `QImage` class. The `pbio::IRawImage` interface allows to get the pointer to image data, its format, width and height.
 
 **videoframe.h**
+
+<details>
+  <summary>Click to expand</summary>
+	
 ```cpp
 #include "qcameracapture.h"
 #include <pbio/IRawImage.h>
@@ -1314,6 +1318,7 @@ const QCameraCapture::FramePtr& VideoFrame::frame() const
 	return _frame;
 }
 ```
+</details>
 
 13. In the `addFrame` method, pass the frames to `VideoWorker`. If there are any exceptions during the callback processing, they're thrown again in the `checkExceptions` method. Create the `_frames` queue to store the frames. This queue will contain the frame id and the corresponding image, so that we can find the frame, which matches the processing result in `TrackingCallback`. To synchronize the changes in shared data, we use `std::mutex`.
 
