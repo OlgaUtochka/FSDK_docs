@@ -1,4 +1,4 @@
-# Liveness Detection with Face SDK
+# Liveness Detection
 
 In this tutorial, you'll learn how to perform liveness detection in a video stream with Face SDK and an RGBD sensor. As a rule, liveness detection is used to prevent spoofing attacks (when a person tries to subvert or attack a face recognition system by using a picture or a video and thereby gaining illegitimate access).
 
