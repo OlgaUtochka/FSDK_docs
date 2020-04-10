@@ -116,6 +116,8 @@ With `RawSample` you can:
 
 ### Anthropometric Points
 
+_**Note:** Learn how to display anthropometric points and head rotation angles [in our tutorial](../tutorials/displaying_anthropometric_points_and_head_rotation_angles.md)._
+
 There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, and *fda*.
 
 * The *esr* set is our first set that was the only set available in previous SDK versions. The *esr* set contains 47 points.
