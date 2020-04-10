@@ -7,7 +7,7 @@ To make a quick run of the demo with default parameters and check face recogniti
 1. Create a database, which will be used for face recognition. To create a database, go to the *bin/base* folder and create a new folder, for example, *person0*. Copy a picture of a person to be used for recognition and create a file *name.txt*, which should contain a person's name.
 
 <p align="center">
-<img width="250" src="../img/video_rec_base_folder.png"><br>
+<img width="250" src="../../img/video_rec_base_folder.png"><br>
 <b>Content of bin/base/person0</b>
 </p>
 
