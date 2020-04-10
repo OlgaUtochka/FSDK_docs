@@ -43,6 +43,9 @@ To use the *libfacerec* library, call the `FacerecService.createService` method,
 
 _**Warning:** You can call `FacerecService.createService` only once, otherwise, you may encounter a crash._
 
+<details>
+  <summary>Click to expand!</summary>
+
 ### C++ example
 
 ```cpp
@@ -76,6 +79,7 @@ int main (int argc, char** argv)
     }
 }
 ```
+</details>
 
 ### C# example
 
