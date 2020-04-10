@@ -4,18 +4,18 @@ The program demonstrates tracking, detection and recognition of faces from the d
 
 To make a quick run of the demo with default parameters and check face recognition on Windows:
 
-1. Create a database, which will be used for face recognition (see p.1 of [C++ Video Recognition Demo](cpp_demos.md#video_recognition_demo)).
+1. Create a database, which will be used for face recognition (see p.1 of [C++ Video Recognition Demo](../cpp/video_recognition_demo.md)).
 2. To run the demo, go to *bin/csharp_demo/video_recognition_demo* and double-left-click `run.bat`.
 
 <p align="center">
-<img width="450" src="../img/video_rec_cs_bat.png"><br>
+<img width="450" src="../../img/video_rec_cs_bat.png"><br>
 <b>Location of C# video_recognition_demo</b>
 </p>
 
 3. Tracking and identification results are displayed in a window (one window per one source). Tracked faces are highlighted with a green circle. In the upper right corner of the window you can see the recognition results: a tracked face on the left and a face from the database and the name on the right.
 
 <p align="center">
-<img width="750" src="../img/video_rec_cs.png"><br>
+<img width="750" src="../../img/video_rec_cs.png"><br>
 <b>Running C# video_recognition_demo</b>
 </p>
 
@@ -68,4 +68,4 @@ LD_LIBRARY_PATH=${LD_LIBRARY_PATH}: ../../../lib:~/opencv/lib/x86_64-linux-gnu d
 ```
 Tracking and identification results are displayed in windows (one window per one video source).
 
-Source code: [examples/csharp/video_recognition_demo](../../examples/csharp/video_recognition_demo)
+Source code: [examples/csharp/video_recognition_demo](../../../examples/csharp/video_recognition_demo)
