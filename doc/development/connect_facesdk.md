@@ -43,10 +43,9 @@ To use the *libfacerec* library, call the `FacerecService.createService` method,
 
 _**Warning:** You can call `FacerecService.createService` only once, otherwise, you may encounter a crash._
 
-<details>
-  <summary>Click to expand!</summary>
-
 ### C++ example
+<details>
+  <summary>Click to expand</summary>
 
 ```cpp
 #include <iostream>
@@ -82,6 +81,8 @@ int main (int argc, char** argv)
 </details>
 
 ### C# example
+<details>
+  <summary>Click to expand</summary>
 
 ```cs
 using System;
@@ -115,9 +116,12 @@ namespace Example
     }
 }
 ```
+</details>
 
 ### Java example
-
+<details>
+  <summary>Click to expand</summary>
+  
 ```java
 package example;
 import java.lang.String;
@@ -152,3 +156,4 @@ public class Example
     }
 }
 ```
+</details>
