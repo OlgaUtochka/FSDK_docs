@@ -16,3 +16,4 @@
 * [Performance Parameters](performance_parameters.md)
 * [Guidelines for Cameras](guidelines_for_cameras.md)
 * [Licenses](licenses.md)
+* [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html)
