@@ -14,31 +14,46 @@ Example 2:
 
 **C++**
 
+<details>
+  <summary>Click to expand</summary>
+
 ```cpp
 pbio::FacerecService::Config capturer_config("common_capturer4.xml");
 capturer_config.overrideParameter("min_size", 200);
 pbio::Capturer::Ptr capturer = service->createCapturer(capturer_config);
 ```
+</details>
 
 **C#**
+
+<details>
+  <summary>Click to expand</summary>
 
 ```cs
 FacerecService.Config capturerConfig = new FacerecService.Config("common_capturer4_lbf.xml");
 capturerConfig.overrideParameter("min_size", 200);
 Capturer capturer = service.createCapturer(capturerConfig);
 ```
+</details>
 
 **Java**
+
+<details>
+  <summary>Click to expand</summary>
 
 ```java
 FacerecService.Config capturerConfig = service.new Config("common_capturer4_lbf.xml");
 capturerConfig.overrideParameter("min_size", 200);
 final Capturer capturer = service.createCapturer(capturerConfig);
 ```
+</details>
 
 Example 3:
 
 **C++**
+
+<details>
+  <summary>Click to expand</summary>
 
 ```cpp
 pbio::Capturer::Ptr capturer = service->createCapturer("common_capturer4.xml");
@@ -50,8 +65,12 @@ capturer->setParameter("min_size", 100);
 capturer->setParameter("max_size", 400);
 // capturer->capture(...);
 ```
+</details>
 
 **C#**
+
+<details>
+  <summary>Click to expand</summary>
 
 ```cs
 Capturer capturer = service.createCapturer("common_capturer4_lbf.xml");
@@ -63,8 +82,12 @@ capturer.setParameter("min_size", 100);
 capturer.setParameter("max_size", 400);
 // capturer.capture(...);
 ```
+</details>
 
 **Java**
+
+<details>
+  <summary>Click to expand</summary>
 
 ```java
 Capturer capturer = service.createCapturer(service.new Config("common_capturer4_lbf.xml"));
@@ -76,6 +99,7 @@ capturer.setParameter("min_size", 100);
 capturer.setParameter("max_size", 400);
 // capturer.capture(...);
 ```
+</details>
 
 The type and characteristics of the capturer depend on the configuration file or the `FacerecService.Config` object passed to the `FacerecService.createCapturer` member function.
 
