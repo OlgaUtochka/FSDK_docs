@@ -56,7 +56,7 @@ See an example of using `LivenessEstimator` in [demo.cpp](../../examples/cpp/dem
 
 ## Emotions
 
-_**Note:** If you need to estimate emotions on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation) in the section [Video Stream Processing](video_stream_processing.md)._
+_**Note:** If you need to estimate emotions on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation-of-age-gender-and-emotions) in the section [Video Stream Processing](video_stream_processing.md)._
 
 To estimate emotions, create the `EmotionsEstimator` object using `FacerecService.createEmotionsEstimator` and pass the configuration file. Currently, there is only one configuration file, which is *emotions_estimator.xml*.  
 With the `EmotionsEstimator` object you can estimate the emotion of a captured face using the `EmotionsEstimator.estimateEmotions` method. The result is a vector with the `EmotionsEstimator.EmotionConfidence` elements containing emotions with a confidence value. See the example of using the `EmotionsEstimator` object in [demo.cpp](../../examples/cpp/demo/demo.cpp).
