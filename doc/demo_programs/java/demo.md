@@ -5,7 +5,7 @@ The program demonstrates tracking, detection and cropping of faces, detection of
 To run the demo, install `demo.apk` on your device. To install the demo, you should allow the app to have access to the listed functions.
 
 <p align="center">
-<img width="250" src="../img/demo_apk_permissions_en.png"><br>
+<img width="250" src="../../img/demo_apk_permissions_en.png"><br>
 <b>Permissions requested when installing demo.apk</b>
 </p>
 
@@ -18,8 +18,8 @@ In the lower right corner there is a menu with the following sections:
 * **quit** – exit the program.
 
 <p align="center">
-<img width="500" src="../img/demo_apk_gui.png"><br>
+<img width="500" src="../../img/demo_apk_gui.png"><br>
 <b>Running demo.apk</b>
 </p>
 
-Source code: [examples/android/demo](../../examples/android/demo)
+Source code: [examples/android/demo](../../../examples/android/demo)
