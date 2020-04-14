@@ -161,8 +161,8 @@ There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, a
 <table border="1" style="border-collapse:collapse;center">
 <tr>                <th rowspan=2> config file                                         </th>    <th colspan=6>capture time (ms) </th> </tr>
 <tr>                                                                                            <th>640x480, 1 face</th> <th>640x480, 4 faces</th> <th>1280x720, 1 face</th> <th>1280x720, 4 faces</th> <th>1920x1080, 1 face</th> <th>1920x1080, 4 faces</th>  </tr>
-<tr align="center"> <td align="left"> common_capturer.xml                              </td>    <td>290            </td> <td>290             </td> <td>900             </td> <td>900              </td> <td>2145             </td> <td>2145              </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer2.xml                             </td>    <td>290            </td> <td>320             </td> <td>930             </td> <td>930              </td> <td>2225             </td> <td>2225              </td>  </tr>
+<tr align="center"> <td align="left"> common_capturer4_fda.xml                              </td>    <td>55            </td> <td>140             </td> <td>150             </td> <td>260              </td> <td>300             </td> <td>530              </td>  </tr>
+<tr align="center"> <td align="left"> common_video_capturer_fda.xml                             </td>    <td>40            </td> <td>80             </td> <td>40             </td> <td>80              </td> <td>50             </td> <td>90              </td>  </tr>
 </table>
 
 _**Note:** Actual capture time may vary depending on the image content._
