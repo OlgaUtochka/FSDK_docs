@@ -156,6 +156,25 @@ There are four sets of anthropometric points: *esr*, *singlelbf*, *doublelbf*, a
 <img width="800" src="../img/singlebf_doublebf.png"><br>
 </p>
 
+### Capturers Timing Characteristics (for 1 GHz 1 Core)
+
+<table border="1" style="border-collapse:collapse;center">
+<tr>                <th rowspan=2> config file                                         </th>    <th colspan=6>capture time (ms) </th> </tr>
+<tr>                                                                                            <th>640x480, 1 face</th> <th>640x480, 4 faces</th> <th>1280x720, 1 face</th> <th>1280x720, 4 faces</th> <th>1920x1080, 1 face</th> <th>1920x1080, 4 faces</th>  </tr>
+<tr align="center"> <td align="left"> common_capturer.xml                              </td>    <td>290            </td> <td>290             </td> <td>900             </td> <td>900              </td> <td>2145             </td> <td>2145              </td>  </tr>
+<tr align="center"> <td align="left"> common_capturer2.xml                             </td>    <td>290            </td> <td>320             </td> <td>930             </td> <td>930              </td> <td>2225             </td> <td>2225              </td>  </tr>
+</table>
+
+_**Note:** Actual capture time may vary depending on the image content._
+
+### Capturers Angles Ranges
+
+<table border="1" style="border-collapse:collapse;center">
+<tr>                <th> config file                                                   </th>    <th>    roll   </th> <th>     yaw    </th> <th>   pitch     </th>  </tr>
+<tr align="center"> <td align="left"> common_capturer.xml                              </td>    <td> [-20; 20] </td> <td> [-45; 45]  </td> <td>  [-60; 60]  </td>  </tr>
+<tr align="center"> <td align="left"> common_capturer2.xml                             </td>    <td> [-20; 20] </td> <td> [-45; 45]  </td> <td>  [-60; 60]  </td>  </tr>
+</table>
+
 ### Face Cropping
 
 To crop the face, you can call the `RawSample.cutFaceImage` method. The image of a cropped face will be saved in a provided binary stream encoded in a specified format. See all available cropping types in `RawSample.FaceCutType`.
