@@ -172,7 +172,7 @@ _**Note:** Actual capture time may vary depending on the image content._
 |config file|roll|yaw|pitch|
 |-----------|----|---|-----|
 |common_capturer4_fda.xml|[-30; 30]|[-60; 60]|[60; 60]|
-|common_video_capturer_fda.xml||[-30; 30]|[-60; 60]|[60; 60]|
+|common_video_capturer_fda.xml|[-30; 30]|[-60; 60]|[60; 60]|
 
 ### Face Cropping
 
