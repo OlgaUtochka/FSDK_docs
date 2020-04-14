@@ -169,11 +169,10 @@ _**Note:** Actual capture time may vary depending on the image content._
 
 ### Capturers Angles Ranges
 
-<table border="1" style="border-collapse:collapse;center">
-<tr>                <th> config file                                                   </th>    <th>    roll   </th> <th>     yaw    </th> <th>   pitch     </th>  </tr>
-<tr align="center"> <td align="left"> common_capturer.xml                              </td>    <td> [-20; 20] </td> <td> [-45; 45]  </td> <td>  [-60; 60]  </td>  </tr>
-<tr align="center"> <td align="left"> common_capturer2.xml                             </td>    <td> [-20; 20] </td> <td> [-45; 45]  </td> <td>  [-60; 60]  </td>  </tr>
-</table>
+|config file|roll|yaw|pitch|
+|-----------|----|---|-----|
+|common_capturer4_fda.xml|[-30; 30]|[-60; 60]|[60; 60]|
+|common_video_capturer_fda.xml||[-30; 30]|[-60; 60]|[60; 60]|
 
 ### Face Cropping
 
