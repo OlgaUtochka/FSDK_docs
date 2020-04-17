@@ -26,7 +26,27 @@ Face SDK provides the following APIs:
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
 
-**To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk)**.
+To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk).
+
+## Documentation 
+
+* [Face SDK Components](doc/components.md)
+* [Use Cases](doc/use_cases.md)
+* [Getting Started](doc/getting_started.md)
+* [Demo Programs](doc/demo_programs)
+* [Tutorials](doc/tutorials)
+* Development
+  * [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md)
+  * [Video Stream Processing](doc/development/video_stream_processing.md)
+  * [Face Capturing](doc/development/face_capturing.md)
+  * [Face Estimation](doc/development/face_estimation.md)
+  * [Face Identification](doc/development/face_identification.md)
+  * [Error Handling](doc/development/error_handling.md)
+  * [Memory Management](doc/development/memory_management.md)
+* [Performance Parameters](doc/performance_parameters.md)
+* [Guidelines for Cameras](doc/guidelines_for_cameras.md)
+* [Licenses](doc/licenses.md)
+* [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html)
 
 ## Open Source Licenses Used
 
