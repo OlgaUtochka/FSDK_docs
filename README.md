@@ -43,7 +43,7 @@ To get started with Face SDK, download the [Face SDK distribution package](https
   * [Face Identification](doc/development/face_identification.md) – custom face identification, identification methods
   * [Error Handling](doc/development/error_handling.md) – error handling in C++/C#/Java
   * [Memory Management](doc/development/memory_management.md) – memory management in C++/C#/Java
-* [Performance Parameters](doc/performance_parameters.md) – performance of Face SDK based on several tests data 
+* [Performance Parameters](doc/performance_parameters.md) – performance of Face SDK based on several tests  
 * [Guidelines for Cameras](doc/guidelines_for_cameras.md) – camera positioning and shooting, recommended cameras
 * [Licenses](doc/licenses.md) – registration of different license types, licensing of mobile apps 
 * [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html) 
