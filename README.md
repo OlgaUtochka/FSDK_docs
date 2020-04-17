@@ -35,7 +35,7 @@ To get started with Face SDK, download the [Face SDK distribution package](https
 * [Getting Started](doc/getting_started.md) – learn how to get started with Face SDK
 * [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
 * [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
-* Development – all you need to know to use Face SDK
+* Development – all you need to know to develop your project with Face SDK
   * [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md) – learn how to add and use the libfacerec library in your project
   * [Video Stream Processing](doc/development/video_stream_processing.md) – face tracking, creation of templates, face recognition, estimation of age, gender, and emotions, short-time identification
   * [Face Capturing](doc/development/face_capturing.md) – custom face tracking, getting information about faces, anthropometric points, face cropping 
