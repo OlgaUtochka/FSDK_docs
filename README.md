@@ -26,7 +26,7 @@ Face SDK provides the following APIs:
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
 
-To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk).
+To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk). You can use a trial license, which is valid for 14 days and fully portable. 
 
 ## Documentation 
 
