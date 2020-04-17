@@ -10,7 +10,6 @@
 * face estimation (gender, age, emotions, liveness) (see [Face Estimation](doc/development/face_estimation.md)).
 
 See the detailed info about Face SDK components in [Components](doc/components.md).  
-**To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk)**.
 
 ## Supported platforms and API
 
@@ -26,6 +25,8 @@ Face SDK provides the following APIs:
 * C++ API (for Windows, Linux, Android)
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
+
+**To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk)**.
 
 ## Open Source Licenses Used
 
