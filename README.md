@@ -30,23 +30,23 @@ To get started with Face SDK, download the [Face SDK distribution package](https
 
 ## Documentation 
 
-* [Face SDK Components](doc/components.md)
-* [Use Cases](doc/use_cases.md)
-* [Getting Started](doc/getting_started.md)
-* [Demo Programs](doc/demo_programs)
-* [Tutorials](doc/tutorials)
-* Development
-  * [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md)
-  * [Video Stream Processing](doc/development/video_stream_processing.md)
-  * [Face Capturing](doc/development/face_capturing.md)
-  * [Face Estimation](doc/development/face_estimation.md)
-  * [Face Identification](doc/development/face_identification.md)
-  * [Error Handling](doc/development/error_handling.md)
-  * [Memory Management](doc/development/memory_management.md)
-* [Performance Parameters](doc/performance_parameters.md)
-* [Guidelines for Cameras](doc/guidelines_for_cameras.md)
-* [Licenses](doc/licenses.md)
-* [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html)
+* [Face SDK Components](doc/components.md) – essential information about the components included in Face SDK
+* [Use Cases](doc/use_cases.md) – diagrams that show possible use cases and connection between the Face SDK components
+* [Getting Started](doc/getting_started.md) – learn how to get started with Face SDK
+* [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
+* [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
+* Development – all you need to know to use Face SDK
+  * [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md) – learn how to add and use the libfacerec library in your project
+  * [Video Stream Processing](doc/development/video_stream_processing.md) – face tracking, creation of templates, face recognition, estimation of age, gender, and emotions, short-time identification
+  * [Face Capturing](doc/development/face_capturing.md) – custom face tracking, getting information about faces, anthropometric points, face cropping 
+  * [Face Estimation](doc/development/face_estimation.md) – 
+  * [Face Identification](doc/development/face_identification.md) – 
+  * [Error Handling](doc/development/error_handling.md) – 
+  * [Memory Management](doc/development/memory_management.md) – 
+* [Performance Parameters](doc/performance_parameters.md) – 
+* [Guidelines for Cameras](doc/guidelines_for_cameras.md) – 
+* [Licenses](doc/licenses.md) – 
+* [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html) 
 
 ## Open Source Licenses Used
 
