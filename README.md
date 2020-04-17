@@ -1,3 +1,5 @@
+# Overview
+
 **3DiVi Face SDK** is a set of software components (code libraries) for building face recognition solutions of any complexity – from a simple app to portals like Azure Face API or AWS Rekognition.
 
 ## Features
@@ -8,7 +10,7 @@
 * face estimation (gender, age, emotions, liveness) (see [Face Estimation](doc/development/face_estimation.md)).
 
 See the detailed info about Face SDK components in [Components](doc/components.md).  
-Read the [**documentation**](doc) to learn how to integrate Face SDK, see the examples and tutorials. 
+**To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk)**.
 
 ## Supported platforms and API
 
@@ -25,7 +27,7 @@ Face SDK provides the following APIs:
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
 
-3DiVi Face SDK uses the following open source libraries:
+## Open Source Licenses Used
 
 * [OpenSSL](doc/open_source_licenses/openssl.txt) (https://www.openssl.org)
 * [Crypto++](doc/open_source_licenses/crypto%2B%2B.txt) (https://www.cryptopp.com)
