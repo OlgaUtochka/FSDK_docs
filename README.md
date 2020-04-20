@@ -1,3 +1,7 @@
+<p align="center">
+<img width="800" src="doc/img/3divi_logo.png"><br>
+</p>
+
 # Overview
 
 **3DiVi Face SDK** is a set of software components (code libraries) for building face recognition solutions of any complexity – from a simple app to portals like Azure Face API or AWS Rekognition.
