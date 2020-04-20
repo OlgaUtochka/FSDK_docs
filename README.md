@@ -1,5 +1,5 @@
 <p align="center">
-<img width="800" src="doc/img/3divi_logo.png"><br>
+<img width="600" src="doc/img/3divi_logo.png"><br>
 </p>
 
 # Overview
