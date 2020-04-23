@@ -77,6 +77,9 @@ List of used abbreviations:
 <tr align="center"> <th align="center"> 7.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>  195 (163**)</td> </tr>
 <tr align="center"> <th align="center"> 8.6   </th>   <td>  536 </td>  <td>  636 </td>  <td>   52 (40**)</td> </tr>
 <tr align="center"> <th align="center"> 8.7   </th>   <td>  536 </td>  <td>  636 </td>  <td>   52 (40**)</td> </tr>
+<tr align="center"> <th align="center"> 9.30  </th>   <td>  280 </td>  <td>  380 </td>  <td>  155       </td> </tr>
+<tr align="center"> <th align="center"> 9.300 </th>   <td>  280 </td>  <td>  380 </td>  <td>  210       </td> </tr>
+<tr align="center"> <th align="center"> 9.1000</th>   <td>  280 </td>  <td>  380 </td>  <td>  290       </td> </tr>
 </table>
 
 \* – the amount of memory consumed does not depend on the number of the `Recognizer` objects created by this method.  
