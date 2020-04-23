@@ -1,6 +1,6 @@
 # Face Identification
 
-Face SDK includes several identification methods that differ in recgnition quality and time characteristics. More time-consuming methods provide better recognition quality (see [Identification Performance](../performance_parameters.md#identification-performance for detailed characteristics of the methods). Depending on recognition quality and time all methods can be divided into 3 groups in connection with use cases:
+Face SDK includes several identification methods that differ in recgnition quality and time characteristics. More time-consuming methods provide better recognition quality (see [Identification Performance](../performance_parameters.md#identification-performance) for detailed characteristics of the methods). Depending on recognition quality and time all methods can be divided into 3 groups in connection with use cases:
 
 * **9v30** – for real-time video identification on mobile platforms;
 * **6v7** – for real-time video identification on Windows and Linux;
