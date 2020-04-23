@@ -1,15 +1,15 @@
 # Face Identification
 
+Face SDK includes several identification methods that differ in recgnition quality and time characteristics. More time-consuming methods provide better recognition quality (see [Identification Performance](../performance_parameters.md#identification-performance for detailed characteristics of the methods). Depending on recognition quality and time all methods can be divided into 3 groups in connection with use cases:
+
+* **9v30** – for real-time video identification on mobile platforms;
+* **6v7** – for real-time video identification on Windows and Linux;
+* **9v300**, **9v1000** – for expert systems, in which a person is searched by a photo.
+
 To identify faces, create the `Recognizer` object by calling the `FacerecService.createRecognizer` method with the specified configuration file.
 
 To create [Encoder](../components.md#encoder) for one stream, specify the parameters `processing_threads_count=true` and `matching_threads_count=false`.  
 To create [MatcherDB](../components.md#matcherdb) for one stream, specify the parameters `processing_threads_count=false` and `matching_threads_count=true`.
-
-**Recommended recognition methods:**
-
-* **6.7** – high speed and good quality of recognition. Suitable for real-time face recognition.
-* **7.7** – the best recognition quality, yet the recognition speed is lower than 6.7 and 8.7 methods. Suitable for offline face recognition.
-* **8.7** – the best recognition speed, yet the recognition quality is lower than 6.7 and 7.7 methods. Suitable for real-time face recognition on low-performance devices.
 
 Here is the list of all configuration files and recognition methods available at the moment:
 
@@ -27,8 +27,6 @@ Here is the list of all configuration files and recognition methods available at
 * `method7v7_recognizer.xml` – method 7.7
 * `method8v6_recognizer.xml` – method 8.6
 * `method8v7_recognizer.xml` – method 8.7
-
-See [Identification Performance](../performance_parameters.md#identification-performance) for detailed characteristics of the methods.
 
 Using the `Recognizer` object you can:
 
