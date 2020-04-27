@@ -1,5 +1,10 @@
 # Face Estimation
 
+* [Age & Gender]()
+* [Quality] 
+* [Liveness (2D and 3D)]
+* [Emotions]
+
 ## Age & Gender
 
 _**Note:** If you need to estimate age and gender on a video stream, see [Estimation of age, gender, and emotions](video_stream_processing.md#estimation-of-age-gender-and-emotions) in the section [Video Stream Processing](video_stream_processing.md)._
@@ -28,7 +33,7 @@ The main purpose of liveness estimation is to prevent spoofing attacks (using a 
 
 Learn how to estimate liveness of a face in our tutorial [Liveness Detection](../tutorials/liveness_detection.md).
 
-### DepthLivenessEstimator (recommended)
+### DepthLivenessEstimator
 
 To estimate liveness with a depth map, you should create the `DepthLivenessEstimator` object using `FacerecService.createDepthLivenessEstimator`.
 
