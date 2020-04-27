@@ -32,7 +32,7 @@ Face SDK provides the following APIs:
 
 ## Getting Started with Trial 
 
-To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version of 3DiVi Face SDK has the following limitations:
+To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version has the following limitations:
 * runtime limit (3 minutes);
 * number of each component (5);
 * maximum size of the search index (1000 images).
