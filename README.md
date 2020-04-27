@@ -53,7 +53,7 @@ You can use [a trial license](https://face.3divi.com/products/face_sdk/face_sdk_
 * [Licenses](doc/licenses.md) – registration of different license types, licensing of mobile apps 
 * [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html) 
 
-## Open Source Licenses Used
+## Open Source Licenses
 
 * [OpenSSL](doc/open_source_licenses/openssl.txt) (https://www.openssl.org)
 * [Crypto++](doc/open_source_licenses/crypto%2B%2B.txt) (https://www.cryptopp.com)
