@@ -8,10 +8,10 @@
 
 ## Features
 
-* detecting, tracking and recognizing faces in video streams (see [Video Stream Processing](doc/development/video_stream_processing.md));
-* detecting and tracking faces on images and video (see [Face Capturing](doc/development/face_capturing.md));
-* recongizing faces on images and video. You can use different recognition methods (algorithms) depending on your use case (see [Face Identification](doc/development/face_identification.md));
-* face estimation (gender, age, emotions, liveness) (see [Face Estimation](doc/development/face_estimation.md)).
+* [Face Capturing](doc/development/face_capturing.md) – face detection and tracking on images and video;
+* [Face Identification](doc/development/face_identification.md) – face recognition on images and video;
+* [Face Estimation](doc/development/face_estimation.md)  – face estimation (gender, age, emotions, liveness) on images and video;
+* [Video Stream Processing](doc/development/video_stream_processing.md)  – face detection, tracking and recognition in video streams.
 
 See the detailed info about Face SDK components in [Components](doc/components.md).  
 
@@ -30,8 +30,22 @@ Face SDK provides the following APIs:
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
 
-To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk).   
-You can use [a trial license](https://face.3divi.com/products/face_sdk/face_sdk_trial), which is valid for 14 days and fully portable. 
+To get started with Face SDK, download the [Face SDK distribution package](https://face.3divi.com/download_sdk). 
+
+## Getting Started with Trial 
+
+To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version of 3DiVi Face SDK has the following limitations:
+* runtime limit (3 minutes);
+* number of each component (5);
+* maximum size of the search index (1000 images).
+
+To remove these limitations, you have to purchase Face SDK license. You can license any set of [Face SDK Components](doc/components.md) depending on your use case. We offer several types of licences:
+* Standard 
+* Online
+* Enterprise Specific
+* Mobile app
+* Hardware key 
+See detailed information on license activation in the section [Face SDK Licensing](doc/licenses.md). Contact us at face@3divi.com if you have any questions.
 
 ## Documentation 
 
