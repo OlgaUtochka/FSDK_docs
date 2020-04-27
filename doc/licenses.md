@@ -1,18 +1,8 @@
 # Face SDK Licensing
 
-To use Face SDK, you have to purchase the Face SDK license (standard or online). The license includes the set of components that you select depending on your use case. See the detailed information about Face SDK components and licensing types in the section [Components](components.md).
+To use Face SDK, you have to purchase the Face SDK license (standard or online). The license includes the set of components that you select depending on your use case. See the detailed information about Face SDK components and licensing types in the section [Components](components.md). To test Face SDK, you can use the trial license, which is included in the Face SDK distribution package.
 
-To test Face SDK, you can use the trial license, which is included in the Face SDK distribution package.
-
-The trial license has the following limitations:
-
-* time limit (3 minutes);
-* number of each component (5);
-* maximum size of the search index (1000 images).
-
-To remove these restrictions, you have to purchase the Face SDK license. See the detailed information on the registration and limitations of the license in the sections below.
-
-## Registration
+## License Activation
 
 ### Standard Licenses
 
