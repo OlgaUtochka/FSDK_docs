@@ -65,6 +65,7 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
 
 * [Components](doc/components.md) – essential information about the components included in Face SDK
 * [Use Cases](doc/use_cases.md) – diagrams that show possible use cases and connection between the Face SDK components
+* [Licenses](doc/licenses.md) – activation of different license types, licensing of mobile apps 
 * [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
 * [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
 
@@ -80,7 +81,6 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
   * [Memory Management](doc/development/memory_management.md) – memory management in C++/C#/Java
 * [Performance Parameters](doc/performance_parameters.md) – performance of Face SDK based on several tests  
 * [Guidelines for Cameras](doc/guidelines_for_cameras.md) – camera positioning and shooting, recommended cameras
-* [Licenses](doc/licenses.md) – registration of different license types, licensing of mobile apps 
 * [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html) 
 
 ## Open Source Licenses
