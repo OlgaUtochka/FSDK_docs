@@ -38,11 +38,11 @@ To get started with Face SDK, you need to download [Face SDK Trial](https://face
 * maximum size of the search index (1000 images).
 
 To remove these limitations, you have to purchase Face SDK license. You can license any set of [Face SDK Components](doc/components.md) depending on your use case. We offer several types of licences:
-* Standard 
-* Online
+* [Standard](doc/licenses.md#standard-licenses) – a licence that can be used offline after it's signed;
+* [Online](doc/licenses.md#online-licenses) – a license that is regularly updated in the background;
 * Enterprise Specific
-* Mobile app
-* Hardware key 
+* [Mobile app](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app;
+* [Hardware key](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file.
 
 See detailed information on license activation in the section [Face SDK Licensing](doc/licenses.md). Contact us at face@3divi.com if you have any questions.
 
