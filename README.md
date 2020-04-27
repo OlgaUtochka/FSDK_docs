@@ -65,7 +65,6 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
 
 * [Components](doc/components.md) – essential information about the components included in Face SDK
 * [Use Cases](doc/use_cases.md) – diagrams that show possible use cases and connection between the Face SDK components
-* [Getting Started](doc/getting_started.md) – learn how to get started with Face SDK
 * [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
 * [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
 
