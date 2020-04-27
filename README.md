@@ -46,7 +46,7 @@ To remove these limitations, you have to purchase Face SDK license. You can lice
 
 See detailed information on license activation in the section [Face SDK Licensing](doc/licenses.md). Contact us at face@3divi.com if you have any questions.
 
-Download the [Face SDK distribution package](https://face.3divi.com/download_sdk). After downloading the package, extract it to any directory on your device. The archive should contain:
+Download the [Face SDK distribution package](https://face.3divi.com/download_sdk). After that, extract it to any directory on your device. The archive should contain:
 
 * directories: *conf, docs, examples, include, share*
 * archives: `windows_x86_64.zip`, `windows_x86_32.zip`, `linux_x86_64.tar.xz`, `linux_x86_32.tar.xz`, `linux_armhf_32.tar.xz`, `linux_aarch64.tar.xz`, `android_arm_32.tar.xz`, `android_arm_64.tar.xz`, `ios_arm_64.tar.xz`
