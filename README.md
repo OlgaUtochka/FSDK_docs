@@ -48,6 +48,21 @@ To remove these limitations, you have to purchase Face SDK license. You can lice
 
 See detailed information on license activation in the section [Face SDK Licensing](doc/licenses.md). Contact us at face@3divi.com if you have any questions.
 
+Download the [Face SDK distribution package](https://face.3divi.com/download_sdk). After downloading the package, extract it to any directory on your device. The archive should contain:
+
+* directories: *conf, docs, examples, include, share*
+* archives: `windows_x86_64.zip`, `windows_x86_32.zip`, `linux_x86_64.tar.xz`, `linux_x86_32.tar.xz`, `linux_armhf_32.tar.xz`, `linux_aarch64.tar.xz`, `android_arm_32.tar.xz`, `android_arm_64.tar.xz`, `ios_arm_64.tar.xz`
+* file *CHANGES*
+
+When extracting the archive, specify the path to Face SDK root – the extracted folders *bin* and *lib* should be located at the same level with the *conf, docs, examples, include,* and *share* folders.
+
+<p align="center">
+<img width="700" src="img/cpp_extract_OS.png"><br>
+<b>Extraction path – root folder of the Face SDK distribution</b><br>
+</p>
+
+After unpacking the archive, you can familiarize yourself with the Face SDK features using the [trial license](licenses.md) and [demos](demo_programs) that demonstrate how to work with with C ++, Java, and C # API. 
+
 ## Documentation 
 
 * [Face SDK Components](doc/components.md) – essential information about the components included in Face SDK
