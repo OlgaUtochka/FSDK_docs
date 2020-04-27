@@ -45,6 +45,7 @@ To remove these limitations, you have to purchase Face SDK license. You can lice
 * Enterprise Specific
 * Mobile app
 * Hardware key 
+
 See detailed information on license activation in the section [Face SDK Licensing](doc/licenses.md). Contact us at face@3divi.com if you have any questions.
 
 ## Documentation 
