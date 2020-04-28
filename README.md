@@ -67,9 +67,9 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
 * Introduction to Face SDK
   * [Components](doc/components.md) – essential information about the components included in Face SDK
   * [Use Cases](doc/use_cases.md) – diagrams that show possible use cases and connection between the Face SDK components
-  * [Licenses](doc/licenses.md) – activation of different license types, licensing of mobile apps 
   * [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
   * [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
+  * [Licenses](doc/licenses.md) – information about different types of licenses, purchasing and activation of a license
 * Development – all you need to know to develop your project with Face SDK
   * [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md) – learn how to add and use the libfacerec library in your project
   * [Video Stream Processing](doc/development/video_stream_processing.md) – face tracking, creation of templates, face recognition, estimation of age, gender, and emotions, short-time identification
