@@ -89,4 +89,4 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
 * [Boost](doc/open_source_licenses/boost.txt) (http://www.boost.org)
 * [OpenCV](doc/open_source_licenses/opencv.txt) (http://opencv.org)
 
-<div align="center">© All Rights Reserved. <a href="https://3divi.com/">3DiVi Inc.</a>.</div>
+<div align="center">© All Rights Reserved. <a href="https://3divi.com/">3DiVi Inc.</a></div>
