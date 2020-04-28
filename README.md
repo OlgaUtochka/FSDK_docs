@@ -1,5 +1,6 @@
 <p align="center">
 <img width="500" src="doc/img/3divi_logo.png"><br>
+https://face.3divi.com/<br>
 </p>
 
 # Overview
@@ -33,7 +34,7 @@ Face SDK provides the following APIs:
 ## Getting Started with Trial 
 
 To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version has the following limitations:
-* runtime limit (3 minutes);
+
 * number of each component (5);
 * maximum size of the search index (1000 images).
 
@@ -87,3 +88,5 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
 * [Crypto++](doc/open_source_licenses/crypto%2B%2B.txt) (https://www.cryptopp.com)
 * [Boost](doc/open_source_licenses/boost.txt) (http://www.boost.org)
 * [OpenCV](doc/open_source_licenses/opencv.txt) (http://opencv.org)
+
+© All Rights Reserved. [3DiVi Inc](https://3divi.com/).
