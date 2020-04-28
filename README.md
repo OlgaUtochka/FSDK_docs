@@ -9,10 +9,10 @@ https://face.3divi.com/<br>
 
 ## Features
 
-* [Face Capturing](doc/development/face_capturing.md) – face detection and tracking on images and video;
-* [Face Identification](doc/development/face_identification.md) – face recognition on images and video;
-* [Face Estimation](doc/development/face_estimation.md)  – face estimation (gender, age, emotions, liveness) on images and video;
-* [Video Stream Processing](doc/development/video_stream_processing.md)  – face detection, tracking and recognition in video streams.
+* [Face Capturing](doc/development/face_capturing.md) – face detection and tracking on images and video
+* [Face Identification](doc/development/face_identification.md) – face recognition on images and video
+* [Face Estimation](doc/development/face_estimation.md)  – face estimation (gender, age, emotions, liveness) on images and video
+* [Video Stream Processing](doc/development/video_stream_processing.md)  – face detection, tracking and recognition in video streams
 
 See the detailed info about Face SDK components in [Components](doc/components.md).  
 
@@ -35,15 +35,15 @@ Face SDK provides the following APIs:
 
 To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version has the following limitations:
 
-* number of each component (5);
-* maximum size of the search index (1000 images).
+* number of each component (5)
+* maximum size of the search index (1000 images)
 
 To remove these limitations, you have to purchase Face SDK license. You can license any set of [Face SDK Components](doc/components.md) depending on your use case. We offer several types of licences:
-* [Standard](doc/licenses.md#standard-licenses) – a licence that can be used offline after it's signed;
-* [Online](doc/licenses.md#online-licenses) – a license that is regularly updated in the background;
+* [Standard](doc/licenses.md#standard-licenses) – a licence that can be used offline after it's signed
+* [Online](doc/licenses.md#online-licenses) – a license that is regularly updated in the background
 * Enterprise Specific
-* [Mobile app](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app;
-* [Hardware key](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file.
+* [Mobile app](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app
+* [Hardware key](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file
 
 See detailed information on license activation in the section [Face SDK Licensing](doc/licenses.md). Contact us at face@3divi.com if you have any questions.
 
