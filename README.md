@@ -1,6 +1,5 @@
 <p align="center">
-<img width="500" src="doc/img/3divi_logo.png"><br>
-https://face.3divi.com/<br>
+<a href="https://face.3divi.com"><img src="doc/img/3divi_logo.png" width="700" height="200" title="3DiVi Logo" alt="Logo"></a>
 </p>
 
 # Overview
