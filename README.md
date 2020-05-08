@@ -6,8 +6,7 @@
 
 **3DiVi Face SDK** is a set of software components (code libraries) for building face recognition solutions of any complexity – from a simple app to portals like Azure Face API or AWS Rekognition.
 
-## Features
-
+Face SDK supports the following features:
 * [Face Capturing](doc/development/face_capturing.md) – face detection and tracking on images and video
 * [Face Identification](doc/development/face_identification.md) – face recognition on images and video
 * [Face Estimation](doc/development/face_estimation.md)  – face estimation (gender, age, emotions, liveness) on images and video
@@ -15,7 +14,7 @@
 
 See the detailed info about Face SDK components in [Components](doc/components.md).  
 
-## Supported platforms and API
+# Supported platforms and API
 
 Currently, the following platforms and architectures are supported:
 
@@ -30,7 +29,7 @@ Face SDK provides the following APIs:
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
 
-## Getting Started with Trial 
+# Getting Started with Trial 
 
 To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version has the following limitations:
 
@@ -61,7 +60,7 @@ When extracting the archive, specify the path to Face SDK root – the extracted
 
 After unpacking the archive, you can familiarize yourself with the Face SDK features using the [trial license](licenses.md) and [demos](demo_programs) that demonstrate how to work with with C ++, Java, and C # API. 
 
-## Documentation 
+# Documentation 
 
 * Introduction to Face SDK
   * [Components](doc/components.md) – essential information about the components included in Face SDK
@@ -81,7 +80,7 @@ After unpacking the archive, you can familiarize yourself with the Face SDK feat
 * [Guidelines for Cameras](doc/guidelines_for_cameras.md) – camera positioning and shooting, recommended cameras
 * [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html) 
 
-## Open Source Licenses
+# Open Source Licenses
 
 * [OpenSSL](doc/open_source_licenses/openssl.txt) (https://www.openssl.org)
 * [Crypto++](doc/open_source_licenses/crypto%2B%2B.txt) (https://www.cryptopp.com)
