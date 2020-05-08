@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://face.3divi.com"><img src="doc/img/3divi_logo.png" width="600" height="100" title="3DiVi Logo" alt="Logo"></a>
+<a href="https://face.3divi.com"><img src="doc/img/3divi_logo.png" width="600" height="150" title="3DiVi Logo" alt="Logo"></a>
 </p>
 
 # Overview
