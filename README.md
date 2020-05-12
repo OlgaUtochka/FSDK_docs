@@ -38,9 +38,9 @@ Face SDK provides the following APIs:
 
 # Face SDK Trial 
 
-To get started with Face SDK, download [Face SDK Trial](https://face.3divi.com/products/face_sdk/face_sdk_trial).  
+To get started with Face SDK, download free [Face SDK Trial](https://face.3divi.com/products/face_sdk/face_sdk_trial).  
 
-To remove trial limitations, you need to purchase Face SDK license. You can license any set of [Components](doc/components.md) depending on your use case.  
+To remove trial limitations, you need to purchase Face SDK. You can license any set of [Components](doc/components.md) depending on your use case.  
 
 Contact us at face@3divi.com if you have any questions.
 
