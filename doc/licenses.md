@@ -39,7 +39,7 @@ The network settings used for license updates are stored in the `net_params.xml`
 
 ## License Locking
 
-### Licenses for mobile apps
+### Application ID
 
 You can bind the Face SDK license to a mobile app developed by you. In this case the users of your app won't need to buy or activate the license. To bind the license to your app, you have to specify your application id (`android_app_id` for Android or `ios_app_id` for iOS). You should get the app id **only after your app is signed for release**, otherwise, the app id will change and the license will no longer be valid.
 
