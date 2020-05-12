@@ -4,9 +4,9 @@ The program demonstrates the detection and cropping of faces, as well as estimat
 
 Startup parameters:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* paths to the input image files.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* paths to the input image files
 
 Example of launch from the bin directory:
 
