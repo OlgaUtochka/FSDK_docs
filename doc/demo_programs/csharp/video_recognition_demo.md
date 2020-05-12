@@ -46,13 +46,13 @@ Startup parameters:
 
 Where:
 
-* `config_dir` – path to the *conf/facerec* directory;
-* `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory *license*;
-* `database_dir` – path to the directory with the database;
-* `method_config` – name of the `Recognizer` configuration file;
-* `recognition_distance_threshold` – recognition distance threshold (float number);
-* `camera_id | rtsp_url` – one or several sources, each source is a number (webcam ID) or a string (video stream URL or path to the video file);
-* `frame_fps_limit` – FPS limit.
+* `config_dir` – path to the *conf/facerec* directory
+* `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory *license*
+* `database_dir` – path to the directory with the database
+* `method_config` – name of the `Recognizer` configuration file
+* `recognition_distance_threshold` – recognition distance threshold (float number)
+* `camera_id | rtsp_url` – one or several sources, each source is a number (webcam ID) or a string (video stream URL or path to the video file)
+* `frame_fps_limit` – FPS limit
 
 **To run the demo on Windows:**  
 Add the path to the directory that includes `facerec.dll` to the `PATH` environment variable.
