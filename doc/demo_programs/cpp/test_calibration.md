@@ -4,21 +4,21 @@ A program for camera calibration, an example of using the `pbio::CameraCalibrato
 
 The program runs in two modes:
 
-* `calibrate` – to perform a camera calibration;
-* `view` – to see the result of distortion correction on the basis of calibration results.
+* `calibrate` – to perform a camera calibration
+* `view` – to see the result of distortion correction on the basis of calibration results
 
 Startup parameters in the calibration mode:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* webcam id or stream url;
-* desired image frame width;
-* desired image frame height;
-* `calibrate`;
-* pattern type (`acircles`, `circles` or `chessboard`);
-* pattern width;
-* pattern height;
-* path to the file, in which you want to save the calibrated parameters.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* webcam id or stream url
+* desired image frame width
+* desired image frame height
+* `calibrate`
+* pattern type (`acircles`, `circles` or `chessboard`)
+* pattern width
+* pattern height
+* path to the file, in which you want to save the calibrated parameters
 
 Example of launch from the *bin* directory in the `calibrate` mode:
 
@@ -31,13 +31,13 @@ If the calibration is successful, the program shows a reprojection error and per
 
 Startup parameters in the `view` mode:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* webcam id or stream url;
-* desired image frame width;
-* desired image frame height;
-* `view`;
-* path to the file, in which the camera parameters were saved.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* webcam id or stream url
+* desired image frame width
+* desired image frame height
+* `view`
+* path to the file, in which the camera parameters were saved
 
 Example of launch from the *bin* directory in the `view` mode:
 
