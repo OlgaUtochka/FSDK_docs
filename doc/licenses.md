@@ -47,18 +47,18 @@ To get the app id, call the function `FacerecService.getLicenseState` in an app 
 
 ### USB token
 
-A hardware key is a device that can be used instead of a standard license file. Just like a license file, a hardware key stores the information about purchased Face SDK components. However, a hardware key is not linked to hardware signature. All you need to do is to plug your hardware key into your device. A hardware key is copy-protected. One key can be used by one process, therefore, you have to purchase one more key if you want to run one more process.
+A USB token is a device that can be used instead of a standard license file. Just like a license file, a USB token stores the information about purchased Face SDK components. However, a USB token is not linked to hardware signature. All you need to do is to plug your USB token into your device. A USB token is copy-protected. One USB token can be used by one process, therefore, you have to purchase one more USB token if you want to run one more process.
 
-To license Face SDK with a hardware key instead of a license file, select one of the options below:
+To license Face SDK with a USB token instead of a license file, select one of the options below:
 
 * specify `0x436e9514-hardware-key-serial-<key>` in the `license_dir` parameter of the function `FacerecService.createService`;
 * in `3divi_face_sdk.lic`, replace the standard content of the license with the line `hardware_key_serial <key>`.
 
-where `key` is a key serial number. Example: `senselock1234560000000f7e`
+where `key` is a USB token serial number. Example: `senselock1234560000000f7e`
 
-If a key with the specified serial number isn't found, you'll see the list of all available keys with their serial numbers in the text of an exception thrown by `FacerecService.createService`.
+If a USB token with the specified serial number isn't found, you'll see the list of all available USB tokens with their serial numbers in the text of an exception thrown by `FacerecService.createService`.
 
-Support for keys was added in the following distribution packages:
+Support for USB tokens was added in the following distribution packages:
 
 * Linux x86_32;
 * Linux x86_64;
