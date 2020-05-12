@@ -5,7 +5,7 @@ We offer you the following licenses:
   * [Online](#online-licenses) – requires Internet connection for activation and periodic validation, portable between devices
   * [Offline](#offline-licenses) – bound to hardware or USB token, non-portable between devices
 * By locking type:
-  * [Application ID](#licenses-for-mobile-apps) – bound to your iOS or Android app
+  * [Application ID](#application-id) – bound to your iOS or Android app
   * Hardware ID – bound to hardware signature
   * [USB token](#usb-token) – a device that is used instead of a standard license file
 
