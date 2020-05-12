@@ -33,7 +33,7 @@ Face SDK provides the following APIs:
   * [Use Cases](doc/use_cases.md) – diagrams that show possible use cases and connection between the components
   * [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
   * [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
-  * [Licenses](doc/licenses.md) – information about different types of licenses, purchasing and activation of a license
+  * [Licenses](doc/licenses.md) – information about different types of licenses, activation and locking of a license
   * [Performance Parameters](doc/performance_parameters.md) – CPU and memory usage, identification quality (FAR/FRR)
 
 # Face SDK Trial 
