@@ -490,11 +490,11 @@ void Worker::addFrame(const ImageAndDepth& data)
 
 The `weak` flag becomes `true` if a sample doesn't pass certain tests, for example: 
 
-* if there are too many shadows on a face (insufficient lighting);
-* if an image is blurry;
-* if a face is turned at a great angle; 
-* if a the size of a face in the frame is too small;
-* if a fase hasn't passed the liveness test (for example, if it's taken from a photo or a video).
+* if there are too many shadows on a face (insufficient lighting)
+* if an image is blurry
+* if a face is turned at a great angle
+* if a the size of a face in the frame is too small
+* if a fase hasn't passed the liveness test (for example, if it's taken from a photo or a video)
 
 You can find the detailed information about lighting conditions, camera positioning, etc. in [Guidelines for Cameras](../guidelines_for_cameras.md). As a rule, samples that haven't passed the tests, are not processed and not used for recognition. However, in this project we want to highlight all the faces, even if they're taken from the picture (haven't passed the liveness test). Therefore, we have to pass all samples to `TrackingCallback`, even if they're flagged as `weak=true`.
 
@@ -785,8 +785,8 @@ bounding_box.width, bounding_box.height);
 ```
 
 4. Run the project. You should see an RGB image and a depth map from the sensor. You should see the information about the detected face:  
-* **detection and recognition status** (which is indicated by the color of the bounding rectangle: *green* means that a person is detected and found in the database, *red* means that a person is not recognized or the face is taken from an image or a video);
-* **information about the recognized person** (his/her image and name from the database);
+* **detection and recognition status** (which is indicated by the color of the bounding rectangle: *green* means that a person is detected and found in the database, *red* means that a person is not recognized or the face is taken from an image or a video).
+* **information about the recognized person** (his/her image and name from the database).
 * **liveness status**; *real* means that a person is real, *fake* means that a face is taken from an image or a video, *not_enough_data* means that the depth map quality is poor or a person is too close/too far away from the sensor, *not_computed* means that RGB and depth frames are not synchronized.
 
 <p align="center">
