@@ -12,8 +12,6 @@ Face SDK supports the following features:
 * [Face Estimation](doc/development/face_estimation.md)  – face estimation (gender, age, emotions, liveness) on images and video
 * [Video Stream Processing](doc/development/video_stream_processing.md)  – face detection, tracking and recognition in video streams
 
-See the detailed info about Face SDK components in [Components](doc/components.md).  
-
 # Supported platforms and API
 
 Currently, the following platforms and architectures are supported:
