@@ -13,9 +13,9 @@ Tracking results and face information are displayed in a window. The results dep
 
 In the lower right corner there is a menu with the following sections:
 
-* **choose camera** – select camera type and image resolution;
-* **options** – parameters of the detected face (face rectangle, angles, image quality, liveness, gender and age, anthropometric points, face quality, vector angles, emotions), as well as the type of face cropping (basic, full frontal, token frontal);
-* **quit** – exit the program.
+* **choose camera** – select camera type and image resolution
+* **options** – parameters of the detected face (face rectangle, angles, image quality, liveness, gender and age, anthropometric points, face quality, vector angles, emotions), as well as the type of face cropping (basic, full frontal, token frontal)
+* **quit** – exit the program
 
 <p align="center">
 <img width="500" src="../../img/demo_apk_gui.png"><br>
