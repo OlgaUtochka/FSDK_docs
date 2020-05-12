@@ -2,9 +2,9 @@
 
 Face SDK includes several identification methods that differ in recgnition quality and time characteristics. More time-consuming methods provide better recognition quality (see [Identification Performance](../performance_parameters.md#identification-performance) for detailed characteristics of the methods). Depending on recognition quality and time all methods can be divided into 3 groups in connection with use cases:
 
-* **9v30** – for real-time video identification on mobile platforms;
-* **6v7** – for real-time video identification on Windows and Linux;
-* **9v300**, **9v1000** – for expert systems, in which a person is searched by a photo.
+* **9v30** – for real-time video identification on mobile platforms
+* **6v7** – for real-time video identification on Windows and Linux
+* **9v300**, **9v1000** – for expert systems, in which a person is searched by a photo
 
 To identify faces, create the `Recognizer` object by calling the `FacerecService.createRecognizer` method with the specified configuration file.
 
@@ -30,23 +30,23 @@ Here is the list of all configuration files and recognition methods available at
 
 Using the `Recognizer` object you can:
 
-* get a method name (`Recognizer.getMethodName`);
-* create a template of one captured face (`Recognizer.processing`) – you will get the `Template` object;
-* match two templates (`Recognizer.verifyMatch`) – you can compare only the templates created by the same method (i.e. with the same configuration file);
-* load (deserialize) a template from a binary stream (`Recognizer.loadTemplate`) – you can load only the templates created by the same method (i.e. with the same configuration file);
-* create the `TemplatesIndex` object (`Recognizer.createIndex`), which is an index for quick search in large databases;
-* search the `Template` in the `TemplatesIndex` (`Recognizer.search`).
+* get a method name (`Recognizer.getMethodName`)
+* create a template of one captured face (`Recognizer.processing`) – you will get the `Template` object
+* match two templates (`Recognizer.verifyMatch`) – you can compare only the templates created by the same method (i.e. with the same configuration file)
+* load (deserialize) a template from a binary stream (`Recognizer.loadTemplate`) – you can load only the templates created by the same method (i.e. with the same configuration file)
+* create the `TemplatesIndex` object (`Recognizer.createIndex`), which is an index for quick search in large databases
+* search the `Template` in the `TemplatesIndex` (`Recognizer.search`)
 
 With the `Template` object you can:
 
-* get a method name (`Template.getMethodName`);
-* save (serialize) a template in a binary stream (`Template.save`).
+* get a method name (`Template.getMethodName`)
+* save (serialize) a template in a binary stream (`Template.save`)
 
 With the `TemplatesIndex` object you can:
 
-* get a method name (`TemplatesIndex.getMethodName`);
-* get a number of templates in the index (`TemplatesIndex.size`);
-* get a specified template from the index by its number (`TemplatesIndex.at`);
-* reserve memory for search (`TemplatesIndex.reserveSearchMemory`).
+* get a method name (`TemplatesIndex.getMethodName`)
+* get a number of templates in the index (`TemplatesIndex.size`)
+* get a specified template from the index by its number (`TemplatesIndex.at`)
+* reserve memory for search (`TemplatesIndex.reserveSearchMemory`)
 
 _**Note:** The methods `Recognizer.createIndex` and `TemplatesIndex.at` do not copy the template data but only smart pointers to the data._
