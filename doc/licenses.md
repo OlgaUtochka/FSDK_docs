@@ -51,8 +51,8 @@ A USB token is a device that can be used instead of a standard license file. Jus
 
 To license Face SDK with a USB token instead of a license file, select one of the options below:
 
-* specify `0x436e9514-hardware-key-serial-<key>` in the `license_dir` parameter of the function `FacerecService.createService`;
-* in `3divi_face_sdk.lic`, replace the standard content of the license with the line `hardware_key_serial <key>`.
+* specify `0x436e9514-hardware-key-serial-<key>` in the `license_dir` parameter of the function `FacerecService.createService`
+* in `3divi_face_sdk.lic`, replace the standard content of the license with the line `hardware_key_serial <key>`
 
 where `key` is a USB token serial number. Example: `senselock1234560000000f7e`
 
