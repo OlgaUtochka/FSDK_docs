@@ -46,7 +46,7 @@ Contact us at face@3divi.com if you have any questions.
 
 # Getting Started
 
-After downloading the distribution package and activating the trial license (see #face-sdk-trial), extract the archive to any directory on your device. The package includes:
+After downloading the distribution package and activating the trial license (see [Face SDK Trial](#face-sdk-trial)), extract the archive to any directory on your device. The package includes:
 
 * directories: *conf, docs, examples, include, share*
 * archives: `windows_x86_64.zip`, `windows_x86_32.zip`, `linux_x86_64.tar.xz`, `linux_x86_32.tar.xz`, `linux_armhf_32.tar.xz`, `linux_aarch64.tar.xz`, `android_arm_32.tar.xz`, `android_arm_64.tar.xz`, `ios_arm_64.tar.xz`
