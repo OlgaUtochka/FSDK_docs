@@ -5,13 +5,13 @@ We offer you the following licenses:
   * [Online](#online-licenses) – requires Internet connection for activation and periodic validation, portable between devices
   * [Offline](#offline-licenses) – bound to hardware or USB token, non-portable between devices
 * By locking type:
-  * [Application ID](#licenses-for-mobile-apps) - bound to your iOS or Android app
-  * Hardware ID
+  * [Application ID](#licenses-for-mobile-apps) – bound to your iOS or Android app
+  * Hardware ID – bound to hardware signature
   * [USB token](#usb-token) – a device that is used instead of a standard license file
 
 Contact us at face@3divi.com if you have any questions.
 
-## License Activation
+## Activation Types
 
 ### Offline Licenses
 
@@ -36,6 +36,8 @@ The network settings used for license updates are stored in the `net_params.xml`
 * `use_system_proxy` – `yes` or `no`, set `yes` to use system proxy settings
 * `no_proxy_for_server` – `yes` or `no`, set `yes` to not use any proxy
 * `proxy` – set `url:port` to use that proxy if both parameters `use_system_proxy` and `no_proxy_for_server` are set to `no`
+
+## Locking Types
 
 ### Licenses for mobile apps
 
