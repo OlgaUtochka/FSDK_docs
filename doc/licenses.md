@@ -60,7 +60,7 @@ If a USB token with the specified serial number isn't found, you'll see the list
 
 Support for USB tokens was added in the following distribution packages:
 
-* Linux x86_32;
-* Linux x86_64;
-* Windows x86_32;
-* Windows x86_64.
+* Linux x86_32
+* Linux x86_64
+* Windows x86_32
+* Windows x86_64
