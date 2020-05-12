@@ -31,9 +31,9 @@ Startup parameters:
 
 Where:
 
-* `config_dir` – path to the *conf/facerec* directory;
+* `config_dir` – path to the *conf/facerec* directory
 * `capturer_conf` – path to the `Capturer` config file (learn more about types of config files in [Capturer Class Reference](../../development/face_capturing.md#capturer-class-reference))
-* `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory *license*;
+* `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory *license*
 
 **To run the demo on Windows:**  
 Add the path to the directory that includes `facerec.dll` to the `PATH` environment variable.
