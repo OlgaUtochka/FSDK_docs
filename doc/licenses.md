@@ -6,14 +6,14 @@ We offer you the following licenses:
   * [Online](doc/licenses.md#online-licenses) – a license is regularly updated in the background
 * By locking type:
   * [Application ID](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app
-  * [Hardware ID]
+  * Hardware ID
   * [USB token](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file
 
 Contact us at face@3divi.com if you have any questions.
 
 ## License Activation
 
-### Standard Licenses
+### Offline Licenses
 
 * Unpack the archive with the distribution in any directory on your device (see [Getting Started](getting_started.md)).
 * Run the *get_license* utility from the *bin* folder on a target PC.
@@ -37,6 +37,12 @@ The network settings used for license updates are stored in the `net_params.xml`
 * `no_proxy_for_server` – `yes` or `no`, set `yes` to not use any proxy
 * `proxy` – set `url:port` to use that proxy if both parameters `use_system_proxy` and `no_proxy_for_server` are set to `no`
 
+### Licenses for mobile apps
+
+You can bind the Face SDK license to a mobile app developed by you. In this case the users of your app won't need to buy or activate the license. To bind the license to your app, you have to specify your application id (`android_app_id` for Android or `ios_app_id` for iOS). You should get the app id **only after your app is signed for release**, otherwise, the app id will change and the license will no longer be valid.
+
+To get the app id, call the function `FacerecService.getLicenseState` in an app and print the `android_app_id` or `ios_app_id` field of the result in a logcat. Purchase the license file for your application, specifying the app id. Use this license file in the application. Your app will now work on any Android/iOS device (depending on your target platform). One license cannot be used for several applications (they have different app ids, so one license should be bound to one app).
+
 ### Hardware key
 
 A hardware key is a device that can be used instead of a standard license file. Just like a license file, a hardware key stores the information about purchased Face SDK components. However, a hardware key is not linked to hardware signature. All you need to do is to plug your hardware key into your device. A hardware key is copy-protected. One key can be used by one process, therefore, you have to purchase one more key if you want to run one more process.
@@ -56,9 +62,3 @@ Support for keys was added in the following distribution packages:
 * Linux x86_64;
 * Windows x86_32;
 * Windows x86_64.
-
-## Licenses for mobile apps
-
-You can bind the Face SDK license to a mobile app developed by you. In this case the users of your app won't need to buy or activate the license. To bind the license to your app, you have to specify your application id (`android_app_id` for Android or `ios_app_id` for iOS). You should get the app id **only after your app is signed for release**, otherwise, the app id will change and the license will no longer be valid.
-
-To get the app id, call the function `FacerecService.getLicenseState` in an app and print the `android_app_id` or `ios_app_id` field of the result in a logcat. Purchase the license file for your application, specifying the app id. Use this license file in the application. Your app will now work on any Android/iOS device (depending on your target platform). One license cannot be used for several applications (they have different app ids, so one license should be bound to one app).
