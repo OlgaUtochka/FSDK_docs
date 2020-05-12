@@ -2,12 +2,12 @@
 
 We offer you the following licenses:
 * By activation type: 
-  * [Offline](doc/licenses.md#standard-licenses) – a licence can be used offline after it's signed
-  * [Online](doc/licenses.md#online-licenses) – a license is regularly updated in the background
+  * [Online](doc/licenses.md#online-licenses) – requires Internet connection for activation and periodic validation, portable between devices
+  * [Offline](doc/licenses.md#offline-licenses) – bound to hardware or USB token, non-portable between devices
 * By locking type:
-  * [Application ID](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app
+  * [Application ID](doc/licenses.md#licenses-for-mobile-apps) - bound to your iOS or Android app
   * Hardware ID
-  * [USB token](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file
+  * [USB token](doc/licenses.md#usb-token) – a device that is used instead of a standard license file
 
 Contact us at face@3divi.com if you have any questions.
 
@@ -43,7 +43,7 @@ You can bind the Face SDK license to a mobile app developed by you. In this case
 
 To get the app id, call the function `FacerecService.getLicenseState` in an app and print the `android_app_id` or `ios_app_id` field of the result in a logcat. Purchase the license file for your application, specifying the app id. Use this license file in the application. Your app will now work on any Android/iOS device (depending on your target platform). One license cannot be used for several applications (they have different app ids, so one license should be bound to one app).
 
-### Hardware key
+### USB token
 
 A hardware key is a device that can be used instead of a standard license file. Just like a license file, a hardware key stores the information about purchased Face SDK components. However, a hardware key is not linked to hardware signature. All you need to do is to plug your hardware key into your device. A hardware key is copy-protected. One key can be used by one process, therefore, you have to purchase one more key if you want to run one more process.
 
