@@ -10,31 +10,31 @@ The program operates in three modes:
 
 Launch parameters in the **enrollment** mode:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* name of the `Recognizer` config file;
-* `enroll`;
-* path to the directory with images (e.g. *bin/set1*);
-* path to a text file containing a list of image file names (e.g. `bin/set1/list.txt`);
-* path for saving templates to a file.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* name of the `Recognizer` config file
+* `enroll`
+* path to the directory with images (e.g. *bin/set1*)
+* path to a text file containing a list of image file names (e.g. `bin/set1/list.txt`)
+* path for saving templates to a file
 
 Launch parameters in the **identification** mode:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* name of the `Recognizer` config file;
-* `identify`;
-* path to the image file;
-* path to the file with templates that was created in the enrollment mode.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* name of the `Recognizer` config file
+* `identify`
+* path to the image file
+* path to the file with templates that was created in the enrollment mode
 
 Launch parameters in the **verification** mode:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* name of the `Recognizer` config file;
-* `verify`;
-* path to the first image file;
-* path to the second image file.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* name of the `Recognizer` config file
+* `verify`
+* path to the first image file
+* path to the second image file
 
 Example of launch from the *bin* directory in the identification mode:
 
