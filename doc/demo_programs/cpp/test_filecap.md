@@ -4,10 +4,10 @@ The program demonstrates face detection and saving and loading of `pbio::RawSamp
 
 Startup parameters:
 
-* path to the `libfacerec.so` or `facerec.dll` library file;
-* path to the *conf/facerec* directory;
-* capturer config file name;
-* paths to the input image files.
+* path to the `libfacerec.so` or `facerec.dll` library file
+* path to the *conf/facerec* directory
+* capturer config file name
+* paths to the input image files
 
 Example of launch from the *bin* directory:
 
