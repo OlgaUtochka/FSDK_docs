@@ -11,11 +11,11 @@ We offer you the following licenses:
 
 Contact us at face@3divi.com if you have any questions.
 
-## Activation Types
+## License Activation
 
 ### Online Licenses
 
-* The *license* directory is a default online license working directory. You can prepare another working directory – all applications that use 3DiVi Face SDK must have read/write access to it. Copy the `log_params.xml` and `net_params.xml` files in that directory from the *license* directory.
+* The *license* directory is a default online license working directory. You can prepare another working directory – all applications that use 3DiVi Face SDK should have read/write access to it. Copy the `log_params.xml` and `net_params.xml` files in that directory from the *license* directory.
 * Get the license file from the online license server.
 * Copy the license file in the online license working directory and rename the file to `3divi_face_sdk.lic`.
 * When you call `FacerecService.createService`, provide the path to the online license working directory in the `license_dir` parameter (or keep it empty if the default online license directory is used).
@@ -37,7 +37,7 @@ The network settings used for license updates are stored in the `net_params.xml`
 * The software provider will send you a signed license file.
 * Put the license file to the directory *license* and rename the file to `3divi_face_sdk.lic` if needed.
 
-## Locking Types
+## License Locking
 
 ### Licenses for mobile apps
 
