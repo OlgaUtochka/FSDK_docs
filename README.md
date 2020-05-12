@@ -81,4 +81,4 @@ To explore Face SDK features, check out our [demos](doc/demo_programs) that will
 * [OpenCV](doc/open_source_licenses/opencv.txt) (http://opencv.org)
 
 <div align="center">© All Rights Reserved. <a href="https://3divi.com/">3DiVi Inc.</a></div>
-<div align="center"><a href="face@3divi.com">face@3divi.com</a></div>
+<div align="center"><a href="mailto: face@3divi.com">face@3divi.com</a></div>
