@@ -46,8 +46,8 @@ List of used abbreviations:
 <tr align="center"> <th align="center"> 8.7  </th>    <td>     80 (85**)</td>  <td> 6.36</td> <td> 636 </td> <td> 6320</td>  <td> 1.23</td> <td> 50.9</td> <td> 490 </td>  <td>0.14  </td>  </tr>
 </table>
 
-\* – calculated per 1 core @ 1GHZ;  
-\** – template creation time when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.
+\* – calculated per 1 core @ 1GHZ  
+\** – template creation time when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation  
 
 **Note:**
 * Accelerated search time is given for `k=1`. As for larger values of `k`, the time will increase up to the search time without acceleration.
@@ -82,8 +82,8 @@ List of used abbreviations:
 <tr align="center"> <th align="center"> 9.1000</th>   <td>  280 </td>  <td>  380 </td>  <td>  290       </td> </tr>
 </table>
 
-\* – the amount of memory consumed does not depend on the number of the `Recognizer` objects created by this method.  
-\** – memory consumption when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation.  
+\* – the amount of memory consumed does not depend on the number of the `Recognizer` objects created by this method  
+\** – memory consumption when `processing_less_memory_consumption` was set to `true` in the `FacerecService.createRecognizer` call for recognizer creation  
 
 ### ROC on Extended LFW Test
 
