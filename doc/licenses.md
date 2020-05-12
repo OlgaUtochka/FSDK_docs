@@ -1,17 +1,13 @@
 # Face SDK Licensing
 
-To get started with Face SDK, you need to download [Face SDK Trial](https://face.3divi.com/products/face_sdk). The trial license is valid for 14 days and fully portable. The trial version has the following limitations:
-
-* number of each component (5)
-* maximum size of the search index (1000 images)
-
-To remove these limitations, you have to purchase Face SDK license. You can license any set of [Face SDK Components](doc/components.md) depending on your use case. We offer several types of licences:
-
-* [Standard](doc/licenses.md#standard-licenses) – a licence that can be used offline after it's signed
-* [Online](doc/licenses.md#online-licenses) – a license that is regularly updated in the background
-* [Mobile app](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app
-* [Hardware key](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file
-* Enterprise Specific
+We offer you the following licenses:
+* By activation type: 
+  * [Offline](doc/licenses.md#standard-licenses) – a licence can be used offline after it's signed
+  * [Online](doc/licenses.md#online-licenses) – a license is regularly updated in the background
+* By locking type:
+  * [Application ID](doc/licenses.md#licenses-for-mobile-apps) – a license is bound to your iOS or Android app
+  * [Hardware ID]
+  * [USB token](doc/licenses.md#hardware-key) – a device that is used instead of a standard license file
 
 Contact us at face@3divi.com if you have any questions.
 
