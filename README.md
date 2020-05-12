@@ -61,16 +61,15 @@ When extracting the archive, specify the path to Face SDK root – the folders *
 
 To explore Face SDK features, check out our [demos](doc/demo_programs) that will show you how to work with with C ++, Java, and C # API. 
 
-# Documentation 
+# Development 
 
-* Development – all you need to know to develop your project with Face SDK
-  * [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md) – learn how to add and use the libfacerec library in your project
-  * [Video Stream Processing](doc/development/video_stream_processing.md) – face tracking, creation of templates, face recognition, estimation of age, gender, and emotions, short-time identification
-  * [Face Capturing](doc/development/face_capturing.md) – custom face tracking, getting information about faces, anthropometric points, face cropping 
-  * [Face Estimation](doc/development/face_estimation.md) – custom estimation of age, gender, emotion, and liveness (2D/3D)
-  * [Face Identification](doc/development/face_identification.md) – custom face identification, identification methods
-  * [Error Handling](doc/development/error_handling.md) – error handling in C++/C#/Java
-  * [Memory Management](doc/development/memory_management.md) – memory management in C++/C#/Java
+* [Connecting Face SDK to Your Project](doc/development/connect_facesdk.md) – learn how to add and use the libfacerec library in your project
+* [Video Stream Processing](doc/development/video_stream_processing.md) – face tracking, creation of templates, face recognition, estimation of age, gender, and emotions, short-time identification
+* [Face Capturing](doc/development/face_capturing.md) – custom face tracking, getting information about faces, anthropometric points, face cropping 
+* [Face Estimation](doc/development/face_estimation.md) – custom estimation of age, gender, emotion, and liveness (2D/3D)
+* [Face Identification](doc/development/face_identification.md) – custom face identification, identification methods
+* [Error Handling](doc/development/error_handling.md) – error handling in C++/C#/Java
+* [Memory Management](doc/development/memory_management.md) – memory management in C++/C#/Java
 * [Guidelines for Cameras](doc/guidelines_for_cameras.md) – camera positioning and shooting, recommended cameras
 * [Face SDK Cross-Platform API. Latest Doxygen Output](http://download.3divi.com/facesdk/0d88ba7c-9a5d-45cd-897a-406fb1fca2d4/latest_docs/english/annotated.html) 
 
