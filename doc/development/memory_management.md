@@ -8,9 +8,9 @@ Most of the objects use `pbio::LightSmartPtr` which not allow to store inherited
 
 If you use OpenCV / boost / C++ 11, you can set one of the following macros, so that the libfacerec uses a specific type of a smart pointer instead of `pbio::HeavySmartPtr`:
 
-* PBIO_OPENCV_SMART_POINTER - for using `cv::Ptr`,
-* PBIO_BOOST_SMART_POINTER - for using `boost::shared_ptr`,
-* PBIO_CXX11_SMART_POINTER - for using `std::shared_ptr`.
+* PBIO_OPENCV_SMART_POINTER - for using `cv::Ptr`
+* PBIO_BOOST_SMART_POINTER - for using `boost::shared_ptr`
+* PBIO_CXX11_SMART_POINTER - for using `std::shared_ptr`
 
 If none of these macros is defined, a pointer defined in [pbio/shared_ptr/heavy_shared_ptr.h](../../include/pbio/shared_ptr/heavy_shared_ptr.h) is used, which is actually a simplified version of an OpenCV smart pointer.
 
