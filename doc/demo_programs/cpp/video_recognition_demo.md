@@ -30,15 +30,15 @@ Startup parameters:
 
 * at least one source, each source is a number (webcam number), or a text (the URL of a video stream or the path to a video file);
 * and then, in any order, the following parameters:
-    * `config_dir` – path to the *conf/facerec* directory;
-    * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file;
-    * `database_dir` – path to the directory with a database, in which a directory was created for each person containing his/her photos and a text file `name.txt` containing his/her name. An example of the database is stored in *bin/base*;
-    * `frame_fps_limit` – FPS limit;
-    * `fullscreen` – fullscreen mode;
+    * `config_dir` – path to the *conf/facerec* directory
+    * `dll_path` – path to the `libfacerec.so` or `facerec.dll` library file
+    * `database_dir` – path to the directory with a database, in which a directory was created for each person containing his/her photos and a text file `name.txt` containing his/her name. An example of the database is stored in *bin/base*
+    * `frame_fps_limit` – FPS limit
+    * `fullscreen` – fullscreen mode
     * `license_dir` – path to the directory with a license; provide this parameter if you need to change a default directory license;
-    * `vw_config_file` – name of the `VideoWorker` config file;
-    * `method_config` – name of the `Recognizer` config file;
-    * `recognition_distance_threshold` – recognition distance threshold (float number).
+    * `vw_config_file` – name of the `VideoWorker` config file
+    * `method_config` – name of the `Recognizer` config file
+    * `recognition_distance_threshold` – recognition distance threshold (float number)
 
 Examples of startup scripts:
 
