@@ -2,12 +2,12 @@
 
 We offer you the following licenses:
 * By activation type: 
-  * [Online](doc/licenses.md#online-licenses) – requires Internet connection for activation and periodic validation, portable between devices
-  * [Offline](doc/licenses.md#offline-licenses) – bound to hardware or USB token, non-portable between devices
+  * [Online](#online-licenses) – requires Internet connection for activation and periodic validation, portable between devices
+  * [Offline](#offline-licenses) – bound to hardware or USB token, non-portable between devices
 * By locking type:
-  * [Application ID](doc/licenses.md#licenses-for-mobile-apps) - bound to your iOS or Android app
+  * [Application ID](#licenses-for-mobile-apps) - bound to your iOS or Android app
   * Hardware ID
-  * [USB token](doc/licenses.md#usb-token) – a device that is used instead of a standard license file
+  * [USB token](#usb-token) – a device that is used instead of a standard license file
 
 Contact us at face@3divi.com if you have any questions.
 
