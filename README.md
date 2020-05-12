@@ -59,7 +59,7 @@ When extracting the archive, specify the path to Face SDK root – the folders *
 <b>Extraction path – root folder of the Face SDK distribution</b><br>
 </p>
 
-To explore Face SDK features, check out our [demos](demo_programs) that will show you how to work with with C ++, Java, and C # API. 
+To explore Face SDK features, check out our [demos](doc/demo_programs) that will show you how to work with with C ++, Java, and C # API. 
 
 # Documentation 
 
