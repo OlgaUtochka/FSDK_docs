@@ -47,10 +47,10 @@ const QPoint base_point = QPoint(rectangle.x + rectangle.width + margin_from_rec
 
 5. Estimate gender and age of a face `(*sample)` using the method `pbio::AgeGenderEstimator`. Display the age group based on the estimated age. Four age groups are available: 
 
-* Kid (under 18 years), 
-* Young (18-37 years), 
-* Adult (37-55 years), 
-* Senior (55 years and older). 
+* Kid (under 18 years)
+* Young (18-37 years)
+* Adult (37-55 years)
+* Senior (55 years and older)
 
 The age group is taken from the enumeration `pbio::AgeGenderEstimator::Age` and the result is stored in the `age_group_text` variable. Display the label with the age group using the method `painter.drawText`. The label will be on the first line to the right of the starting point `base_point`. 
 
@@ -124,10 +124,10 @@ pbio::EmotionsEstimator::Ptr emotions_estimator = service->createEmotionsEstimat
 
 2. Use the method `pbio::EmotionsEstimator::estimateEmotions` to estimate emotions of a detected face `(*sample)` and get a confidence coefficient (from 0 to 1). The enumeration `pbio::EmotionsEstimator::Emotion` includes all available emotions. Face SDK estimates four emotions: 
 
-* Neutral, 
-* Happy, 
+* Neutral
+* Happy
 * Angry 
-* Surprised.
+* Surprised
 
 Each emotion is assigned an index from 0 to 3. In this project, we display emotions as four columns of different colors (blue, green, red, yellow) with corresponding labels (Neutral, Happy, Angry, Surprise). If the confidence coefficient of emotion is high, then the column for this emotion is longer than three other columns. This clearly shows which emotion prevails. All parameters of emotions are stored in the dictionary `emotions_params`.
 
