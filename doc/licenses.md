@@ -13,14 +13,6 @@ Contact us at face@3divi.com if you have any questions.
 
 ## Activation Types
 
-### Offline Licenses
-
-* Unpack the archive with the distribution in any directory on your device (see [Getting Started](getting_started.md)).
-* Run the *get_license* utility from the *bin* folder on a target PC.
-* Send the generated `3divi_face_sdk.lic` file to the software provider (3DiVi Company): send an email to your personal manager or contact us using a feedback form at the [3DiVi website](https://face.3divi.com/contact_us).
-* The software provider will send you a signed license file.
-* Put the license file to the directory *license* and rename the file to `3divi_face_sdk.lic` if needed.
-
 ### Online Licenses
 
 * The *license* directory is a default online license working directory. You can prepare another working directory – all applications that use 3DiVi Face SDK must have read/write access to it. Copy the `log_params.xml` and `net_params.xml` files in that directory from the *license* directory.
@@ -36,6 +28,14 @@ The network settings used for license updates are stored in the `net_params.xml`
 * `use_system_proxy` – `yes` or `no`, set `yes` to use system proxy settings
 * `no_proxy_for_server` – `yes` or `no`, set `yes` to not use any proxy
 * `proxy` – set `url:port` to use that proxy if both parameters `use_system_proxy` and `no_proxy_for_server` are set to `no`
+
+### Offline Licenses
+
+* Unpack the archive with the distribution in any directory on your device (see [Getting Started](getting_started.md)).
+* Run the *get_license* utility from the *bin* folder on a target PC.
+* Send the generated `3divi_face_sdk.lic` file to the software provider (3DiVi Company): send an email to your personal manager or contact us using a feedback form at the [3DiVi website](https://face.3divi.com/contact_us).
+* The software provider will send you a signed license file.
+* Put the license file to the directory *license* and rename the file to `3divi_face_sdk.lic` if needed.
 
 ## Locking Types
 
