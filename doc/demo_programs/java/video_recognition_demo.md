@@ -20,9 +20,9 @@ Tracking results and face information are displayed in a window. In the upper ri
 
 In the lower right corner there is a menu with the following sections:
 
-* **new person** – add an unidentified person to the database;
-* **settings** – select the type of camera used, image resolution, the method used to detect faces, and the recognition threshold;
-* **quit** – exit the program.
+* **new person** – add an unidentified person to the database
+* **settings** – select the type of camera used, image resolution, the method used to detect faces, and the recognition threshold
+* **quit** – exit the program
 
 <p align="center">
 <img width="450" src="../../img/video_rec_result.png"><br>
