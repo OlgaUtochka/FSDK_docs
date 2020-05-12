@@ -6,7 +6,7 @@ Required dependencies
 
 To use Face SDK, you have to install the following dependencies:
 
-* [Windows] `sense4.dll`. This library is located in the *bin* folder in Face SDK and should be located next to `facerec.dll` if you change the default location.
+* [Windows] `sense4.dll`. This library is located in the *bin* folder in Face SDK and should be located next to `facerec.dll` if you change the default location
 * [Linux] `libusb-0.1.so.4`
 
 ### C++ 
@@ -17,8 +17,8 @@ _**Warning:** You can call `pbio::FacerecService::createService` only once, othe
 
 All *libfacerec* declarations are divided in two headers:
 
-* [`facerec/import.h`](../../include/facerec/import.h) – should be included only once (for example, in `main.cpp`).
-* [`facerec/libfacerec.h`](../../include/facerec/libfacerec.h) – should be included in each file that uses library.
+* [`facerec/import.h`](../../include/facerec/import.h) – should be included only once (for example, in `main.cpp`)
+* [`facerec/libfacerec.h`](../../include/facerec/libfacerec.h) – should be included in each file that uses library
 
 The *libfacerec* library does not have any actual third-party dependencies, since all used third-party libraries (see [Open Source Licenses](../open_source_licenses)) are linked statically. Therefore, any version of these libraries should work for examples, in which OpenCV or boost is used.
 
