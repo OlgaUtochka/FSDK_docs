@@ -105,8 +105,8 @@ The type and characteristics of the capturer depend on the configuration file or
 
 We recommend you to use the following configuration files:
 
-* `common_capturer4_fda.xml` – our own frontal face detector, which works much better than the detectors from open source libraries, such as OpenCV or Dlib; 
-* `common_video_capturer_fda.xml` – our own frontal face video tracker, works only with colored images.
+* `common_capturer4_fda.xml` – our own frontal face detector, which works much better than the detectors from open source libraries, such as OpenCV or Dlib
+* `common_video_capturer_fda.xml` – our own frontal face video tracker, works only with colored images
 
 _**Note:** We recommend you to use `VideoWorker` for face tracking on video streams. When `VideoWorker` is created with `matching_thread=0` and `processing_thread=0`, then the standard [Face Detector license](../components.md) is used._
 
@@ -130,13 +130,13 @@ For a tracker, you can also call the `Capturer.resetHistory` method to start tra
 
 With `RawSample` you can:
 
-* get track id (`RawSample.getID`) – only if the sample was captured from a tracker;
-* get a face rectangle (`RawSample.getRectangle`), angles (`RawSample.getAngles`), left / right eyes (`RawSample.getLeftEye` / `RawSample.getRightEye`, see [Anthropometric Points](#anthropometric-points)), anthropometric points (`RawSample.getLandmarks`, see [Anthropometric Points](#anthropometric-points)) – only if the face is frontal (i.e captured with frontal detector / tracker);
-* crop the face (see [Face Cropping](#face-cropping));
-* downscale an internal face image to suitable size (`RawSample.downscaleToPreferredSize`);
-* serialize an object in a binary stream (`RawSample.save` or `RawSample.saveWithoutImage`), you can deserialize it later using `FacerecService.loadRawSample` or `FacerecService.loadRawSampleWithoutImage`;
-* pass the estimates of the age, gender, quality and liveness to the methods (see [Face Estimation](face_estimation.md));
-* provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../demo_programs/cpp/test_identify.md)).
+* get track id (`RawSample.getID`) – only if the sample was captured from a tracker
+* get a face rectangle (`RawSample.getRectangle`), angles (`RawSample.getAngles`), left / right eyes (`RawSample.getLeftEye` / `RawSample.getRightEye`, see [Anthropometric Points](#anthropometric-points)), anthropometric points (`RawSample.getLandmarks`, see [Anthropometric Points](#anthropometric-points)) – only if the face is frontal (i.e captured with frontal detector / tracker)
+* crop the face (see [Face Cropping](#face-cropping))
+* downscale an internal face image to suitable size (`RawSample.downscaleToPreferredSize`)
+* serialize an object in a binary stream (`RawSample.save` or `RawSample.saveWithoutImage`), you can deserialize it later using `FacerecService.loadRawSample` or `FacerecService.loadRawSampleWithoutImage`
+* pass the estimates of the age, gender, quality and liveness to the methods (see [Face Estimation](face_estimation.md))
+* provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../demo_programs/cpp/test_identify.md))
 
 ### Anthropometric Points
 
