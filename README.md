@@ -31,7 +31,7 @@ Face SDK provides the following APIs:
 
   * [Components](doc/components.md) – essential information about the components included in Face SDK
   * [Use Cases](doc/use_cases.md) – diagrams that show possible use cases and connection between the components
-  * [Demo Programs](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
+  * [Samples](doc/demo_programs) – sample programs in C++/C#/Java that show you the features of Face SDK
   * [Tutorials](doc/tutorials) – step-by-step tutorials on face detection, recognition, and estimation of age, gender, and emotions
   * [Licenses](doc/licenses.md) – information about different types of licenses, activation and locking of a license
   * [Performance Parameters](doc/performance_parameters.md) – CPU and memory usage, identification quality (FAR/FRR)
@@ -59,7 +59,7 @@ When extracting the archive, specify the path to Face SDK root – the folders *
 <b>Extraction path – root folder of the Face SDK distribution</b><br>
 </p>
 
-To explore Face SDK features, check out our [demos](doc/demo_programs) that will show you how to work with C ++, Java, and C # API. 
+To explore Face SDK features, check out our [samples](doc/demo_programs) that will show you how to work with C ++, Java, and C # API. 
 
 # Development 
 
