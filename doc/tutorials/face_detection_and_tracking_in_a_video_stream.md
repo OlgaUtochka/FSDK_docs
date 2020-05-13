@@ -818,7 +818,7 @@ _**Note:** On Windows, the image from some cameras can be flipped or mirrored, w
 
 ## Detecting and Tracking Faces in Video Stream
 
-1. Download and extract the Face SDK distribution as described in the section [Getting Started](../getting_started.md). The root folder of the distribution should contain the *bin* and *lib* folders, depending on your platform. 
+1. Download and extract the Face SDK distribution as described in the section [Getting Started](../../README.md#getting-started). The root folder of the distribution should contain the *bin* and *lib* folders, depending on your platform. 
 2. To detect and track faces on the image from your camera, you have to integrate Face SDK into your project. In the .pro file, specify the path to the Face SDK root folder in the variable `FACE_SDK_PATH`, which includes necessary headers. Also, specify the path to the `include` folder (from Face SDK). If the paths are not specified, the exception “Empty path to Face SDK” is thrown.
 
 **detection_and_tracking_with_video_worker.pro**
