@@ -1,6 +1,6 @@
 # Face SDK Licensing
 
-We offer you the following licenses:
+We offer the following licenses:
 * By activation type: 
   * [Online](#online-licenses) – requires Internet connection for activation and periodic validation, portable between devices
   * [Offline](#offline-licenses) – bound to hardware or USB token, non-portable between devices
