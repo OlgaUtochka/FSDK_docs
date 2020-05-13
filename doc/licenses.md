@@ -31,7 +31,7 @@ The network settings used for license updates are stored in the `net_params.xml`
 
 ### Offline Licenses
 
-* Unpack the archive with the distribution in any directory on your device (see [Getting Started](getting_started.md)).
+* Unpack the archive with the distribution in any directory on your device (see [Getting Started](../README.md#getting-started)).
 * Run the *get_license* utility from the *bin* folder on a target PC.
 * Send the generated `3divi_face_sdk.lic` file to the software provider (3DiVi Company): send an email to your personal manager or contact us using a feedback form at the [3DiVi website](https://face.3divi.com/contact_us).
 * The software provider will send you a signed license file.
