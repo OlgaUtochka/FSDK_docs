@@ -116,7 +116,7 @@ and two configuration files with the tracking method from `fda_tracker_capturer.
 
 (see [Anthropometric Points](face_capturing.md#anthropometric-points), [Capturer Class Reference](face_capturing.md#capturer-class-reference)).
 
-If `VideoWorker` is used only for face tracking, it should be created with `matching_thread=0 and processing_thread=0` and the standard [Face Detector license](../components.md) is used. To create [Face Detector](../components.md) for one stream, specify the `streams_count=1` parameter.
+If `VideoWorker` is used only for face tracking, it should be created with `matching_thread=0 and processing_thread=0` and the standard [Face Detector license](../components.md#facedetector) is used. To create [Face Detector](../components.md#facedetector) for one stream, specify the `streams_count=1` parameter.
 
 To provide video frames, you should call `VideoWorker.addVideoFrame`. This method is thread-safe, so you can provide frames from different streams created for each video stream, without additional synchronization. The method returns an integer frame id that will be used to identify this frame in the callback.
 
