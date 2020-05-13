@@ -119,7 +119,7 @@ The used sets of anthropometric points (see [Anthropometric Points](#anthropomet
 
 When a capturer is created, you can use it to detect / track faces. There are two ways to pass an image to the detector:
 
-* pass the data of the **decoded** image to the method `Capturer.capture`(`RawImage image`), using the `RawImage` class (see [Demo Programs](../demo_programs))
+* pass the data of the **decoded** image to the method `Capturer.capture`(`RawImage image`), using the `RawImage` class (see [Samples](../samples))
 * pass the data of the **encoded** image in JPG, PNG, TIF or BPM format to the method `Capturer.capture(byte[] data`)
 
 In both cases, the result is the vector of detected / tracked faces (`RawSample` is the object storing the captured face).
@@ -136,7 +136,7 @@ With `RawSample` you can:
 * downscale an internal face image to suitable size (`RawSample.downscaleToPreferredSize`)
 * serialize an object in a binary stream (`RawSample.save` or `RawSample.saveWithoutImage`), you can deserialize it later using `FacerecService.loadRawSample` or `FacerecService.loadRawSampleWithoutImage`
 * pass the estimates of the age, gender, quality and liveness to the methods (see [Face Estimation](face_estimation.md))
-* provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../demo_programs/cpp/test_identify.md))
+* provide it to `Recognizer.processing` for template creating (see [Face Identification](face_identification.md), [test_identify](../samples/cpp/test_identify.md))
 
 ### Anthropometric Points
 
@@ -180,4 +180,4 @@ To crop the face, you can call the `RawSample.cutFaceImage` method. The image of
 
 To preview the cropping, call the `RawSample.getFaceCutRectangle` method by specifying the cropping type. As a result, you will have four points – the corners of the rectangle that will be used for cropping.
 
-See the example of usage in [Demo Programs](../demo_programs).
+See the example of usage in [Demo Programs](../samples).

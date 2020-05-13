@@ -26,6 +26,7 @@ Face SDK provides the following APIs:
 * C++ API (for Windows, Linux, Android)
 * Java wrapper (for Windows, Linux, Android)
 * C# wrapper (for Windows, Linux)
+* Objective-C wrapper (for iOS)
 
 # Introduction to Face SDK
 
@@ -40,7 +41,7 @@ Face SDK provides the following APIs:
 
 To get started with Face SDK, download free [Face SDK Trial](https://face.3divi.com/products/face_sdk/face_sdk_trial).  
 
-To remove trial limitations, you need to purchase Face SDK. You can license any set of [Components](doc/components.md) depending on your use case.  
+To remove trial limitations, you need to purchase Face SDK license and DevPack. You can license any set of [Components](doc/components.md) depending on your use case.  
 
 Contact us at face@3divi.com if you have any questions.
 

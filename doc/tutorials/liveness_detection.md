@@ -99,7 +99,7 @@ _**Note:** For Windows, you have to install RealSense2 and specify the path to t
 
 ## Retrieving a Depth Map using OpenNI2 API / RealSense2 API 
 
-1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK demo programs ([video_recognition_demo](../demo_programs/cpp/video_recognition_demo.md)). In the profile of the project, specify the path to the folder *examples/cpp/video_recognition_demo/src* from Face SDK.
+1. At this stage, we need to retrieve a depth frame from an RGBD sensor using OpenNI2 API or RealSense2 API, depending on the camera used. We won't elaborate on retrieving the depth frames. Instead, we'll use the headers from one of the Face SDK samples ([video_recognition_demo](../samples/cpp/video_recognition_demo.md)). In the profile of the project, specify the path to the folder *examples/cpp/video_recognition_demo/src* from Face SDK.
 
 **face_recognition_with_video_worker.pro**
 ```cpp
