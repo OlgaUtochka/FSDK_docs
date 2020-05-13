@@ -6,7 +6,7 @@ You can find the tutorial project in Face SDK: *examples/tutorials/ios_minimal_p
 
 _**Note:** Minimum supported iOS version is 11.4._
 
-1. Download and unpack the distribution package as described in [Getting Started](../getting_started.md).
+1. Download and unpack the distribution package as described in [Getting Started](../../README.md#getting-started).
 2. Create a new XCode project: **File > New > Project**. Select the *Single View App* app type. Leave the default project settings. Choose the directory to store the project.
 3. Add the *facerec* framework to the app: in project settings, select **General > Embedded Binaries > + > Add Other...>** > select the *facerec.framework* directory from the unpacked distribution package. It's not necessary to tick **Copy items if needed** in the **Destination** group. After that, click **Finish**.
 
