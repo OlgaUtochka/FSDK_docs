@@ -140,7 +140,7 @@ You can disable / enable the creation of templates for a specific video stream u
 
 ## Recognizing Faces
 
-If face tracking, template creation and matching with the database are required, `VideoWorker` should be created with `matching_thread>0` and `processing_thread>0` and the [Video Engone Extended license](../components.md#video-engine-extended-vee) is used. To create [Video Engine Extended](../components.md#video-engine-extended-vee) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=1`.
+If face tracking, template creation and matching with the database are required, `VideoWorker` should be created with `matching_thread>0` and `processing_thread>0` and the [Video Engine Extended license](../components.md#video-engine-extended-vee) is used. To create [Video Engine Extended](../components.md#video-engine-extended-vee) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=1`.
 
 Use the `VideoWorker.setDatabase` member function to setup or change the database. It can be called at any time.
 
