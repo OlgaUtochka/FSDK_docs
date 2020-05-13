@@ -132,7 +132,7 @@ _**WARNING:** Do not call the methods that change the state of `VideoWorker` ins
 
 ## Creating Templates
 
-If besides detection, the creation of templates is required, `VideoWorker` should be created with `matching_thread=0` and `processing_thread>0` and the [VideoClient license](../components.md) is used. To create [Video Engine Standard](../components.md) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=0`.
+If besides detection, the creation of templates is required, `VideoWorker` should be created with `matching_thread=0` and `processing_thread>0` and the [Video Engine Standard license](../components.md#video-engine-standard-ves) is used. To create [Video Engine Standard](../components.md#video-engine-standard-ves) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=0`.
 
 You can disable / enable the creation of templates for a specific video stream using the `VideoWorker.disableProcessingOnStream` and `VideoWorker.enableProcessingOnStream` member functions. At start, template creation is enabled for all video streams.
 
@@ -140,7 +140,7 @@ You can disable / enable the creation of templates for a specific video stream u
 
 ## Recognizing Faces
 
-If face tracking, template creation and matching with the database are required, `VideoWorker` should be created with `matching_thread>0` and `processing_thread>0` and the [VideoClientExt license](../components.md) is used. To create [Video Engine Extended](../components.md) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=1`.
+If face tracking, template creation and matching with the database are required, `VideoWorker` should be created with `matching_thread>0` and `processing_thread>0` and the [Video Engone Extended license](../components.md#video-engine-extended-vee) is used. To create [Video Engine Extended](../components.md#video-engine-extended-vee) for one stream, specify the parameters `streams_count=1`, `processing_threads_count=1`, `matching_threads_count=1`.
 
 Use the `VideoWorker.setDatabase` member function to setup or change the database. It can be called at any time.
 
