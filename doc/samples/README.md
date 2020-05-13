@@ -6,7 +6,7 @@
 
 ## Windows/Linux
 
-To run the samples ([C++](cpp) and [C#](csharp)) on a PC, download and extract the Face SDK distribution package as described in [Getting Started](../getting_started.md). Before running a sample, make sure that you connected a camera (for example, a webcam) to your PC.
+To run the samples ([C++](cpp) and [C#](csharp)) on a PC, download and extract the Face SDK distribution package as described in [Getting Started](../../README.md#getting-started). Before running a sample, make sure that you connected a camera (for example, a webcam) to your PC.
 
 ## Android (Java)
 
