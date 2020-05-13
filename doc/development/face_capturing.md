@@ -180,4 +180,4 @@ To crop the face, you can call the `RawSample.cutFaceImage` method. The image of
 
 To preview the cropping, call the `RawSample.getFaceCutRectangle` method by specifying the cropping type. As a result, you will have four points – the corners of the rectangle that will be used for cropping.
 
-See the example of usage in [Demo Programs](../samples).
+See the example of usage in [Samples](../samples).
