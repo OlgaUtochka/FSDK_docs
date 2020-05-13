@@ -2,7 +2,7 @@
 
 ## Face Detector 
 
-**Face Detector** is a basic Face SDK component, which allows to detect faces on input images or videos (when used with VEE, see below). The result of data processing is a special internal object representing a user's face, which is a normalized (normally rotated in the frame plane and cropped) face image standardized for further biometric processing. Due to the built-in tracking mechanism, a face is tracked and treated as the same object even after a person had left and entered the frame. For streaming video data, it's recommended to use the components *VideoEngine* instead of *FaceDetector*.  
+**Face Detector** is a basic Face SDK component, which allows to detect faces on input images or videos (when used with VEE, see below). The result of data processing is a special internal object representing a user's face, which is a normalized (normally rotated in the frame plane and cropped) face image standardized for further biometric processing. Due to the built-in tracking mechanism, a face is tracked and treated as the same object even after a person had left and entered the frame. For streaming video data, it's recommended to use the *VideoEngine* component instead of *FaceDetector*.  
 **Licensing**: by Data Channel (photo or video).  
 See the detailed info in [Tracking Faces](development/video_stream_processing.md#tracking-faces) and [Capturer Class Reference](development/face_capturing.md#capturer-class-reference).
 
